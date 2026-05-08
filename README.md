@@ -2,7 +2,7 @@
 
 > **Repo công khai** để Notion và các công cụ AI có thể đọc lịch sử phát triển dự án ERP Tân Phát.
 >
-> **Version hiện tại:** `V0.215` | **Tổng cập nhật:** 215+ lần | **Ngày bắt đầu:** 18/01/2026
+> **Version hiện tại:** `V0.216` | **Tổng cập nhật:** 216+ lần | **Ngày bắt đầu:** 18/01/2026
 
 ---
 
@@ -38,6 +38,12 @@
 ---
 
 ## 📜 Changelog Chi Tiết
+
+### V0.216 (08/05/2026) — Governance: Public Report Sync Rule
+- **[Governance]** Thêm rule 14: PUBLIC REPORT SYNC — bắt buộc cập nhật báo cáo lên repo public sau mỗi lần code/fix/audit/deploy
+- **[Security]** Chốt danh sách nội dung NGHIÊM CẤM public (source code, DB schema, credentials, business logic, dữ liệu thật)
+- **[Governance]** 5-WAY SYNC đồng bộ 5 governance files — SHA256 verified MATCH
+- **[Scope]** Governance only. Không thay đổi code/logic/schema
 
 ### V0.215 (04/05/2026)
 - Code update: docs/bg-login.png, docs/demo-v6.css, docs/login-demo.html, docs/ui-demo-v6.html, next-env.d.ts, +8 more
@@ -315,7 +321,7 @@
 
 | Metric | Giá trị |
 |--------|---------|
-| **Tổng version updates** | 215+ |
+| **Tổng version updates** | 216+ |
 | **Thời gian phát triển** | 18/01/2026 → hiện tại |
 | **Modules hoạt động** | M0, M1, M3, M4, M7, M8, MF |
 | **Modules planned** | M5, M6, M9 |
@@ -334,6 +340,6 @@
 
 ---
 
-> **Cập nhật lần cuối:** 08/05/2026 — V0.215
+> **Cập nhật lần cuối:** 08/05/2026 — V0.216
 >
 > File này được tự động trích xuất từ `src/lib/version.ts` của dự án ERP Tân Phát.
