@@ -47,6 +47,25 @@
 - **📋 Planned/Phase 1:** 2 modules (M5, M9)
 
 > 📂 Xem chi tiết tiến độ từng module tại [MODULE-PROGRESS.md](MODULE-PROGRESS.md)
+>
+> 🚀 Xem kế hoạch Go-Live (phân quyền NV) tại [GOLIVE-PLAN.md](GOLIVE-PLAN.md)
+
+---
+
+### 🚀 Go-Live Stage 1 — Đang Lên Kế Hoạch (14/06/2026)
+
+**Mục tiêu:** Phân quyền cho NV Kinh doanh & Thiết kế vận hành KH + Báo Giá + Đơn Hàng
+
+| Phase | Nội dung | Effort | Status |
+|-------|----------|--------|--------|
+| Phase 1 | Setup vai trò SALE/THIET_KE + tài khoản NV | ~30 phút | ⏳ Chờ Owner |
+| Phase 2 | Page-level RBAC guard (chặn URL trực tiếp) | ~2 giờ | ⏳ Chờ Owner |
+| Phase 3 | Action-level permission (CRUD theo quyền) | ~2 giờ | ⏳ Chờ Owner |
+| Phase 4 | Audit M3 Báo Giá/Đơn Hàng | ~3 giờ | ⏳ Chờ Owner |
+| Phase 5 | Deploy + Go-Live | ~1 giờ | ⏳ Chờ Owner |
+
+> **5 GAP phát hiện:** Page guard (Critical), NV-User link, vai trò SALE/THIET_KE, M3 audit, Action permission
+> Xem chi tiết → [GOLIVE-PLAN.md](GOLIVE-PLAN.md)
 
 ---
 
