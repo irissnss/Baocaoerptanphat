@@ -14,7 +14,7 @@
 | **Version hiện tại** | `V0.217` |
 | **Tổng cập nhật** | 217+ lần |
 | **Ngày bắt đầu** | 18/01/2026 |
-| **Cập nhật lần cuối** | 14/06/2026 (Audit + Hardening Khách Hàng Phase A) |
+| **Cập nhật lần cuối** | 14/06/2026 (Go-Live P0 Implementation Plan) |
 | **Tech Stack** | Next.js 16.1.6 · React 19.2.4 · Tailwind 4.2.1 · TypeScript 5.9.3 · MySQL |
 | **Architecture** | Server Actions + Server Components + SSE |
 | **UI Framework** | Metronic (Demo 1 backbone) |
@@ -51,6 +51,8 @@
 > 🚀 Xem kế hoạch Go-Live (phân quyền NV) tại [GOLIVE-PLAN.md](GOLIVE-PLAN.md)
 >
 > 🔬 Xem Deep Audit Report tại [DEEP-AUDIT-20260614.md](DEEP-AUDIT-20260614.md)
+>
+> 📋 Xem Implementation Plan P0 tại [GOLIVE-IMPLEMENTATION-P0.md](GOLIVE-IMPLEMENTATION-P0.md)
 
 ---
 
