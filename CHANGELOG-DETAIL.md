@@ -1,6 +1,23 @@
-# 📜 Changelog Chi Tiết — V0.216 → V0.100
+# 📜 Changelog Chi Tiết — V0.217 → V0.100
 
-> Trích xuất 100% từ ersion.ts (SSOT). Mỗi entry ghi rõ category, scope, chi tiết thay đổi.
+> Trích xuất 100% từ  ersion.ts (SSOT). Mỗi entry ghi rõ category, scope, chi tiết thay đổi.
+
+---
+
+## V0.217 (14/06/2026) — Audit & Hardening Module Khách Hàng — Phase A Critical Fixes
+
+| Field | Value |
+|-------|-------|
+| **Category** | M1 Danh Mục — Khách Hàng |
+| **Scope** | Logic / Data Safety |
+
+- [Audit] Audit chuyên sâu toàn bộ module Khách Hàng (M1.1) — phát hiện 12 vấn đề (3 Critical, 2 High, 4 Medium, 3 Low)
+- [Critical Fix] Thêm FK Guard cho DELETE: kiểm tra bao_gia, don_hang, phieu_thu, cong_no, phieu_chi trước khi xóa — chặn xóa hoàn toàn nếu có liên kết, hiển thị lỗi rõ ràng
+- [Critical Fix] Wrap tất cả bundle operations trong MySQL Transaction (BEGIN/COMMIT/ROLLBACK) — createCustomerBundle, updateCustomerBundle, deleteCustomer giờ atomic
+- [Fix] Thay alert() placeholder trên nút Lịch sử bằng Audit Dialog UI chuyên nghiệp
+- [Refactor] Thêm helper connQuery() cho transaction queries, export checkCustomerReferences() + CustomerReferenceCheck interface
+- [Verify] TypeScript tsc --noEmit PASS — zero errors, backward compatible
+- [Files] m1-1-store.ts (+200/-170), actions.ts (+3/-2), khach-hang-client.tsx (+1/-4)
 
 ---
 
