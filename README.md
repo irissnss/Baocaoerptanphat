@@ -49,6 +49,8 @@
 > 📂 Xem chi tiết tiến độ từng module tại [MODULE-PROGRESS.md](MODULE-PROGRESS.md)
 >
 > 🚀 Xem kế hoạch Go-Live (phân quyền NV) tại [GOLIVE-PLAN.md](GOLIVE-PLAN.md)
+>
+> 🔬 Xem Deep Audit Report tại [DEEP-AUDIT-20260614.md](DEEP-AUDIT-20260614.md)
 
 ---
 
