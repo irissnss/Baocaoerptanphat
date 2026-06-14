@@ -53,6 +53,10 @@
 > 🔬 Xem Deep Audit Report tại [DEEP-AUDIT-20260614.md](DEEP-AUDIT-20260614.md)
 >
 > 📋 Xem Implementation Plan P0 tại [GOLIVE-IMPLEMENTATION-P0.md](GOLIVE-IMPLEMENTATION-P0.md)
+>
+> 🔍 Xem DB Reality Check tại [DB-REALITY-CHECK-20260614.md](DB-REALITY-CHECK-20260614.md)
+>
+> 🔬 Xem P0.1 Discovery Audit tại [P01-DISCOVERY-AUDIT-20260615.md](P01-DISCOVERY-AUDIT-20260615.md)
 
 ---
 
