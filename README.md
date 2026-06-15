@@ -11,10 +11,10 @@
 | Thông tin | Chi tiết |
 |-----------|----------|
 | **Tên dự án** | ERP Tân Phát (Tân Phát Packaging) |
-| **Version hiện tại** | `V0.217` |
-| **Tổng cập nhật** | 217+ lần |
+| **Version hiện tại** | `V0.218` |
+| **Tổng cập nhật** | 218+ lần |
 | **Ngày bắt đầu** | 18/01/2026 |
-| **Cập nhật lần cuối** | 14/06/2026 (Go-Live P0 Implementation Plan) |
+| **Cập nhật lần cuối** | 15/06/2026 (P0.1 RBAC Foundation — A* Internal Pilot) |
 | **Tech Stack** | Next.js 16.1.6 · React 19.2.4 · Tailwind 4.2.1 · TypeScript 5.9.3 · MySQL |
 | **Architecture** | Server Actions + Server Components + SSE |
 | **UI Framework** | Metronic (Demo 1 backbone) |
@@ -48,32 +48,35 @@
 
 > 📂 Xem chi tiết tiến độ từng module tại [MODULE-PROGRESS.md](MODULE-PROGRESS.md)
 >
-> 🚀 Xem kế hoạch Go-Live (phân quyền NV) tại [GOLIVE-PLAN.md](GOLIVE-PLAN.md)
+> 🏆 **LATEST:** [P01-RECONCILIATION-CLOSEOUT-V0218.md](P01-RECONCILIATION-CLOSEOUT-V0218.md) — Timeline + Employee Safety + Final Decision
 >
-> 🔬 Xem Deep Audit Report tại [DEEP-AUDIT-20260614.md](DEEP-AUDIT-20260614.md)
+> ✅ [P01-FINAL-SMOKE-TEST-V0218.md](P01-FINAL-SMOKE-TEST-V0218.md) — 15/15 PASS Browser + API + DB
 >
-> 📋 Xem Implementation Plan P0 tại [GOLIVE-IMPLEMENTATION-P0.md](GOLIVE-IMPLEMENTATION-P0.md)
+> 🔧 [P01-FLEXIBLE-FOUNDATION-V0218.md](P01-FLEXIBLE-FOUNDATION-V0218.md) — 29 Guards, Architecture
 >
-> 🔍 Xem DB Reality Check tại [DB-REALITY-CHECK-20260614.md](DB-REALITY-CHECK-20260614.md)
+> 🔒 [P01-SAFETY-VERIFICATION-V0218.md](P01-SAFETY-VERIFICATION-V0218.md) — Safety Report
 >
-> 🔬 Xem P0.1 Discovery Audit tại [P01-DISCOVERY-AUDIT-20260615.md](P01-DISCOVERY-AUDIT-20260615.md)
+> 📋 [GOLIVE-PLAN.md](GOLIVE-PLAN.md) — Kế hoạch Go-Live tổng quan
 
 ---
 
-### 🚀 Go-Live Stage 1 — Đang Lên Kế Hoạch (14/06/2026)
+### 🚀 Go-Live P0.1 — A*) READY FOR INTERNAL MINI PILOT (15/06/2026)
 
-**Mục tiêu:** Phân quyền cho NV Kinh doanh & Thiết kế vận hành KH + Báo Giá + Đơn Hàng
+**Mục tiêu:** Phân quyền RBAC cho NV Kinh doanh & Thiết kế
 
-| Phase | Nội dung | Effort | Status |
-|-------|----------|--------|--------|
-| Phase 1 | Setup vai trò SALE/THIET_KE + tài khoản NV | ~30 phút | ⏳ Chờ Owner |
-| Phase 2 | Page-level RBAC guard (chặn URL trực tiếp) | ~2 giờ | ⏳ Chờ Owner |
-| Phase 3 | Action-level permission (CRUD theo quyền) | ~2 giờ | ⏳ Chờ Owner |
-| Phase 4 | Audit M3 Báo Giá/Đơn Hàng | ~3 giờ | ⏳ Chờ Owner |
-| Phase 5 | Deploy + Go-Live | ~1 giờ | ⏳ Chờ Owner |
+| Phase | Nội dung | Status |
+|-------|----------|--------|
+| P0.1-1 | Roles + Menu + Action permissions | ✅ Done (7 roles, 38 menu, 31 action) |
+| P0.1-2 | Page guards (14/14) | ✅ Verified |
+| P0.1-3 | Customer ownership + cost masking | ✅ Done + Browser verified |
+| P0.1-4 | LSX/PDI state guards (THIET_KE) | ✅ Done |
+| P0.1-5 | Accounting packs (KE_TOAN) | ✅ Done (3 packs) |
+| P0.1-6 | Smoke test 15/15 | ✅ PASS |
+| P0.1-7 | Production deploy | ❌ NOT APPROVED |
 
-> **5 GAP phát hiện:** Page guard (Critical), NV-User link, vai trò SALE/THIET_KE, M3 audit, Action permission
-> Xem chi tiết → [GOLIVE-PLAN.md](GOLIVE-PLAN.md)
+> **Decision: A\*) INTERNAL MINI PILOT — TEST USERS ONLY**
+> Page guard: 14/14 ✅ (không missing). Role canonical: SALES. THIET_KE đã tạo.
+> Employee data: SAFE (original was dummy). Test users: 17, local only.
 
 ---
 
