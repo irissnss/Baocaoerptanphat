@@ -4,6 +4,81 @@
 
 ---
 
+## V0.224 (28/06/2026) — Real Staff Pilot Matrix Dry-Run
+
+| Field | Value |
+|-------|-------|
+| **Category** | Auth/Security — Pilot Readiness |
+| **Scope** | Data / DevOps |
+
+- [Pilot] Tạo private employee matrix dry-run cho 10 candidates
+- [Pilot] Phân loại: 7 pilot-ready, 1 blocked, 1 deferred, 1 no-login
+- [Pilot] Validator script: 10 checks, 0 errors, 7 warnings (missing emails)
+- [Security] Private matrix gitignored — NOT tracked by git
+- [Security] No real users created. No passwords used.
+- [Report] Public-safe report pushed to GitHub
+
+---
+
+## V0.223 (27/06/2026) — Early Staff Pilot Gate
+
+| Field | Value |
+|-------|-------|
+| **Category** | Auth/Security — RBAC |
+| **Scope** | Logic |
+
+- [M0] Security: 8/8 functions double-locked (requireActionPermission + requireAdminContext)
+- [M4] PDI: 17/17 functions — replaced dummy checkPermission with real RBAC
+- [M1] KH: 12/12 functions guarded
+- [M3] BG: 16/16 functions guarded
+- [M3] DH: 5/5 functions guarded
+- [M4] LSX: 20/20 functions guarded
+- [Coverage] 135/303 functions (44.6%), 10/42 files fully guarded
+
+---
+
+## V0.222 (27/06/2026) — RBAC P1 Gap Closeout
+
+| Field | Value |
+|-------|-------|
+| **Category** | Auth/Security — RBAC |
+| **Scope** | Logic |
+
+- [MF] Finance: 13 functions guarded (cong-no/phieu-thu/phieu-chi)
+- [M6] HR: 28/28 protection lock
+- [M7] Payroll: 16/16 protection lock
+- [THIET_KE] Scope correction: can_view_all_customers → 0
+
+---
+
+## V0.221 (27/06/2026) — RBAC Deep Audit
+
+| Field | Value |
+|-------|-------|
+| **Category** | Auth/Security — RBAC |
+| **Scope** | Audit |
+
+- [Audit] Full RBAC deep scan: 5/42 files guarded, 37 gaps identified
+- [Audit] Priority matrix created for gap closeout
+- [Report] RBAC-DEEP-AUDIT-20260627.md
+
+---
+
+## V0.218 (15/06/2026) — P01 Foundation + Internal Mini-Pilot
+
+| Field | Value |
+|-------|-------|
+| **Category** | Auth/Security — Foundation |
+| **Scope** | Logic / UI / Data |
+
+- [Foundation] 29 RBAC guards in Server Actions
+- [Foundation] SecurityContext, RBAC tables, permission packs
+- [Foundation] Smoke test 15/15 PASS
+- [Flexible] Permission pack system for accounting roles
+- [Report] Multiple golive reports published
+
+---
+
 ## V0.217 (14/06/2026) — Audit & Hardening Module Khách Hàng — Phase A Critical Fixes
 
 | Field | Value |
