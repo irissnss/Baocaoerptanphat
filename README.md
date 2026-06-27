@@ -11,10 +11,10 @@
 | Thông tin | Chi tiết |
 |-----------|----------|
 | **Tên dự án** | ERP Tân Phát (Tân Phát Packaging) |
-| **Version hiện tại** | `V0.218` |
-| **Tổng cập nhật** | 218+ lần |
+| **Version hiện tại** | `V0.219` |
+| **Tổng cập nhật** | 219+ lần |
 | **Ngày bắt đầu** | 18/01/2026 |
-| **Cập nhật lần cuối** | 15/06/2026 (P0.1 RBAC Foundation — A* Internal Pilot) |
+| **Cập nhật lần cuối** | 27/06/2026 (RBAC Deep Audit — 37 gaps identified) |
 | **Tech Stack** | Next.js 16.1.6 · React 19.2.4 · Tailwind 4.2.1 · TypeScript 5.9.3 · MySQL |
 | **Architecture** | Server Actions + Server Components + SSE |
 | **UI Framework** | Metronic (Demo 1 backbone) |
@@ -48,7 +48,9 @@
 
 > 📂 Xem chi tiết tiến độ từng module tại [MODULE-PROGRESS.md](MODULE-PROGRESS.md)
 >
-> 🏆 **LATEST:** [P01-RECONCILIATION-CLOSEOUT-V0218.md](P01-RECONCILIATION-CLOSEOUT-V0218.md) — Timeline + Employee Safety + Final Decision
+> 🏆 **LATEST:** [RBAC-DEEP-AUDIT-20260627.md](RBAC-DEEP-AUDIT-20260627.md) — Deep Audit: 5/42 guarded, 37 gaps, priority matrix
+>
+> 📋 [P01-RECONCILIATION-CLOSEOUT-V0218.md](P01-RECONCILIATION-CLOSEOUT-V0218.md) — Timeline + Employee Safety + Final Decision
 >
 > ✅ [P01-FINAL-SMOKE-TEST-V0218.md](P01-FINAL-SMOKE-TEST-V0218.md) — 15/15 PASS Browser + API + DB
 >
