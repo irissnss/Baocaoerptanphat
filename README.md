@@ -11,10 +11,10 @@
 | Thông tin | Chi tiết |
 |-----------|----------|
 | **Tên dự án** | ERP Tân Phát (Tân Phát Packaging) |
-| **Version hiện tại** | `V0.223` |
-| **Tổng cập nhật** | 223+ lần |
+| **Version hiện tại** | `V0.224` |
+| **Tổng cập nhật** | 224+ lần |
 | **Ngày bắt đầu** | 18/01/2026 |
-| **Cập nhật lần cuối** | 27/06/2026 (Early Staff Pilot Gate — 10/42 files fully guarded, 44.6%) |
+| **Cập nhật lần cuối** | 28/06/2026 (Real Staff Pilot Matrix Dry-Run — 8 candidates, 0 errors) |
 | **Tech Stack** | Next.js 16.1.6 · React 19.2.4 · Tailwind 4.2.1 · TypeScript 5.9.3 · MySQL |
 | **Architecture** | Server Actions + Server Components + SSE |
 | **UI Framework** | Metronic (Demo 1 backbone) |
@@ -48,9 +48,11 @@
 
 > 📂 Xem chi tiết tiến độ từng module tại [MODULE-PROGRESS.md](MODULE-PROGRESS.md)
 >
-> 🏆 **LATEST:** [RBAC-V0223-EARLY-STAFF-PILOT-GATE.md](RBAC-V0223-EARLY-STAFF-PILOT-GATE.md) — Early Staff Pilot Gate: 135/303 guarded, 10/42 files full
+> 🏆 **LATEST:** [REAL-USER-PILOT-MATRIX-DRYRUN-20260628.md](REAL-USER-PILOT-MATRIX-DRYRUN-20260628.md) — Real Staff Pilot Matrix: 8 candidates, dry-run PASSED, 0 errors
 >
-> 🔒 [RBAC-P1-GAP-CLOSEOUT-20260627.md](RBAC-P1-GAP-CLOSEOUT-20260627.md) — P1 Gap Closeout: 57 functions guarded (MF/M6/M7)
+> 🔒 [RBAC-V0223-EARLY-STAFF-PILOT-GATE.md](RBAC-V0223-EARLY-STAFF-PILOT-GATE.md) — Early Staff Pilot Gate: 135/303 guarded, 10/42 files full
+>
+> 🔐 [RBAC-P1-GAP-CLOSEOUT-20260627.md](RBAC-P1-GAP-CLOSEOUT-20260627.md) — P1 Gap Closeout: 57 functions guarded (MF/M6/M7)
 >
 > 📋 [P01-RECONCILIATION-CLOSEOUT-V0218.md](P01-RECONCILIATION-CLOSEOUT-V0218.md) — Timeline + Employee Safety + Final Decision
 >
