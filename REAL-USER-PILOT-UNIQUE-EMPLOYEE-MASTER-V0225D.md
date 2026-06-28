@@ -39,12 +39,12 @@
 
 | Check | Result |
 |-------|--------|
-| `tan@intanphat.com` in login form default | ✅ Found in `login-client.tsx` |
+| `tan***@intanphat.com` in login form default | ✅ Found in `login-client.tsx` |
 | Login method | Email-based (`WHERE email = ? LIMIT 1`) |
 | Account in `user_account` table | ✅ Exists (default login) |
 | Role mapping | Needs DB verify at runtime |
 | Action | **REUSE** — do NOT create duplicate |
-| Old email (tantran243@gmail.com) | Alternate/contact only |
+| Old email (tantr***@gmail.com) | Alternate/contact only |
 
 ---
 
