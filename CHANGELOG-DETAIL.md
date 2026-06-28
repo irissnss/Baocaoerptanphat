@@ -4,7 +4,37 @@
 
 ---
 
-## V0.224 (28/06/2026) — Real Staff Pilot Matrix Dry-Run
+## V0.225C (28/06/2026) — Unique Employee Master + Blocked Shared Email
+
+| Field | Value |
+|-------|-------|
+| **Category** | Auth/Security — Identity Management |
+| **Scope** | Data / Logic |
+
+- [Identity] 13 source rows normalized → 10 unique employee candidates
+- [Identity] 3 rows dedupe-merged (Lê Thụy Ngọc Hân KD1/KD3 aliases)
+- [Security] 5 shared email groups detected. 2 groups (5 people) BLOCKED for user login
+- [Security] 1 candidate BLOCKED_INCOMPLETE_NAME (missing full name)
+- [Schema] Audit: `hr_employee_nhanvien.user_id` nullable → employee CAN exist without user login
+- [Schema] Audit: `user_account.email` used as login identity (unique lookup)
+- [Script] `prepare-real-users-v0225c.ts`: dry-run + employee-only + rollback modes
+- [Report] Public-safe: no full emails, no phones, no passwords
+
+---
+
+## V0.225 (28/06/2026) — Owner Matrix Confirmation + Safe Scripts
+
+| Field | Value |
+|-------|-------|
+| **Category** | Auth/Security — Pilot Readiness |
+| **Scope** | Data / DevOps |
+
+- [Pilot] Owner confirmation matrix: 10 candidates, 14 decision questions
+- [Script] Safe creation script with dual kill switch (ENV + CLI)
+- [Script] Rollback template (disable + remove packs)
+- [Security] No real users created. Scripts locked by default.
+
+---
 
 | Field | Value |
 |-------|-------|

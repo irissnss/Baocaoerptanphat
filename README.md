@@ -11,10 +11,10 @@
 | Thông tin | Chi tiết |
 |-----------|----------|
 | **Tên dự án** | ERP Tân Phát (Tân Phát Packaging) |
-| **Version hiện tại** | `V0.225` |
+| **Version hiện tại** | `V0.225C` |
 | **Tổng cập nhật** | 225+ lần |
 | **Ngày bắt đầu** | 18/01/2026 |
-| **Cập nhật lần cuối** | 28/06/2026 (Owner Confirmation Matrix + Safe Scripts — 0 users created) |
+| **Cập nhật lần cuối** | 28/06/2026 (Unique Employee Master — 13 rows → 10 unique, shared email blocked) |
 | **Tech Stack** | Next.js 16.1.6 · React 19.2.4 · Tailwind 4.2.1 · TypeScript 5.9.3 · MySQL |
 | **Architecture** | Server Actions + Server Components + SSE |
 | **UI Framework** | Metronic (Demo 1 backbone) |
@@ -48,9 +48,11 @@
 
 > 📂 Xem chi tiết tiến độ từng module tại [MODULE-PROGRESS.md](MODULE-PROGRESS.md)
 >
-> 🏆 **LATEST:** [REAL-USER-PILOT-OWNER-CONFIRMATION-V0225.md](REAL-USER-PILOT-OWNER-CONFIRMATION-V0225.md) — Owner Confirmation Matrix + Safe Creation/Rollback Scripts
+> 🏆 **LATEST:** [REAL-USER-PILOT-UNIQUE-EMPLOYEE-MASTER-V0225C.md](REAL-USER-PILOT-UNIQUE-EMPLOYEE-MASTER-V0225C.md) — 13 source rows → 10 unique employees, shared email blocked
 >
-> 📋 [REAL-USER-PILOT-MATRIX-DRYRUN-20260628.md](REAL-USER-PILOT-MATRIX-DRYRUN-20260628.md) — Real Staff Pilot Matrix: 8 candidates, dry-run PASSED
+> 📋 [REAL-USER-PILOT-OWNER-CONFIRMATION-V0225.md](REAL-USER-PILOT-OWNER-CONFIRMATION-V0225.md) — Owner Confirmation Matrix + Scripts
+>
+> 📄 [REAL-USER-PILOT-MATRIX-DRYRUN-20260628.md](REAL-USER-PILOT-MATRIX-DRYRUN-20260628.md) — Dry-run: 8 candidates, PASSED
 >
 > 🔒 [RBAC-V0223-EARLY-STAFF-PILOT-GATE.md](RBAC-V0223-EARLY-STAFF-PILOT-GATE.md) — Early Staff Pilot Gate: 135/303 guarded, 10/42 files full
 >
