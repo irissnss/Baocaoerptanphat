@@ -48,11 +48,13 @@
 
 > 📂 Xem chi tiết tiến độ từng module tại [MODULE-PROGRESS.md](MODULE-PROGRESS.md)
 >
-> 🏆 **LATEST:** [REAL-USER-PILOT-UNIQUE-EMPLOYEE-MASTER-V0225E.md](REAL-USER-PILOT-UNIQUE-EMPLOYEE-MASTER-V0225E.md) — Menu label normalized + final cleanup + ready for V0.226
+> 🏆 **LATEST:** [REAL-USER-PILOT-UNIQUE-EMPLOYEE-MASTER-V0225E.md](REAL-USER-PILOT-UNIQUE-EMPLOYEE-MASTER-V0225E.md) — Menu label normalized + existing dev admin verified + shared email blocked + ready for V0.226
 >
 > 📋 [REAL-USER-PILOT-UNIQUE-EMPLOYEE-MASTER-V0225D.md](REAL-USER-PILOT-UNIQUE-EMPLOYEE-MASTER-V0225D.md) — Admin verified + menu UX cleaned
 >
 > 📄 [REAL-USER-PILOT-UNIQUE-EMPLOYEE-MASTER-V0225C.md](REAL-USER-PILOT-UNIQUE-EMPLOYEE-MASTER-V0225C.md) — 13 rows → 10 unique, shared email blocked
+>
+> 🚀 [REAL-USER-PILOT-V0226-APPLY-PLAN.md](REAL-USER-PILOT-V0226-APPLY-PLAN.md) — V0.226 Safe Apply Plan (5 batches, chờ Owner approve)
 >
 > 🔒 [RBAC-V0223-EARLY-STAFF-PILOT-GATE.md](RBAC-V0223-EARLY-STAFF-PILOT-GATE.md) — Early Staff Pilot Gate: 135/303 guarded, 10/42 files full
 >

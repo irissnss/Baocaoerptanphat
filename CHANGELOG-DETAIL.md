@@ -12,6 +12,7 @@
 | **Scope** | UI only |
 
 - [UX] Menu label normalized: "Phân quyền & bảo mật" (sentence case, 5 sources synced)
+- [UX] Old label "Bảo Mật Ứng Dụng" fully removed from codebase
 - [UX] Vietnamese encoding fix: MENU_CODE_LABEL_MAP fallback for garbled DB text
 - [UX] Role name encoding fix: safeRoleName with ROLE_LABEL_FALLBACK
 - [UX] autoCase applied via toVietnameseTitleCase
@@ -19,7 +20,10 @@
 - [Report] Wording fix: E02/E09 → "Ready — verify/apply in V0.226"
 - [Report] E06 → "Existing user — reuse, do not create duplicate"
 - [Identity] Admin tan***@intanphat.com verified, no password reset
+- [Identity] Shared email still blocked for personal login (4 candidates)
 - [Route] `/m0/security` unchanged
+- [Safety] No real users created
+- [Safety] No sensitive data published
 
 ---
 
