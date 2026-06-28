@@ -4,6 +4,25 @@
 
 ---
 
+## V0.225E (28/06/2026) — Menu Label Normalized + Final Cleanup
+
+| Field | Value |
+|-------|-------|
+| **Category** | UX / Report |
+| **Scope** | UI only |
+
+- [UX] Menu label normalized: "Phân quyền & bảo mật" (sentence case, 5 sources synced)
+- [UX] Vietnamese encoding fix: MENU_CODE_LABEL_MAP fallback for garbled DB text
+- [UX] Role name encoding fix: safeRoleName with ROLE_LABEL_FALLBACK
+- [UX] autoCase applied via toVietnameseTitleCase
+- [UX] Search/filter added to role assignment, account status, audit log
+- [Report] Wording fix: E02/E09 → "Ready — verify/apply in V0.226"
+- [Report] E06 → "Existing user — reuse, do not create duplicate"
+- [Identity] Admin tan***@intanphat.com verified, no password reset
+- [Route] `/m0/security` unchanged
+
+---
+
 ## V0.225D (28/06/2026) — Existing Admin Verified + Permission Menu UX Cleaned
 
 | Field | Value |
