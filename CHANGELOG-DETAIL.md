@@ -4,7 +4,21 @@
 
 ---
 
-## V0.225C (28/06/2026) — Unique Employee Master + Blocked Shared Email
+## V0.225D (28/06/2026) — Existing Admin Verified + Permission Menu UX Cleaned
+
+| Field | Value |
+|-------|-------|
+| **Category** | Auth/Security + UX |
+| **Scope** | Logic / UI |
+
+- [Identity] Trần Minh Tân corrected: tan***@intanphat.com (existing admin, NOT duplicate)
+- [Identity] Admin login verified in login form default
+- [UX] Menu renamed: "Bảo Mật Ứng Dụng" → "Phân Quyền & Bảo Mật" (5 files)
+- [UX] Description updated: reflects permission + security scope
+- [UX] Route `/m0/security` unchanged (no breaking links)
+- [Report] Public-safe summary table with 10 candidates
+
+---
 
 | Field | Value |
 |-------|-------|
