@@ -4,6 +4,30 @@
 
 ---
 
+## V0.226A (02/07/2026) — Apply Plan Hardened
+
+| Field | Value |
+|-------|-------|
+| **Category** | Security / Process |
+| **Scope** | Plan only — no code changes, no real users |
+
+- [Security] Rollback strategy changed: DELETE-first → **disable-first** (5-step R1→R5)
+- [Security] Hard delete requires 4 conditions + Owner explicit approval
+- [Security] Password flow hardened: no file/log/report/commit/public
+- [Security] Password delivery: private terminal + Owner kênh bảo mật
+- [Process] Batch order: sequential mandatory, fail → STOP all
+- [Process] Smoke test checklist: CEO (6 items) + Sales (6 items) + Admin (3 items)
+- [Process] Batch 0 verify admin/dev → Batch 1 CEO → Batch 2 Sales → Batch 3/4/5 chờ Owner
+- [Report] V0.226A hardening report created
+- [Report] V0.226 apply plan updated with hardened rules
+- [Identity] Admin tan***@intanphat.com reuse — no password reset, no duplicate
+- [Identity] Shared email still blocked (4 candidates)
+- [Safety] No real users created
+- [Safety] No production deploy
+- [Safety] No sensitive data published
+
+---
+
 ## V0.225E (28/06/2026) — Menu Label Normalized + Final Cleanup
 
 | Field | Value |
