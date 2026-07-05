@@ -240,6 +240,7 @@
 | Ngân hàng | 🔨 In Dev | — | |
 | Đối chiếu công nợ | ✅ Done | V0.230 | V3.44 Option C, aging buckets, workflow draft→da_gui→da_xac_nhan |
 | Nghiệm thu | ✅ Done | V0.230 | V3.44 Option C, PGH aggregation, VAT, phieu_thu linkage |
+| Chứng từ kế toán | ✅ Done | V0.231 | V3.44 Option A, auto-create on approve, khóa sổ cuối tháng |
 
 ### Sub-routes:
 - `/mf/phieu-thu` — Phiếu thu
@@ -247,7 +248,8 @@
 - `/mf/cong-no` — Công nợ
 - `/mf/ngan-hang` — Ngân hàng
 - `/mf/doi-chieu` — Đối chiếu công nợ (V3.44)
-- `/mf/nghiem-thu` — Biên bản nghiệm thu (V3.44, NEW)
+- `/mf/nghiem-thu` — Biên bản nghiệm thu (V3.44)
+- `/mf/ke-toan` — Chứng từ kế toán + Khóa sổ (V3.44, NEW)
 
 ---
 

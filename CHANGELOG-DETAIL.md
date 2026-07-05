@@ -1,6 +1,23 @@
-# 📜 Changelog Chi Tiết — V0.230 → V0.100
+# 📜 Changelog Chi Tiết — V0.231 → V0.100
 
 > Trích xuất 100% từ version.ts (SSOT). Mỗi entry ghi rõ category, scope, chi tiết thay đổi.
+
+---
+
+## V0.231 (06/07/2026) — V3.44 Option A: Chứng Từ Kế Toán + Khóa Sổ
+
+| Field | Value |
+|-------|-------|
+| **Category** | Feature / Schema / Finance |
+| **Scope** | MF module — 1 new table (26 cols) + 1 new store + 1 new route + approve wiring + khóa sổ guards |
+
+- [Schema] Tạo `chung_tu_ke_toan` (26 columns): chứng từ kế toán tổng hợp, 14 loại, khóa sổ flag
+- [Logic] Auto-create `chung_tu_ke_toan` khi approve phiếu thu/chi (`trang_thai='draft'`, kế toán duyệt tay)
+- [Logic] Khóa sổ cuối tháng: `khoaSoThang(thang, nam)` → set `khoa_so=1` cho approved records
+- [Guard] 4 khóa sổ guards: update/cancel phiếu thu + update/cancel phiếu chi — chặn nếu chứng từ liên kết đã khóa sổ
+- [Route] `/mf/ke-toan` — trang quản lý chứng từ kế toán + button khóa sổ
+- [Version] Bump V0.230 → V0.231
+- [Audit] Đóng gap F1/F3/F4 từ AUDIT-CHUNG-TU-KE-TOAN-20260706
 
 ---
 
