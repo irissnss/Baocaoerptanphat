@@ -11,15 +11,15 @@
 | Thông tin | Chi tiết |
 |-----------|----------|
 | **Tên dự án** | ERP Tân Phát (Tân Phát Packaging) |
-| **Version hiện tại** | `V0.227` |
-| **Tổng cập nhật** | 227+ lần |
+| **Version hiện tại** | `V0.230` |
+| **Tổng cập nhật** | 230+ lần |
 | **Ngày bắt đầu** | 18/01/2026 |
-| **Cập nhật lần cuối** | 05/07/2026 (Batch 0 admin verify + Batch 1 CEO apply + architecture audit) |
+| **Cập nhật lần cuối** | 06/07/2026 (V3.44: Nghiệm thu + Đối chiếu công nợ implement) |
 | **Tech Stack** | Next.js 16.1.6 · React 19.2.4 · Tailwind 4.2.1 · TypeScript 5.9.3 · MySQL |
 | **Architecture** | Server Actions + Server Components + SSE |
 | **UI Framework** | Metronic (Demo 1 backbone) |
 | **Tổng modules** | 11 modules (M0–M9, MC, MF) |
-| **Tổng bảng DB** | 90+ bảng |
+| **Tổng bảng DB** | 92 bảng |
 | **Tổng DB migrations** | 50 files |
 | **Domain production** | `erp.intanphat.com` (HTTPS + nginx + HSTS) |
 
@@ -39,7 +39,7 @@
 | M8 | Công Việc | 🔨 In Dev | Task management, tích hợp CRM M3-M8 | 1 sub-route (tasks) |
 | M9 | Cổng Thông Tin | 📋 Planned | Customer portal, multi-session (kế thừa auth M0) | Placeholder |
 | MC | Quản Lý Hợp Đồng | 🔨 In Dev | Quản lý hợp đồng (mẫu, chi tiết, workflow trạng thái) | 1 client module |
-| MF | Tài Chính | 🔨 In Dev | Phiếu thu/chi, công nợ, ngân hàng, đối chiếu | 5 sub-routes |
+| MF | Tài Chính | 🔨 In Dev | Phiếu thu/chi, công nợ, ngân hàng, đối chiếu, nghiệm thu | 7 sub-routes |
 
 ### Tổng kết trạng thái:
 - **✅ Ready (production):** 2 modules (M0, M1)

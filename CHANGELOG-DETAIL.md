@@ -1,6 +1,69 @@
-# 📜 Changelog Chi Tiết — V0.217 → V0.100
+# 📜 Changelog Chi Tiết — V0.230 → V0.100
 
-> Trích xuất 100% từ  ersion.ts (SSOT). Mỗi entry ghi rõ category, scope, chi tiết thay đổi.
+> Trích xuất 100% từ version.ts (SSOT). Mỗi entry ghi rõ category, scope, chi tiết thay đổi.
+
+---
+
+## V0.230 (06/07/2026) — V3.44: Nghiệm Thu & Đối Chiếu Công Nợ
+
+| Field | Value |
+|-------|-------|
+| **Category** | Feature / Schema / Finance |
+| **Scope** | MF module — 2 new tables + 2 new routes + phieu_thu linkage |
+
+- [Schema] Tạo `bien_ban_nghiem_thu` (V3.44 Option C): 22 columns, workflow draft→da_ky→cancelled
+- [Schema] Tạo `cong_no_doi_chieu` (V3.44 Option C): 19 columns, workflow draft→da_gui→da_xac_nhan/tu_choi/qua_han
+- [Schema] Seed `dm_form_mau`: FORM_NGHIEM_THU + FORM_XAC_NHAN_CONG_NO
+- [Feature] Route `/mf/doi-chieu`: thay thế placeholder, implement CRUD + aging buckets + workflow
+- [Feature] Route `/mf/nghiem-thu` (NEW): CRUD biên bản nghiệm thu từ PGH, compute items, VAT
+- [Feature] Wire `phieu_thu` → `bien_ban_nghiem_thu`: approve phiếu thu liên kết tự động cập nhật `da_thanh_toan`
+- [Store] `mf-doi-chieu-store.ts` + `mf-nghiem-thu-store.ts` (raw SQL, mysql2)
+- [DB] Tổng bảng: 90 → 92
+
+---
+
+## V0.229 (05/07/2026) — Architecture Audit + Version Sync
+
+| Field | Value |
+|-------|-------|
+| **Category** | Audit / Documentation |
+| **Scope** | Read-only audit, no code changes |
+
+- [Audit] R1: Confirmed no NestJS, no Prisma, no mobile app — ADR-20260705 logged
+- [Audit] R2: `/mf/doi-chieu` confirmed as placeholder (31 lines, 0 logic)
+- [Audit] R3: `dm_nhan_vien` confirmed dead (only in legacy docs/scripts)
+- [Audit] R4: MC = Contract Management only (not content marketing)
+- [Audit] R5: Version drift detected (code V0.229 vs report V0.226B)
+- [Report] `AUDIT-V0227-ARCHITECTURE-AND-GAP-SCAN.md` created
+- [Report] `GOVERNANCE-LOG.md` updated with ADR entry
+- [Report] `README.md` MC description corrected
+
+---
+
+## V0.228 (05/07/2026) — Batch 1 CEO Apply + gia_von Fix
+
+| Field | Value |
+|-------|-------|
+| **Category** | Security / User Management |
+| **Scope** | Batch 1 real user creation + bug fix |
+
+- [User] CEO `lienntk@intanphat.com` created (Batch 1 of Real User Pilot)
+- [Fix] `maskSensitiveFields` — resolved session email correctly (was defaulting to null)
+- [Fix] CEO role `la_admin=1` in `dm_vai_tro` — `gia_von` now visible to CEO
+- [Report] `REAL-USER-PILOT-V0227-BATCH1-CEO.md` created
+
+---
+
+## V0.227 (05/07/2026) — Batch 0 Admin Verify + Real User Pilot Start
+
+| Field | Value |
+|-------|-------|
+| **Category** | Security / Process |
+| **Scope** | Batch 0 verify-only + Batch 1 preparation |
+
+- [Verify] Admin `tan***@intanphat.com` verified (SELECT only, 6 ❌ rules enforced)
+- [Process] V0.226B guard rules confirmed: batch-scoped rollback, manifest, shared email blocked
+- [Report] `REAL-USER-PILOT-V0227-BATCH0-VERIFY.md` created
 
 ---
 
