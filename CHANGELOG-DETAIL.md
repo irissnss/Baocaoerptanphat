@@ -1,6 +1,20 @@
-# 📜 Changelog Chi Tiết — V0.231 → V0.100
+# 📜 Changelog Chi Tiết — V0.233 → V0.100
 
 > Trích xuất 100% từ version.ts (SSOT). Mỗi entry ghi rõ category, scope, chi tiết thay đổi.
+
+---
+
+## V0.233 (06/07/2026) — dm_form_mau Naming Standardization
+
+| Field | Value |
+|-------|-------|
+| **Category** | Data Cleanup / Naming Convention |
+| **Scope** | dm_form_mau — 32 records renamed to FORM_ prefix (2 already standard) |
+
+- [Data] Renamed 32 of 34 `ma_form_mau` records from FIN/QR3 prefix to `FORM_<DOI_TUONG>` standard
+- [Data] LEGACY suffix added for duplicate templates per doi_tuong
+- [Audit] R1 scan: 0 hardcode references in code — safe to rename
+- [Remain] 6 open questions: is_default mismatches, nguoi_tao=NULL (id=31,32), phieu_xuat/khac no default
 
 ---
 
