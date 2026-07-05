@@ -22,14 +22,22 @@
 
 ## II. Batch Plan (Tuần Tự — Batch N fail → KHÔNG chạy Batch N+1)
 
-### Batch 0 — Verify/Reuse Existing Admin/Dev
+### Batch 0 — Verify-Only Existing Admin/Dev (KHÔNG tác động)
 
 | # | Candidate | Role | Email (masked) | Action |
 |---|-----------|------|---------------|--------|
-| E06 | Trần Minh Tân | ADMIN/DEV | tan***@intanphat.com | **REUSE** — no create, no password reset |
+| E06 | Trần Minh Tân | ADMIN/DEV | tan***@intanphat.com | **VERIFY-ONLY** — read + report |
 
-**Quy trình:** Verify tồn tại → verify role mapping → log audit → PASS/FAIL.
+**Quy trình:** SELECT verify account → verify role mapping → report → PASS/FAIL.
 **Nếu FAIL:** DỪNG toàn bộ. Báo Owner.
+
+**⛔ KHÔNG được làm với Batch 0:**
+- ❌ Không reset password
+- ❌ Không revoke session
+- ❌ Không disable account
+- ❌ Không remove role mapping
+- ❌ Không tạo duplicate
+- ❌ Không INSERT/UPDATE/DELETE
 
 ---
 
@@ -106,17 +114,30 @@
 | Runtime only | Temp password sinh runtime, hiện 1 lần trên private terminal |
 | Delivery | Owner nhận password riêng qua kênh bảo mật (trực tiếp/chat riêng) |
 
-### Rollback Strategy (Hardened — Disable-First)
+### Rollback Strategy (V0.226B — Batch-Scoped, Disable-First)
 
-| Bước | Action | Điều kiện |
-|------|--------|-----------|
-| R1 | **Disable account** (`trang_thai = 'disabled'`) | Mặc định |
-| R2 | **Revoke sessions** (xóa session/cookie nếu có) | Mặc định |
-| R3 | **Remove role mappings** created by batch | Mặc định |
-| R4 | **Mark audit** (ghi lý do rollback) | Mặc định |
-| R5 | **Hard DELETE** | CHỈ KHI: chưa login + chưa session/audit + mới tạo trong batch + Owner approve |
+**Rollback Manifest:** Mỗi batch apply tạo 1 private runtime manifest ghi chính xác:
+- Record IDs đã INSERT (user_account, user_role_mapping)
+- Timestamp batch start/end
+- Batch ID
 
-> ⚠️ **KHÔNG hard delete mặc định.** Disable-first để bảo toàn audit trail.
+| Bước | Action | Scope | Điều kiện |
+|------|--------|-------|-----------|
+| R1 | **Disable account** (`trang_thai = 'disabled'`) | Chỉ records trong manifest | Mặc định |
+| R2 | **Revoke sessions** của user trong manifest | Chỉ sessions của batch user | Mặc định |
+| R3 | **Remove role mappings** theo manifest IDs | CHỈ records do batch tạo | Mặc định |
+| R4 | **Mark audit** (ghi lý do + batch_id + manifest) | Luôn | Mặc định |
+| R5 | **Hard DELETE** | Chỉ records trong manifest | 4 điều kiện bắt buộc |
+
+**4 điều kiện cho R5 (Hard DELETE):**
+1. Chưa login lần nào
+2. Chưa có session/audit phụ thuộc
+3. Mới tạo trong batch hiện tại (có trong manifest)
+4. Owner explicitly approves
+
+> ⚠️ **KHÔNG hard delete mặc định.** Disable-first.
+> ⚠️ **KHÔNG rollback records tồn tại trước batch.** Batch-scoped only.
+> ⚠️ **Batch 0 KHÔNG có rollback** (verify-only, không tạo record).
 
 ---
 

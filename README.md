@@ -11,10 +11,10 @@
 | Thông tin | Chi tiết |
 |-----------|----------|
 | **Tên dự án** | ERP Tân Phát (Tân Phát Packaging) |
-| **Version hiện tại** | `V0.226A` |
+| **Version hiện tại** | `V0.226B` |
 | **Tổng cập nhật** | 226+ lần |
 | **Ngày bắt đầu** | 18/01/2026 |
-| **Cập nhật lần cuối** | 02/07/2026 (Apply plan hardened — rollback safe, password flow safe, no real users) |
+| **Cập nhật lần cuối** | 05/07/2026 (Final guard: batch-scoped rollback, admin verify-only, no real users) |
 | **Tech Stack** | Next.js 16.1.6 · React 19.2.4 · Tailwind 4.2.1 · TypeScript 5.9.3 · MySQL |
 | **Architecture** | Server Actions + Server Components + SSE |
 | **UI Framework** | Metronic (Demo 1 backbone) |
@@ -48,11 +48,13 @@
 
 > 📂 Xem chi tiết tiến độ từng module tại [MODULE-PROGRESS.md](MODULE-PROGRESS.md)
 >
-> 🏆 **LATEST:** [REAL-USER-PILOT-V0226A-APPLY-HARDENING.md](REAL-USER-PILOT-V0226A-APPLY-HARDENING.md) — Apply plan hardened: rollback safe, password flow safe, no real users created
+> 🏆 **LATEST:** [REAL-USER-PILOT-V0226B-FINAL-GUARD.md](REAL-USER-PILOT-V0226B-FINAL-GUARD.md) — Final guard: batch-scoped rollback, admin verify-only, ready for V0.227 apply
 >
-> 📦 [REAL-USER-PILOT-V0226-APPLY-PLAN.md](REAL-USER-PILOT-V0226-APPLY-PLAN.md) — V0.226 Safe Apply Plan (5 batches, hardened V0.226A)
+> 🛡️ [REAL-USER-PILOT-V0226A-APPLY-HARDENING.md](REAL-USER-PILOT-V0226A-APPLY-HARDENING.md) — Apply plan hardened: rollback safe, password flow safe
 >
-> 📋 [REAL-USER-PILOT-UNIQUE-EMPLOYEE-MASTER-V0225E.md](REAL-USER-PILOT-UNIQUE-EMPLOYEE-MASTER-V0225E.md) — Menu label normalized + existing dev admin verified + shared email blocked
+> 📦 [REAL-USER-PILOT-V0226-APPLY-PLAN.md](REAL-USER-PILOT-V0226-APPLY-PLAN.md) — V0.226 Safe Apply Plan (5 batches, hardened V0.226B)
+>
+> 📋 [REAL-USER-PILOT-UNIQUE-EMPLOYEE-MASTER-V0225E.md](REAL-USER-PILOT-UNIQUE-EMPLOYEE-MASTER-V0225E.md) — 10 unique employees, shared email blocked
 >
 > 🔒 [RBAC-V0223-EARLY-STAFF-PILOT-GATE.md](RBAC-V0223-EARLY-STAFF-PILOT-GATE.md) — Early Staff Pilot Gate: 135/303 guarded, 10/42 files full
 >

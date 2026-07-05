@@ -4,6 +4,29 @@
 
 ---
 
+## V0.226B (05/07/2026) — Final Guard Before Owner-Approved Apply
+
+| Field | Value |
+|-------|-------|
+| **Category** | Security / Process |
+| **Scope** | Plan only — no code changes, no real users |
+
+- [Security] Rollback siết thành **batch-scoped** với private runtime manifest
+- [Security] Rollback manifest ghi chính xác: record IDs, batch_id, timestamps
+- [Security] Pre-existing records explicitly excluded from rollback
+- [Security] R3 role mapping: chỉ remove manifest IDs (không blanket DELETE)
+- [Process] Batch 0 siết thành **verify-only**: SELECT only, 6 explicit ❌ rules
+- [Process] Batch 0: không reset password, revoke, disable, remove mapping, duplicate, DML
+- [Process] Shared email: blocked + no fake email workaround
+- [Process] Employee-only record OK nếu schema cho phép (no user login)
+- [Report] V0.226B final guard report created
+- [Report] V0.226 apply plan updated with batch-scoped rollback
+- [Safety] No real users created
+- [Safety] No production deploy
+- [Safety] No sensitive data published
+
+---
+
 ## V0.226A (02/07/2026) — Apply Plan Hardened
 
 | Field | Value |
