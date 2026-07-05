@@ -228,7 +228,7 @@
 
 ## MF — Tài Chính (🔨 In Dev)
 
-**Mô tả:** Phiếu thu/chi, công nợ, ngân hàng, đối chiếu.
+**Mô tả:** Phiếu thu/chi, công nợ, ngân hàng, đối chiếu, nghiệm thu.
 
 | Chức năng | Status | Version | Ghi chú |
 |-----------|--------|---------|---------|
@@ -238,14 +238,16 @@
 | Công nợ KH/NCC | ✅ Done | V0.141 | DB-backed, đối tượng/audit |
 | Smoke test automation | ✅ Done | V0.142 | npm run verify:mf |
 | Ngân hàng | 🔨 In Dev | — | |
-| Đối chiếu | 🔨 In Dev | — | |
+| Đối chiếu công nợ | ✅ Done | V0.230 | V3.44 Option C, aging buckets, workflow draft→da_gui→da_xac_nhan |
+| Nghiệm thu | ✅ Done | V0.230 | V3.44 Option C, PGH aggregation, VAT, phieu_thu linkage |
 
 ### Sub-routes:
 - `/mf/phieu-thu` — Phiếu thu
 - `/mf/phieu-chi` — Phiếu chi
 - `/mf/cong-no` — Công nợ
 - `/mf/ngan-hang` — Ngân hàng
-- `/mf/doi-chieu` — Đối chiếu
+- `/mf/doi-chieu` — Đối chiếu công nợ (V3.44)
+- `/mf/nghiem-thu` — Biên bản nghiệm thu (V3.44, NEW)
 
 ---
 
