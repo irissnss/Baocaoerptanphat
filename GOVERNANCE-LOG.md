@@ -152,3 +152,19 @@
 | Governance files | 5 files (~87KB each) |
 | Skills | 60+ |
 | WORK_LOG | 188KB |
+
+---
+
+## Architecture Decision Records (ADR)
+
+### ADR-20260705: Architecture Pivot — No NestJS, No Prisma, No Mobile App
+
+| Field | Value |
+|-------|-------|
+| **Date** | 05/07/2026 |
+| **Status** | ✅ Confirmed |
+| **Decision** | Kiến trúc thật: Next.js 16 (Server Actions + Server Components) + mysql2 raw SQL + SSE. Không NestJS, không Prisma ORM, không mobile app. |
+| **Rationale** | Dự án ban đầu dự kiến NestJS+Prisma backend nhưng Owner quyết định dùng Next.js Server Actions thuần để đơn giản hóa stack. MySQL trực tiếp qua mysql2 (no ORM). |
+| **Evidence** | `package.json` — 0 references to @nestjs/*, prisma. `src/lib/db.ts` — mysql2 raw query. grep toàn repo confirm. |
+| **Impact** | Docs/README đã sửa lại cho khớp thực tế. AGENTS.md Architecture Lock đã đúng. |
+

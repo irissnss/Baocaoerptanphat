@@ -11,10 +11,10 @@
 | Thông tin | Chi tiết |
 |-----------|----------|
 | **Tên dự án** | ERP Tân Phát (Tân Phát Packaging) |
-| **Version hiện tại** | `V0.226B` |
-| **Tổng cập nhật** | 226+ lần |
+| **Version hiện tại** | `V0.227` |
+| **Tổng cập nhật** | 227+ lần |
 | **Ngày bắt đầu** | 18/01/2026 |
-| **Cập nhật lần cuối** | 05/07/2026 (Final guard: batch-scoped rollback, admin verify-only, no real users) |
+| **Cập nhật lần cuối** | 05/07/2026 (Batch 0 admin verify + Batch 1 CEO apply + architecture audit) |
 | **Tech Stack** | Next.js 16.1.6 · React 19.2.4 · Tailwind 4.2.1 · TypeScript 5.9.3 · MySQL |
 | **Architecture** | Server Actions + Server Components + SSE |
 | **UI Framework** | Metronic (Demo 1 backbone) |
@@ -38,7 +38,7 @@
 | M7 | Tiền Lương | 🔨 In Dev | Payroll, BHXH, TNCN lũy tiến, phiếu chi lương | 1 client module |
 | M8 | Công Việc | 🔨 In Dev | Task management, tích hợp CRM M3-M8 | 1 sub-route (tasks) |
 | M9 | Cổng Thông Tin | 📋 Planned | Customer portal, multi-session (kế thừa auth M0) | Placeholder |
-| MC | Marketing/Content | 🔨 In Dev | Quản lý hợp đồng, content marketing | 1 client module |
+| MC | Quản Lý Hợp Đồng | 🔨 In Dev | Quản lý hợp đồng (mẫu, chi tiết, workflow trạng thái) | 1 client module |
 | MF | Tài Chính | 🔨 In Dev | Phiếu thu/chi, công nợ, ngân hàng, đối chiếu | 5 sub-routes |
 
 ### Tổng kết trạng thái:
@@ -48,7 +48,13 @@
 
 > 📂 Xem chi tiết tiến độ từng module tại [MODULE-PROGRESS.md](MODULE-PROGRESS.md)
 >
-> 🏆 **LATEST:** [REAL-USER-PILOT-V0226B-FINAL-GUARD.md](REAL-USER-PILOT-V0226B-FINAL-GUARD.md) — Final guard: batch-scoped rollback, admin verify-only, ready for V0.227 apply
+> 🏆 **LATEST:** [AUDIT-V0227-ARCHITECTURE-AND-GAP-SCAN.md](AUDIT-V0227-ARCHITECTURE-AND-GAP-SCAN.md) — Architecture confirm (no NestJS/Prisma) + gap scan + Batch 0/1 CEO apply
+>
+> 🔐 [REAL-USER-PILOT-V0227-BATCH1-CEO.md](REAL-USER-PILOT-V0227-BATCH1-CEO.md) — Batch 1 CEO applied + smoke test
+>
+> ✅ [REAL-USER-PILOT-V0227-BATCH0-VERIFY.md](REAL-USER-PILOT-V0227-BATCH0-VERIFY.md) — Batch 0 admin verify PASS
+>
+> 🛡️ [REAL-USER-PILOT-V0226B-FINAL-GUARD.md](REAL-USER-PILOT-V0226B-FINAL-GUARD.md) — Final guard: batch-scoped rollback
 >
 > 🛡️ [REAL-USER-PILOT-V0226A-APPLY-HARDENING.md](REAL-USER-PILOT-V0226A-APPLY-HARDENING.md) — Apply plan hardened: rollback safe, password flow safe
 >
