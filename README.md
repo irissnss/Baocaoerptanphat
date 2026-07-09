@@ -11,10 +11,10 @@
 | Thông tin | Chi tiết |
 |-----------|----------|
 | **Tên dự án** | ERP Tân Phát (Tân Phát Packaging) |
-| **Version hiện tại** | `V0.230` |
-| **Tổng cập nhật** | 230+ lần |
+| **Version hiện tại** | `V0.238` |
+| **Tổng cập nhật** | 238+ lần |
 | **Ngày bắt đầu** | 18/01/2026 |
-| **Cập nhật lần cuối** | 06/07/2026 (V3.44: Nghiệm thu + Đối chiếu công nợ implement) |
+| **Cập nhật lần cuối** | 09/07/2026 (V3.44 Close: Cleanup + Naming + Data) |
 | **Tech Stack** | Next.js 16.1.6 · React 19.2.4 · Tailwind 4.2.1 · TypeScript 5.9.3 · MySQL |
 | **Architecture** | Server Actions + Server Components + SSE |
 | **UI Framework** | Metronic (Demo 1 backbone) |
