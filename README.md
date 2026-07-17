@@ -11,10 +11,10 @@
 | Thông tin | Chi tiết |
 |-----------|----------|
 | **Tên dự án** | ERP Tân Phát (Tân Phát Packaging) |
-| **Version hiện tại** | `V0.238` |
-| **Tổng cập nhật** | 238+ lần |
+| **Version hiện tại** | `V0.242` |
+| **Tổng cập nhật** | 242+ lần |
 | **Ngày bắt đầu** | 18/01/2026 |
-| **Cập nhật lần cuối** | 09/07/2026 (V3.44 Close: Cleanup + Naming + Data) |
+| **Cập nhật lần cuối** | 18/07/2026 (Kho Thành Phẩm Premium UI V2.1) |
 | **Tech Stack** | Next.js 16.1.6 · React 19.2.4 · Tailwind 4.2.1 · TypeScript 5.9.3 · MySQL |
 | **Architecture** | Server Actions + Server Components + SSE |
 | **UI Framework** | Metronic (Demo 1 backbone) |
@@ -77,6 +77,11 @@
 > 📋 [GOLIVE-PLAN.md](GOLIVE-PLAN.md) — Kế hoạch Go-Live tổng quan
 
 ---
+
+### V0.242 (18/07/2026) — Kho Thành Phẩm Premium UI V2.1
+- **[M5/KTP]** Redesign giao diện Kho Thành Phẩm theo premium style, header cam gradient matching M1 Khách Hàng
+- **[M5/KTP]** Stat cards với colored top-border accent, table header orange gradient, detail panel với progress bar
+- **[Scope]** UI only — Không thay đổi schema/logic/RBAC
 
 ### 🚀 Go-Live P0.1 — A*) READY FOR INTERNAL MINI PILOT (15/06/2026)
 
