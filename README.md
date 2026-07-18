@@ -11,10 +11,10 @@
 | Thông tin | Chi tiết |
 |-----------|----------|
 | **Tên dự án** | ERP Tân Phát (Tân Phát Packaging) |
-| **Version hiện tại** | `V0.249` |
+| **Version hiện tại** | `V0.250` |
 | **Tổng cập nhật** | 248+ lần |
 | **Ngày bắt đầu** | 18/01/2026 |
-| **Cập nhật lần cuối** | 18/07/2026 (Demo UI Standardization Phase 1) |
+| **Cập nhật lần cuối** | 18/07/2026 (Demo UI Visual Audit v1.1.0) |
 | **Tech Stack** | Next.js 16.1.6 · React 19.2.4 · Tailwind 4.2.1 · TypeScript 5.9.3 · MySQL |
 | **Architecture** | Server Actions + Server Components + SSE |
 | **UI Framework** | Metronic (Demo 1 backbone) |
@@ -77,6 +77,16 @@
 > 📋 [GOLIVE-PLAN.md](GOLIVE-PLAN.md) — Kế hoạch Go-Live tổng quan
 
 ---
+
+### V0.250 (18/07/2026) — Demo UI Visual Audit v1.1.0
+- **[M1]** Button text đầy đủ 'Thêm Vị Trí' (không viết tắt), sizing chuẩn Metronic h-34px
+- **[M1]** Table header border-b-2 + font-semibold (Metronic v9.5)
+- **[M1]** Badge cấp bậc color-coded: 8 cấp bậc → 8 màu phân biệt
+- **[M1]** Action icons hover feedback (text color cam/đỏ)
+- **[M1]** Null/empty → 'chưa gán' italic thay vì '-'
+- **[M1]** Table card wrapper thêm shadow
+- **[Infra]** Charset utf8mb4 đã confirm OK trong db.ts
+- **[Scope]** UI only — 7/12 visual bugs fixed (5 đã OK từ v1.0.0)
 
 ### V0.249 (18/07/2026) — Demo UI Standardization Phase 1
 - **[Shared]** Tạo hệ thống design tokens CSS (Metronic v9.5 adapted + TanPhat brand colors)
