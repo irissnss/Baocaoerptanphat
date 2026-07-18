@@ -11,10 +11,10 @@
 | Thông tin | Chi tiết |
 |-----------|----------|
 | **Tên dự án** | ERP Tân Phát (Tân Phát Packaging) |
-| **Version hiện tại** | `V0.242` |
-| **Tổng cập nhật** | 242+ lần |
+| **Version hiện tại** | `V0.248` |
+| **Tổng cập nhật** | 248+ lần |
 | **Ngày bắt đầu** | 18/01/2026 |
-| **Cập nhật lần cuối** | 18/07/2026 (Kho Thành Phẩm Premium UI V2.1) |
+| **Cập nhật lần cuối** | 18/07/2026 (Control Audit + Worktree Preserve) |
 | **Tech Stack** | Next.js 16.1.6 · React 19.2.4 · Tailwind 4.2.1 · TypeScript 5.9.3 · MySQL |
 | **Architecture** | Server Actions + Server Components + SSE |
 | **UI Framework** | Metronic (Demo 1 backbone) |
@@ -77,6 +77,15 @@
 > 📋 [GOLIVE-PLAN.md](GOLIVE-PLAN.md) — Kế hoạch Go-Live tổng quan
 
 ---
+
+### V0.248 (18/07/2026) — Control Audit + Worktree Preserve Checkpoint
+- **[Audit]** Kiểm toán kỹ thuật read-only toàn hệ thống: xác minh baseline, đối chiếu Notion ↔ Source ↔ DB metadata
+- **[RBAC]** Xác nhận RBAC guards đã gắn trên 200+ Server Actions (M0/M1/M3/M5/M8/MC/MF)
+- **[Security]** Phát hiện 5 findings ưu tiên cao (transaction safety, persistence, audit trail) — chưa fix, chờ Owner duyệt
+- **[Git]** Bảo toàn 37 file uncommitted thành 4 checkpoint commits, push backup lên origin
+- **[Git]** Xác minh Draft PR #1 vẫn Open trên GitHub, chưa merge
+- **[Git]** Sync main local = origin/main (V0.239)
+- **[Scope]** Read-only audit + checkpoint preserve — Không thay đổi logic code, schema, Notion, hay deploy
 
 ### V0.242 (18/07/2026) — Kho Thành Phẩm Premium UI V2.1
 - **[M5/KTP]** Redesign giao diện Kho Thành Phẩm theo premium style, header cam gradient matching M1 Khách Hàng
