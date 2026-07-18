@@ -11,10 +11,10 @@
 | Thông tin | Chi tiết |
 |-----------|----------|
 | **Tên dự án** | ERP Tân Phát (Tân Phát Packaging) |
-| **Version hiện tại** | `V0.248` |
+| **Version hiện tại** | `V0.249` |
 | **Tổng cập nhật** | 248+ lần |
 | **Ngày bắt đầu** | 18/01/2026 |
-| **Cập nhật lần cuối** | 18/07/2026 (Control Audit + Worktree Preserve) |
+| **Cập nhật lần cuối** | 18/07/2026 (Demo UI Standardization Phase 1) |
 | **Tech Stack** | Next.js 16.1.6 · React 19.2.4 · Tailwind 4.2.1 · TypeScript 5.9.3 · MySQL |
 | **Architecture** | Server Actions + Server Components + SSE |
 | **UI Framework** | Metronic (Demo 1 backbone) |
@@ -77,6 +77,15 @@
 > 📋 [GOLIVE-PLAN.md](GOLIVE-PLAN.md) — Kế hoạch Go-Live tổng quan
 
 ---
+
+### V0.249 (18/07/2026) — Demo UI Standardization Phase 1
+- **[Shared]** Tạo hệ thống design tokens CSS (Metronic v9.5 adapted + TanPhat brand colors)
+- **[Shared]** Tạo auto-case utility (autoCase, displayName, displayStatus, displayLabel) cho Vietnamese Title Case chuẩn
+- **[Shared]** Tạo status-styles utility (centralized 16-status badge system, 6 nhóm màu)
+- **[M1]** Fix responsive bug P0: FormRow grid luôn 2 cột → 1 cột mobile, 2 cột desktop
+- **[M1]** Upgrade StandardDataTable: thêm pagination (ellipsis), responsive columns, loading skeleton, empty state, row click
+- **[M1]** Refactor trang Vị Trí Công Việc dùng shared components + design tokens + autoCase
+- **[Scope]** UI only — không thay đổi business logic, API, database
 
 ### V0.248 (18/07/2026) — Control Audit + Worktree Preserve Checkpoint
 - **[Audit]** Kiểm toán kỹ thuật read-only toàn hệ thống: xác minh baseline, đối chiếu Notion ↔ Source ↔ DB metadata
