@@ -20,12 +20,11 @@
 | **UI Framework** | Metronic (Demo 1 backbone) |
 | **Tổng modules** | 11 modules (M0–M9, MC, MF) |
 | **Tổng bảng DB** | 98 bảng (đã kiểm đếm live 22/07/2026) |
-| **Tổng DB migrations** | 50 files |
 | **Domain production** | `erp.intanphat.com` (HTTPS + nginx + HSTS) |
 
 ---
 
-## 📋 Trạng Thái Modules (Audit 14/06/2026)
+## 📋 Trạng Thái Modules (cập nhật 22/07/2026)
 
 | Module | Tên | Status | Mô tả chức năng | Sub-routes |
 |--------|-----|--------|------------------|------------|
@@ -48,7 +47,9 @@
 
 > 📂 Xem chi tiết tiến độ từng module tại [MODULE-PROGRESS.md](MODULE-PROGRESS.md)
 >
-> 🏆 **LATEST:** [AUDIT-V0227-ARCHITECTURE-AND-GAP-SCAN.md](AUDIT-V0227-ARCHITECTURE-AND-GAP-SCAN.md) — Architecture confirm (no NestJS/Prisma) + gap scan + Batch 0/1 CEO apply
+> 🏆 **LATEST (V0.285 · 22/07/2026):** PL4 Phase 1 — Nền tảng Nhân sự & Phân quyền (HR-Org-RBAC): liên kết Nhân viên ↔ Tài khoản ↔ Vai trò theo mô hình phân tách trách nhiệm; nghỉ việc thay cho xóa cứng. Chi tiết ở mục Changelog bên dưới.
+>
+> 🗂️ *Các mục 🏆/🔐/✅ bên dưới là báo cáo LỊCH SỬ (V0.218–V0.227) — lưu tham khảo, không phải bản mới nhất.*
 >
 > 🔐 [REAL-USER-PILOT-V0227-BATCH1-CEO.md](REAL-USER-PILOT-V0227-BATCH1-CEO.md) — Batch 1 CEO applied + smoke test
 >
@@ -98,7 +99,7 @@
 - **[M1]** Action icons hover feedback (text color cam/đỏ)
 - **[M1]** Null/empty → 'chưa gán' italic thay vì '-'
 - **[M1]** Table card wrapper thêm shadow
-- **[Infra]** Charset utf8mb4 đã confirm OK trong db.ts
+- **[Infra]** Charset utf8mb4 đã confirm OK ở tầng kết nối DB
 - **[Scope]** UI only — 7/12 visual bugs fixed (5 đã OK từ v1.0.0)
 
 ### V0.249 (18/07/2026) — Demo UI Standardization Phase 1
@@ -169,27 +170,20 @@
 ### Deployment:
 - **VPS**: 103.x.x.x (Ubuntu + nginx + PM2 + standalone runtime)
 - **Domain**: `erp.intanphat.com` (HTTPS + HSTS)
-- **Git flow**: Local → GitHub (private) → VPS deploy via scripts
-- **CI/CD Scripts**: deploy-vps-via-git.ps1, sync-final.ps1, release-final.ps1
+- **Git flow**: Local → GitHub (private) → Production deploy (quy trình có kiểm soát)
 
 ---
 
-## 📊 Thống Kê Tổng Hợp (Audit 14/06/2026)
+## 📊 Thống Kê Tổng Hợp (cập nhật 22/07/2026)
 
 | Metric | Giá trị |
 |--------|---------|
-| **Tổng version updates** | 216+ |
-| **Thời gian phát triển** | 18/01/2026 → 14/06/2026 (~5 tháng) |
+| **Tổng version updates** | 285+ |
+| **Thời gian phát triển** | 18/01/2026 → 22/07/2026 (~6 tháng) |
 | **Modules hoạt động** | M0, M1, M3, M4, M6, M7, M8, MC, MF (9/11) |
-| **Modules planned** | M5, M9 (2/11) |
-| **App routes** | 19 top-level directories trong `/src/app` |
-| **Library files (src/lib)** | 75 files (71 .ts + 4 subdirs) |
-| **Components** | 14 component groups (10 subdirs + 4 standalone) |
-| **DB migrations** | 50 files |
-| **Skills tạo** | 60+ |
-| **Governance files** | 5 files (5-way sync, SHA256 verified) |
-| **Deploy iterations** | 20+ |
-| **npm scripts** | 53 scripts (dev, build, deploy, verify, migrate, check) |
+| **Modules planned / skeleton** | M5, M9 (2/11) |
+| **Tổng bảng DB** | 98 bảng (kiểm đếm live 22/07/2026) |
+| **Skills hỗ trợ** | 60+ |
 | **Node.js** | v24.14.1 (engines: >=20 <25) |
 
 ---
@@ -214,18 +208,12 @@
 
 ---
 
-## 📋 Audit Notes (14/06/2026)
+## 📋 Ghi Chú Trạng Thái (22/07/2026)
 
-### VPS Health Check:
-- ✅ `erp.intanphat.com` → HTTP 307 → `/auth/login` (healthy)
-- ✅ nginx + HSTS enabled
-- ✅ Login page render đầy đủ (RSC payload, branding, form)
-- ⚠️ VPS đang chạy V0.215, local có V0.216 (governance-only change, chưa deploy)
-
-### Pending:
-- 6 files governance chưa commit (V0.216 = chỉ thêm rule 14 PUBLIC REPORT SYNC)
-- Local MySQL (Laragon) cần bật khi dev
+- **Mới nhất:** PL4 Phase 1 (HR-Org-RBAC) hoàn tất ở nhánh local — **chưa deploy/merge**, đang chờ Owner review.
+- **Kiểm thử:** typecheck & lint sạch; kiểm thử cơ chế đạt; runtime phân quyền theo vai trò thật còn chờ (thiếu test identities).
+- **Môi trường dev:** MySQL local (Laragon) cần bật khi phát triển.
 
 ---
 
-> **Cập nhật lần cuối:** 14/06/2026 — Audit toàn hệ thống V0.216
+> **Cập nhật lần cuối:** 22/07/2026 — V0.285 (PL4 Phase 1: HR-Org-RBAC)
