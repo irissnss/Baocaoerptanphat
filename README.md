@@ -11,15 +11,15 @@
 | Thông tin | Chi tiết |
 |-----------|----------|
 | **Tên dự án** | ERP Tân Phát (Tân Phát Packaging) |
-| **Version hiện tại** | `V0.250` |
-| **Tổng cập nhật** | 248+ lần |
+| **Version hiện tại** | `V0.285` |
+| **Tổng cập nhật** | 285+ lần |
 | **Ngày bắt đầu** | 18/01/2026 |
-| **Cập nhật lần cuối** | 18/07/2026 (Demo UI Visual Audit v1.1.0) |
+| **Cập nhật lần cuối** | 22/07/2026 (PL4 Phase 1 — HR-Org-RBAC) |
 | **Tech Stack** | Next.js 16.1.6 · React 19.2.4 · Tailwind 4.2.1 · TypeScript 5.9.3 · MySQL |
 | **Architecture** | Server Actions + Server Components + SSE |
 | **UI Framework** | Metronic (Demo 1 backbone) |
 | **Tổng modules** | 11 modules (M0–M9, MC, MF) |
-| **Tổng bảng DB** | 92 bảng |
+| **Tổng bảng DB** | 98 bảng (đã kiểm đếm live 22/07/2026) |
 | **Tổng DB migrations** | 50 files |
 | **Domain production** | `erp.intanphat.com` (HTTPS + nginx + HSTS) |
 
@@ -77,6 +77,19 @@
 > 📋 [GOLIVE-PLAN.md](GOLIVE-PLAN.md) — Kế hoạch Go-Live tổng quan
 
 ---
+
+### V0.281–V0.285 (22/07/2026) — PL4 Phase 1: Nền Tảng Nhân Sự & Phân Quyền (HR-Org-RBAC)
+- **[M1 Nhân sự]** Hoàn thiện quản lý nhân sự để phân quyền: liên kết Nhân viên ↔ Tài khoản đăng nhập ↔ Vai trò, theo mô hình **phân tách trách nhiệm** (HR quản hồ sơ + tài khoản; Bảo mật M0 quản vai trò + mật khẩu + kích hoạt).
+- **[M0 Bảo mật]** Kích hoạt tài khoản có kiểm soát (chỉ Admin, bắt buộc đặt mật khẩu trước khi kích hoạt); giữ nguyên ranh giới gán vai trò admin-only + bảo vệ admin cuối.
+- **[M1 Nhân sự]** Vòng đời **nghỉ việc thay cho xóa cứng** (giữ lịch sử nhân sự); offboarding: khóa tài khoản + thu hồi phiên đăng nhập (Admin).
+- **[M0/M1]** Phân quyền **theo từng chức năng** (Phòng ban / Vị trí / Nhân sự riêng) thay vì gộp module; ghi vết người thao tác từ phiên đăng nhập (bỏ hardcode).
+- **[UI]** Trang Nhân sự thêm khu "Tài Khoản Đăng Nhập" (liên kết/tạo/hủy, vai trò chỉ-xem) + nút "Chuyển Nghỉ Việc".
+- **[Scope]** Logic + Data (seed quyền, không đổi cấu trúc DB) + UI · nhánh local `fix/pl4-hr-rbac-linkage`, **chưa deploy/merge** · kiểm thử typecheck & lint sạch, kiểm thử cơ chế đạt.
+
+### V0.271–V0.280 (21–22/07/2026) — Đồng Bộ UI 4 Trang + Chuẩn Hóa Tailwind v4
+- **[M0/M1/M5]** Thống nhất giao diện Phòng Ban / Vị Trí / Nhân Sự / Kho Thành Phẩm về cùng 1 chuẩn (detail panel, sắc độ, khoảng cách, bo góc).
+- **[Toàn hệ]** Quét chuẩn hóa class Tailwind v4 canonical (CSS tương đương 100%, không đổi giao diện) + nâng cấp skill hỗ trợ triển khai.
+- **[Scope]** UI + Tooling.
 
 ### V0.250 (18/07/2026) — Demo UI Visual Audit v1.1.0
 - **[M1]** Button text đầy đủ 'Thêm Vị Trí' (không viết tắt), sizing chuẩn Metronic h-34px
