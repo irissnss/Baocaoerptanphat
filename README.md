@@ -20,7 +20,7 @@
 | **UI Framework** | Metronic (Demo 1 backbone) |
 | **Tổng modules** | 11 modules (M0–M9, MC, MF) |
 | **Tổng bảng DB** | 98 bảng (đã kiểm đếm live 22/07/2026) |
-| **Domain production** | `erp.intanphat.com` (HTTPS + nginx + HSTS) |
+| **Trạng thái** | Production đã go-live (chi tiết hạ tầng không công khai) |
 
 ---
 
@@ -168,8 +168,7 @@
 - **Auth**: Fail-closed session, expired warning, cookie-based
 
 ### Deployment:
-- **VPS**: 103.x.x.x (Ubuntu + nginx + PM2 + standalone runtime)
-- **Domain**: `erp.intanphat.com` (HTTPS + HSTS)
+- **Hạ tầng:** Production đã go-live (chi tiết máy chủ / domain / cấu hình **KHÔNG công khai** — theo Rule 14)
 - **Git flow**: Local → GitHub (private) → Production deploy (quy trình có kiểm soát)
 
 ---
