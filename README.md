@@ -11,7 +11,7 @@
 | Thông tin | Chi tiết |
 |-----------|----------|
 | **Tên dự án** | ERP Tân Phát (Tân Phát Packaging) |
-| **Version hiện tại** | `V0.303` |
+| **Version hiện tại** | `V0.304` |
 | **Tổng cập nhật** | 285+ lần |
 | **Ngày bắt đầu** | 18/01/2026 |
 | **Cập nhật lần cuối** | 22/07/2026 (PL4 Phase 1 — HR-Org-RBAC) |
@@ -79,17 +79,59 @@
 
 ---
 
-### V0.286–V0.303 (23/07/2026) — Hoàn Thiện PL4 + **Đưa Lên Vận Hành Thật** (V0.240 → V0.303)
+### V0.286–V0.304 (23/07/2026) — Hoàn Thiện PL4 + **ĐƯA LÊN VẬN HÀNH THẬT** (V0.240 → V0.303)
 
-- **[M1 Nhân sự]** Chọn **Phòng Ban trước → Vị Trí lọc theo phòng ban** (trước đây 2 ô độc lập nên chọn được cặp lệch nhau); bổ sung ràng buộc nhất quán ở cả đường **Sửa**, không chỉ đường Tạo.
-- **[M1 Nhân sự]** Hiển thị **tên vị trí đầy đủ kèm phòng ban** ở danh sách và trang chi tiết — xử lý trường hợp hai vị trí trùng tên ở hai phòng ban khác nhau.
-- **[M1/M0]** Chuẩn hóa quy tắc **mã tự sinh liên tiếp** cho Phòng Ban / Vị Trí / Nhân Sự bằng bộ đếm giao dịch (không trùng, không nhảy số khi thao tác đồng thời).
-- **[UX toàn hệ]** Sửa 3 lỗi nhập liệu: kéo thanh cuộn bị hiểu nhầm là thoát form; tiêu đề & cụm nút thao tác bị cuộn mất; hộp xác nhận thoát không hiện đúng chuẩn.
-- **[DevOps]** Bổ sung **cổng kiểm tra tương thích trước khi triển khai**: tự đối chiếu yêu cầu của mã nguồn với cấu trúc dữ liệu ở môi trường đích, **không đạt thì dừng trước bước khởi động lại**. Cổng này đã chặn thật một lần trong lần triển khai đầu, môi trường vận hành **không bị gián đoạn**.
-- **[DevOps]** Bổ sung bước cập nhật dữ liệu nền còn thiếu vào quy trình triển khai (trước đây bị bỏ sót ngoài chuỗi tự động).
-- **[Vận hành]** **Triển khai thành công**: môi trường thật từ V0.240 lên V0.303 (~40 mốc thay đổi, 13 ngày tồn đọng). Có **sao lưu dữ liệu đầy đủ đã kiểm chứng nội dung** trước khi triển khai + điểm khôi phục.
-- **[Sửa lỗi tồn đọng]** Phát hiện chức năng **tạo Vị Trí trên môi trường thật đã hỏng sẵn** từ trước do lệch cấu trúc dữ liệu — lần triển khai này khắc phục luôn.
-- **[Scope]** UI + Logic + DevOps · đã hợp nhất nhánh và **đã đưa lên vận hành**, kiểm thử typecheck/lint sạch, kiểm tra tuyến truy cập & phân quyền đạt.
+> 🚀 **Cột mốc:** môi trường vận hành thật được cập nhật từ **V0.240 → V0.303** — thu hẹp khoảng tồn đọng **~40 mốc thay đổi / 13 ngày** về **0**. **Không gián đoạn dịch vụ.**
+
+#### 🧩 Nghiệp vụ — M1 Nhân Sự
+
+- **Chọn Phòng Ban trước → Vị Trí lọc theo phòng ban.** Trước đây hai ô chọn hoạt động độc lập và Vị Trí lại đặt trước Phòng Ban, nên người nhập có thể tạo ra cặp **lệch nhau** (vị trí thuộc phòng A nhưng phòng ban ghi phòng B). Nay: chọn Phòng Ban là bước 1, danh sách Vị Trí **chỉ hiện các vị trí thuộc phòng ban đó** (kèm vị trí dùng chung); đổi phòng ban thì vị trí không hợp lệ **tự bỏ chọn**; ô Vị Trí bị khóa cho tới khi chọn phòng ban.
+- **Bịt lỗ hổng ở đường Sửa.** Ràng buộc nhất quán trước đây chỉ áp dụng khi **Tạo mới**; đường **Sửa** vẫn ghi được cặp lệch. Đã bổ sung kiểm tra ở cả hai đường.
+- **Hiển thị tên vị trí đầy đủ kèm phòng ban.** Hai vị trí trùng tên *"Trưởng Phòng"* ở hai phòng ban khác nhau trước đây hiển thị **y hệt nhau** trong danh sách chọn → dễ chọn nhầm. Nay ghép nhãn *"{Vị Trí} — {Phòng Ban}"* ở danh sách, bảng và trang chi tiết (chỉ hiển thị, **không thay đổi dữ liệu lưu trữ**).
+- **Kiểm chứng:** sau khi sửa, **20/20 tên vị trí là duy nhất**; số nhân viên có dữ liệu lệch phòng ban/vị trí = **0**.
+
+#### 🔢 Nghiệp vụ — Mã tự sinh
+
+- Chuẩn hóa **mã tự sinh liên tiếp** cho Phòng Ban / Vị Trí / Nhân Sự bằng **bộ đếm giao dịch**: không trùng khi nhiều người thao tác cùng lúc, hủy giữa chừng thì **không tiêu số**, xóa bản ghi **không làm lùi bộ đếm**.
+- Mã cũ theo định dạng khác **được giữ nguyên**, chỉ không tham gia cấp phát số mới.
+
+#### 🖱️ Trải nghiệm nhập liệu — 3 lỗi
+
+- **Kéo thanh cuộn bị hiểu nhầm là thoát form** → hiện cảnh báo oan. Đã lọc, áp dụng cho cả 3 trang Phòng Ban / Vị Trí / Nhân Sự.
+- **Tiêu đề và cụm nút thao tác bị cuộn mất** trong biểu mẫu dài → phải cuộn tìm nút. Nay tiêu đề ghim đỉnh, cụm nút ghim đáy, luôn trong tầm tay.
+- **Hộp xác nhận thoát không hiện đúng chuẩn** ở trang Nhân Sự (đối chiếu 8 màn hình khác đều đúng, riêng trang này là ngoại lệ) → đã đồng bộ về chuẩn chung.
+- *Đã kiểm chứng không phải lỗi:* cơ chế theo dõi "đã sửa đổi" phủ **28/28 ô nhập** → **không có nguy cơ mất dữ liệu đang nhập**.
+
+#### 🛡️ Vận hành — Cổng kiểm tra tương thích trước khi triển khai
+
+- Bổ sung **cổng chặn tự động**: đối chiếu yêu cầu của mã nguồn với cấu trúc dữ liệu ở môi trường đích **trước bước khởi động lại**. Không đạt thì **dừng ngay**, môi trường thật vẫn chạy bản cũ.
+- **Cổng này đã chặn thật một lần** ngay trong lần triển khai đầu tiên: một bước cập nhật dữ liệu nền đổ lỗi do **khác biệt cấu hình chặt/lỏng giữa môi trường phát triển và môi trường thật** — cùng một câu lệnh, môi trường phát triển chỉ cảnh báo còn môi trường thật báo lỗi cứng. Nhờ cổng chặn, **dịch vụ không bị gián đoạn**; sau khi vá mới triển khai lại.
+- Bổ sung bước **cập nhật dữ liệu nền còn thiếu** vào chuỗi triển khai tự động (trước đây nằm ngoài chuỗi nên bị bỏ sót — nếu thiếu sẽ khiến không tạo được Phòng Ban / Vị Trí / Nhân Sự và người dùng không phải quản trị viên bị chặn truy cập 3 trang nhân sự).
+
+#### 🧯 An toàn dữ liệu
+
+- **Sao lưu đầy đủ trước khi triển khai**, có **kiểm chứng nội dung** (đếm số bảng, xác nhận có dữ liệu) — phát hiện các bản sao lưu cũ trên môi trường thật đều **rỗng, vô dụng**, nên đã lập nơi lưu mới.
+- Có **điểm khôi phục** rõ ràng trước khi triển khai.
+- **Không đụng tới dữ liệu nghiệp vụ** của môi trường thật.
+
+#### 🔍 Phát hiện quan trọng
+
+- Rà soát cho thấy chức năng **tạo Vị Trí trên môi trường thật đã hỏng sẵn từ trước** do lệch cấu trúc dữ liệu. Lần triển khai này **khắc phục luôn** lỗi tồn đọng đó.
+- Đính chính: cảnh báo ban đầu về khả năng lệch cấu trúc diện rộng là **không đúng** — sau khi đối chiếu đầy đủ, hai môi trường **khớp nhau**, chỉ thiếu duy nhất phần dữ liệu nền của bộ đếm.
+
+#### ✅ Kết quả kiểm chứng sau triển khai
+
+| Hạng mục | Kết quả |
+|---|---|
+| Phiên bản đang chạy | **V0.303** |
+| Trang đăng nhập | Hoạt động bình thường |
+| Các trang có bảo vệ | Chuyển hướng đăng nhập đúng — **phân quyền nguyên vẹn** |
+| Tiến trình ứng dụng | **Online**, **0 lần khởi động lại ngoài ý muốn** |
+| Cổng kiểm tra tương thích | **Đạt** |
+| Đồng bộ 3 nơi | Máy phát triển = GitHub = môi trường thật |
+| Chất lượng mã | Kiểm tra kiểu & quy chuẩn **sạch** |
+
+- **[Scope]** UI + Logic + DevOps · đã hợp nhất nhánh, **đã đưa lên vận hành thật**, có hồ sơ triển khai đầy đủ lưu nội bộ để truy vết.
 
 ### V0.281–V0.285 (22/07/2026) — PL4 Phase 1: Nền Tảng Nhân Sự & Phân Quyền (HR-Org-RBAC)
 - **[M1 Nhân sự]** Hoàn thiện quản lý nhân sự để phân quyền: liên kết Nhân viên ↔ Tài khoản đăng nhập ↔ Vai trò, theo mô hình **phân tách trách nhiệm** (HR quản hồ sơ + tài khoản; Bảo mật M0 quản vai trò + mật khẩu + kích hoạt).
