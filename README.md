@@ -11,7 +11,7 @@
 | Thông tin | Chi tiết |
 |-----------|----------|
 | **Tên dự án** | ERP Tân Phát (Tân Phát Packaging) |
-| **Version hiện tại** | `V0.285` |
+| **Version hiện tại** | `V0.303` |
 | **Tổng cập nhật** | 285+ lần |
 | **Ngày bắt đầu** | 18/01/2026 |
 | **Cập nhật lần cuối** | 22/07/2026 (PL4 Phase 1 — HR-Org-RBAC) |
@@ -47,7 +47,7 @@
 
 > 📂 Xem chi tiết tiến độ từng module tại [MODULE-PROGRESS.md](MODULE-PROGRESS.md)
 >
-> 🏆 **LATEST (V0.285 · 22/07/2026):** PL4 Phase 1 — Nền tảng Nhân sự & Phân quyền (HR-Org-RBAC): liên kết Nhân viên ↔ Tài khoản ↔ Vai trò theo mô hình phân tách trách nhiệm; nghỉ việc thay cho xóa cứng. Chi tiết ở mục Changelog bên dưới.
+> 🏆 **LATEST (V0.303 · 23/07/2026):** Hoàn thiện PL4 và **đưa lên vận hành thật** (V0.240 → V0.303). Chọn Phòng Ban trước rồi lọc Vị Trí tương ứng; chuẩn hóa mã tự sinh liên tiếp; sửa 3 lỗi trải nghiệm nhập liệu; bổ sung **cổng kiểm tra tương thích trước khi triển khai** (đã chặn thật 1 lần, vận hành không gián đoạn). Chi tiết ở mục Changelog bên dưới.
 >
 > 🗂️ *Các mục 🏆/🔐/✅ bên dưới là báo cáo LỊCH SỬ (V0.218–V0.227) — lưu tham khảo, không phải bản mới nhất.*
 >
@@ -78,6 +78,18 @@
 > 📋 [GOLIVE-PLAN.md](GOLIVE-PLAN.md) — Kế hoạch Go-Live tổng quan
 
 ---
+
+### V0.286–V0.303 (23/07/2026) — Hoàn Thiện PL4 + **Đưa Lên Vận Hành Thật** (V0.240 → V0.303)
+
+- **[M1 Nhân sự]** Chọn **Phòng Ban trước → Vị Trí lọc theo phòng ban** (trước đây 2 ô độc lập nên chọn được cặp lệch nhau); bổ sung ràng buộc nhất quán ở cả đường **Sửa**, không chỉ đường Tạo.
+- **[M1 Nhân sự]** Hiển thị **tên vị trí đầy đủ kèm phòng ban** ở danh sách và trang chi tiết — xử lý trường hợp hai vị trí trùng tên ở hai phòng ban khác nhau.
+- **[M1/M0]** Chuẩn hóa quy tắc **mã tự sinh liên tiếp** cho Phòng Ban / Vị Trí / Nhân Sự bằng bộ đếm giao dịch (không trùng, không nhảy số khi thao tác đồng thời).
+- **[UX toàn hệ]** Sửa 3 lỗi nhập liệu: kéo thanh cuộn bị hiểu nhầm là thoát form; tiêu đề & cụm nút thao tác bị cuộn mất; hộp xác nhận thoát không hiện đúng chuẩn.
+- **[DevOps]** Bổ sung **cổng kiểm tra tương thích trước khi triển khai**: tự đối chiếu yêu cầu của mã nguồn với cấu trúc dữ liệu ở môi trường đích, **không đạt thì dừng trước bước khởi động lại**. Cổng này đã chặn thật một lần trong lần triển khai đầu, môi trường vận hành **không bị gián đoạn**.
+- **[DevOps]** Bổ sung bước cập nhật dữ liệu nền còn thiếu vào quy trình triển khai (trước đây bị bỏ sót ngoài chuỗi tự động).
+- **[Vận hành]** **Triển khai thành công**: môi trường thật từ V0.240 lên V0.303 (~40 mốc thay đổi, 13 ngày tồn đọng). Có **sao lưu dữ liệu đầy đủ đã kiểm chứng nội dung** trước khi triển khai + điểm khôi phục.
+- **[Sửa lỗi tồn đọng]** Phát hiện chức năng **tạo Vị Trí trên môi trường thật đã hỏng sẵn** từ trước do lệch cấu trúc dữ liệu — lần triển khai này khắc phục luôn.
+- **[Scope]** UI + Logic + DevOps · đã hợp nhất nhánh và **đã đưa lên vận hành**, kiểm thử typecheck/lint sạch, kiểm tra tuyến truy cập & phân quyền đạt.
 
 ### V0.281–V0.285 (22/07/2026) — PL4 Phase 1: Nền Tảng Nhân Sự & Phân Quyền (HR-Org-RBAC)
 - **[M1 Nhân sự]** Hoàn thiện quản lý nhân sự để phân quyền: liên kết Nhân viên ↔ Tài khoản đăng nhập ↔ Vai trò, theo mô hình **phân tách trách nhiệm** (HR quản hồ sơ + tài khoản; Bảo mật M0 quản vai trò + mật khẩu + kích hoạt).
