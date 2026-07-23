@@ -11,15 +11,17 @@
 | Thông tin | Chi tiết |
 |-----------|----------|
 | **Tên dự án** | ERP Tân Phát (Tân Phát Packaging) |
-| **Version hiện tại** | `V0.304` |
-| **Tổng cập nhật** | 285+ lần |
+| **Phiên bản mã nguồn** | `V0.323` |
+| **Phiên bản đang chạy thật** | `V0.323` |
+| **Mốc phiên bản hiện tại** | V0.323 |
 | **Ngày bắt đầu** | 18/01/2026 |
-| **Cập nhật lần cuối** | 22/07/2026 (PL4 Phase 1 — HR-Org-RBAC) |
-| **Tech Stack** | Next.js 16.1.6 · React 19.2.4 · Tailwind 4.2.1 · TypeScript 5.9.3 · MySQL |
+| **Phát hành lên vận hành thật** | 23/07/2026 — Đợt R1/R1.1/R1.2 |
+| **Cập nhật báo cáo này** | 24/07/2026 |
+| **Tech Stack** | Next.js 16.1.6 · React 19.2.4 · Tailwind 4.2.1 · TypeScript 5.9.3 · MariaDB 10.11 (production) · MySQL 8.4 (local development) |
 | **Architecture** | Server Actions + Server Components + SSE |
 | **UI Framework** | Metronic (Demo 1 backbone) |
 | **Tổng modules** | 11 modules (M0–M9, MC, MF) |
-| **Tổng bảng DB** | 98 bảng (đã kiểm đếm live 22/07/2026) |
+| **Tổng bảng DB** | 99 bảng (đã kiểm đếm trên môi trường vận hành 23/07/2026) |
 | **Trạng thái** | Production đã go-live (chi tiết hạ tầng không công khai) |
 
 ---
@@ -47,7 +49,7 @@
 
 > 📂 Xem chi tiết tiến độ từng module tại [MODULE-PROGRESS.md](MODULE-PROGRESS.md)
 >
-> 🏆 **LATEST (V0.303 · 23/07/2026):** Hoàn thiện PL4 và **đưa lên vận hành thật** (V0.240 → V0.303). Chọn Phòng Ban trước rồi lọc Vị Trí tương ứng; chuẩn hóa mã tự sinh liên tiếp; sửa 3 lỗi trải nghiệm nhập liệu; bổ sung **cổng kiểm tra tương thích trước khi triển khai** (đã chặn thật 1 lần, vận hành không gián đoạn). Chi tiết ở mục Changelog bên dưới.
+> 🏆 **MỚI NHẤT (V0.323 · phát hành 23/07/2026) — Đợt R1/R1.1/R1.2.** Gia cố an toàn hiển thị nội dung HTML và bản in; sửa lỗi **không tạo được nhân viên**; khoá **mã Phòng Ban thành bất biến**; sửa lỗi **ô chọn Khuôn / Kiểu In hiện trống** trên form in; chuẩn hoá cơ cấu tổ chức lên **6 phòng ban**; kiểm chứng khả năng khôi phục dữ liệu bằng cách phục hồi thật vào môi trường tách biệt. Đã đưa lên vận hành thật, **không gián đoạn dịch vụ**. Chi tiết ở mục Changelog bên dưới.
 >
 > 🗂️ *Các mục 🏆/🔐/✅ bên dưới là báo cáo LỊCH SỬ (V0.218–V0.227) — lưu tham khảo, không phải bản mới nhất.*
 >
@@ -76,6 +78,44 @@
 > 🔒 [P01-SAFETY-VERIFICATION-V0218.md](P01-SAFETY-VERIFICATION-V0218.md) — Safety Report
 >
 > 📋 [GOLIVE-PLAN.md](GOLIVE-PLAN.md) — Kế hoạch Go-Live tổng quan
+
+---
+
+### V0.305–V0.323 (phát hành 23/07/2026) — Đợt R1/R1.1/R1.2
+
+> 🚀 **Đã đưa lên vận hành thật. Không gián đoạn dịch vụ.**
+
+#### An toàn hiển thị nội dung
+- **Gia cố an toàn hiển thị nội dung HTML và bản in.** Rà soát toàn bộ các đường hiển thị nội dung do người dùng nhập trên hệ thống và bổ sung lớp bảo vệ đồng bộ.
+- Nguyên tắc áp dụng: **giữ nguyên vẹn định dạng tài liệu đã duyệt** — lớp bảo vệ không được phép làm biến dạng mẫu in.
+- Đã kiểm chứng trên trình duyệt thật và trên **toàn bộ mẫu in đang lưu**: mẫu hợp lệ vẫn xem, lưu và sửa bình thường, định dạng bản in không đổi.
+
+#### Sửa lỗi — không tạo được nhân viên
+- Chức năng thêm nhân viên không hoạt động do lỗi ở tầng ghi dữ liệu. Lỗi chưa lộ ra trước đó vì toàn bộ nhân sự hiện có được nạp bằng công cụ nền.
+- Đã sửa và thử nghiệm trên môi trường vận hành, sau đó dọn sạch hoàn toàn, không để lại bất kỳ dữ liệu thử nghiệm nào.
+
+#### Mã Phòng Ban trở thành bất biến
+- Trước đây chức năng **Sửa** vẫn có thể ghi đè mã đã cấp.
+- Nay mã chỉ được sinh **một lần duy nhất lúc tạo**; đổi tên phòng ban **không** làm đổi mã; phần viết tắt do hệ thống tự suy ra.
+
+#### Sửa lỗi — ô chọn Khuôn / Kiểu In hiện trống
+- Trên form in **Lệnh Sản Xuất** và **Phiếu Điều In**, hai ô chọn này luôn trống và không hiển thị thông báo lỗi nào cho người dùng.
+- Nguyên nhân nằm ở điều kiện lọc đã lỗi thời trong danh mục dùng chung. Đã đối chiếu dữ liệu thật và sửa **cả hai** ô cùng lúc.
+
+#### Chuẩn hoá cơ cấu tổ chức
+- Bổ sung **3 phòng ban** (Ban Điều Hành, Phòng Thiết Kế, Phòng Kinh Doanh) → tổng **6 phòng ban**. Ba phòng ban cũ **giữ nguyên**, không đổi mã, không gộp.
+- Quy tắc sinh mã bảo đảm chạy lại nhiều lần **không** tạo bản trùng.
+
+#### An toàn dữ liệu
+- **Kiểm chứng khả năng khôi phục:** phục hồi thật bản sao lưu vào một môi trường cơ sở dữ liệu **tách biệt hoàn toàn, đúng phiên bản** đang dùng thật; đối chiếu **từng bảng** cả số lượng bản ghi lẫn dấu vân tay nội dung; mọi khác biệt đều truy được nguyên nhân cụ thể. Môi trường tách biệt được **xoá bỏ** sau khi lấy bằng chứng.
+- Quy mô dữ liệu vận hành hiện tại: **99 bảng**.
+
+#### Chất lượng
+- Kiểm tra kiểu dữ liệu **sạch**; các tệp thay đổi trong đợt đều **không còn lỗi quy chuẩn**.
+- **126/126** lượt kiểm tra phân quyền theo tuyến — **0 lỗi**.
+- Tài khoản **ngưng hoạt động** hoặc **bị khoá** đều bị từ chối đăng nhập đúng.
+- Bản phát hành được dựng lại từ **bản sao sạch** — thành công.
+- **[Scope]** An toàn dữ liệu + Logic + DevOps.
 
 ---
 
@@ -123,12 +163,12 @@
 
 | Hạng mục | Kết quả |
 |---|---|
-| Phiên bản đang chạy | **V0.303** |
+| Phiên bản đang chạy | **V0.323** |
 | Trang đăng nhập | Hoạt động bình thường |
 | Các trang có bảo vệ | Chuyển hướng đăng nhập đúng — **phân quyền nguyên vẹn** |
 | Tiến trình ứng dụng | **Online**, **0 lần khởi động lại ngoài ý muốn** |
 | Cổng kiểm tra tương thích | **Đạt** |
-| Đồng bộ 3 nơi | Máy phát triển = GitHub = môi trường thật |
+| Đồng bộ 3 nơi | Tại thời điểm nghiệm thu R1.2, mã nguồn, kho chung và môi trường vận hành cùng ở V0.323 |
 | Chất lượng mã | Kiểm tra kiểu & quy chuẩn **sạch** |
 
 - **[Scope]** UI + Logic + DevOps · đã hợp nhất nhánh, **đã đưa lên vận hành thật**, có hồ sơ triển khai đầy đủ lưu nội bộ để truy vết.
@@ -139,7 +179,7 @@
 - **[M1 Nhân sự]** Vòng đời **nghỉ việc thay cho xóa cứng** (giữ lịch sử nhân sự); offboarding: khóa tài khoản + thu hồi phiên đăng nhập (Admin).
 - **[M0/M1]** Phân quyền **theo từng chức năng** (Phòng ban / Vị trí / Nhân sự riêng) thay vì gộp module; ghi vết người thao tác từ phiên đăng nhập (bỏ hardcode).
 - **[UI]** Trang Nhân sự thêm khu "Tài Khoản Đăng Nhập" (liên kết/tạo/hủy, vai trò chỉ-xem) + nút "Chuyển Nghỉ Việc".
-- **[Scope]** Logic + Data (seed quyền, không đổi cấu trúc DB) + UI · nhánh local `fix/pl4-hr-rbac-linkage`, **chưa deploy/merge** · kiểm thử typecheck & lint sạch, kiểm thử cơ chế đạt.
+- **[Scope]** Logic + Data (seed quyền, không đổi cấu trúc DB) + UI · **đã hợp nhất và đã đưa lên vận hành thật ngày 23/07/2026** (xem mục V0.305–V0.323).
 
 ### V0.271–V0.280 (21–22/07/2026) — Đồng Bộ UI 4 Trang + Chuẩn Hóa Tailwind v4
 - **[M0/M1/M5]** Thống nhất giao diện Phòng Ban / Vị Trí / Nhân Sự / Kho Thành Phẩm về cùng 1 chuẩn (detail panel, sắc độ, khoảng cách, bo góc).
@@ -149,7 +189,7 @@
 ### V0.250 (18/07/2026) — Demo UI Visual Audit v1.1.0
 - **[M1]** Button text đầy đủ 'Thêm Vị Trí' (không viết tắt), sizing chuẩn Metronic h-34px
 - **[M1]** Table header border-b-2 + font-semibold (Metronic v9.5)
-- **[M1]** Badge cấp bậc color-coded: 8 cấp bậc → 8 màu phân biệt
+- **[M1]** ~~Badge cấp bậc color-coded: 8 cấp bậc → 8 màu phân biệt~~ → **ĐÃ BỊ THAY THẾ (23/07/2026):** không còn thang cấp bậc độc lập. **Vị Trí chính là cấp bậc** — đây là mô hình chuẩn hiện hành. Trường cấp bậc cũ được **giữ lại để bảo toàn lịch sử**, ngừng ghi mới.
 - **[M1]** Action icons hover feedback (text color cam/đỏ)
 - **[M1]** Null/empty → 'chưa gán' italic thay vì '-'
 - **[M1]** Table card wrapper thêm shadow
@@ -208,7 +248,8 @@
 | UI Library | React | 19.2.4 |
 | CSS | Tailwind CSS | 4.2.1 |
 | Language | TypeScript | 5.9.3 |
-| Database | MySQL | 8.x |
+| Database (production) | MariaDB | 10.11 |
+| Database (local development) | MySQL | 8.4 |
 | Form | React Hook Form + Zod 4 | Latest |
 | UI Components | Radix UI + Shadcn | Multiple |
 | Icons | Lucide React | 0.462.0 |
@@ -227,15 +268,15 @@
 
 ---
 
-## 📊 Thống Kê Tổng Hợp (cập nhật 22/07/2026)
+## 📊 Thống Kê Tổng Hợp (cập nhật 24/07/2026)
 
 | Metric | Giá trị |
 |--------|---------|
-| **Tổng version updates** | 285+ |
-| **Thời gian phát triển** | 18/01/2026 → 22/07/2026 (~6 tháng) |
+| **Mốc phiên bản hiện tại** | V0.323 |
+| **Thời gian phát triển** | 18/01/2026 → 23/07/2026 (~6 tháng) |
 | **Modules hoạt động** | M0, M1, M3, M4, M6, M7, M8, MC, MF (9/11) |
 | **Modules planned / skeleton** | M5, M9 (2/11) |
-| **Tổng bảng DB** | 98 bảng (kiểm đếm live 22/07/2026) |
+| **Tổng bảng DB** | 99 bảng (kiểm đếm trên môi trường vận hành 23/07/2026) |
 | **Skills hỗ trợ** | 60+ |
 | **Node.js** | v24.14.1 (engines: >=20 <25) |
 
@@ -261,12 +302,18 @@
 
 ---
 
-## 📋 Ghi Chú Trạng Thái (22/07/2026)
+## 📋 Ghi Chú Trạng Thái (24/07/2026)
 
-- **Mới nhất:** PL4 Phase 1 (HR-Org-RBAC) hoàn tất ở nhánh local — **chưa deploy/merge**, đang chờ Owner review.
-- **Kiểm thử:** typecheck & lint sạch; kiểm thử cơ chế đạt; runtime phân quyền theo vai trò thật còn chờ (thiếu test identities).
-- **Môi trường dev:** MySQL local (Laragon) cần bật khi phát triển.
+- **Mới nhất:** Đợt R1/R1.1/R1.2 — **đã đưa lên vận hành thật ngày 23/07/2026**, không gián đoạn dịch vụ.
+- **PL4 (Nhân sự – Tổ chức – Phân quyền):** đã hợp nhất và **đang chạy thật** (đính chính cho các bản báo cáo trước ghi "chưa deploy/merge").
+- **Phân quyền:** đã kiểm chứng đầy đủ trên môi trường chạy thật — **126/126 đạt** (đính chính cho bản trước ghi "còn chờ, thiếu test identities").
+- **Cơ cấu tổ chức:** 6 phòng ban; 3 phòng ban cũ giữ nguyên mã; mã đã cấp là **bất biến**.
+- **Mô hình cấp bậc:** **Vị Trí chính là cấp bậc** (mô hình 8 cấp bậc độc lập đã bị thay thế).
+- **Nợ kỹ thuật đã biết:** kho mã còn tồn cảnh báo quy chuẩn **có từ trước** đợt này. Đợt R1/R1.1/R1.2 **không làm phát sinh thêm**; các tệp đã sửa đều sạch.
+- **Môi trường dev:** MySQL local cần bật khi phát triển.
 
 ---
 
-> **Cập nhật lần cuối:** 22/07/2026 — V0.285 (PL4 Phase 1: HR-Org-RBAC)
+> **Phát hành lên vận hành thật:** 23/07/2026 — V0.323 (Đợt R1/R1.1/R1.2)
+>
+> **Cập nhật báo cáo này:** 24/07/2026
