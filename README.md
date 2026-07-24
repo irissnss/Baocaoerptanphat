@@ -11,11 +11,11 @@
 | Thông tin | Chi tiết |
 |-----------|----------|
 | **Tên dự án** | ERP Tân Phát (Tân Phát Packaging) |
-| **Phiên bản mã nguồn** | `V0.327` |
-| **Phiên bản đang chạy thật** | `V0.327` ✅ (đã đưa lên vận hành 24/07/2026) |
-| **Mốc phiên bản hiện tại** | V0.327 |
+| **Phiên bản mã nguồn** | `V0.328` |
+| **Phiên bản đang chạy thật** | `V0.328` ✅ (đã đưa lên vận hành 24/07/2026) |
+| **Mốc phiên bản hiện tại** | V0.328 |
 | **Ngày bắt đầu** | 18/01/2026 |
-| **Phát hành lên vận hành thật** | 24/07/2026 — Đợt V0.326–V0.327 (gần nhất) · 23/07/2026 — Đợt R1/R1.1/R1.2 |
+| **Phát hành lên vận hành thật** | 24/07/2026 — Đợt V0.326–V0.328 (gần nhất) · 23/07/2026 — Đợt R1/R1.1/R1.2 |
 | **Cập nhật báo cáo này** | 24/07/2026 |
 | **Tech Stack** | Next.js 16.1.6 · React 19.2.4 · Tailwind 4.2.1 · TypeScript 5.9.3 · MariaDB 10.11 (production) · MySQL 8.4 (local development) |
 | **Architecture** | Server Actions + Server Components + SSE |
@@ -49,7 +49,9 @@
 
 > 📂 Xem chi tiết tiến độ từng module tại [MODULE-PROGRESS.md](MODULE-PROGRESS.md)
 >
-> 🚀 **MỚI NHẤT: V0.327 — Chuẩn hoá trang tính giá vào khung giao diện chung (24/07/2026). ĐÃ ĐƯA LÊN VẬN HÀNH THẬT**, không gián đoạn dịch vụ, dữ liệu nguyên vẹn.
+> 🚀 **MỚI NHẤT: V0.328 — Sửa biểu tượng tiêu đề bị ẩn, chuẩn hoá màu sắc, trợ lý tạo khách hàng vào khung chung (24/07/2026). ĐÃ ĐƯA LÊN VẬN HÀNH THẬT.**
+>
+> 🚀 **V0.327 — Chuẩn hoá trang tính giá vào khung giao diện chung (24/07/2026). ĐÃ ĐƯA LÊN VẬN HÀNH THẬT**, không gián đoạn dịch vụ, dữ liệu nguyên vẹn.
 >
 > 🏆 **V0.326 — Menu chuyển trang mượt, khung giao diện dùng chung, tăng tốc máy phát triển (24/07/2026).** Phát hành cùng đợt với V0.327.
 >
@@ -82,6 +84,45 @@
 > 🔒 [P01-SAFETY-VERIFICATION-V0218.md](P01-SAFETY-VERIFICATION-V0218.md) — Safety Report
 >
 > 📋 [GOLIVE-PLAN.md](GOLIVE-PLAN.md) — Kế hoạch Go-Live tổng quan
+
+---
+
+### V0.328 (24/07/2026) — Sửa biểu tượng bị ẩn, chuẩn hoá màu sắc, trợ lý tạo khách hàng vào khung chung · ĐÃ VẬN HÀNH THẬT
+
+> ✅ **Đã đưa lên môi trường vận hành thật ngày 24/07/2026.** Không gián đoạn dịch vụ.
+> Không đổi cấu trúc dữ liệu, không đổi dữ liệu thật, không đổi phân quyền.
+
+**🔍 Người dùng phản ánh:** biểu tượng ở tiêu đề trang bị ẩn; màu sắc chưa chuẩn, thiếu
+logic; trợ lý tạo khách hàng mở tách rời khỏi thanh menu.
+
+**🛠️ Đã xử lý**
+
+- **Sửa biểu tượng bị ẩn — lỗi ở toàn hệ thống, không riêng một trang.** Truy được tận
+  gốc: ô chứa biểu tượng ở thanh tiêu đề **không có nền**, trong khi **cả 10 màn hình**
+  đều dùng biểu tượng **màu trắng** → trắng trên nền trắng nên **không nhìn thấy**. Đã sửa
+  ngay tại thành phần dùng chung (một chỗ, cả 10 màn hình cùng hết lỗi).
+- **Gán màu biểu tượng theo từng phân hệ** đúng bảng màu chuẩn của dự án (Hệ Thống — cam,
+  Danh Mục — xanh dương, Bán Hàng — xanh ngọc, Sản Xuất — tím, Tài Chính — đỏ), thay vì
+  dùng chung một màu. Nhìn vào là **nhận ra ngay đang ở phân hệ nào**.
+- **Chuẩn hoá màu trang tính giá:** trước đây mỗi thẻ một màu (10 kiểu màu khác nhau,
+  rối mắt, không theo quy luật). Nay gom về **4 nhóm theo vai trò**:
+  *nhập liệu* — một màu thống nhất theo phân hệ · *kết quả & thông tin* — xanh dương ·
+  *giá tiền* — cam thương hiệu (điểm nhấn) · *chức năng chưa mở* — xám.
+  Người dùng nhìn màu là **đoán được vai trò của khối**, không phải đọc mới hiểu.
+- **Trợ lý tạo khách hàng** trước đây mở dạng bảng trượt che kín màn hình nên **mất thanh
+  menu**, thao tác rời rạc. Nay là **trang bình thường nằm trong khung chung**, vẫn thấy
+  thanh menu, đi lại liền mạch. **Giữ nguyên** cơ chế hỏi xác nhận khi rời trang lúc form
+  còn dở dang, và các bảng phụ (Liên hệ / Địa chỉ) vẫn hoạt động như cũ.
+
+**✅ Kiểm chứng sau phát hành**
+
+- Ứng dụng **online, 0 lần khởi động lại bất thường**; màn hình đăng nhập bình thường;
+  các đường dẫn nghiệp vụ phản hồi đúng; **không đường dẫn nào lỗi máy chủ**.
+- **Kiểm tra tận gói giao diện đã phát hành**: xác nhận **toàn bộ mã màu mới thật sự có
+  mặt** trong bản dựng — bảo đảm biểu tượng hiện đúng màu, không phải chỉ đúng trên máy
+  lập trình.
+
+**[Scope]** Giao diện + trải nghiệm. Không đụng công thức tính giá, không đổi nghiệp vụ.
 
 ---
 
@@ -398,7 +439,7 @@ trúc dữ liệu, không đổi dữ liệu thật, không đổi phân quyền
 
 | Metric | Giá trị |
 |--------|---------|
-| **Mốc phiên bản hiện tại** | V0.327 |
+| **Mốc phiên bản hiện tại** | V0.328 |
 | **Thời gian phát triển** | 18/01/2026 → 24/07/2026 (~6 tháng) |
 | **Modules hoạt động** | M0, M1, M3, M4, M6, M7, M8, MC, MF (9/11) |
 | **Modules planned / skeleton** | M5, M9 (2/11) |
