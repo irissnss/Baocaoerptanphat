@@ -11,11 +11,11 @@
 | Thông tin | Chi tiết |
 |-----------|----------|
 | **Tên dự án** | ERP Tân Phát (Tân Phát Packaging) |
-| **Phiên bản mã nguồn** | `V0.332` |
-| **Phiên bản đang chạy thật** | `V0.332` ✅ (đã đưa lên vận hành 25/07/2026) |
-| **Mốc phiên bản hiện tại** | V0.332 |
+| **Phiên bản mã nguồn** | `V0.333` |
+| **Phiên bản đang chạy thật** | `V0.333` ✅ (đã đưa lên vận hành 25/07/2026) |
+| **Mốc phiên bản hiện tại** | V0.333 |
 | **Ngày bắt đầu** | 18/01/2026 |
-| **Phát hành lên vận hành thật** | 24/07/2026 — Đợt V0.326–V0.332 (gần nhất) · 23/07/2026 — Đợt R1/R1.1/R1.2 |
+| **Phát hành lên vận hành thật** | 24/07/2026 — Đợt V0.326–V0.333 (gần nhất) · 23/07/2026 — Đợt R1/R1.1/R1.2 |
 | **Cập nhật báo cáo này** | 25/07/2026 |
 | **Tech Stack** | Next.js 16.1.6 · React 19.2.4 · Tailwind 4.2.1 · TypeScript 5.9.3 · MariaDB 10.11 (production) · MySQL 8.4 (local development) |
 | **Architecture** | Server Actions + Server Components + SSE |
@@ -49,7 +49,9 @@
 
 > 📂 Xem chi tiết tiến độ từng module tại [MODULE-PROGRESS.md](MODULE-PROGRESS.md)
 >
-> 🚀 **MỚI NHẤT: V0.332 — Tối ưu giao diện trên điện thoại và máy tính bảng, cả chiều ngang lẫn dọc (25/07/2026). ĐÃ ĐƯA LÊN VẬN HÀNH THẬT.**
+> 🚀 **MỚI NHẤT: V0.333 — Rà soát và sửa tràn ngang cho toàn bộ màn hình trên điện thoại (25/07/2026). ĐÃ ĐƯA LÊN VẬN HÀNH THẬT.**
+>
+> 🚀 **V0.332 — Tối ưu giao diện trên điện thoại và máy tính bảng, cả chiều ngang lẫn dọc (25/07/2026). ĐÃ ĐƯA LÊN VẬN HÀNH THẬT.**
 >
 > 🚀 **V0.330–V0.331 — Áp đồng loạt bo góc chuẩn cho toàn bộ màn hình (24/07/2026). ĐÃ ĐƯA LÊN VẬN HÀNH THẬT.**
 >
@@ -90,6 +92,47 @@
 > 🔒 [P01-SAFETY-VERIFICATION-V0218.md](P01-SAFETY-VERIFICATION-V0218.md) — Safety Report
 >
 > 📋 [GOLIVE-PLAN.md](GOLIVE-PLAN.md) — Kế hoạch Go-Live tổng quan
+
+---
+
+### V0.333 (25/07/2026) — Rà soát & sửa tràn ngang cho toàn bộ màn hình trên điện thoại · ĐÃ VẬN HÀNH THẬT
+
+> ✅ **Đã đưa lên môi trường vận hành thật ngày 25/07/2026.** Không gián đoạn dịch vụ.
+> Không đổi cấu trúc dữ liệu, không đổi dữ liệu thật, không đổi phân quyền.
+
+**🔍 Bối cảnh:** đợt trước mới đo được các màn hình không cần đăng nhập. Lần này rà **toàn
+bộ màn hình bên trong** để bảo đảm không màn hình nào bị **trôi ngang** trên điện thoại.
+
+**🔬 Cách kiểm — bằng trình duyệt thật, tự động**
+
+- Đo **toàn bộ 33 màn hình × 3 kích thước = 99 lượt** bằng trình duyệt mô phỏng điện thoại.
+- **Phân biệt rõ hai tình huống** để không báo động nhầm: *bảng cuộn ngang bên trong khung
+  của nó* (đúng thiết kế) khác với *cả trang bị trôi ngang* (lỗi thật). Nhờ vậy khoanh
+  đúng **7 màn hình lỗi thật** cần sửa, không đụng nhầm những màn hình vốn đã đúng.
+- *(Kỹ thuật: tạo một phiên đăng nhập tạm chỉ trên máy phát triển để đo, xoá ngay sau khi
+  xong — không đổi mật khẩu, không đụng dữ liệu thật, không đụng môi trường vận hành.)*
+
+**🛠️ Đã xử lý 7 màn hình**
+
+- **Giao Hàng, Mua Hàng, NCC Vật Tư (Kho Hàng):** khung nội dung không co lại được + phần
+  chừa chỗ cho bảng chi tiết (chỉ dành cho máy tính) vẫn áp trên điện thoại → đẩy trôi
+  ngang. Đã cho khung co đúng bề ngang máy và chỉ chừa chỗ trên màn hình lớn.
+- **CRM:** nền màu kéo ra ngoài khung bằng lề âm → trên điện thoại tràn ra ngoài. Đã đưa
+  nền về gọn trong khung, đồng bộ với các màn hình khác.
+- **Lệnh Sản Xuất:** bảng bị khung cắt thay vì cho cuộn → đã cho cuộn ngang.
+- **Cấu Hình Tính Giá:** hàng thẻ điều hướng dài không cuộn được → đã cho cuộn.
+- **Ba màn hình thiết kế riêng** còn vài chi tiết trang trí gây trôi → đã chặn trôi ngang
+  **ở phạm vi từng màn hình** (không phải toàn hệ thống). Vì các bảng đều **đã có vùng cuộn
+  riêng**, đã **kiểm chứng bằng trình duyệt** rằng **bảng vẫn cuộn được bình thường** —
+  không mất chức năng.
+
+**✅ Kiểm chứng sau phát hành**
+
+- Ứng dụng **online, 0 lần khởi động lại bất thường**; các đường dẫn nghiệp vụ phản hồi đúng.
+- **Đo lại toàn bộ 33 màn hình × 3 kích thước: không màn hình nào còn trôi ngang.**
+- Bảy màn hình đã sửa: **màn hình đứng yên, bảng vẫn cuộn được** — xác nhận không mất chức năng.
+
+**[Scope]** Giao diện trên điện thoại. Không đổi nghiệp vụ, không đổi dữ liệu.
 
 ---
 
@@ -578,7 +621,7 @@ trúc dữ liệu, không đổi dữ liệu thật, không đổi phân quyền
 
 | Metric | Giá trị |
 |--------|---------|
-| **Mốc phiên bản hiện tại** | V0.332 |
+| **Mốc phiên bản hiện tại** | V0.333 |
 | **Thời gian phát triển** | 18/01/2026 → 24/07/2026 (~6 tháng) |
 | **Modules hoạt động** | M0, M1, M3, M4, M6, M7, M8, MC, MF (9/11) |
 | **Modules planned / skeleton** | M5, M9 (2/11) |
