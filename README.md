@@ -11,11 +11,11 @@
 | Thông tin | Chi tiết |
 |-----------|----------|
 | **Tên dự án** | ERP Tân Phát (Tân Phát Packaging) |
-| **Phiên bản mã nguồn** | `V0.328` |
-| **Phiên bản đang chạy thật** | `V0.328` ✅ (đã đưa lên vận hành 24/07/2026) |
-| **Mốc phiên bản hiện tại** | V0.328 |
+| **Phiên bản mã nguồn** | `V0.329` |
+| **Phiên bản đang chạy thật** | `V0.329` ✅ (đã đưa lên vận hành 24/07/2026) |
+| **Mốc phiên bản hiện tại** | V0.329 |
 | **Ngày bắt đầu** | 18/01/2026 |
-| **Phát hành lên vận hành thật** | 24/07/2026 — Đợt V0.326–V0.328 (gần nhất) · 23/07/2026 — Đợt R1/R1.1/R1.2 |
+| **Phát hành lên vận hành thật** | 24/07/2026 — Đợt V0.326–V0.329 (gần nhất) · 23/07/2026 — Đợt R1/R1.1/R1.2 |
 | **Cập nhật báo cáo này** | 24/07/2026 |
 | **Tech Stack** | Next.js 16.1.6 · React 19.2.4 · Tailwind 4.2.1 · TypeScript 5.9.3 · MariaDB 10.11 (production) · MySQL 8.4 (local development) |
 | **Architecture** | Server Actions + Server Components + SSE |
@@ -49,7 +49,9 @@
 
 > 📂 Xem chi tiết tiến độ từng module tại [MODULE-PROGRESS.md](MODULE-PROGRESS.md)
 >
-> 🚀 **MỚI NHẤT: V0.328 — Sửa biểu tượng tiêu đề bị ẩn, chuẩn hoá màu sắc, trợ lý tạo khách hàng vào khung chung (24/07/2026). ĐÃ ĐƯA LÊN VẬN HÀNH THẬT.**
+> 🚀 **MỚI NHẤT: V0.329 — Chuẩn hoá không gian làm việc và bo góc theo một khuôn mẫu duy nhất (24/07/2026). ĐÃ ĐƯA LÊN VẬN HÀNH THẬT.**
+>
+> 🚀 **V0.328 — Sửa biểu tượng tiêu đề bị ẩn, chuẩn hoá màu sắc, trợ lý tạo khách hàng vào khung chung (24/07/2026). ĐÃ ĐƯA LÊN VẬN HÀNH THẬT.**
 >
 > 🚀 **V0.327 — Chuẩn hoá trang tính giá vào khung giao diện chung (24/07/2026). ĐÃ ĐƯA LÊN VẬN HÀNH THẬT**, không gián đoạn dịch vụ, dữ liệu nguyên vẹn.
 >
@@ -84,6 +86,49 @@
 > 🔒 [P01-SAFETY-VERIFICATION-V0218.md](P01-SAFETY-VERIFICATION-V0218.md) — Safety Report
 >
 > 📋 [GOLIVE-PLAN.md](GOLIVE-PLAN.md) — Kế hoạch Go-Live tổng quan
+
+---
+
+### V0.329 (24/07/2026) — Chuẩn hoá không gian làm việc & bo góc theo một khuôn mẫu duy nhất · ĐÃ VẬN HÀNH THẬT
+
+> ✅ **Đã đưa lên môi trường vận hành thật ngày 24/07/2026.** Không gián đoạn dịch vụ.
+> Không đổi cấu trúc dữ liệu, không đổi dữ liệu thật, không đổi phân quyền.
+
+**🔍 Người dùng phản ánh:** không gian làm việc của màn hình Tính Giá và Cấu Hình Tính Giá
+chưa tối ưu, **viền còn quá lớn**, **góc bo quá tròn**, và **chưa nhất quán** với các màn
+hình khác. Người dùng chỉ định một **màn hình mẫu** để đối chiếu.
+
+**🔎 Truy được gốc rễ — 3 điểm lệch so với màn hình mẫu**
+
+1. **Ba lớp viền chồng nhau.** Màn hình mẫu chỉ có một lớp viền, còn các màn hình khác bị
+   bọc thêm hai lớp khung → chữ tiêu đề bị đẩy vào sâu **gần gấp ba** so với mẫu.
+2. **Vùng nội dung của mẫu không có viền ngang trên màn hình lớn** — nhờ vậy bảng trải sát
+   mép, tận dụng tối đa bề ngang. Đây là điểm mấu chốt và đã bị bỏ sót ở hai lượt sửa đầu.
+3. **Bo góc**: mẫu dùng độ bo **nhỏ** cho thẻ chính, trong khi các màn hình khác dùng độ bo
+   **gấp đôi** → cảm giác "quá tròn".
+
+**🛠️ Đã xử lý**
+
+- **Hai màn hình tính giá**: bỏ hoàn toàn hai lớp khung thừa, dùng tiêu đề phẳng sát mép và
+  vùng nội dung không viền ngang — **giống hệt màn hình mẫu**. Nhãn trạng thái dùng **biến
+  màu chuẩn của hệ thống** (không gán màu cứng) nên tự động đúng theo bộ màu chung.
+- **Áp dụng đồng loạt cho các màn hình còn lại** bằng cách sửa tại **5 thành phần nền tảng
+  dùng chung** thay vì sửa từng màn hình. Nhờ vậy **mọi màn hình đang có và sẽ có đều tự
+  động theo một khuôn**, không còn tình trạng mỗi nơi một kiểu.
+- **Thống nhất bo góc về đúng một thông số** trên cả 5 thành phần nền tảng.
+- Điều chỉnh **trợ lý tạo khách hàng** về dạng bảng trượt cho **đồng bộ với các biểu mẫu
+  nhập liệu khác**, với bề ngang nằm trong dải chuẩn (trước đó rộng gần gấp đôi các biểu
+  mẫu khác nên che gần hết màn hình).
+
+**✅ Kiểm chứng sau phát hành**
+
+- Ứng dụng **online, 0 lần khởi động lại bất thường**; màn hình đăng nhập bình thường; các
+  đường dẫn nghiệp vụ phản hồi đúng; **không đường dẫn nào lỗi máy chủ**.
+- **Kiểm tra tận gói giao diện đã phát hành**: đối chiếu **10/10 thông số bố cục và bo góc**
+  — tất cả đều thật sự có mặt trong bản dựng, bảo đảm hiển thị đúng trên môi trường vận
+  hành chứ không chỉ đúng trên máy lập trình.
+
+**[Scope]** Giao diện + trải nghiệm. Không đụng công thức tính giá, không đổi nghiệp vụ.
 
 ---
 
@@ -439,7 +484,7 @@ trúc dữ liệu, không đổi dữ liệu thật, không đổi phân quyền
 
 | Metric | Giá trị |
 |--------|---------|
-| **Mốc phiên bản hiện tại** | V0.328 |
+| **Mốc phiên bản hiện tại** | V0.329 |
 | **Thời gian phát triển** | 18/01/2026 → 24/07/2026 (~6 tháng) |
 | **Modules hoạt động** | M0, M1, M3, M4, M6, M7, M8, MC, MF (9/11) |
 | **Modules planned / skeleton** | M5, M9 (2/11) |
