@@ -11,9 +11,9 @@
 | Thông tin | Chi tiết |
 |-----------|----------|
 | **Tên dự án** | ERP Tân Phát (Tân Phát Packaging) |
-| **Phiên bản mã nguồn** | `V0.323` |
-| **Phiên bản đang chạy thật** | `V0.323` |
-| **Mốc phiên bản hiện tại** | V0.323 |
+| **Phiên bản mã nguồn** | `V0.324` |
+| **Phiên bản đang chạy thật** | `V0.324` |
+| **Mốc phiên bản hiện tại** | V0.324 |
 | **Ngày bắt đầu** | 18/01/2026 |
 | **Phát hành lên vận hành thật** | 23/07/2026 — Đợt R1/R1.1/R1.2 |
 | **Cập nhật báo cáo này** | 24/07/2026 |
@@ -49,7 +49,9 @@
 
 > 📂 Xem chi tiết tiến độ từng module tại [MODULE-PROGRESS.md](MODULE-PROGRESS.md)
 >
-> 🏆 **MỚI NHẤT (V0.323 · phát hành 23/07/2026) — Đợt R1/R1.1/R1.2.** Gia cố an toàn hiển thị nội dung HTML và bản in; sửa lỗi **không tạo được nhân viên**; khoá **mã Phòng Ban thành bất biến**; sửa lỗi **ô chọn Khuôn / Kiểu In hiện trống** trên form in; chuẩn hoá cơ cấu tổ chức lên **6 phòng ban**; kiểm chứng khả năng khôi phục dữ liệu bằng cách phục hồi thật vào môi trường tách biệt. Đã đưa lên vận hành thật, **không gián đoạn dịch vụ**. Chi tiết ở mục Changelog bên dưới.
+> 🏆 **MỚI NHẤT: V0.324 — Chuẩn hóa workspace và tài liệu vận hành (24/07/2026).**
+>
+> 🚀 **Bản phát hành chức năng gần nhất: V0.323 · 23/07/2026 — Đợt R1/R1.1/R1.2.** Gia cố an toàn hiển thị nội dung HTML và bản in; sửa lỗi **không tạo được nhân viên**; khoá **mã Phòng Ban thành bất biến**; sửa lỗi **ô chọn Khuôn / Kiểu In hiện trống** trên form in; chuẩn hoá cơ cấu tổ chức lên **6 phòng ban**; kiểm chứng khả năng khôi phục dữ liệu bằng cách phục hồi thật vào môi trường tách biệt. Đã đưa lên vận hành thật, **không gián đoạn dịch vụ**. Chi tiết ở mục Changelog bên dưới.
 >
 > 🗂️ *Các mục 🏆/🔐/✅ bên dưới là báo cáo LỊCH SỬ (V0.218–V0.227) — lưu tham khảo, không phải bản mới nhất.*
 >
@@ -78,6 +80,19 @@
 > 🔒 [P01-SAFETY-VERIFICATION-V0218.md](P01-SAFETY-VERIFICATION-V0218.md) — Safety Report
 >
 > 📋 [GOLIVE-PLAN.md](GOLIVE-PLAN.md) — Kế hoạch Go-Live tổng quan
+
+---
+
+### V0.324 (24/07/2026) — Chuẩn hóa workspace và tài liệu vận hành
+
+> 🧹 **Không thay đổi logic vận hành, cấu trúc dữ liệu hay dữ liệu thật.**
+
+- Hợp nhất về **một thư mục dự án chuẩn duy nhất**.
+- **Gỡ bỏ thư mục làm việc Git tạm thời** đã hết vai trò.
+- **Sửa tài liệu đường dẫn cục bộ đang dùng** từ ổ `E:` sang ổ `D:`.
+- **Đưa vào quản lý phiên bản** sơ đồ workspace và quy tắc dự án bắt buộc còn thiếu.
+- **Lưu trữ và gỡ bỏ các nhánh đã bị thay thế**.
+- **[Scope]** Workspace + tài liệu. Không đổi logic vận hành, không đổi cấu trúc dữ liệu, không đổi dữ liệu thật.
 
 ---
 
@@ -159,11 +174,11 @@
 - Rà soát cho thấy chức năng **tạo Vị Trí trên môi trường thật đã hỏng sẵn từ trước** do lệch cấu trúc dữ liệu. Lần triển khai này **khắc phục luôn** lỗi tồn đọng đó.
 - Đính chính: cảnh báo ban đầu về khả năng lệch cấu trúc diện rộng là **không đúng** — sau khi đối chiếu đầy đủ, hai môi trường **khớp nhau**, chỉ thiếu duy nhất phần dữ liệu nền của bộ đếm.
 
-#### ✅ Kết quả kiểm chứng sau triển khai
+#### ✅ Kết quả kiểm chứng sau triển khai R1/R1.1/R1.2 (mốc 23/07/2026)
 
 | Hạng mục | Kết quả |
 |---|---|
-| Phiên bản đang chạy | **V0.323** |
+| Phiên bản đang chạy khi nghiệm thu | **V0.323** |
 | Trang đăng nhập | Hoạt động bình thường |
 | Các trang có bảo vệ | Chuyển hướng đăng nhập đúng — **phân quyền nguyên vẹn** |
 | Tiến trình ứng dụng | **Online**, **0 lần khởi động lại ngoài ý muốn** |
@@ -272,13 +287,13 @@
 
 | Metric | Giá trị |
 |--------|---------|
-| **Mốc phiên bản hiện tại** | V0.323 |
+| **Mốc phiên bản hiện tại** | V0.324 |
 | **Thời gian phát triển** | 18/01/2026 → 23/07/2026 (~6 tháng) |
 | **Modules hoạt động** | M0, M1, M3, M4, M6, M7, M8, MC, MF (9/11) |
 | **Modules planned / skeleton** | M5, M9 (2/11) |
 | **Tổng bảng DB** | 99 bảng (kiểm đếm trên môi trường vận hành 23/07/2026) |
 | **Skills hỗ trợ** | 60+ |
-| **Node.js** | v24.14.1 (engines: >=20 <25) |
+| **Node.js** | v20.20.0 (môi trường vận hành) · v24.18.0 (máy phát triển) · engines: >=20 <25 |
 
 ---
 
@@ -298,7 +313,7 @@
 
 - **Main repo (private):** `irissnss/erptanphat`
 - **Báo cáo này (public):** [`irissnss/Baocaoerptanphat`](https://github.com/irissnss/Baocaoerptanphat)
-- **Notion workspace:** Synced qua Notion MCP
+- **Notion workspace:** tài liệu quản trị nội bộ
 
 ---
 
