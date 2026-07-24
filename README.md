@@ -11,11 +11,11 @@
 | Thông tin | Chi tiết |
 |-----------|----------|
 | **Tên dự án** | ERP Tân Phát (Tân Phát Packaging) |
-| **Phiên bản mã nguồn** | `V0.326` |
-| **Phiên bản đang chạy thật** | `V0.325` (V0.326 **chưa** đưa lên vận hành) |
-| **Mốc phiên bản hiện tại** | V0.326 |
+| **Phiên bản mã nguồn** | `V0.327` |
+| **Phiên bản đang chạy thật** | `V0.327` ✅ (đã đưa lên vận hành 24/07/2026) |
+| **Mốc phiên bản hiện tại** | V0.327 |
 | **Ngày bắt đầu** | 18/01/2026 |
-| **Phát hành lên vận hành thật** | 23/07/2026 — Đợt R1/R1.1/R1.2 |
+| **Phát hành lên vận hành thật** | 24/07/2026 — Đợt V0.326–V0.327 (gần nhất) · 23/07/2026 — Đợt R1/R1.1/R1.2 |
 | **Cập nhật báo cáo này** | 24/07/2026 |
 | **Tech Stack** | Next.js 16.1.6 · React 19.2.4 · Tailwind 4.2.1 · TypeScript 5.9.3 · MariaDB 10.11 (production) · MySQL 8.4 (local development) |
 | **Architecture** | Server Actions + Server Components + SSE |
@@ -49,7 +49,9 @@
 
 > 📂 Xem chi tiết tiến độ từng module tại [MODULE-PROGRESS.md](MODULE-PROGRESS.md)
 >
-> 🏆 **MỚI NHẤT: V0.326 — Menu chuyển trang mượt, khung giao diện dùng chung, tăng tốc máy phát triển (24/07/2026).** Đã hoàn tất trên máy phát triển, **chưa đưa lên vận hành thật**.
+> 🚀 **MỚI NHẤT: V0.327 — Chuẩn hoá trang tính giá vào khung giao diện chung (24/07/2026). ĐÃ ĐƯA LÊN VẬN HÀNH THẬT**, không gián đoạn dịch vụ, dữ liệu nguyên vẹn.
+>
+> 🏆 **V0.326 — Menu chuyển trang mượt, khung giao diện dùng chung, tăng tốc máy phát triển (24/07/2026).** Phát hành cùng đợt với V0.327.
 >
 > 🚀 **Bản phát hành chức năng gần nhất: V0.323 · 23/07/2026 — Đợt R1/R1.1/R1.2.** Gia cố an toàn hiển thị nội dung HTML và bản in; sửa lỗi **không tạo được nhân viên**; khoá **mã Phòng Ban thành bất biến**; sửa lỗi **ô chọn Khuôn / Kiểu In hiện trống** trên form in; chuẩn hoá cơ cấu tổ chức lên **6 phòng ban**; kiểm chứng khả năng khôi phục dữ liệu bằng cách phục hồi thật vào môi trường tách biệt. Đã đưa lên vận hành thật, **không gián đoạn dịch vụ**. Chi tiết ở mục Changelog bên dưới.
 >
@@ -80,6 +82,46 @@
 > 🔒 [P01-SAFETY-VERIFICATION-V0218.md](P01-SAFETY-VERIFICATION-V0218.md) — Safety Report
 >
 > 📋 [GOLIVE-PLAN.md](GOLIVE-PLAN.md) — Kế hoạch Go-Live tổng quan
+
+---
+
+### V0.327 (24/07/2026) — Chuẩn hoá trang tính giá vào khung giao diện chung · ĐÃ VẬN HÀNH THẬT
+
+> ✅ **Đã đưa lên môi trường vận hành thật ngày 24/07/2026**, cùng đợt với V0.326.
+> **Không gián đoạn dịch vụ. Dữ liệu nguyên vẹn.**
+
+**🎨 Nội dung thay đổi**
+
+- **Các trang tính giá** trước đây được dựng như ứng dụng riêng biệt (có thanh tiêu đề
+  riêng chiếm trọn bề ngang), nên sau khi đưa vào khung ERP thì bị **hai thanh tiêu đề
+  chồng nhau**. Nay đã chuẩn hoá về đúng bố cục chung của hệ thống — nhìn liền mạch,
+  thao tác thống nhất với các màn hình khác.
+- **Trang cấu hình tính giá** dùng tông tối riêng (chữ sáng trên nền tối) nên không thể
+  đổi sang nền sáng (sẽ mất chữ). Giải pháp: giữ phần nội dung tối gọn thành **một khối
+  bo góc** nằm trong khung ERP, phía trên là thanh tiêu đề chuẩn — vừa liền mạch vừa
+  **không phải sửa hàng loạt màu sắc** (tránh rủi ro làm hỏng màn hình đang dùng tốt).
+- **Trang quản lý bảng giá công đoạn**: thay tiêu đề riêng bằng thanh tiêu đề chuẩn.
+- Chỉ thay **lớp vỏ trình bày** — **không đụng công thức tính giá**, không đổi logic
+  nghiệp vụ, không đổi dữ liệu.
+
+**🔒 An toàn khi phát hành**
+
+- **Sao lưu toàn bộ dữ liệu vận hành trước khi phát hành** (kiểm tra tệp sao lưu toàn vẹn,
+  đủ 99 bảng, có dữ liệu thật). Bản sao lưu gần nhất trước đó đã cũ gần 3 tháng — đã bổ
+  sung bản mới trước khi chạy nâng cấp cấu trúc.
+- Chạy đầy đủ các cổng kiểm tra tương thích cấu trúc dữ liệu trước khi dựng bản chạy.
+- **Đối chiếu sau phát hành:** tổng số bảng **không đổi**; số nhân viên, phòng ban, vai
+  trò, khách hàng, tài khoản **khớp đúng** với số liệu đã ghi nhận trước đó → **không mất
+  dữ liệu**.
+- Kiểm chứng hoạt động: tiến trình ứng dụng **online, 0 lần khởi động lại bất thường**;
+  màn hình đăng nhập truy cập được bình thường; các đường dẫn nghiệp vụ phản hồi đúng;
+  **không có đường dẫn nào lỗi máy chủ**.
+
+**ℹ️ Lưu ý cho người dùng:** sau mỗi lần phát hành, nếu đang mở sẵn tab cũ thì **tải lại
+trang (F5) một lần** để dùng bản mới.
+
+**[Scope]** Giao diện + phát hành. Không đổi cấu trúc dữ liệu, không đổi dữ liệu thật,
+không đổi phân quyền.
 
 ---
 
@@ -356,7 +398,7 @@ trúc dữ liệu, không đổi dữ liệu thật, không đổi phân quyền
 
 | Metric | Giá trị |
 |--------|---------|
-| **Mốc phiên bản hiện tại** | V0.326 |
+| **Mốc phiên bản hiện tại** | V0.327 |
 | **Thời gian phát triển** | 18/01/2026 → 24/07/2026 (~6 tháng) |
 | **Modules hoạt động** | M0, M1, M3, M4, M6, M7, M8, MC, MF (9/11) |
 | **Modules planned / skeleton** | M5, M9 (2/11) |
