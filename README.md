@@ -11,9 +11,9 @@
 | Thông tin | Chi tiết |
 |-----------|----------|
 | **Tên dự án** | ERP Tân Phát (Tân Phát Packaging) |
-| **Phiên bản mã nguồn** | `V0.324` |
-| **Phiên bản đang chạy thật** | `V0.324` |
-| **Mốc phiên bản hiện tại** | V0.324 |
+| **Phiên bản mã nguồn** | `V0.325` |
+| **Phiên bản đang chạy thật** | `V0.325` |
+| **Mốc phiên bản hiện tại** | V0.325 |
 | **Ngày bắt đầu** | 18/01/2026 |
 | **Phát hành lên vận hành thật** | 23/07/2026 — Đợt R1/R1.1/R1.2 |
 | **Cập nhật báo cáo này** | 24/07/2026 |
@@ -49,7 +49,7 @@
 
 > 📂 Xem chi tiết tiến độ từng module tại [MODULE-PROGRESS.md](MODULE-PROGRESS.md)
 >
-> 🏆 **MỚI NHẤT: V0.324 — Chuẩn hóa workspace và tài liệu vận hành (24/07/2026).**
+> 🏆 **MỚI NHẤT: V0.325 — An toàn đường dẫn và chuẩn hóa chính sách phát hành (24/07/2026).**
 >
 > 🚀 **Bản phát hành chức năng gần nhất: V0.323 · 23/07/2026 — Đợt R1/R1.1/R1.2.** Gia cố an toàn hiển thị nội dung HTML và bản in; sửa lỗi **không tạo được nhân viên**; khoá **mã Phòng Ban thành bất biến**; sửa lỗi **ô chọn Khuôn / Kiểu In hiện trống** trên form in; chuẩn hoá cơ cấu tổ chức lên **6 phòng ban**; kiểm chứng khả năng khôi phục dữ liệu bằng cách phục hồi thật vào môi trường tách biệt. Đã đưa lên vận hành thật, **không gián đoạn dịch vụ**. Chi tiết ở mục Changelog bên dưới.
 >
@@ -80,6 +80,29 @@
 > 🔒 [P01-SAFETY-VERIFICATION-V0218.md](P01-SAFETY-VERIFICATION-V0218.md) — Safety Report
 >
 > 📋 [GOLIVE-PLAN.md](GOLIVE-PLAN.md) — Kế hoạch Go-Live tổng quan
+
+---
+
+### V0.325 (24/07/2026) — An toàn đường dẫn và chuẩn hóa chính sách phát hành
+
+> 🔧 **Bản phát hành bảo trì.** Không thay đổi cấu trúc dữ liệu, không thay đổi dữ liệu thật.
+
+- **Loại bỏ tham chiếu thư mục gốc đã lỗi thời** trong toàn bộ tài liệu và hướng
+  dẫn đang dùng — trước đây một số nơi vẫn trỏ về vị trí dự án cũ, dễ khiến người
+  vận hành thao tác nhầm chỗ.
+- **Gia cố công cụ bảo trì kho mã:** công cụ dọn dung lượng nay **tự xác định**
+  thư mục dự án và **đối chiếu lại** trước khi làm bất cứ điều gì; **mặc định chỉ
+  xem trước**, phải nêu rõ ý định mới thực thi; in toàn bộ kế hoạch trước khi chạy
+  và từ chối mọi mục tiêu nằm ngoài phạm vi đã xác thực.
+- **Chuẩn hóa cách đánh phiên bản:** mỗi đợt phát hành chỉ tăng phiên bản **đúng
+  một lần** và **có chủ đích**, thay cho cơ chế tự động tăng ở mỗi lần lưu thay đổi.
+- **Thay đổi chỉ về tài liệu không còn làm tăng phiên bản ứng dụng** — nhờ vậy số
+  hiệu phiên bản giữa máy phát triển, kho chung và môi trường vận hành không còn
+  bị lệch.
+- Bổ sung **cổng kiểm tra trước khi triển khai**: chỉ cho phép đưa lên vận hành một
+  bản phát hành thật sự, không cho phép đẩy nhầm một bản trung gian.
+- **[Scope]** Công cụ + tài liệu + quy trình phát hành. Không đổi cấu trúc dữ liệu,
+  không đổi dữ liệu thật.
 
 ---
 
@@ -287,7 +310,7 @@
 
 | Metric | Giá trị |
 |--------|---------|
-| **Mốc phiên bản hiện tại** | V0.324 |
+| **Mốc phiên bản hiện tại** | V0.325 |
 | **Thời gian phát triển** | 18/01/2026 → 23/07/2026 (~6 tháng) |
 | **Modules hoạt động** | M0, M1, M3, M4, M6, M7, M8, MC, MF (9/11) |
 | **Modules planned / skeleton** | M5, M9 (2/11) |
