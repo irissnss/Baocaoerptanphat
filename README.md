@@ -11,11 +11,11 @@
 | Thông tin | Chi tiết |
 |-----------|----------|
 | **Tên dự án** | ERP Tân Phát (Tân Phát Packaging) |
-| **Phiên bản mã nguồn** | `V0.329` |
-| **Phiên bản đang chạy thật** | `V0.329` ✅ (đã đưa lên vận hành 24/07/2026) |
-| **Mốc phiên bản hiện tại** | V0.329 |
+| **Phiên bản mã nguồn** | `V0.331` |
+| **Phiên bản đang chạy thật** | `V0.331` ✅ (đã đưa lên vận hành 24/07/2026) |
+| **Mốc phiên bản hiện tại** | V0.331 |
 | **Ngày bắt đầu** | 18/01/2026 |
-| **Phát hành lên vận hành thật** | 24/07/2026 — Đợt V0.326–V0.329 (gần nhất) · 23/07/2026 — Đợt R1/R1.1/R1.2 |
+| **Phát hành lên vận hành thật** | 24/07/2026 — Đợt V0.326–V0.331 (gần nhất) · 23/07/2026 — Đợt R1/R1.1/R1.2 |
 | **Cập nhật báo cáo này** | 24/07/2026 |
 | **Tech Stack** | Next.js 16.1.6 · React 19.2.4 · Tailwind 4.2.1 · TypeScript 5.9.3 · MariaDB 10.11 (production) · MySQL 8.4 (local development) |
 | **Architecture** | Server Actions + Server Components + SSE |
@@ -49,7 +49,9 @@
 
 > 📂 Xem chi tiết tiến độ từng module tại [MODULE-PROGRESS.md](MODULE-PROGRESS.md)
 >
-> 🚀 **MỚI NHẤT: V0.329 — Chuẩn hoá không gian làm việc và bo góc theo một khuôn mẫu duy nhất (24/07/2026). ĐÃ ĐƯA LÊN VẬN HÀNH THẬT.**
+> 🚀 **MỚI NHẤT: V0.330–V0.331 — Áp đồng loạt bo góc chuẩn cho toàn bộ màn hình (24/07/2026). ĐÃ ĐƯA LÊN VẬN HÀNH THẬT.**
+>
+> 🚀 **V0.329 — Chuẩn hoá không gian làm việc và bo góc theo một khuôn mẫu duy nhất (24/07/2026). ĐÃ ĐƯA LÊN VẬN HÀNH THẬT.**
 >
 > 🚀 **V0.328 — Sửa biểu tượng tiêu đề bị ẩn, chuẩn hoá màu sắc, trợ lý tạo khách hàng vào khung chung (24/07/2026). ĐÃ ĐƯA LÊN VẬN HÀNH THẬT.**
 >
@@ -86,6 +88,41 @@
 > 🔒 [P01-SAFETY-VERIFICATION-V0218.md](P01-SAFETY-VERIFICATION-V0218.md) — Safety Report
 >
 > 📋 [GOLIVE-PLAN.md](GOLIVE-PLAN.md) — Kế hoạch Go-Live tổng quan
+
+---
+
+### V0.330–V0.331 (24/07/2026) — Áp đồng loạt bo góc chuẩn cho toàn bộ màn hình · ĐÃ VẬN HÀNH THẬT
+
+> ✅ **Đã đưa lên môi trường vận hành thật ngày 24/07/2026.** Không gián đoạn dịch vụ.
+> Không đổi cấu trúc dữ liệu, không đổi dữ liệu thật, không đổi phân quyền.
+
+**🔍 Người dùng phản ánh:** sau đợt trước, **một số màn hình vẫn còn góc bo lớn** —
+điển hình là màn hình Khách Hàng.
+
+**🔎 Nguyên nhân:** đợt trước mới chuẩn hoá **các thành phần nền tảng dùng chung**. Nhưng
+nhiều màn hình **tự dựng giao diện riêng**, không dùng thành phần nền tảng, nên không được
+hưởng thay đổi đó.
+
+**🛠️ Đã xử lý**
+
+- **Rà soát toàn bộ mã nguồn:** phát hiện **324 vị trí** dùng độ bo lớn hơn chuẩn, rải rác
+  trong **54 tệp** — nhiều nhất ở các màn hình Đơn Hàng, Lệnh Sản Xuất, Kho Hàng, Báo Giá,
+  Thiết Kế.
+- **Hạ toàn bộ về đúng một thông số chuẩn** (theo màn hình mẫu người dùng chỉ định), xử lý
+  cả các biến thể bo theo hướng (trên/dưới/từng góc). Kết quả: **320 vị trí / 53 tệp**.
+- **Giữ nguyên** độ bo của ô nhập liệu, nút bấm và nhãn tròn — đúng như màn hình mẫu, nên
+  giao diện không bị vuông cứng quá mức.
+- **An toàn:** chỉ thay **bán kính bo góc**, **không đụng** cấu trúc, màu sắc hay logic
+  nghiệp vụ. Bỏ qua các dòng ghi chú để không làm mất ý nghĩa tài liệu.
+
+**✅ Kiểm chứng sau phát hành**
+
+- Ứng dụng **online, 0 lần khởi động lại bất thường**; các đường dẫn nghiệp vụ phản hồi
+  đúng; **không đường dẫn nào lỗi máy chủ**.
+- **Rà lại toàn bộ mã nguồn: 0 vị trí** còn dùng độ bo lớn hơn chuẩn.
+- Phân bố cuối cùng: bo chuẩn cho thẻ **571 vị trí** · nhãn tròn **397** · ô nhập/nút **377**.
+
+**[Scope]** Giao diện. Không đổi nghiệp vụ, không đổi dữ liệu.
 
 ---
 
@@ -484,7 +521,7 @@ trúc dữ liệu, không đổi dữ liệu thật, không đổi phân quyền
 
 | Metric | Giá trị |
 |--------|---------|
-| **Mốc phiên bản hiện tại** | V0.329 |
+| **Mốc phiên bản hiện tại** | V0.331 |
 | **Thời gian phát triển** | 18/01/2026 → 24/07/2026 (~6 tháng) |
 | **Modules hoạt động** | M0, M1, M3, M4, M6, M7, M8, MC, MF (9/11) |
 | **Modules planned / skeleton** | M5, M9 (2/11) |
