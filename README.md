@@ -11,9 +11,9 @@
 | Thông tin | Chi tiết |
 |-----------|----------|
 | **Tên dự án** | ERP Tân Phát (Tân Phát Packaging) |
-| **Phiên bản mã nguồn** | `V0.329` |
-| **Phiên bản đang chạy thật** | `V0.325` (V0.326–V0.329 **chưa** đưa lên vận hành) |
-| **Mốc phiên bản hiện tại** | V0.329 |
+| **Phiên bản mã nguồn** | `V0.330` |
+| **Phiên bản đang chạy thật** | `V0.325` (V0.326–V0.330 **chưa** đưa lên vận hành) |
+| **Mốc phiên bản hiện tại** | V0.330 |
 | **Ngày bắt đầu** | 18/01/2026 |
 | **Phát hành lên vận hành thật** | 23/07/2026 — Đợt R1/R1.1/R1.2 |
 | **Cập nhật báo cáo này** | 24/07/2026 |
@@ -49,7 +49,9 @@
 
 > 📂 Xem chi tiết tiến độ từng module tại [MODULE-PROGRESS.md](MODULE-PROGRESS.md)
 >
-> 🏆 **MỚI NHẤT: V0.329 — Gắn Start/Restart vào công cụ Cursor (24/07/2026).** Tasks + NPM Scripts trong IDE. **Chưa đưa lên vận hành thật**.
+> 🏆 **MỚI NHẤT: V0.330 — Sửa phím tắt khởi động local trong Cursor (24/07/2026).** **Chưa đưa lên vận hành thật**.
+>
+> 🏆 **V0.329 — Gắn Start/Restart vào công cụ Cursor (24/07/2026).** Tasks + NPM Scripts trong IDE. **Chưa đưa lên vận hành thật**.
 >
 > 🏆 **V0.328 — Launcher khởi động / restart local nhanh (24/07/2026).** Tiện ích máy phát triển: nút bấm Start/Restart, không đổi nghiệp vụ. **Chưa đưa lên vận hành thật**.
 >
@@ -86,6 +88,11 @@
 > 📋 [GOLIVE-PLAN.md](GOLIVE-PLAN.md) — Kế hoạch Go-Live tổng quan
 
 ---
+
+### V0.330 (24/07/2026) — Sửa phím tắt khởi động local trong Cursor
+
+- **[DevOps]** Sửa phím tắt Start/Restart trong IDE để phản hồi rõ hơn
+- **[Scope]** Phạm vi: Cursor DX only
 
 ### V0.329 (24/07/2026) — Gắn Start/Restart vào công cụ Cursor
 
@@ -378,7 +385,7 @@
 
 | Metric | Giá trị |
 |--------|---------|
-| **Mốc phiên bản hiện tại** | V0.329 |
+| **Mốc phiên bản hiện tại** | V0.330 |
 | **Thời gian phát triển** | 18/01/2026 → 24/07/2026 (~6 tháng) |
 | **Modules hoạt động** | M0, M1, M3, M4, M6, M7, M8, MC, MF (9/11) |
 | **Modules planned / skeleton** | M5, M9 (2/11) |
