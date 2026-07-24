@@ -11,12 +11,12 @@
 | Thông tin | Chi tiết |
 |-----------|----------|
 | **Tên dự án** | ERP Tân Phát (Tân Phát Packaging) |
-| **Phiên bản mã nguồn** | `V0.331` |
-| **Phiên bản đang chạy thật** | `V0.331` ✅ (đã đưa lên vận hành 24/07/2026) |
-| **Mốc phiên bản hiện tại** | V0.331 |
+| **Phiên bản mã nguồn** | `V0.332` |
+| **Phiên bản đang chạy thật** | `V0.332` ✅ (đã đưa lên vận hành 25/07/2026) |
+| **Mốc phiên bản hiện tại** | V0.332 |
 | **Ngày bắt đầu** | 18/01/2026 |
-| **Phát hành lên vận hành thật** | 24/07/2026 — Đợt V0.326–V0.331 (gần nhất) · 23/07/2026 — Đợt R1/R1.1/R1.2 |
-| **Cập nhật báo cáo này** | 24/07/2026 |
+| **Phát hành lên vận hành thật** | 24/07/2026 — Đợt V0.326–V0.332 (gần nhất) · 23/07/2026 — Đợt R1/R1.1/R1.2 |
+| **Cập nhật báo cáo này** | 25/07/2026 |
 | **Tech Stack** | Next.js 16.1.6 · React 19.2.4 · Tailwind 4.2.1 · TypeScript 5.9.3 · MariaDB 10.11 (production) · MySQL 8.4 (local development) |
 | **Architecture** | Server Actions + Server Components + SSE |
 | **UI Framework** | Metronic (Demo 1 backbone) |
@@ -49,7 +49,9 @@
 
 > 📂 Xem chi tiết tiến độ từng module tại [MODULE-PROGRESS.md](MODULE-PROGRESS.md)
 >
-> 🚀 **MỚI NHẤT: V0.330–V0.331 — Áp đồng loạt bo góc chuẩn cho toàn bộ màn hình (24/07/2026). ĐÃ ĐƯA LÊN VẬN HÀNH THẬT.**
+> 🚀 **MỚI NHẤT: V0.332 — Tối ưu giao diện trên điện thoại và máy tính bảng, cả chiều ngang lẫn dọc (25/07/2026). ĐÃ ĐƯA LÊN VẬN HÀNH THẬT.**
+>
+> 🚀 **V0.330–V0.331 — Áp đồng loạt bo góc chuẩn cho toàn bộ màn hình (24/07/2026). ĐÃ ĐƯA LÊN VẬN HÀNH THẬT.**
 >
 > 🚀 **V0.329 — Chuẩn hoá không gian làm việc và bo góc theo một khuôn mẫu duy nhất (24/07/2026). ĐÃ ĐƯA LÊN VẬN HÀNH THẬT.**
 >
@@ -88,6 +90,61 @@
 > 🔒 [P01-SAFETY-VERIFICATION-V0218.md](P01-SAFETY-VERIFICATION-V0218.md) — Safety Report
 >
 > 📋 [GOLIVE-PLAN.md](GOLIVE-PLAN.md) — Kế hoạch Go-Live tổng quan
+
+---
+
+### V0.332 (25/07/2026) — Tối ưu giao diện điện thoại & máy tính bảng (ngang + dọc) · ĐÃ VẬN HÀNH THẬT
+
+> ✅ **Đã đưa lên môi trường vận hành thật ngày 25/07/2026.** Không gián đoạn dịch vụ.
+> Không đổi cấu trúc dữ liệu, không đổi dữ liệu thật, không đổi phân quyền.
+
+**🔍 Người dùng phản ánh:** giao diện trên điện thoại bị *"méo mó xẹo xọ"*; **xoay ngang
+màn hình thì bảng không còn dòng dữ liệu nào** để làm việc; nút "Tạo Mới" bị rớt dòng;
+lề hai bên bảng còn rộng, lãng phí không gian.
+
+**🛠️ Sáu nhóm đã xử lý**
+
+1. **Bảng và thẻ "trôi dạt" khi cuộn ngang.** Truy được tận gốc: các ô bố cục **không co
+   lại được** khi bảng bên trong rộng hơn màn hình → vùng cuộn riêng của bảng **mất tác
+   dụng**, bảng đẩy rộng cả trang. Đã cho **17 ô bố cục** co lại đúng bề ngang máy, nhờ đó
+   **chỉ riêng bảng cuộn ngang**, thẻ đứng yên.
+2. **Xoay ngang không thấy dòng dữ liệu nào.** Công thức chiều cao cũ dựa trên chiều cao
+   màn hình: khi xoay ngang chỉ còn ~390px, trừ đi phần cố định thì **vùng bảng chỉ còn
+   ~30px — không đủ một dòng**. Nay **luôn dành tối thiểu ~5 dòng** cho vùng dữ liệu, và
+   dùng chiều cao **thực tế** của vùng nhìn (đã trừ thanh địa chỉ trình duyệt).
+3. **Nút "Tạo Mới" rớt dòng khi xoay ngang.** Ngưỡng chuyển giao diện đặt ở 768px, mà điện
+   thoại xoay ngang rộng 844px → **vượt ngưỡng, dùng nhầm thanh công cụ bản máy tính 7 mục**
+   nhồi vào màn hẹp. Đã nâng ngưỡng lên 1024px: điện thoại ngang dùng **thanh dưới gọn**.
+4. **Trang tự phóng to trên iPhone.** Ô nhập dùng cỡ chữ nhỏ hơn 16px khiến Safari **tự động
+   phóng to cả trang** khi chạm vào; lúc đó thanh trên và thanh dưới **văng khỏi tầm nhìn**,
+   người dùng phải chụm tay thu nhỏ. Đã nâng cỡ chữ ô nhập trên điện thoại. **Cố ý không
+   khoá thao tác phóng to** — vì như vậy sẽ gây khó cho người mắt kém.
+5. **Tối ưu lề hai bên bảng.** Lề cũ chiếm **48px** trên màn 375px (12,8% bề ngang) chỉ để
+   làm viền. Đã thu còn **24px** → bề ngang dành cho dữ liệu tăng từ **87,2% lên 93,6%**.
+   **Giữ nguyên** lề rộng của phần tiêu đề để chữ không sát mép.
+6. **Ảnh nền màn hình đăng nhập theo từng thiết bị.** Đơn vị đã thiết kế sẵn ba bản (điện
+   thoại / máy tính bảng / máy tính) nhưng phần mềm chỉ dùng bản máy tính cho mọi thiết bị.
+   Nay trình duyệt **tự chọn đúng bản** và **chỉ tải một ảnh**: điện thoại tải **1,5 MB**
+   thay vì 4,7 MB — vào nhanh hơn, tốn ít dữ liệu di động hơn.
+
+**🛡️ Một lỗi được chặn kịp nhờ kiểm chứng**
+
+Sau khi gắn ảnh nền mới, kiểm tra phát hiện **hai ảnh mới bị bộ lọc truy cập chặn** (chỉ ảnh
+cũ mới qua được). **Nếu không kiểm mà phát hành luôn thì nền trên điện thoại và máy tính bảng
+sẽ mất trắng.** Đã mở đúng phạm vi cần thiết, **cố ý không mở cả thư mục** để tệp người dùng
+tải lên vẫn được bảo vệ — và đã kiểm chứng lại điều đó sau khi phát hành.
+
+**✅ Kiểm chứng sau phát hành**
+
+- Ứng dụng **online, 0 lần khởi động lại bất thường**; các đường dẫn nghiệp vụ phản hồi đúng;
+  **không đường dẫn nào lỗi máy chủ**.
+- **Đo bằng trình duyệt thật ở 6 kích thước màn hình** (điện thoại, máy tính bảng, laptop,
+  màn rộng — cả dọc lẫn ngang): **12/12 phép đo đạt — không tràn ngang, không phần tử nào
+  vượt khung**.
+- Đối chiếu tận gói giao diện đã phát hành: **7/7 thông số mới đều có mặt**.
+- Ba ảnh nền đều tải được với đúng dung lượng; thư mục tệp người dùng vẫn được bảo vệ.
+
+**[Scope]** Giao diện + trải nghiệm trên thiết bị di động. Không đổi nghiệp vụ, không đổi dữ liệu.
 
 ---
 
@@ -521,7 +578,7 @@ trúc dữ liệu, không đổi dữ liệu thật, không đổi phân quyền
 
 | Metric | Giá trị |
 |--------|---------|
-| **Mốc phiên bản hiện tại** | V0.331 |
+| **Mốc phiên bản hiện tại** | V0.332 |
 | **Thời gian phát triển** | 18/01/2026 → 24/07/2026 (~6 tháng) |
 | **Modules hoạt động** | M0, M1, M3, M4, M6, M7, M8, MC, MF (9/11) |
 | **Modules planned / skeleton** | M5, M9 (2/11) |
