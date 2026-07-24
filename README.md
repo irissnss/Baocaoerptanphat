@@ -11,9 +11,9 @@
 | Thông tin | Chi tiết |
 |-----------|----------|
 | **Tên dự án** | ERP Tân Phát (Tân Phát Packaging) |
-| **Phiên bản mã nguồn** | `V0.325` |
-| **Phiên bản đang chạy thật** | `V0.325` |
-| **Mốc phiên bản hiện tại** | V0.325 |
+| **Phiên bản mã nguồn** | `V0.328` |
+| **Phiên bản đang chạy thật** | `V0.325` (V0.326–V0.328 **chưa** đưa lên vận hành) |
+| **Mốc phiên bản hiện tại** | V0.328 |
 | **Ngày bắt đầu** | 18/01/2026 |
 | **Phát hành lên vận hành thật** | 23/07/2026 — Đợt R1/R1.1/R1.2 |
 | **Cập nhật báo cáo này** | 24/07/2026 |
@@ -49,7 +49,9 @@
 
 > 📂 Xem chi tiết tiến độ từng module tại [MODULE-PROGRESS.md](MODULE-PROGRESS.md)
 >
-> 🏆 **MỚI NHẤT: V0.325 — An toàn đường dẫn và chuẩn hóa chính sách phát hành (24/07/2026).**
+> 🏆 **MỚI NHẤT: V0.328 — Launcher khởi động / restart local nhanh (24/07/2026).** Tiện ích máy phát triển: nút bấm Start/Restart, không đổi nghiệp vụ. **Chưa đưa lên vận hành thật**.
+>
+> 🏆 **V0.327 — Chuẩn hoá khung giao diện dùng chung, chuyển trang mượt và nhất quán (24/07/2026).** Nối tiếp V0.326. Đã hoàn tất trên máy phát triển, **chưa đưa lên vận hành thật**.
 >
 > 🚀 **Bản phát hành chức năng gần nhất: V0.323 · 23/07/2026 — Đợt R1/R1.1/R1.2.** Gia cố an toàn hiển thị nội dung HTML và bản in; sửa lỗi **không tạo được nhân viên**; khoá **mã Phòng Ban thành bất biến**; sửa lỗi **ô chọn Khuôn / Kiểu In hiện trống** trên form in; chuẩn hoá cơ cấu tổ chức lên **6 phòng ban**; kiểm chứng khả năng khôi phục dữ liệu bằng cách phục hồi thật vào môi trường tách biệt. Đã đưa lên vận hành thật, **không gián đoạn dịch vụ**. Chi tiết ở mục Changelog bên dưới.
 >
@@ -80,6 +82,65 @@
 > 🔒 [P01-SAFETY-VERIFICATION-V0218.md](P01-SAFETY-VERIFICATION-V0218.md) — Safety Report
 >
 > 📋 [GOLIVE-PLAN.md](GOLIVE-PLAN.md) — Kế hoạch Go-Live tổng quan
+
+---
+
+### V0.328 (24/07/2026) — Launcher khởi động / restart local nhanh
+
+- **[DevOps]** Thêm tiện ích nút bấm khởi động nhanh và restart nhanh trên máy phát triển
+- **[Scope]** Phạm vi: DevOps / Local DX only — không đổi nghiệp vụ, không đổi dữ liệu
+
+### V0.327 (24/07/2026) — Chuẩn hoá khung giao diện dùng chung, chuyển trang mượt
+
+> 🧱 **Bản cải thiện kiến trúc giao diện.** Không thay đổi cấu trúc dữ liệu, không
+> thay đổi dữ liệu thật, không thay đổi quyền của bất kỳ ai. **Chưa đưa lên vận hành thật.**
+
+- **Xử lý dứt điểm gốc rễ** của hiện tượng chuyển trang giật/chớp mà V0.326 mới chỉ
+  che tạm: trước đây khung giao diện (thanh menu, thanh trên cùng) **bị dựng lại từ
+  đầu ở mỗi trang**; nay được đặt **một lần duy nhất ở lớp ngoài cùng** và **giữ
+  nguyên khi chuyển trang** — chuyển giữa các module liền mạch, không dựng lại.
+- **Gom cách bố trí khung về một mối:** trước đây khung được gắn rải rác ở nhiều nơi,
+  không nhất quán; nay thống nhất về một điểm, dễ bảo trì.
+- **Các trang toàn màn hình** (trợ lý tạo khách hàng, máy tính giá, phiếu nhập/xuất,
+  đăng nhập…) vẫn giữ nguyên kiểu hiển thị không có thanh menu — được quản lý bằng
+  một danh sách tập trung, chỉnh một chỗ là xong.
+- **An toàn:** giữ nguyên toàn bộ hành vi đăng nhập, phân quyền và điều hướng; không
+  trang nào đổi địa chỉ. Đã kiểm chứng biên dịch và dựng bản phát hành đạt, khởi
+  động máy chủ không lỗi.
+- **[Scope]** Kiến trúc giao diện + trải nghiệm. Không đổi cấu trúc dữ liệu, không
+  đổi dữ liệu thật, không đổi phân quyền.
+
+---
+
+### V0.326 (24/07/2026) — Sửa hiện tượng menu chớp trắng và chậm khi chuyển trang
+
+> ⚡ **Bản cải thiện trải nghiệm.** Không thay đổi cấu trúc dữ liệu, không thay đổi
+> dữ liệu thật, không thay đổi quyền của bất kỳ ai. **Chưa đưa lên vận hành thật.**
+
+- **Hiện tượng người dùng báo:** mỗi lần bấm sang menu khác, thanh menu bên trái
+  trống rỗng vài nhịp rồi mới hiện lại, kèm dòng "Đang tải người dùng… / Đang đồng
+  bộ quyền truy cập"; cảm giác toàn hệ thống chậm.
+- **Nguyên nhân đã xác định:** thông tin người dùng và quyền truy cập bị **tải lại
+  từ đầu ở mỗi lần chuyển trang**, thay vì giữ lại trong phiên làm việc. Ngoài ra
+  khi bấm menu, màn hình **không có phản hồi trung gian** nên người dùng phải chờ
+  trong im lặng cho tới khi trang mới sẵn sàng.
+- **Đã xử lý:**
+  - Thông tin người dùng và quyền truy cập nay được **giữ lại trong phiên**, tự làm
+    mới **ngầm** theo chu kỳ ngắn — menu không còn biến mất khi chuyển trang, và
+    quyền vẫn được cập nhật mà không cần tải lại trang.
+  - Bổ sung **màn hình chờ tạm** cho các module chính — bấm menu là thấy phản hồi
+    ngay, thay vì chờ trong im lặng.
+  - **Giảm truy vấn lặp** khi kiểm tra quyền ở mỗi lần vào trang.
+- **An toàn:** khi phiên đăng nhập hết hạn, hệ thống vẫn **khoá chặt và đưa về
+  màn hình đăng nhập** đúng như trước; không có trường hợp nào được nới quyền.
+- **Tăng tốc môi trường phát triển:** chuyển công cụ dựng mã khi lập trình sang
+  bộ máy thế hệ mới (nhanh hơn đáng kể), sau khi kiểm chứng lỗi tương thích cũ trên
+  Windows đã không còn ở phiên bản nền hiện tại; vẫn giữ lại tuỳ chọn cũ để dự
+  phòng. **Chỉ ảnh hưởng máy lập trình, không liên quan môi trường vận hành thật.**
+- **Còn lại:** nguyên nhân gốc sâu hơn (cách khung giao diện được dựng lại ở mỗi
+  trang) sẽ xử lý ở một đợt riêng, có kế hoạch và sao lưu riêng.
+- **[Scope]** Trải nghiệm giao diện + hiệu năng + môi trường phát triển. Không đổi
+  cấu trúc dữ liệu, không đổi dữ liệu thật, không đổi phân quyền.
 
 ---
 
@@ -310,8 +371,8 @@
 
 | Metric | Giá trị |
 |--------|---------|
-| **Mốc phiên bản hiện tại** | V0.325 |
-| **Thời gian phát triển** | 18/01/2026 → 23/07/2026 (~6 tháng) |
+| **Mốc phiên bản hiện tại** | V0.328 |
+| **Thời gian phát triển** | 18/01/2026 → 24/07/2026 (~6 tháng) |
 | **Modules hoạt động** | M0, M1, M3, M4, M6, M7, M8, MC, MF (9/11) |
 | **Modules planned / skeleton** | M5, M9 (2/11) |
 | **Tổng bảng DB** | 99 bảng (kiểm đếm trên môi trường vận hành 23/07/2026) |
