@@ -26,7 +26,7 @@
 
 ---
 
-## 📋 Trạng Thái Modules (cập nhật 22/07/2026)
+## 📋 Trạng Thái Modules (cập nhật 25/07/2026)
 
 | Module | Tên | Status | Mô tả chức năng | Sub-routes |
 |--------|-----|--------|------------------|------------|
@@ -34,7 +34,7 @@
 | M1 | Danh Mục | ✅ Ready | Khách hàng, sản phẩm, vật tư, nhân sự, vị trí, bảng giá công đoạn | 10 sub-routes |
 | M3 | CRM & Bán Hàng | 🔨 In Dev | Báo giá, đơn hàng, CRM, tính giá thủ công/tự động, pricing admin | 7 sub-routes |
 | M4 | Sản Xuất | 🔨 In Dev | Lệnh sản xuất, phiếu điều in, gộp/tách LSX | 2 sub-routes |
-| M5 | Kho Hàng | 📋 Phase 1 | NCC, mua hàng, nhập/xuất kho, kiểm kê, giao hàng | 10 sub-routes (skeleton) |
+| M5 | Kho Hàng | 🔨 In Dev | NCC, mua hàng, nhập/xuất kho, giao hàng, kiểm kê, kho thành phẩm — CRUD đầy đủ + RBAC + realtime; còn thiếu tự động hoá tồn kho | 10 sub-routes |
 | M6 | Vận Hành HR | 🔨 In Dev | Chấm công, nghỉ phép, biến động nhân sự | 1 client module |
 | M7 | Tiền Lương | 🔨 In Dev | Payroll, BHXH, TNCN lũy tiến, phiếu chi lương | 1 client module |
 | M8 | Công Việc | 🔨 In Dev | Task management, tích hợp CRM M3-M8 | 1 sub-route (tasks) |
@@ -44,10 +44,12 @@
 
 ### Tổng kết trạng thái:
 - **✅ Ready (production):** 2 modules (M0, M1)
-- **🔨 In Dev (đang phát triển):** 7 modules (M3, M4, M6, M7, M8, MC, MF)
-- **📋 Planned/Phase 1:** 2 modules (M5, M9)
+- **🔨 In Dev (đang phát triển):** 8 modules (M3, M4, M5, M6, M7, M8, MC, MF)
+- **📋 Planned:** 1 module (M9)
 
 > 📂 Xem chi tiết tiến độ từng module tại [MODULE-PROGRESS.md](MODULE-PROGRESS.md)
+>
+> 📦 **M5 Kho Hàng — đính chính (25/07/2026): KHÔNG phải "skeleton".** 10 khu vực đã có CRUD đầy đủ + phân quyền (RBAC) + realtime; khoảng trống còn lại là **tự động hoá tồn kho** (chưa tự ghi sổ giao dịch kho + chưa tự cập nhật tồn khi nhập/xuất/giao). Chi tiết: [AUDIT-M5-WAREHOUSE-20260725.md](AUDIT-M5-WAREHOUSE-20260725.md).
 >
 > 🚀 **MỚI NHẤT: V0.333 — Rà soát và sửa tràn ngang cho toàn bộ màn hình trên điện thoại (25/07/2026). ĐÃ ĐƯA LÊN VẬN HÀNH THẬT.**
 >

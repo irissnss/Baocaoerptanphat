@@ -122,17 +122,20 @@
 
 ---
 
-## M5 — Kho Hàng (📋 Phase 1 Skeleton)
+## M5 — Kho Hàng (🔨 In Dev — CRUD đầy đủ, còn thiếu tự động hoá tồn kho)
+
+> **Đính chính 25/07/2026:** M5 KHÔNG phải skeleton — 10 khu vực đã có CRUD đầy đủ + phân quyền (RBAC) + realtime (SSE). Chi tiết: [AUDIT-M5-WAREHOUSE-20260725.md](AUDIT-M5-WAREHOUSE-20260725.md).
 
 **Mô tả:** Nhà cung cấp, mua hàng, nhập/xuất kho, kiểm kê, giao hàng.
 
 | Chức năng | Status | Ghi chú |
 |-----------|--------|---------|
-| Overview page | ✅ Done | V0.122, metadata selectors V0.200 |
-| Skeleton layout | ✅ Done | V0.128 |
-| Core features | 📋 Planned | Chờ implement |
+| Overview page | ✅ Done | |
+| CRUD 10 khu vực nghiệp vụ | ✅ Done | Đầy đủ + RBAC + realtime |
+| Tự động hoá tồn kho | 📋 Planned | Auto ghi sổ giao dịch + cập nhật tồn khi nhập/xuất/giao |
+| Tích hợp liên module + in phiếu | 📋 Planned | M5→MF (công nợ); in Nhập/Xuất/Giao |
 
-### Sub-routes (skeleton đã tạo):
+### Sub-routes (đã có CRUD đầy đủ):
 - `/m5/nha-cung-cap` — Nhà cung cấp
 - `/m5/ncc-vat-tu` — NCC vật tư
 - `/m5/gia-vat-tu` — Giá vật tư
