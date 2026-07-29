@@ -16,7 +16,7 @@
 | **Mốc phiên bản hiện tại** | V0.333 |
 | **Ngày bắt đầu** | 18/01/2026 |
 | **Phát hành lên vận hành thật** | 24/07/2026 — Đợt V0.326–V0.333 (gần nhất) · 23/07/2026 — Đợt R1/R1.1/R1.2 |
-| **Cập nhật báo cáo này** | 25/07/2026 |
+| **Cập nhật báo cáo này** | 30/07/2026 |
 | **Tech Stack** | Next.js 16.1.6 · React 19.2.4 · Tailwind 4.2.1 · TypeScript 5.9.3 · MariaDB 10.11 (production) · MySQL 8.4 (local development) |
 | **Architecture** | Server Actions + Server Components + SSE |
 | **UI Framework** | Metronic (Demo 1 backbone) |
@@ -49,6 +49,8 @@
 
 > 📂 Xem chi tiết tiến độ từng module tại [MODULE-PROGRESS.md](MODULE-PROGRESS.md)
 >
+> 🔐 **M1 Dữ liệu nền — khóa hợp đồng nghiệp vụ & phạm vi dữ liệu (30/07/2026):** đã bịt các lỗ hổng cho phép nhìn dữ liệu khách hàng **ngoài phạm vi được giao**, thống nhất **một quy tắc phân quyền dùng chung** cho Báo giá/CRM/Đơn hàng/Giao hàng/Công nợ, bảo toàn dữ liệu cấu hình cũ (không tự chuẩn hóa), và **kiểm thử thật với 5 vai người dùng**. Chỉ chạy trên máy nội bộ — **chưa** đưa lên vận hành, **không** đổi cấu trúc dữ liệu. Chi tiết: [AUDIT-M1-OWNER-CONTRACT-20260730.md](AUDIT-M1-OWNER-CONTRACT-20260730.md).
+
 > 📦 **M5 Kho Hàng — đính chính (25/07/2026): KHÔNG phải "skeleton".** 10 khu vực đã có CRUD đầy đủ + phân quyền (RBAC) + realtime; khoảng trống còn lại là **tự động hoá tồn kho** (chưa tự ghi sổ giao dịch kho + chưa tự cập nhật tồn khi nhập/xuất/giao). Chi tiết: [AUDIT-M5-WAREHOUSE-20260725.md](AUDIT-M5-WAREHOUSE-20260725.md).
 >
 > 🚀 **MỚI NHẤT: V0.333 — Rà soát và sửa tràn ngang cho toàn bộ màn hình trên điện thoại (25/07/2026). ĐÃ ĐƯA LÊN VẬN HÀNH THẬT.**
