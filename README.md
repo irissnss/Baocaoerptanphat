@@ -12,17 +12,17 @@
 |-----------|----------|
 | **Tên dự án** | ERP Tân Phát (Tân Phát Packaging) |
 | **Phiên bản mã nguồn** | `V0.333` |
-| **Phiên bản đang chạy thật** | `V0.333` ✅ (đã đưa lên vận hành 25/07/2026) |
+| **Phiên bản đang chạy thật** | `V0.333` ✅ (đưa lên vận hành 25/07/2026) — ⚠️ các đợt cải tiến **sau** 25/07/2026 hiện **chỉ chạy trên máy nội bộ, chưa phát hành** |
 | **Mốc phiên bản hiện tại** | V0.333 |
 | **Ngày bắt đầu** | 18/01/2026 |
 | **Phát hành lên vận hành thật** | 24/07/2026 — Đợt V0.326–V0.333 (gần nhất) · 23/07/2026 — Đợt R1/R1.1/R1.2 |
-| **Cập nhật báo cáo này** | 30/07/2026 |
+| **Cập nhật báo cáo này** | 01/08/2026 |
 | **Tech Stack** | Next.js 16.1.6 · React 19.2.4 · Tailwind 4.2.1 · TypeScript 5.9.3 · MariaDB 10.11 (production) · MySQL 8.4 (local development) |
 | **Architecture** | Server Actions + Server Components + SSE |
 | **UI Framework** | Metronic (Demo 1 backbone) |
 | **Tổng modules** | 11 modules (M0–M9, MC, MF) |
 | **Tổng bảng DB** | 99 bảng (đã kiểm đếm trên môi trường vận hành 23/07/2026) |
-| **Trạng thái** | Production đã go-live (chi tiết hạ tầng không công khai) |
+| **Trạng thái** | Bản V0.333 đã go-live · công việc nội bộ sau đó **chưa triển khai** (chi tiết hạ tầng không công khai) |
 
 ---
 
@@ -31,7 +31,7 @@
 | Module | Tên | Status | Mô tả chức năng | Sub-routes |
 |--------|-----|--------|------------------|------------|
 | M0 | Hệ Thống | ✅ Ready | Danh mục chung, phòng ban, quy trình, auth/session, RBAC | 6 sub-routes |
-| M1 | Danh Mục | ✅ Ready | Khách hàng, sản phẩm, vật tư, nhân sự, vị trí, bảng giá công đoạn | 10 sub-routes |
+| M1 | Danh Mục | ✅ Ready *(bản đã vận hành)* · 🧪 Local UAT hoàn tất foundation / **chờ triển khai** | Khách hàng, sản phẩm, vật tư, nhân sự, vị trí, bảng giá công đoạn | 10 sub-routes |
 | M3 | CRM & Bán Hàng | 🔨 In Dev | Báo giá, đơn hàng, CRM, tính giá thủ công/tự động, pricing admin | 7 sub-routes |
 | M4 | Sản Xuất | 🔨 In Dev | Lệnh sản xuất, phiếu điều in, gộp/tách LSX | 2 sub-routes |
 | M5 | Kho Hàng | 🔨 In Dev | NCC, mua hàng, nhập/xuất kho, giao hàng, kiểm kê, kho thành phẩm — CRUD đầy đủ + RBAC + realtime; còn thiếu tự động hoá tồn kho | 10 sub-routes |
@@ -43,12 +43,16 @@
 | MF | Tài Chính | 🔨 In Dev | Phiếu thu/chi, công nợ, ngân hàng, đối chiếu, nghiệm thu | 7 sub-routes |
 
 ### Tổng kết trạng thái:
-- **✅ Ready (production):** 2 modules (M0, M1)
+- **✅ Ready (đã vận hành):** 2 modules (M0, M1) — *riêng M1 có nền phân quyền mới hoàn tất kiểm thử nội bộ, **chưa** triển khai*
 - **🔨 In Dev (đang phát triển):** 8 modules (M3, M4, M5, M6, M7, M8, MC, MF)
 - **📋 Planned:** 1 module (M9)
 
 > 📂 Xem chi tiết tiến độ từng module tại [MODULE-PROGRESS.md](MODULE-PROGRESS.md)
 >
+> 🔐 **M1 — Nền phân quyền linh hoạt: hoàn tất kiểm thử nội bộ (01/08/2026).** Mỗi mục trong nhóm Danh Mục nay có **quyền truy cập riêng** thay vì dùng chung một quyền tổng, nên có thể giao quyền đúng theo từng vị trí công việc. Quyền được tách thành nhiều tầng **độc lập**: vào được khu vực, xem, thêm, sửa, duyệt và xem thông tin nhạy cảm là các quyền khác nhau — cấp quyền này **không** tự mở quyền kia. Phạm vi công nợ được chỉnh theo đúng nghiệp vụ tài chính: kế toán theo dõi được **cả công nợ khách hàng lẫn công nợ đối tác/nhà cung cấp**, trong khi kinh doanh chỉ thấy phần khách mình phụ trách. Tài khoản chưa gắn hồ sơ nhân sự **không** xem được dữ liệu nghiệp vụ. Đã kiểm thử thật với **6 vai trò người dùng** trên toàn bộ khu vực của nhóm Danh Mục và khu vực Tài chính. **Chỉ chạy trên máy nội bộ — chưa đưa lên vận hành. Không đổi cấu trúc dữ liệu, không thay đổi dữ liệu nghiệp vụ.**
+>
+> ⏳ **Còn tồn (cần chủ dự án xác nhận):** hai mặt hàng trong dữ liệu nội bộ đang gắn với một mã khách hàng không tồn tại. Đã truy vết lịch sử đầy đủ nhưng **bằng chứng không đủ để kết luận** — một mặt hàng có dấu vết dẫn tới **hai khách khác nhau**, mặt hàng còn lại **không có dấu vết nào**. Vì vậy **giữ nguyên, không gán bừa**; hai mặt hàng này vẫn bị chặn khỏi giao dịch mới cho tới khi được xác nhận.
+
 > 🔐 **M1 Dữ liệu nền — khóa hợp đồng nghiệp vụ & phạm vi dữ liệu (30/07/2026):** đã bịt các lỗ hổng cho phép nhìn dữ liệu khách hàng **ngoài phạm vi được giao**, thống nhất **một quy tắc phân quyền dùng chung** cho Báo giá/CRM/Đơn hàng/Giao hàng/Công nợ, bảo toàn dữ liệu cấu hình cũ (không tự chuẩn hóa), và **kiểm thử thật với 5 vai người dùng**. Chỉ chạy trên máy nội bộ — **chưa** đưa lên vận hành, **không** đổi cấu trúc dữ liệu. Chi tiết: [AUDIT-M1-OWNER-CONTRACT-20260730.md](AUDIT-M1-OWNER-CONTRACT-20260730.md).
 
 > 📦 **M5 Kho Hàng — đính chính (25/07/2026): KHÔNG phải "skeleton".** 10 khu vực đã có CRUD đầy đủ + phân quyền (RBAC) + realtime; khoảng trống còn lại là **tự động hoá tồn kho** (chưa tự ghi sổ giao dịch kho + chưa tự cập nhật tồn khi nhập/xuất/giao). Chi tiết: [AUDIT-M5-WAREHOUSE-20260725.md](AUDIT-M5-WAREHOUSE-20260725.md).
