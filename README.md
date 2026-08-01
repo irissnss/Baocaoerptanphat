@@ -49,6 +49,14 @@
 
 > 📂 Xem chi tiết tiến độ từng module tại [MODULE-PROGRESS.md](MODULE-PROGRESS.md)
 >
+> ✅ **M1 — Chốt các quyết định cuối của chủ dự án, hoàn tất kiểm thử nội bộ (01/08/2026).**
+> **Làm rõ vai trò:** Kế toán nay **tra cứu được toàn bộ danh bạ khách hàng ở mức chỉ đọc** (để liên hệ, làm hợp đồng, đối soát) nhưng **không sửa, không xoá, không chuyển khách sang người khác, không xem giá vốn hay lợi nhuận**. Nhân sự kinh doanh giữ phạm vi hẹp: chỉ khách và mặt hàng của khách mình phụ trách, **không vào kho vật tư chung, không xem giá vốn**. Cũng đã **tách hai quyền vốn bị dính nhau**: "được xem toàn bộ khách" trước đây tự động kéo theo "được chuyển khách cho người khác" — nay là hai quyền riêng biệt.
+> **Dọn dữ liệu mẫu an toàn:** một mặt hàng mẫu **không dính chứng từ nào đã được xoá**; mặt hàng còn lại **giữ nguyên** vì đang nằm trong **chứng từ của khách hàng thật** — xoá sẽ làm hỏng chứng từ đó. Trước khi xoá đã **sao lưu toàn bộ dữ liệu, kiểm tra mã toàn vẹn và chuẩn bị kịch bản khôi phục**; sau khi xoá, toàn bộ chứng từ và danh sách khách hàng **giữ nguyên**.
+> **Danh mục công đoạn:** phần lớn công đoạn chưa có đơn giá nay được đánh dấu rõ **"chưa cấu hình giá"**. Hệ thống **không tự bịa giá, không dùng số 0 thay cho giá trống, không lấy giá của công đoạn khác** — nơi nào cần giá mà chưa có thì báo rõ. Việc này **không cản trở** phần danh mục hoàn tất; chủ dự án bổ sung đơn giá thật dần.
+> **Chỉ chạy trên máy nội bộ — chưa đưa lên vận hành.** Không đổi cấu trúc dữ liệu.
+>
+> ⏳ **Còn lại đúng một việc:** xác nhận mặt hàng mẫu còn lại — nếu các chứng từ liên quan cũng là dữ liệu thử thì dọn nốt, nếu là chứng từ thật thì giữ nguyên như hiện tại.
+
 > 🧪 **M1 — Kiểm thử chi tiết từng nghiệp vụ danh mục: hoàn tất nội bộ (01/08/2026).** Lượt này đi sâu vào **nghiệp vụ từng màn hình**, không chỉ phân quyền. Phát hiện và sửa **4 lỗi thuộc loại âm thầm làm hỏng dữ liệu** (không báo lỗi nên rất khó thấy khi dùng tay):
 > **(1)** Tạo khách hàng mà không chọn người phụ trách thì khách bị gán cứng cho một nhân viên mặc định — người tạo có thể **mất luôn quyền xem chính khách mình vừa tạo**; màn tạo cũng tin dữ liệu từ trình duyệt nên có thể gán khách cho người khác, lách quyền chuyển giao. Nay máy chủ tự quyết định người phụ trách.
 > **(2)** Xoá mặt hàng/vật tư **không kiểm tra chúng có đang nằm trong chứng từ nào không** — xoá xong các chứng từ cũ trỏ vào khoảng không. Nay chặn và nêu rõ đang bị chứng từ nào tham chiếu.
