@@ -26,7 +26,7 @@
 
 ---
 
-## 📋 Trạng Thái Modules (cập nhật 08/08/2026)
+## 📋 Trạng Thái Modules (cập nhật 09/08/2026)
 
 | Module | Tên | Status | Mô tả chức năng | Sub-routes |
 |--------|-----|--------|------------------|------------|
@@ -118,6 +118,51 @@
 > 🔒 [P01-SAFETY-VERIFICATION-V0218.md](P01-SAFETY-VERIFICATION-V0218.md) — Safety Report
 >
 > 📋 [GOLIVE-PLAN.md](GOLIVE-PLAN.md) — Kế hoạch Go-Live tổng quan
+
+---
+
+### V0.333 (09/08/2026) — Rà soát tổng lực tính toàn vẹn sau sự cố mất tệp · CHƯA TRIỂN KHAI
+
+> 🧪 **Kiểm thử nội bộ — chưa đưa lên môi trường vận hành thật.**
+> Không đổi cấu trúc dữ liệu, không đổi dữ liệu thật, không đổi phân quyền, không triển khai.
+
+**🔍 Bối cảnh:** ngày 02/08 một số tệp trên máy phát triển biến mất. Đợt này rà soát toàn
+diện để chắc chắn không còn thiếu sót nào trước khi làm tiếp.
+
+**🔬 Cách kiểm:** sáu hướng rà soát chạy song song, và **mỗi phát hiện đều bị một bên độc
+lập cố tình phản biện để bác bỏ** trước khi được ghi nhận. Kết quả: 27 nghi vấn ban đầu →
+**10 xác nhận có thật, 17 bị bác bỏ**. Cách làm này tránh cả hai lỗi: báo động giả và bỏ sót.
+
+**🔁 Đính chính chẩn đoán ban đầu**
+
+Kết luận ban đầu cho rằng phần mềm diệt virus đã cách ly tệp. **Điều này sai.** Kiểm tra cho
+thấy phần mềm diệt virus **đang tắt**, và các tệp **không bị xoá hẳn mà nằm trong Thùng Rác**.
+Dấu vết thời gian gom trong 32 phút chiều 02/08, kèm bộ lọc chỉ xoá tệp lớn — đặc điểm của
+**công cụ dò và xoá tệp trùng lặp**, không phải phần mềm diệt virus.
+
+**✅ Kết quả — phần lõi nguyên vẹn 100%**
+
+| Hạng mục | Kết quả |
+|---|---|
+| Mã nguồn quản lý bởi hệ thống phiên bản | **Không thiếu tệp nào**; đã băm lại toàn bộ và đối chiếu, khớp tuyệt đối |
+| Bộ tệp quy tắc vận hành | Giống hệt nhau; số đề mục qua 12 phiên bản **chỉ tăng, chưa lần nào giảm** |
+| Thư viện phần mềm | Quét toàn bộ, **không gói nào hỏng** |
+| Cấu hình và tài sản không được quản lý phiên bản | Còn đủ, đối chiếu khớp với số liệu ghi nhận trước đó |
+| Kho sao lưu | Nguyên vẹn, mã kiểm chứng khớp |
+| Máy chủ vận hành thật | Ứng dụng chạy liên tục 14 ngày, **0 lần khởi động lại**; phiên bản khớp cả ba nơi |
+| Kiểm thử tự động | **327 điểm đạt / 0 lỗi thật** |
+
+**⚠️ Hai việc cần xử lý**
+
+1. Còn một số tệp thư viện giao diện và công cụ hỗ trợ **chỉ còn tồn tại trong Thùng Rác** —
+   phục hồi được, nhưng phải làm trước khi dọn Thùng Rác.
+2. Phát hiện một **rủi ro bảo mật trên máy chủ**: một cổng dịch vụ nội bộ đang để mở ra
+   Internet trong khi tường lửa chưa bật, và đã có truy cập lạ từ bên ngoài dò vào. Đã ghi
+   nhận và **chưa tự ý sửa** vì cần chủ sở hữu duyệt. Việc đóng cổng **không ảnh hưởng** hoạt
+   động của ứng dụng.
+
+**📋 Việc mức thấp:** công cụ kiểm tra đồng bộ bộ tệp quy tắc có một điểm mù cần siết lại;
+một bài kiểm thử báo lỗi giả do tự quét chính nó; và dọn bớt bộ nhớ đệm tạm trên máy phát triển.
 
 ---
 
