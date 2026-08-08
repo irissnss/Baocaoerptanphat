@@ -121,6 +121,60 @@
 
 ---
 
+### V0.333 (08/08/2026) — Rà soát tổng lực sau sự cố mất tệp · TÌM RA NGUYÊN NHÂN THẬT
+
+> 🧪 **Kiểm thử nội bộ — không đưa lên môi trường vận hành thật.**
+> Toàn bộ đợt rà soát là **chỉ đọc**: không sửa mã, không đổi dữ liệu, không đổi phân quyền,
+> không triển khai. Môi trường vận hành thật **không bị ảnh hưởng**.
+
+**🔍 Bối cảnh:** ngày 02/08/2026 một số tệp trên máy phát triển biến mất. Đợt trước đã khôi
+phục phần trong hệ thống quản lý mã nguồn, nhưng chưa xác định được nguyên nhân gốc. Lần này
+rà soát tổng lực bằng nhiều hướng độc lập, mỗi phát hiện đều bị một bên thứ hai phản biện để
+loại trừ báo động giả.
+
+**⚠️ Đính chính — chẩn đoán trước đó SAI**
+
+Đợt trước kết luận nguyên nhân là phần mềm diệt vi-rút. **Kết luận đó sai.** Thủ phạm thật là
+một **công cụ dọn tệp trùng lặp** quét toàn ổ đĩa, thấy tệp nào giống hệt nhau thì xoá bớt bản
+"thừa" **vào Thùng Rác**. Bằng chứng loại trừ vi-rút: phần mềm diệt vi-rút của hệ điều hành
+đang **tắt hoàn toàn**; nhật ký gần nhất cách sự cố 6 tuần; và phần mềm diệt vi-rút **không bao
+giờ** xoá vào Thùng Rác mà chuyển vào kho cách ly riêng.
+
+Điểm đáng suy nghĩ: **chính thiết kế đúng đắn đã khiến tệp bị xoá.** Năm tệp quy tắc của dự án
+được yêu cầu phải giống hệt nhau từng ký tự — công cụ dọn tệp trùng nhìn thấy vậy liền coi bốn
+tệp là bản thừa. Cả năm bị xoá trong cùng một giây.
+
+**⏰ Việc cấp bách có hạn chót**
+
+Phần lớn tệp vẫn **cứu được nguyên vẹn** từ Thùng Rác, đã kiểm chứng bằng mã băm và khớp tuyệt
+đối. Nhưng hệ điều hành đang bật chế độ tự dọn Thùng Rác sau 30 ngày ⇒ nếu không khôi phục kịp
+sẽ mất vĩnh viễn. Đang chờ chủ sở hữu duyệt việc khôi phục.
+
+**✅ Tin tốt — mã nguồn và kho quản lý phiên bản lành tuyệt đối**
+
+- Băm lại **toàn bộ tệp đang được quản lý** rồi đối chiếu: **chỉ 1 tệp khác biệt**, và đó là
+  báo cáo đang soạn dở — nghĩa là phần còn lại giống hệt từng ký tự với bản chuẩn.
+- Kiểm tra toàn vẹn kho mã: **không có lỗi**, không có dữ liệu hỏng hay thất lạc.
+- Bộ thư viện phát triển: đối chiếu đầy đủ với danh sách khai báo — **không thiếu gói nào**.
+- Lịch sử thao tác cho thấy sự cố **hoàn toàn nằm ngoài** hệ thống quản lý mã nguồn.
+- **Môi trường vận hành thật đang chạy bản dựng từ trước ngày xảy ra sự cố** ⇒ chưa bao giờ
+  bị ảnh hưởng.
+
+**🔎 Kết quả rà soát khác**
+
+- Phát hiện một điểm cấu hình máy chủ chưa khớp quy định nội bộ của dự án, đã ghi nhận và
+  đang chờ duyệt phương án xử lý.
+- Phát hiện một số điểm mù trong cơ chế tự kiểm tra nội bộ — đây là lý do sự cố không được
+  báo động sớm. Đã đề xuất vá.
+- **17 nghi vấn khác đã được kiểm tra và loại bỏ** vì đo sai hoặc thổi phồng — ghi rõ trong
+  báo cáo nội bộ để không bỏ sót mà cũng không báo động giả.
+
+**📌 Bài học ghi nhận:** tệp thì cứu được, nhưng điều đáng lo hơn là **hệ thống phòng vệ đã
+không phát hiện ra sự cố**. Những vùng không nằm trong quản lý phiên bản hoàn toàn không có
+bản đối chiếu, và ngay cả kho sao lưu dự phòng cũng bị bào mòn mà không ai biết.
+
+---
+
 ### V0.333 (08/08/2026) — Rà soát toàn bộ 11 phân hệ & chốt hướng đi tiếp · CHƯA TRIỂN KHAI
 
 > 🧪 **Kiểm thử nội bộ — chưa đưa lên môi trường vận hành thật.**
