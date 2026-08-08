@@ -26,7 +26,7 @@
 
 ---
 
-## 📋 Trạng Thái Modules (cập nhật 25/07/2026)
+## 📋 Trạng Thái Modules (cập nhật 08/08/2026)
 
 | Module | Tên | Status | Mô tả chức năng | Sub-routes |
 |--------|-----|--------|------------------|------------|
@@ -118,6 +118,66 @@
 > 🔒 [P01-SAFETY-VERIFICATION-V0218.md](P01-SAFETY-VERIFICATION-V0218.md) — Safety Report
 >
 > 📋 [GOLIVE-PLAN.md](GOLIVE-PLAN.md) — Kế hoạch Go-Live tổng quan
+
+---
+
+### V0.333 (08/08/2026) — Rà soát toàn bộ 11 phân hệ & chốt hướng đi tiếp · CHƯA TRIỂN KHAI
+
+> 🧪 **Kiểm thử nội bộ — chưa đưa lên môi trường vận hành thật.**
+> Không đổi cấu trúc dữ liệu, không đổi dữ liệu thật, không đổi phân quyền, không triển khai.
+> Số hiệu phiên bản giữ nguyên V0.333 theo chính sách chỉ tăng khi phát hành.
+
+**🔍 Bối cảnh:** sau khi phân hệ **Danh Mục (M1)** hoàn tất kiểm thử nội bộ, cần một bức
+tranh tổng thể toàn hệ thống để quyết định làm tiếp phân hệ nào, thay vì chọn theo cảm tính.
+
+**📊 Đã làm — rà soát 11 phân hệ bằng số đo**
+
+Đo trực tiếp trên mã nguồn và lịch sử phát triển, không dựa vào tài liệu cũ:
+- Quy mô từng phân hệ (số màn hình, khối lượng mã).
+- Mức độ hoạt động 60 ngày gần nhất.
+- Có bộ kiểm thử tự động riêng hay không.
+- Dấu hiệu chưa hoàn thiện: ghi chú "còn phải làm", dữ liệu mẫu tạm, kiểu dữ liệu lỏng.
+- Trạng thái bàn giao từ Danh Mục sang từng phân hệ phía sau.
+
+**✅ Kết quả — Danh Mục (M1) đã chốt**
+
+Hoàn tất các quyết định của chủ sở hữu, kiểm thử chấp nhận nội bộ đạt trên bản dựng thật
+với 6 vai trò người dùng × 13 màn hình. Tổng **604 điểm kiểm thử đạt / 0 lỗi**.
+Các hợp đồng bàn giao sang phân hệ sau đã được khoá. **Không** phân hệ nào phía sau được
+coi là hoàn thành.
+
+**🎯 Đề xuất phân hệ tiếp theo: CRM & Bán Hàng (M3)**
+
+Sáu lý do dựa trên số đo:
+1. Là nơi phát sinh doanh thu (báo giá → đơn hàng) — sai ở đây tốn tiền thật.
+2. Dẫn đầu cả ba chỉ số chưa-hoàn-thiện trong nhóm phân hệ đang phát triển.
+3. Là phân hệ lớn thứ hai toàn hệ thống nhưng **chưa có bộ kiểm thử tự động riêng nào**,
+   trong khi Danh Mục đã có 10 bộ.
+4. Ba luồng dữ liệu từ Danh Mục sang đây đã khoá hợp đồng, chỉ còn triển khai.
+5. Là đích đến của phần kiểm soát giá vừa siết ở đợt trước.
+6. Rủi ro tích hợp thấp nhất — nền khách hàng và sản phẩm đã nối và đã kiểm chứng.
+
+Chia làm ba đợt nhỏ, mỗi đợt kiểm chứng được: dựng bộ kiểm thử nền → rà soát dữ liệu mẫu
+tạm và kiểu dữ liệu lỏng → nối hai luồng dữ liệu đã khoá hợp đồng.
+
+**⏸️ Vì sao chưa chọn phân hệ khác**
+
+| Phân hệ | Lý do chưa vào |
+|---|---|
+| Tài Chính (MF) | Tài liệu nghiệp vụ còn lệch thực tế, đang chờ chủ sở hữu chốt |
+| Kho Hàng (M5) | Còn phụ thuộc một quyết định triển khai chưa được duyệt |
+| Sản Xuất (M4) · Công Việc (M8) · Hợp Đồng (MC) | Chưa nối nền Danh Mục, khối lượng lớn — để sau |
+| Cổng Thông Tin (M9) | Gần như chưa có gì, là dự án mới hoàn toàn |
+
+**⚠️ Ghi nhận: máy phát triển đang gặp sự cố môi trường**
+
+Phát hiện một số tệp bị xoá khỏi thư mục làm việc và bộ thư viện phát triển bị thiếu thành
+phần, khiến **không chạy lại được** bộ kiểm thử để xác nhận con số 604 điểm nói trên ngay
+tại thời điểm rà soát. **Toàn bộ đều phục hồi được** và **không ảnh hưởng môi trường vận
+hành thật**. Đang chờ chủ sở hữu xác nhận việc xoá là có chủ ý hay không trước khi khôi phục.
+
+**📌 Việc còn chờ quyết định:** một sản phẩm mẫu trong danh mục cần xác nhận là dữ liệu
+thử hay dữ liệu thật trước khi dọn.
 
 ---
 
