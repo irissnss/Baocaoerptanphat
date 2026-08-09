@@ -121,6 +121,32 @@
 
 ---
 
+### V0.333 (10/08/2026) — Công cụ nhanh chạy nhất quán cả điện thoại lẫn máy tính + sửa lỗi thanh trên/dưới bị trôi trên điện thoại · CHƯA TRIỂN KHAI
+
+> ℹ️ **Chỉ máy nội bộ, chỉ giao diện.** Không đổi dữ liệu, không đổi cấu trúc, không đụng máy vận hành.
+
+**🎯 Chủ dự án yêu cầu:** công cụ nhanh phải **nhất quán, đa thiết bị** — chạy trên **cả điện thoại
+lẫn giao diện máy tính**, không chỉ điện thoại. Và báo lỗi: trên điện thoại **thanh trên (đầu trang)
+và thanh dưới bị trôi**, không ghim ổn định, khó thao tác.
+
+**🛠️ Đã làm**
+
+- **Đa thiết bị:** thanh công cụ ở chân trang bản **máy tính** nay dùng **chung một nguồn** với
+  thanh dưới điện thoại → cùng một bộ công cụ, cùng đổi theo từng phân hệ, trên cả hai thiết bị.
+- **Sửa tận gốc lỗi thanh trôi trên điện thoại:** nguyên nhân là các **ô nhập cỡ chữ nhỏ (14px)**
+  khiến trình duyệt điện thoại (Safari iOS) **tự động phóng to** khi chạm vào ô — lúc đó thanh trên
+  và thanh dưới (vốn được ghim cố định) **neo sai chỗ, trôi ra ngoài màn hình**. Bản sửa trước đã
+  ép cỡ chữ tối thiểu 16px nhưng **bị hệ thống kiểu dáng ghi đè** nên không có tác dụng. Nay đã ép
+  cho bản sửa **thắng tuyệt đối** → hết tự phóng to → hết trôi. **Vẫn giữ được khả năng phóng to
+  bằng tay** cho người cần (không chặn, để không hại người khiếm thị).
+
+**✅ Kiểm chứng bằng trình duyệt thật** (đăng nhập thật, đi qua **11 phân hệ**, cuộn trang, chụp ảnh):
+**103/103 điểm kiểm đạt** — thanh trên/dưới **ghim chắc khi cuộn**, **không còn ô nhập nào dưới 16px**,
+**không tràn ngang**, mọi liên kết mở ra bình thường, giao diện máy tính giữ nguyên. Chủ dự án đã
+xem trên điện thoại nội bộ: **xác nhận ổn định**. Dựng bản phát hành: **thành công**.
+
+---
+
 ### V0.333 (10/08/2026) — Thanh công cụ nhanh đáy màn hình điện thoại: đổi theo từng phân hệ + sửa link chết · CHƯA TRIỂN KHAI
 
 > ℹ️ **Chỉ làm trên máy nội bộ, chỉ giao diện.** Không đổi dữ liệu, không đổi cấu trúc,
