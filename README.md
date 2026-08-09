@@ -121,6 +121,76 @@
 
 ---
 
+### V0.333 (09/08/2026) — Tài liệu đuổi kịp hệ thống + thống nhất cách ghi "ai sửa, sửa lúc nào" · CHƯA TRIỂN KHAI
+
+> ℹ️ **Chỉ làm trên máy nội bộ.** Không triển khai, không phát hành phiên bản mới,
+> **không đụng máy chủ vận hành**, **không thay đổi dữ liệu nghiệp vụ**.
+
+**🔍 Vì sao làm:** tài liệu kỹ thuật nội bộ đang **đi sau** hệ thống thật khá xa. Chủ dự án
+chốt nguyên tắc: **sửa tài liệu cho khớp hệ thống**, không sửa hệ thống theo tài liệu đã cũ.
+
+**📌 Việc 1 — Sửa 3 khẳng định sai trong tài liệu (đều đã kiểm chứng bằng cách đếm thực tế)**
+
+| Tài liệu ghi | Thực tế đo được |
+|---|---|
+| "Hầu hết phân hệ mới chỉ là trang trống, chưa làm" | **Sai 8/9.** Chỉ **1** phân hệ còn là trang trống; 8 phân hệ còn lại đều đã có màn hình và nghiệp vụ chạy được |
+| "Hệ thống chưa có đăng nhập, phân quyền mới là vỏ giao diện" | **Sai.** Đăng nhập + phân quyền đã **dùng thật**: có cổng chặn, mật khẩu được mã hoá một chiều, 7 bảng dữ liệu, và giới hạn phạm vi xem theo người phụ trách |
+| "Tuyệt đối không dùng kiểu kết nối cũ" | **Mâu thuẫn với chính hệ thống** — đang có 33 điểm kết nối kiểu cũ chạy ổn định |
+
+Riêng điểm thứ 3, thay vì xoá luật, đã đổi thành **danh sách ngoại lệ có kiểm soát**:
+27 điểm được **giữ nguyên có lý do chính đáng** (đăng nhập, luồng cập nhật thời gian thực,
+và cụm Tính Giá — cụm này phụ thuộc sâu nên **cố ý không đụng**); 6 điểm còn lại được
+**đánh dấu là đề xuất dọn sau**, chưa làm gì. Từ nay muốn thêm điểm kết nối kiểu cũ thì
+**phải ghi lý do vào tài liệu trước**.
+
+**📌 Việc 2 — Thống nhất cách ghi "ai sửa, sửa lúc nào" trên toàn hệ thống**
+
+Trước đây hai trường ghi nhận việc chỉnh sửa dùng **tên cũ không thống nhất** với phần còn lại
+của hệ thống, và bản thân tài liệu **tự mâu thuẫn** ở hai chỗ khác nhau. Chủ dự án chốt một tên
+chuẩn duy nhất, đã áp dụng đồng loạt:
+
+| Hạng mục | Số lượng |
+|---|---:|
+| Trường dữ liệu được đổi tên | **131** |
+| Bảng dữ liệu bị ảnh hưởng | **67** |
+| Tệp mã nguồn được cập nhật theo | **133** |
+
+> 🔐 **Sao lưu trước khi đổi** (nguyên tắc "không sao lưu thì không làm"): đã sao lưu toàn bộ
+> cơ sở dữ liệu nội bộ, kiểm mã toàn vẹn, và **viết sẵn kịch bản quay lui** trước khi động vào.
+
+**🐞 Một lỗi đã bị bắt trước khi bàn giao:** kịch bản **quay lui** ban đầu đụng nhầm **132** trường
+thay vì 131 — nó định "sửa" cả một trường vốn đã đúng chuẩn từ trước, tức quay lui lại làm hỏng
+thứ chưa từng bị đổi. Đã đối chiếu với bản sao lưu để xác định chính xác và vá lại; sau khi vá,
+quay lui khớp đúng 131.
+
+**🧷 Một chỗ cố ý KHÔNG đụng:** có một nhóm trường tên gần giống nằm ở 4 bảng nhưng **không nằm
+trong phạm vi chủ dự án duyệt** → giữ nguyên, chờ quyết định riêng. Cách thay thế được thiết kế
+để không thể đụng nhầm vào nhóm này, và có kiểm tra tự động khẳng định điều đó.
+
+**✅ Kết quả kiểm chứng**
+
+| Hạng mục | Kết quả |
+|---|---|
+| Kiểm tra kiểu dữ liệu toàn dự án | **0 lỗi** |
+| Dựng bản phát hành | **Thành công** |
+| Bộ kiểm thử nghiệp vụ danh mục (9 bộ) | **518 đạt / 0 lỗi** |
+| Bộ kiểm thử mới cho quy ước ghi nhận chỉnh sửa | **14/14 đạt** |
+| Thao tác thử thật (thêm → sửa → xoá một mục) | **Ghi đúng, dọn sạch, không để lại rác** |
+| Chạy lại lần 2 | **0 thay đổi** (an toàn nếu lỡ chạy trùng) |
+
+**🧱 Chặn tái diễn:** thêm **cổng kiểm tra tự động** soát 3 tầng — cấu trúc dữ liệu, mã nguồn,
+và **chạy thật**. Tầng thứ ba quan trọng nhất: nó bắt được loại lỗi "đổi tên xong nhưng câu lệnh
+cập nhật quên mất trường", thứ mà kiểm tra trên giấy không thấy.
+
+**📚 Ghi chú trung thực:** trong lượt đổi tên, **15 tệp ảnh chụp cấu trúc dữ liệu cũ** đã bị sửa
+nhầm. Đây là **bằng chứng lịch sử**, sửa vào là làm sai lệch hồ sơ. Đã phát hiện và **khôi phục
+nguyên trạng**, ghi rõ trong nhật ký thay đổi.
+
+**⏳ Chờ chủ dự án quyết:** (1) nhóm trường ở 4 bảng nêu trên có đổi theo không; (2) 6 điểm kết nối
+kiểu cũ có dọn không; (3) kiểm tra lại môi trường vận hành trước lần triển khai tới.
+
+---
+
 ### V0.333 (09/08/2026) — Dời thư mục làm việc: nối lại toàn bộ liên kết + chặn tái diễn · CHƯA TRIỂN KHAI
 
 > ℹ️ **Chỉ ảnh hưởng máy làm việc nội bộ.** Không đổi cấu trúc dữ liệu, không đổi dữ liệu thật,
