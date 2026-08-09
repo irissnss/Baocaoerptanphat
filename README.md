@@ -121,6 +121,44 @@
 
 ---
 
+### V0.333 (10/08/2026) — Thanh công cụ nhanh đáy màn hình điện thoại: đổi theo từng phân hệ + sửa link chết · CHƯA TRIỂN KHAI
+
+> ℹ️ **Chỉ làm trên máy nội bộ, chỉ giao diện.** Không đổi dữ liệu, không đổi cấu trúc,
+> không phát hành phiên bản mới, không đụng máy vận hành.
+
+**🎯 Mục tiêu (chủ dự án đặt):** khi dùng hệ thống trên **điện thoại**, cần một thanh công cụ
+nhanh ở **đáy màn hình**, và công cụ phải **phù hợp với từng phân hệ đang mở** — không cố định.
+
+**🔍 Phát hiện khi bắt tay vào việc:** màn hình điện thoại **đã có sẵn** một thanh đáy, nhưng
+nó **cố định 5 mục cho mọi trang** và có **3 mục bấm không đi đâu** (link chết) cùng một con số
+thông báo **giả**. Suýt nữa thêm một thanh thứ hai gây **chồng lên nhau** — đã phát hiện kịp nhờ
+**chụp ảnh màn hình thật để xem tận mắt**, và sửa lại đúng hướng: **cải tạo chính thanh đang có**,
+không thêm thanh mới.
+
+**🛠️ Đã làm**
+
+| Trước | Sau |
+|---|---|
+| 5 mục **cố định** cho mọi trang | Thanh **đổi công cụ theo từng phân hệ đang mở** |
+| 3 link **chết** (bấm đứng yên) | **0 link chết** — mọi nút dẫn tới trang **có thật** |
+| Con số thông báo **giả** | Bỏ (chỉ hiện khi có số liệu thật) |
+| Đáy màn hình máy tính giữ nguyên | **Máy tính không đổi một điểm ảnh nào** |
+
+- Phủ **toàn bộ phân hệ**: Danh mục · Bán hàng · Kho · Tài chính · Hệ thống · Sản xuất · Vận hành HR ·
+  Tiền lương · Công việc · Hợp đồng — mỗi phân hệ một bộ công cụ riêng.
+- Sửa nốt **4 link cũ bị chết** ở chân trang bản máy tính, trỏ về trang phù hợp có thật.
+- Sửa lỗi thông báo tạm (toast) **che mất** thanh công cụ trên điện thoại — nay hiện phía trên,
+  không đè.
+
+**✅ Kiểm chứng bằng trình duyệt thật** (mở trình duyệt, đăng nhập, đi qua 8 phân hệ, chụp ảnh):
+**96/96 điểm kiểm đạt** — mỗi phân hệ hiện đúng bộ công cụ, **mọi liên kết mở ra bình thường
+(không có liên kết hỏng)**, đáy màn hình máy tính giữ nguyên. Dựng bản phát hành: **thành công**.
+
+**⏳ Chờ chủ dự án:** ba mục ở chân trang (Hướng Dẫn · Hỗ Trợ · Liên Hệ) hiện **chưa có trang
+riêng**, tạm trỏ về trang gần nghĩa nhất — có cần dựng trang riêng cho ba mục này không.
+
+---
+
 ### V0.333 (09/08/2026) — Rút quy trình máy nội bộ còn 4 lệnh + kiểm thử tự động có trình duyệt · CHƯA TRIỂN KHAI
 
 > ℹ️ **Chỉ làm trên máy nội bộ.** Không triển khai, không phát hành phiên bản mới,
