@@ -17,7 +17,7 @@
 | **Ngày bắt đầu** | 18/01/2026 |
 | **Phát hành lên vận hành thật** | 24/07/2026 — Đợt V0.326–V0.333 (gần nhất) · 23/07/2026 — Đợt R1/R1.1/R1.2 |
 | **Cập nhật báo cáo này** | 09/08/2026 |
-| **Tech Stack** | Next.js 16.1.6 · React 19.2.4 · Tailwind 4.2.1 · TypeScript 5.9.3 · MariaDB 10.11 (production) · MySQL 8.4 (local development) |
+| **Tech Stack** | Next.js 16.1.6 · React 19.2.4 · Tailwind 4.2.1 · TypeScript 5.9.3 · MariaDB 10.11 (**cả máy vận hành lẫn máy phát triển**, đồng bộ từ 09/08/2026) |
 | **Architecture** | Server Actions + Server Components + SSE |
 | **UI Framework** | Metronic (Demo 1 backbone) |
 | **Tổng modules** | 11 modules (M0–M9, MC, MF) |
@@ -118,6 +118,60 @@
 > 🔒 [P01-SAFETY-VERIFICATION-V0218.md](P01-SAFETY-VERIFICATION-V0218.md) — Safety Report
 >
 > 📋 [GOLIVE-PLAN.md](GOLIVE-PLAN.md) — Kế hoạch Go-Live tổng quan
+
+---
+
+### V0.333 (09/08/2026) — Máy nội bộ dùng chung hệ quản trị CSDL với máy vận hành + sửa 6 lỗi công cụ sao chép dữ liệu · CHƯA TRIỂN KHAI
+
+> ℹ️ **Chỉ làm trên máy nội bộ.** Không triển khai, không phát hành phiên bản mới,
+> **không thay đổi dữ liệu nghiệp vụ trên máy vận hành** (chỉ đọc để sao chép về).
+
+**Vấn đề tồn tại lâu nay:** máy lập trình chạy **một hệ quản trị CSDL khác** với máy vận hành.
+Nghĩa là mọi thứ kiểm thử ở máy nội bộ đều chạy trên nền không giống thực tế, tạo ra cả một
+lớp lỗi chỉ chịu lộ mặt **sau khi đã đưa lên chạy thật** — lúc đó sửa vừa gấp vừa nguy hiểm.
+Tài liệu nội bộ gọi đây là "Bẫy 2".
+
+**Đã xử lý:** dựng môi trường CSDL đóng gói (container) trên máy nội bộ chạy **đúng cùng
+phiên bản** với máy vận hành, và chuyển môi trường phát triển sang dùng nó.
+
+**Kết quả kiểm thử — cùng dữ liệu, chỉ đổi hệ quản trị:**
+
+| Bộ kiểm thử | Nền cũ | Nền mới |
+|---|---|---|
+| Quyết định chủ dự án phân hệ M1 | 67 đạt / 0 hỏng | **67 đạt / 0 hỏng** |
+| Phân quyền linh hoạt M1 | 99 đạt / 0 hỏng | **99 đạt / 0 hỏng** |
+| Hợp đồng menu M1 | 39 đạt / 0 hỏng | **39 đạt / 0 hỏng** |
+| Quyền sở hữu + hợp đồng M1 | — | **90 đạt / 0 hỏng** |
+| Chính sách bảo mật M0 | — | **27 đạt / 0 hỏng** |
+| Kiểm tra M0/M1/M13/M6 | — | **46 đạt / 0 hỏng** |
+| Kiểm tra M7 (tiền lương) | — | **29 đạt / 0 hỏng** |
+| **Tổng** | | **11/11 bộ ĐẠT** · dựng bản phát hành: ĐẠT |
+
+**Sao chép dữ liệu từ máy vận hành về để đối chiếu:** hút đủ **99/99 bảng**, không thiếu bảng
+nào, không thừa bảng nào. Hai bảng ghi nhật ký hoạt động lệch đúng 1 dòng — đã truy nguyên
+bằng mốc thời gian: đó là **một lượt đăng nhập thật xảy ra sau khi bản sao đã chụp xong**,
+không phải sao chép thiếu.
+
+**6 lỗi đã sửa trong công cụ sao chép dữ liệu** (`scripts/migrate-vps-to-local.ts`):
+
+| # | Lỗi | Hậu quả nếu để nguyên |
+|---|---|---|
+| 1 | Lệnh xoá toàn bộ CSDL chạy thẳng, không hỏi han | Gõ lệnh theo thói quen là **mất sạch CSDL phát triển** |
+| 2 | Đường dẫn tệp cấu hình trỏ lệch một cấp thư mục | Không đọc được cấu hình → tạo ra tệp rỗng → vẫn ghi đè lên dữ liệu |
+| 3 | Gọi thẳng công cụ dòng lệnh không có sẵn trên máy Windows | Hỏng ngay bước đầu |
+| 4 | Dùng công cụ sai dòng sản phẩm để trích xuất dữ liệu | Trích xuất hỏng giữa chừng |
+| 5 | Gộp luồng báo lỗi vào chính tệp dữ liệu | Trích xuất hỏng thì tệp chứa dòng báo lỗi, rồi vẫn nạp tệp hỏng đó vào CSDL |
+| 6 | Không bao giờ truyền mật khẩu cho CSDL đích | Không nạp được sang CSDL có đặt mật khẩu |
+
+**Ba lớp bảo vệ mới trước lệnh xoá CSDL:** (1) tệp dữ liệu phải hợp lệ mới được phép xoá;
+(2) bắt buộc xác nhận nêu **đích danh tên CSDL**; (3) tự sao lưu CSDL đích trước khi xoá.
+Đã chạy thử thật: không có xác nhận thì dừng, **không xoá gì**.
+
+**Ngoài ra:** chặn tệp sao lưu CSDL khỏi hệ thống quản lý mã nguồn — tệp này chứa dữ liệu
+khách hàng thật, trước đó không có gì ngăn nó bị đẩy lên kho công khai.
+
+**Phạm vi:** DevOps (môi trường máy nội bộ) + sửa công cụ — **không** đụng cấu trúc dữ liệu,
+**không** đụng logic nghiệp vụ, **không** phát hành phiên bản mới.
 
 ---
 
