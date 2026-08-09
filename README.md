@@ -121,6 +121,35 @@
 
 ---
 
+### V0.333 (09/08/2026) — Phục hồi tệp & hoàn tất kiểm thử sau sự cố · CHƯA TRIỂN KHAI
+
+> 🧪 **Kiểm thử nội bộ — chưa đưa lên môi trường vận hành thật.**
+> Không đổi cấu trúc dữ liệu, không đổi dữ liệu thật, không đổi phân quyền, không triển khai.
+
+**🔧 Đã làm — khắc phục dứt điểm sự cố mất tệp**
+
+| Việc | Kết quả |
+|---|---|
+| Phục hồi tệp từ khu vực lưu tạm | **464 / 464 tệp** đã về đúng chỗ, **không thiếu tệp nào** |
+| Thư viện giao diện có bản quyền | Đã đầy đủ trở lại |
+| Mã nguồn quản lý phiên bản | Không bị ảnh hưởng bởi thao tác phục hồi |
+| Kiểm thử tự động phần Danh Mục | **Hoàn tất — tổng 753 điểm đạt / 0 lỗi thật** |
+
+Sau khi phục hồi và bật lại cơ sở dữ liệu nội bộ, đã chạy nốt tám bộ kiểm thử còn thiếu —
+tất cả đều đạt. Phân hệ Danh Mục được kiểm chứng lại đầy đủ sau sự cố, không phát sinh lỗi mới.
+
+**⏸️ Một việc bảo mật đang chờ chủ sở hữu quyết định**
+
+Ghi nhận một cấu hình dịch vụ nội bộ trên máy chủ đang để mở rộng hơn mức cần thiết, và đã có
+truy cập lạ từ bên ngoài dò vào (chưa có trường hợp nào truy cập thành công). Việc thu hẹp lại
+**không ảnh hưởng** đến hoạt động của ứng dụng. Đã ghi nhận và **chưa tự ý sửa** vì thuộc quyền
+quyết định của chủ sở hữu.
+
+**🛡️ Chống tái diễn:** đã thiết lập quy tắc bảo vệ để công cụ dọn ổ đĩa và công cụ hỗ trợ không
+được thao tác vào thư mục dự án — nguyên nhân gốc của sự cố lần này.
+
+---
+
 ### V0.333 (09/08/2026) — Rà soát tổng lực tính toàn vẹn sau sự cố mất tệp · CHƯA TRIỂN KHAI
 
 > 🧪 **Kiểm thử nội bộ — chưa đưa lên môi trường vận hành thật.**
