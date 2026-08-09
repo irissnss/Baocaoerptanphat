@@ -16,7 +16,7 @@
 | **Mốc phiên bản hiện tại** | V0.333 |
 | **Ngày bắt đầu** | 18/01/2026 |
 | **Phát hành lên vận hành thật** | 24/07/2026 — Đợt V0.326–V0.333 (gần nhất) · 23/07/2026 — Đợt R1/R1.1/R1.2 |
-| **Cập nhật báo cáo này** | 01/08/2026 |
+| **Cập nhật báo cáo này** | 09/08/2026 |
 | **Tech Stack** | Next.js 16.1.6 · React 19.2.4 · Tailwind 4.2.1 · TypeScript 5.9.3 · MariaDB 10.11 (production) · MySQL 8.4 (local development) |
 | **Architecture** | Server Actions + Server Components + SSE |
 | **UI Framework** | Metronic (Demo 1 backbone) |
@@ -118,6 +118,64 @@
 > 🔒 [P01-SAFETY-VERIFICATION-V0218.md](P01-SAFETY-VERIFICATION-V0218.md) — Safety Report
 >
 > 📋 [GOLIVE-PLAN.md](GOLIVE-PLAN.md) — Kế hoạch Go-Live tổng quan
+
+---
+
+### V0.333 (09/08/2026) — Dời thư mục làm việc: nối lại toàn bộ liên kết + chặn tái diễn · CHƯA TRIỂN KHAI
+
+> ℹ️ **Chỉ ảnh hưởng máy làm việc nội bộ.** Không đổi cấu trúc dữ liệu, không đổi dữ liệu thật,
+> không đổi phân quyền, không phát hành phiên bản mới, **không đụng máy chủ vận hành**.
+
+**🔍 Chuyện gì xảy ra:** chủ dự án gom toàn bộ tài sản dự án vào một thư mục chung cho gọn.
+Các tệp được chuyển **nguyên vẹn**, nhưng **bốn thứ không nằm trong thư mục đó thì đứt liên kết**:
+
+| Thứ bị đứt | Hệ quả thực tế |
+|---|---|
+| Lịch sử trao đổi & bộ nhớ làm việc của trợ lý AI | Không tra cứu lại được việc đã làm |
+| Hệ thống quản lý phiên bản mã nguồn | **Chặn hoàn toàn** mọi thao tác lưu/đẩy mã |
+| Bộ nhớ đệm dựng ứng dụng | Trỏ về vị trí cũ không còn tồn tại |
+| Các đoạn tự động hoá có ghi cứng đường dẫn | Chạy sai chỗ hoặc báo "không tìm thấy tệp" |
+
+**🛠️ Đã khôi phục — có đối chiếu mã toàn vẹn từng tệp**
+
+| Hạng mục | Kết quả |
+|---|---|
+| Lịch sử trao đổi & bộ nhớ làm việc | **274/274 tệp khớp mã toàn vẹn** · 0 thiếu · 0 sai |
+| Hệ thống quản lý phiên bản | Hoạt động lại bình thường, đúng kho mã |
+| Bộ nhớ đệm dựng ứng dụng | Đã dọn, tự sinh lại sạch |
+| Ứng dụng chạy thử | Khởi động **1,5 giây**, mở được màn hình đăng nhập, **0 lỗi** |
+| Cơ sở dữ liệu nội bộ | Kết nối tốt, **đầy đủ 99 bảng** |
+| Dựng bản phát hành thử | **Thành công** |
+
+> 🔐 **Bản cũ được giữ nguyên làm đường lùi** — chỉ sao chép sang chỗ mới, không xoá bản gốc.
+
+**🧱 Chặn tái diễn (quan trọng nhất):** đây là **lần thứ 2** thư mục gốc bị dời chỗ. Nguyên nhân
+gốc không phải "quên đường dẫn mới", mà là **thói quen ghi cứng đường dẫn** vào các đoạn tự động
+hoá. Đã bổ sung một **quy tắc nội bộ bắt buộc**: cấm ghi cứng đường dẫn gốc, thay bằng cách **tự
+xác định vị trí lúc chạy**; kèm **quy trình 8 bước** phải làm mỗi khi dời thư mục (trong đó có
+bước chuyển lịch sử làm việc — bước dễ quên nhất). Có thêm **cổng kiểm tra tự động** chặn ngay
+nếu ai đó lỡ ghi cứng đường dẫn trở lại.
+
+**🐞 Lỗi tiềm ẩn phát hiện thêm:** một công cụ kiểm tra phân quyền nội bộ **luôn báo "không tìm
+thấy tệp"** do dò sai vị trí — lỗi có sẵn từ trước, nay mới lộ ra và đã sửa.
+
+**📚 Tài liệu được cập nhật cho khớp thực tế:** đối chiếu tài liệu nội bộ với hệ thống đang chạy,
+phát hiện tài liệu **lạc hậu nhiều bậc** so với thực tế và đã sửa lại:
+
+| Tài liệu ghi (sai) | Thực tế đang chạy |
+|---|---|
+| Next.js 14 | **Next.js 16.1.6** |
+| React 18 | **React 19.2.4** |
+| Tailwind 3.4 | **Tailwind 4.2.1** |
+| Cả nội bộ và vận hành đều là "MySQL 8.0" | Nội bộ **MySQL 8.4**, vận hành **MariaDB 10.11** |
+| "Dựng bản phát hành bị lỗi" | **Dựng thành công** |
+
+> ⚠️ **Điểm đáng lưu ý nhất:** máy nội bộ và máy vận hành **dùng hai hệ quản trị cơ sở dữ liệu
+> khác nhau**. Tài liệu trước đây ghi cả hai là một, dễ dẫn tới viết câu lệnh chạy được ở nội bộ
+> nhưng **hỏng khi lên vận hành**. Đã thêm cảnh báo bắt buộc kèm quy tắc kiểm tra tương thích.
+
+**⏳ Còn lại chờ chủ dự án:** quyết định có xoá bản lưu lịch sử cũ (đang giữ làm đường lùi) và
+xoá một tệp báo cáo nháp bỏ dở bị trùng nội dung hay không.
 
 ---
 
