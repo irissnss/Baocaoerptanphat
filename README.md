@@ -121,6 +121,72 @@
 
 ---
 
+### V0.333 (09/08/2026) — Quay lui quy ước trường ghi nhận chỉnh sửa về đúng mốc máy vận hành · CHƯA TRIỂN KHAI
+
+> ℹ️ **Chỉ làm trên máy nội bộ.** Không triển khai, không phát hành phiên bản mới,
+> **không đụng máy vận hành**, không thay đổi dữ liệu nghiệp vụ.
+
+**🔄 Chủ dự án đảo quyết định trong ngày (13:22 → 20:05):** quy ước chính thức cho hai trường
+`ngay_sua` / `nguoi_sua` được **giữ nguyên như máy vận hành đang chạy**, thay vì đổi sang
+`ngay_cap_nhat` / `nguoi_cap_nhat` như quyết định ban trưa.
+
+**Vì sao lấy máy vận hành làm mốc:**
+
+| | Giữ máy vận hành, sửa máy nội bộ | Sửa máy vận hành theo nội bộ |
+|---|---|---|
+| Nơi bị đụng | Máy làm việc — hỏng thì làm lại | **Hệ thống đang chạy thật** |
+| Phải dừng dịch vụ? | Không | **Có** |
+| Rủi ro dữ liệu | Không | Có (đổi hàng loạt 131 trường) |
+
+→ Chênh lệch rủi ro quá lớn. Quyết định 13:22 chuyển sang trạng thái **không thực thi**.
+
+**✅ Đã quay lui xong trên máy nội bộ**
+
+| Hạng mục | Kết quả |
+|---|---|
+| Trường dữ liệu quay lui | **131 / 131** |
+| Bảng bị ảnh hưởng | **67** |
+| Tệp mã nguồn hoàn nguyên | **133** |
+| Kiểm tra kiểu dữ liệu | **0 lỗi** |
+| Dựng bản phát hành | **Thành công** |
+| Bộ kiểm thử nghiệp vụ danh mục | **518 đạt / 0 lỗi** — đúng mốc trước |
+| Bộ kiểm thử quy ước (viết mới) | **15/15 đạt** |
+| Thao tác thử thật (thêm → sửa → xoá) | Ghi đúng, dọn sạch |
+
+> 🔐 Trước khi quay lui đã lập **điểm lùi kép**: mốc trong hệ quản lý phiên bản **và** bản sao
+> lưu toàn bộ cơ sở dữ liệu nội bộ có kiểm mã toàn vẹn.
+
+**🎯 Đối chiếu máy nội bộ ↔ máy vận hành sau khi quay lui: khớp 7/7 chỉ số** — hai môi trường
+nay dùng **cùng một quy ước**.
+
+**🧹 Một vấn đề tự tan biến:** nhóm trường ở 4 bảng phân hệ Tài chính từng bị xem là "lệch chuẩn"
+— sau khi quay lui thì **đã đối xứng đầy đủ**, không còn gì phải đổi. Chi phí và rủi ro đều bằng 0.
+
+**📚 Tài liệu nội bộ nâng cấp — chỉ thêm, không cắt bớt (chứng minh bằng số dòng: 2.444 → 2.586,
+tăng 142 dòng ở cả 5 tệp):**
+
+- Quy ước cột ghi nhận chỉnh sửa: cập nhật về chuẩn hiệu lực; **giữ nguyên văn** quyết định ban
+  trưa kèm nhãn "đã bị thay thế" + ngày giờ — **không xoá dấu vết quyết định**.
+- **Luật báo cáo công khai:** phân định rõ hai nhóm — được phép nêu (tên bảng, tên cột, tên phân hệ,
+  đường dẫn kỹ thuật, số liệu, số phiên bản) và chặn tuyệt đối (tài khoản & bí mật, dữ liệu cá nhân,
+  dữ liệu dính tiền, hạ tầng máy chủ). Nguyên tắc: **chỉ chặn thứ ảnh hưởng bảo mật hoặc tiền bạc**;
+  không chặn thông tin cấu trúc phục vụ truy vết — cách hiểu cũ chặn quá tay, làm mất khả năng
+  truy vết mà không tăng thêm chút an toàn nào.
+- **Quy tắc làm tỉ mỉ 5 bước tuần tự:** xác định → xác định tương quan → tương thích → tương ứng
+  phù hợp → nhất quán; bước trước đạt mới sang bước sau; cấm phán bừa, cấm chốt mù, cấm duyệt mù.
+- **Luật mốc quy ước:** khi hai môi trường lệch nhau thì mặc định lấy máy vận hành làm chuẩn; và
+  **cấm để hai môi trường chạy hai quy ước khác nhau qua đêm**.
+
+**🐞 Ghi nhận lịch sử một lỗi đã bắt được:** kịch bản quay lui bản đầu tính **132** trường thay vì
+131 — nó định đụng cả một trường vốn đã đúng từ trước. Đã đối chiếu bản sao lưu, xác định chính xác
+và vá lại trước khi chạy thật.
+
+**⏳ Chờ chủ dự án quyết:** nhóm trường 4 bảng (khuyến nghị **giữ nguyên**, đã đúng chuẩn) · xử lý
+từng nhóm đường dẫn kỹ thuật cũ · thời điểm triển khai phân hệ Danh mục — **nay đơn giản hơn hẳn
+vì không còn phải đổi cấu trúc dữ liệu**.
+
+---
+
 ### V0.333 (09/08/2026) — Điều tra 3 mục tồn đọng trước khi trình duyệt · CHỈ ĐỌC, KHÔNG SỬA GÌ
 
 > 🔍 **Đây là lượt ĐIỀU TRA, không phải lượt thi công.** Không sửa một dòng mã, không đổi một
