@@ -149,10 +149,13 @@ Cổng kiểm tra đường dẫn: **25/25 ĐẠT**. Dựng bản phát hành: �
 từng byte**. Mục cảnh báo về chênh lệch nền cơ sở dữ liệu được đánh dấu **ĐÃ GIẢI QUYẾT**,
 đồng thời **giữ nguyên văn bản cũ** làm dấu vết lịch sử theo đúng quy định nội bộ — không xoá.
 
-**Cải thiện an toàn:** gỡ bỏ mật khẩu viết thẳng trong một số script tiện ích, chuyển sang nhận
-qua tham số lúc chạy và đọc cấu hình từ tệp môi trường. Bổ sung chặn không cho tệp sao lưu cơ sở
-dữ liệu và ảnh chụp màn hình kiểm thử lọt vào hệ thống quản lý mã nguồn — cả hai đều hiển thị
-dữ liệu thật.
+**Cải thiện an toàn:** rà thấy một số script tiện ích còn ghi mật khẩu thẳng vào mã nguồn.
+Đã xử lý: script còn dùng thì viết lại để **nhận mật khẩu qua tham số lúc chạy** (không lưu ở
+đâu) và đọc cấu hình từ tệp môi trường, kèm chặn không cho trỏ ra ngoài máy nội bộ; hai script
+gỡ rối tạm thời không còn dùng thì **xoá hẳn** sau khi đối chiếu toàn bộ mã nguồn xác nhận
+không nơi nào gọi tới. Kho mã nguồn đã được kiểm chứng là **riêng tư**, chưa lộ ra ngoài.
+Bổ sung chặn không cho tệp sao lưu cơ sở dữ liệu và ảnh chụp màn hình kiểm thử lọt vào hệ thống
+quản lý mã nguồn — cả hai đều hiển thị dữ liệu thật.
 
 **Ghi nhận kỹ thuật (để lần sau không mất thời gian dò lại):** ba lỗi môi trường Windows đã gặp
 và đã ghi vào tài liệu — tệp lệnh chỉ được dùng ký tự cơ bản, thao tác đọc/ghi tệp có tiếng Việt
