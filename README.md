@@ -121,6 +121,65 @@
 
 ---
 
+### V0.333 (09/08/2026) — Điều tra 3 mục tồn đọng trước khi trình duyệt · CHỈ ĐỌC, KHÔNG SỬA GÌ
+
+> 🔍 **Đây là lượt ĐIỀU TRA, không phải lượt thi công.** Không sửa một dòng mã, không đổi một
+> trường dữ liệu, không triển khai. Mục tiêu: trình bày đủ căn cứ để chủ dự án ra quyết định.
+
+**🔍 Vì sao có lượt này:** ba mục còn tồn sau đợt rà 09/08 **chưa được duyệt** vì báo cáo trước
+mới nêu số lượng mà **chưa chỉ rõ đối tượng**. Chủ dự án yêu cầu làm tỉ mỉ từng mục một, và
+đối chiếu đủ ba tầng: **máy nội bộ ↔ máy vận hành ↔ tài liệu**.
+
+**📌 Mục 1 — Nhóm trường ghi nhận chỉnh sửa còn sót**
+
+| Hạng mục | Kết quả |
+|---|---:|
+| Số bảng liên quan | **4** (đều thuộc cùng **một phân hệ**) |
+| Số điểm trong mã nguồn phải sửa nếu đổi | **23** |
+| Dữ liệu thật đang có — máy nội bộ | **0 dòng** |
+| Dữ liệu thật đang có — máy vận hành | **0 dòng** |
+
+→ **Rủi ro mất dữ liệu nếu đổi: bằng không** (đã đo trực tiếp cả hai môi trường, không phỏng đoán).
+
+> ⚠️ **Tự đính chính:** báo cáo trước xếp nhóm trường này là *"không phải trường ghi nhận chỉnh sửa"*
+> — **sai**. Tra lại tài liệu đặc tả thì đây **đúng là** trường ghi nhận, chỉ là ghi theo một cách
+> khác song song. Lý do hoãn hợp lệ duy nhất là **nó nằm ngoài câu chữ chủ dự án đã duyệt**.
+> Đã ghi rõ đính chính này trong hồ sơ nội bộ.
+
+**📌 Mục 2 — Sáu điểm kết nối kiểu cũ**
+
+Đã truy vết **từng điểm một**: ai gọi, gọi từ đâu, gọi tiếp tới đâu, còn dùng hay đã bỏ.
+
+| Phán định | Số lượng |
+|---|---:|
+| Còn dùng thật — **bị xếp nhầm** vào nhóm chờ dọn, thực chất là ngoại lệ hợp lệ | **1** |
+| Còn dùng thật — dọn được nhưng nên gộp một lượt | **3** |
+| Không còn nơi nào gọi — **dọn được ngay**, môi trường vận hành đã chặn sẵn | **1** |
+| Không còn nơi nào gọi — nhưng **cần chủ dự án xác nhận** trước khi bỏ | **1** |
+
+→ **Không điểm nào chạm cụm Tính Giá** — cụm đó vẫn giữ nguyên đúng chủ trương.
+
+**📌 Mục 3 — Đối chiếu ba tầng cho đợt triển khai tới**
+
+| Hạng mục | Máy nội bộ | Máy vận hành |
+|---|---|---|
+| Tổng số bảng dữ liệu | 99 | **99** ✅ khớp |
+| Quy ước tên trường ghi nhận chỉnh sửa | **đã chuẩn hoá** | **chưa chuyển** |
+| Mã nguồn | **đã chuyển hết** | **chưa chuyển** |
+
+> 🚨 **Phát hiện quan trọng nhất:** hai môi trường **đều đang tự nhất quán, nhưng theo hai quy ước
+> khác nhau**. Nghĩa là **bắt buộc phải triển khai đồng thời cả mã nguồn lẫn dữ liệu** — làm lệch
+> một bên là hỏng ngay gần như toàn hệ. Đã lập **bảng đối chiếu từng dòng một (132 dòng)** và
+> quy trình triển khai 6 bước có đường lùi cho từng bước.
+
+**✅ Về khác biệt giữa hai hệ quản trị dữ liệu:** đã soát kỹ — **0 điểm không tương thích thật**.
+Vài chỗ trông như khác nhau chỉ là **khác cách hiển thị**, không phải khác cấu trúc. Câu lệnh
+dùng để đổi tên đã chọn loại **chạy được trên cả hai** ngay từ đầu.
+
+**⏳ Sáu việc đang chờ chủ dự án quyết** — đã trình bày đủ căn cứ, **không tự quyết thay**.
+
+---
+
 ### V0.333 (09/08/2026) — Tài liệu đuổi kịp hệ thống + thống nhất cách ghi "ai sửa, sửa lúc nào" · CHƯA TRIỂN KHAI
 
 > ℹ️ **Chỉ làm trên máy nội bộ.** Không triển khai, không phát hành phiên bản mới,
