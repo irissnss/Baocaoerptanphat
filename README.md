@@ -974,4 +974,4 @@ trúc dữ liệu, không đổi dữ liệu thật, không đổi phân quyền
 
 > **Phát hành lên vận hành thật:** 23/07/2026 — V0.323 (Đợt R1/R1.1/R1.2)
 >
-> **Cập nhật báo cáo này:** 24/07/2026
+> **Cập nhật báo cáo này:** 09/08/2026
