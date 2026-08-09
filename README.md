@@ -121,6 +121,43 @@
 
 ---
 
+### V0.333 (09/08/2026) — Siết bảo mật máy chủ: thu hẹp truy cập dịch vụ nội bộ · ĐÃ ÁP DỤNG TRÊN MÁY CHỦ
+
+> ✅ **Đã áp dụng trên môi trường vận hành thật ngày 09/08/2026. Không gián đoạn dịch vụ.**
+> Không đổi cấu trúc dữ liệu, không đổi dữ liệu thật, không đổi phân quyền, không phát hành phiên bản mới.
+
+**🔍 Vấn đề:** một dịch vụ nội bộ của hệ thống đang cho phép kết nối từ Internet trong khi lẽ ra
+chỉ nên dùng nội bộ. Nhật ký ghi nhận **306 lần thử truy cập trái phép** từ bên ngoài
+(**không có lần nào thành công**).
+
+**🛠️ Đã xử lý:** thu hẹp phạm vi truy cập — chỉ cho phép kết nối **từ bên trong chính máy chủ**,
+đúng đường mà ứng dụng đang dùng. Chọn cách can thiệp ở lớp lọc mạng thay vì đổi cấu hình dịch vụ,
+để **không phải khởi động lại** và **không gây gián đoạn**.
+
+**📊 Kết quả đo trước / sau (đo từ bên ngoài Internet)**
+
+| Hạng mục | Trước | Sau |
+|---|---|---|
+| Dịch vụ nội bộ tiếp cận từ Internet | **Có** | **Đã chặn** |
+| Website | Hoạt động | **Hoạt động bình thường** |
+| Kênh quản trị & kênh web | Mở | **Vẫn mở đúng như cần** |
+| Ứng dụng | Đang chạy | **Chạy liên tục 15 ngày, 0 lần khởi động lại** |
+| Cơ sở dữ liệu | Bình thường | **Bình thường, đầy đủ dữ liệu** |
+| Số lần thử truy cập trái phép | Tăng liên tục | **Dừng hẳn, không tăng thêm** |
+
+**🔁 Sống qua khởi động lại máy:** máy chủ vốn không có sẵn cơ chế ghi nhớ cấu hình lọc mạng, nên
+đã thiết lập một tiến trình tự khôi phục khi máy khởi động, và cho chạy **sau** phần mềm quản trị
+máy chủ để tránh bị ghi đè. Đã kiểm chứng chạy lại nhiều lần **không sinh cấu hình trùng lặp**.
+
+**🔙 Đường lùi:** đã sao lưu toàn bộ cấu hình lọc mạng **trước khi sửa**; có thể khôi phục nguyên
+trạng bất cứ lúc nào.
+
+**⏸️ Còn một lớp bảo vệ nữa chờ quyết định:** có thể siết thêm ở tầng cấu hình dịch vụ để phòng
+trường hợp lớp lọc mạng bị xoá. Việc này cần khởi động lại dịch vụ (gián đoạn vài giây) nên
+**chưa thực hiện**, chờ chủ sở hữu duyệt. Mức bảo vệ hiện tại đã đủ chặn.
+
+---
+
 ### V0.333 (09/08/2026) — Phục hồi tệp & hoàn tất kiểm thử sau sự cố · CHƯA TRIỂN KHAI
 
 > 🧪 **Kiểm thử nội bộ — chưa đưa lên môi trường vận hành thật.**
