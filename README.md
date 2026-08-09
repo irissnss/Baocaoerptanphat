@@ -121,6 +121,49 @@
 
 ---
 
+### V0.333 (09/08/2026) — Rút quy trình máy nội bộ còn 4 lệnh + kiểm thử tự động có trình duyệt · CHƯA TRIỂN KHAI
+
+> ℹ️ **Chỉ làm trên máy nội bộ.** Không triển khai, không phát hành phiên bản mới,
+> không thay đổi dữ liệu nghiệp vụ trên máy vận hành.
+
+**Vấn đề:** chủ dự án làm một mình, không có nhân lực cho việc vận hành công cụ. Quy trình cũ
+bắt phải nhớ nhiều thứ — mở phần mềm nào trước, cơ sở dữ liệu nằm ở đâu, mật khẩu là gì — mỗi
+thứ phải nhớ là thêm thời gian mất vào việc không tạo ra giá trị, và dễ làm sai.
+
+**Đã xử lý — rút xuống còn 4 lệnh, mọi thứ tự động:**
+
+| Lệnh | Làm gì |
+|---|---|
+| Khởi động | Tự bật môi trường CSDL, chờ sẵn sàng, bật máy chủ, tự mở trình duyệt |
+| Kiểm thử | Chạy **toàn bộ** bài kiểm tra, gồm cả **mở trình duyệt thật để thử giao diện** |
+| Khởi động lại | Dọn sạch rồi bật lại khi giao diện trục trặc |
+| Tắt | Dừng máy chủ |
+
+Không phải mở phần mềm nào bằng tay, **không phải gõ mật khẩu** — các script tự đọc cấu hình.
+
+**Kết quả kiểm thử tự động:** **15 nhóm ĐẠT / 0 lỗi mới** (2 mục đã hỏng từ trước được đánh dấu
+riêng để không gây báo động giả — một là lỗi khung ứng dụng có sẵn, một là tính năng đang làm dở).
+Cổng kiểm tra đường dẫn: **25/25 ĐẠT**. Dựng bản phát hành: ĐẠT.
+
+**Tài liệu quản trị:** 5 tệp quy tắc đã cập nhật cho khớp thực tế và **đồng bộ tuyệt đối
+từng byte**. Mục cảnh báo về chênh lệch nền cơ sở dữ liệu được đánh dấu **ĐÃ GIẢI QUYẾT**,
+đồng thời **giữ nguyên văn bản cũ** làm dấu vết lịch sử theo đúng quy định nội bộ — không xoá.
+
+**Cải thiện an toàn:** gỡ bỏ mật khẩu viết thẳng trong một số script tiện ích, chuyển sang nhận
+qua tham số lúc chạy và đọc cấu hình từ tệp môi trường. Bổ sung chặn không cho tệp sao lưu cơ sở
+dữ liệu và ảnh chụp màn hình kiểm thử lọt vào hệ thống quản lý mã nguồn — cả hai đều hiển thị
+dữ liệu thật.
+
+**Ghi nhận kỹ thuật (để lần sau không mất thời gian dò lại):** ba lỗi môi trường Windows đã gặp
+và đã ghi vào tài liệu — tệp lệnh chỉ được dùng ký tự cơ bản, thao tác đọc/ghi tệp có tiếng Việt
+phải khai báo bảng mã, và cấu hình bắt lỗi quá nghiêm khiến một dòng cảnh báo vô hại cũng làm
+dừng cả kịch bản.
+
+**Phạm vi:** DevOps (công cụ máy nội bộ) + tài liệu — **không** đụng cấu trúc dữ liệu, **không**
+đụng logic nghiệp vụ, **không** phát hành phiên bản mới.
+
+---
+
 ### V0.333 (09/08/2026) — Máy nội bộ dùng chung hệ quản trị CSDL với máy vận hành + sửa 6 lỗi công cụ sao chép dữ liệu · CHƯA TRIỂN KHAI
 
 > ℹ️ **Chỉ làm trên máy nội bộ.** Không triển khai, không phát hành phiên bản mới,
