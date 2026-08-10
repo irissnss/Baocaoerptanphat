@@ -121,6 +121,44 @@
 
 ---
 
+### ✅ 10/08/2026 — Giao diện: 2 trang mới (Liên hệ & Hỗ trợ · Hướng dẫn) + tinh chỉnh UI + quy tắc ghi nhận yêu cầu Owner · ĐÃ TRIỂN KHAI
+
+> Chỉ giao diện + tài liệu, **KHÔNG đổi cấu trúc dữ liệu**. Đã kiểm thử + triển khai lên vận hành.
+
+**🛠️ Đã làm**
+
+- **[Trang mới] Liên hệ & Hỗ trợ** (dùng chung 1 trang): thông tin liên hệ công ty (bộ chuẩn) +
+  người đại diện + kênh hỗ trợ sử dụng hệ thống ERP.
+- **[Trang mới] Hướng dẫn**: hướng dẫn vận hành cơ bản cho nhân viên — đăng nhập, giao diện chung,
+  **quy trình Khách hàng → Báo giá → Đơn hàng**, các mẹo dùng.
+- **[Khách Hàng]** Chip thống kê bo góc vừa phải + **icon theo loại khách** (Doanh nghiệp / Cá nhân)
+  cho từng dòng + icon tiêu đề trang.
+- **[Báo Giá]** Tối ưu không gian làm việc theo chuẩn trang Kho Thành Phẩm (bỏ lề thừa, thu gọn bộ
+  lọc + bảng) → hiển thị được nhiều dòng hơn trong cùng màn hình.
+- **[Bố cục chung]** Dời dòng bản quyền xuống chân thanh bên (một nơi duy nhất); gộp 2 liên kết chân
+  trang (Hỗ trợ + Liên hệ) thành một; canh giữa thanh công cụ nhanh.
+
+**📋 Quy tắc mới (Owner yêu cầu) — `GOV-OWNER-REQUEST-LEDGER-001`:** mỗi phiên phải **ghi nhận yêu
+cầu của Owner** vào Sổ Yêu Cầu Owner (repo báo cáo công khai này + tài liệu nội bộ) để các công cụ AI
+— đặc biệt **Agent Notion** — học hiểu ý muốn thật của Owner, **tự đối chiếu tài liệu và tự nâng
+cấp/bổ sung tài liệu ngay, không cần hỏi lại**.
+
+**🎯 Yêu cầu Owner phiên 10/08/2026** (để Agent Notion đối chiếu + cập nhật tài liệu):
+
+1. Hoàn thiện Khách hàng / Báo giá / Đơn hàng để **bàn giao nhân viên vận hành** (ĐỢT 1 — đã xong + triển khai).
+2. Tạo **trang Liên hệ + Hỗ trợ** (chung) và **trang Hướng dẫn** vận hành cơ bản.
+3. **Tinh chỉnh giao diện** Khách hàng + Báo giá theo chuẩn trang đã tối ưu; ưu tiên cải tiến kỹ thuật/mượt, không đổi mạnh giao diện.
+4. Thêm **quy tắc ghi nhận yêu cầu Owner** cho các công cụ AI.
+5. Tiếp tục **dọn dẹp kỹ thuật (ĐỢT 2)** rồi **nâng cấp (ĐỢT 3)** tuần tự, từ đơn giản đến phức tạp.
+
+**✅ Kiểm chứng:** dựng bản phát hành **thành công** · trang đăng nhập **200** · 2 trang mới sinh ra +
+phục vụ bình thường · ứng dụng **online** ổn định · đã **sao lưu CSDL** trước khi triển khai · **không
+gián đoạn**.
+
+- **[Phạm vi]** Giao diện + Tài liệu/Governance.
+
+---
+
 ### ✅ 10/08/2026 — ĐỢT 1: hoàn thiện nghiệp vụ Bán hàng để bàn giao nhân viên vận hành (đã triển khai)
 
 > Chỉ sửa logic + giao diện, **KHÔNG đổi cấu trúc dữ liệu**. Đã kiểm thử trình duyệt thật + triển khai.
