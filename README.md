@@ -121,6 +121,30 @@
 
 ---
 
+### ✅ 10/08/2026 — ĐỢT 1: hoàn thiện nghiệp vụ Bán hàng để bàn giao nhân viên vận hành (đã triển khai)
+
+> Chỉ sửa logic + giao diện, **KHÔNG đổi cấu trúc dữ liệu**. Đã kiểm thử trình duyệt thật + triển khai.
+
+Rà soát các phân hệ nghiệp vụ trước khi giao nhân viên dùng, phát hiện và **sửa dứt điểm những
+điểm có thể gây MẤT DỮ LIỆU hoặc hiển thị sai**:
+
+- **[Đơn hàng]** Bỏ màn "tạo đơn trực tiếp" có nút Lưu **chỉ báo thành công nhưng không thực sự lưu**
+  (bẫy mất dữ liệu). Nay đơn hàng tạo từ báo giá đã duyệt — chạy thật, lưu đầy đủ.
+- **[CRM]** Trang chăm sóc khách hàng chính trước đây có nút lưu/sửa/xóa "ảo". Nay điều hướng sang
+  đúng trang ghi nhận thật, hết tình trạng hai luồng song song dễ mất dữ liệu.
+- **[Tính giá thủ công]** Màn này còn dùng **giá vật tư / gia công cố định trong mã** làm mặc định.
+  Đã **gỡ toàn bộ giá cứng**, chuyển đọc từ cơ sở dữ liệu, và **ẩn tạm khỏi thực đơn** cho tới khi
+  hoàn thiện — tránh nhân viên tính nhầm bằng giá không thật.
+- **[Báo giá]** Ghi nhận **đúng người tạo** (lấy từ tài khoản đăng nhập thật) thay vì mặc định cố định.
+
+**Kiểm thử:** trình duyệt thật đăng nhập, đi qua 11 phân hệ — **90/90 điểm đạt**, các trang đã sửa
+tải bình thường, không còn liên kết chết. Dựng bản phát hành thành công, **đã triển khai** lên
+`https://erp.intanphat.com` (có sao lưu cơ sở dữ liệu trước), ứng dụng chạy ổn định.
+
+- **[Phạm vi]** Nghiệp vụ (Bán hàng) + Giao diện.
+
+---
+
 ### 🚀 10/08/2026 — GO-LIVE: đưa nền phân hệ Danh mục (M1) + cải tiến giao diện lên máy chủ vận hành
 
 > **Cột mốc lớn.** Toàn bộ nhánh phát triển tích lũy (nền tảng Danh mục M1 + các cải tiến
