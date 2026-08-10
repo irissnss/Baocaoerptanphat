@@ -121,7 +121,26 @@
 
 ---
 
-### V0.333 (10/08/2026) — Công cụ nhanh chạy nhất quán cả điện thoại lẫn máy tính + sửa lỗi thanh trên/dưới bị trôi trên điện thoại · CHƯA TRIỂN KHAI
+### 🚀 10/08/2026 — GO-LIVE: đưa nền phân hệ Danh mục (M1) + cải tiến giao diện lên máy chủ vận hành
+
+> **Cột mốc lớn.** Toàn bộ nhánh phát triển tích lũy (nền tảng Danh mục M1 + các cải tiến
+> giao diện gần đây) lần đầu được **triển khai lên máy chủ vận hành thật** `https://erp.intanphat.com`,
+> thay cho trạng thái "chỉ chạy trên máy nội bộ" trước đây.
+
+- **[Cách làm an toàn]** Chỉ đưa **mã nguồn**, **không đổi cấu trúc cơ sở dữ liệu**. Trước khi
+  chạm máy vận hành đã **chứng minh tương thích cấu trúc**: 99 bảng khớp hoàn toàn giữa máy nội
+  bộ và máy vận hành, không bảng/cột nào lệch ngoài một khác biệt nhỏ đã được khoá an toàn.
+- **[Bằng chứng sau triển khai]** Trang đăng nhập trả **200 OK** (render thật) · các phân hệ có
+  bảo vệ **chuyển hướng về đăng nhập đúng cơ chế** (cổng an ninh hoạt động) · tiến trình ứng dụng
+  **online ổn định** · bộ kiểm tra cấu trúc + tương thích khi triển khai **toàn bộ đạt, 0 lỗi**.
+- **[Minh bạch]** Có **một khoảng gián đoạn ngắn** trong lúc triển khai do lần chạy đầu bị ngắt
+  giữa chừng; đã khắc phục bằng cách chạy lại trọn vẹn ở chế độ chạy nền độc lập. Đã **sao lưu cơ
+  sở dữ liệu vận hành trước khi triển khai** và luôn có sẵn điểm quay lui.
+- **[Phạm vi]** DevOps / Go-live.
+
+---
+
+### V0.333 (10/08/2026) — Công cụ nhanh chạy nhất quán cả điện thoại lẫn máy tính + sửa lỗi thanh trên/dưới bị trôi trên điện thoại · ✅ ĐÃ TRIỂN KHAI 10/08/2026
 
 > ℹ️ **Chỉ máy nội bộ, chỉ giao diện.** Không đổi dữ liệu, không đổi cấu trúc, không đụng máy vận hành.
 
@@ -147,7 +166,7 @@ xem trên điện thoại nội bộ: **xác nhận ổn định**. Dựng bản
 
 ---
 
-### V0.333 (10/08/2026) — Thanh công cụ nhanh đáy màn hình điện thoại: đổi theo từng phân hệ + sửa link chết · CHƯA TRIỂN KHAI
+### V0.333 (10/08/2026) — Thanh công cụ nhanh đáy màn hình điện thoại: đổi theo từng phân hệ + sửa link chết · ✅ ĐÃ TRIỂN KHAI 10/08/2026
 
 > ℹ️ **Chỉ làm trên máy nội bộ, chỉ giao diện.** Không đổi dữ liệu, không đổi cấu trúc,
 > không phát hành phiên bản mới, không đụng máy vận hành.
