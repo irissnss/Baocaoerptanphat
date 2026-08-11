@@ -206,6 +206,8 @@ tải bình thường, không còn liên kết chết. Dựng bản phát hành 
 ### V1.00.337 (11/08/2026) — Đóng gói đợt bán hàng M3 + đổi sơ đồ số phiên bản 3 tầng (ghi bù V1.00.334–336) · CHỜ CHỦ DỰ ÁN KÝ, CHƯA TRIỂN KHAI
 
 > 🔢 **Đổi sơ đồ số phiên bản (Owner 11/08/2026):** từ `V0.XXX` (2 tầng) sang **`V{aa}.{bb}.{xxx}`** (ví dụ `V1.00.337`) để dễ tra soát và chỉ định nhanh. Các số `V0.xxx` cũ được **giữ lại làm lịch sử** (đánh dấu đã thay thế), không xoá. Số phiên bản chính thức khi vận hành sẽ do Chủ dự án quyết sau. *(Các mục changelog cũ bên dưới vẫn ghi số `V0.333` — là số ở thời điểm đó, giữ nguyên để truy vết.)*
+>
+> 🔴 **Việc chờ Agent Notion (tách bạch — không thuộc phần mã nguồn):** phần **số phiên bản TÀI LIỆU** (`Doc Vx.y.z`, tách riêng số phiên bản mã nguồn) + **giữ cố định tiêu đề trang tài liệu** là trách nhiệm của công cụ quản lý tài liệu (Agent Notion), **chưa** được cập nhật ở tầng tài liệu. Ghi ra đây để công cụ tài liệu tự đối chiếu và tự bổ sung. Phần **mã nguồn** đã xử lý xong (sơ đồ mới + cơ chế kiểm + ghi bù lịch sử).
 
 > ℹ️ **Chỉ máy nội bộ.** Đóng gói xong, kèm **kế hoạch phát hành + cách quay lui + tiêu chí đạt/không đạt cho từng bước**, chờ Chủ dự án ký rồi mới triển khai. Không tự động phát hành.
 
