@@ -11,9 +11,9 @@
 | Thông tin | Chi tiết |
 |-----------|----------|
 | **Tên dự án** | ERP Tân Phát (Tân Phát Packaging) |
-| **Phiên bản mã nguồn** | `V0.333` |
-| **Phiên bản đang chạy thật** | `V0.333` ✅ (đưa lên vận hành 25/07/2026) — ⚠️ các đợt cải tiến **sau** 25/07/2026 hiện **chỉ chạy trên máy nội bộ, chưa phát hành** |
-| **Mốc phiên bản hiện tại** | V0.333 |
+| **Phiên bản mã nguồn** | `V0.335` (đóng gói máy nội bộ, chờ ký) |
+| **Phiên bản đang chạy thật** | `V0.334` ✅ (ba đợt 10/08/2026, ghi bù số — trước ghi nhầm là V0.333) — ⚠️ đợt **V0.335** hiện **chỉ ở máy nội bộ, chờ Chủ dự án ký** |
+| **Mốc phiên bản hiện tại** | V0.335 (chờ ký) · máy vận hành đang ở V0.334 |
 | **Ngày bắt đầu** | 18/01/2026 |
 | **Phát hành lên vận hành thật** | 24/07/2026 — Đợt V0.326–V0.333 (gần nhất) · 23/07/2026 — Đợt R1/R1.1/R1.2 |
 | **Cập nhật báo cáo này** | 11/08/2026 |
@@ -199,6 +199,38 @@ tải bình thường, không còn liên kết chết. Dựng bản phát hành 
   giữa chừng; đã khắc phục bằng cách chạy lại trọn vẹn ở chế độ chạy nền độc lập. Đã **sao lưu cơ
   sở dữ liệu vận hành trước khi triển khai** và luôn có sẵn điểm quay lui.
 - **[Phạm vi]** DevOps / Go-live.
+
+---
+
+### V0.335 (11/08/2026) — Đóng gói đợt bán hàng M3 + vá quy tắc phiên bản (ghi bù V0.334) · CHỜ CHỦ DỰ ÁN KÝ, CHƯA TRIỂN KHAI
+
+> ℹ️ **Chỉ máy nội bộ.** Đóng gói xong, kèm **kế hoạch phát hành + cách quay lui + tiêu chí đạt/không đạt cho từng bước**, chờ Chủ dự án ký rồi mới triển khai. Không tự động phát hành.
+
+**🎯 Chủ dự án yêu cầu phiên này (Sổ Yêu Cầu Owner):**
+- **H1 — Vá quy tắc phiên bản:** ba đợt ngày 10/08 đã lên máy vận hành nhưng **giữ nguyên số V0.333** → mất dấu vết. Chốt luật mới: **mọi lần phát hành lên máy vận hành BẮT BUỘC tăng số phiên bản + ghi nhật ký thay đổi + giữ lịch sử**; cấm phát hành mà giữ nguyên số.
+- **H2 — Giao việc thiết kế thủ công** ngay trên Bàn Thiết Kế: chỉ **Kinh doanh + Admin + Tổng giám đốc** được giao; gắn **linh hoạt** vào đơn hàng *hoặc* khách hàng.
+- **H3 — Cổng Báo giá → Đơn:** đơn hàng **chỉ** được tạo từ báo giá đã **duyệt giá**.
+- **H4 — Đóng gói bản V0.335** kèm kế hoạch phát hành, **không** tự triển khai.
+
+**🛠️ Đã làm**
+- **Vá quy tắc phiên bản (H1):** thêm luật vào 5 tài liệu quản trị; **ghi bù số V0.334** cho 3 đợt ngày 10/08 (chia 3 nhánh a/b/c theo giờ triển khai) để **giữ lại dấu vết lịch sử** — không phát hành lại chỉ để sửa số. Mở rộng **cổng kiểm tự động** để bắt lỗi "phát hành mà quên tăng số".
+- **Giao việc thiết kế (H2):** nút **"Giao Việc Thiết Kế"** mở biểu mẫu thật ghi vào cơ sở dữ liệu; **chặn quyền ở máy chủ** (chỉ 3 vai trò trên); chọn **Đơn hàng hoặc Khách hàng** (ít nhất một, có đơn mà chưa chọn khách thì tự lấy khách theo đơn); tạo xong **tự sinh thẻ việc cho bộ phận thiết kế** ở cột "Mới", không đẻ trùng.
+- **Cổng Báo giá → Đơn (H3):** rà soát xác nhận **cổng đã có sẵn ở tầng lõi** — mọi đường tạo đơn đều bị chặn nếu báo giá chưa duyệt giá; chỉ có **một** đường tạo đơn (không có tạo đơn trực tiếp). Bổ sung **bài kiểm hồi quy**.
+- **Nền dữ liệu:** một thay đổi nhỏ — thêm dấu **"cần thiết kế" theo từng dòng đơn** (an toàn chạy lại nhiều lần, có sẵn bước quay lui, chạy được trên cả hai dòng cơ sở dữ liệu).
+
+**✅ Kiểm chứng (máy nội bộ):** kiểu dữ liệu tĩnh **0 lỗi** · dựng bản phát hành **thành công** · bộ kiểm nền (danh mục **67**, phân quyền **99**, menu **39**, cột ghi nhận **15/15**, đường dẫn **25/25**, chính sách phiên bản **29/29**) + kiểm mới của phiên (giao việc thiết kế **19/19**, cổng báo giá→đơn **11/11**) — **tất cả đạt**, tự dọn sạch dữ liệu thử về nguyên trạng.
+- **[Phạm vi]** Logic + UI + một thay đổi nhỏ ở dữ liệu · **CHỜ KÝ, CHƯA TRIỂN KHAI.**
+
+---
+
+### V0.334 (10/08/2026) — GHI BÙ dấu vết: 3 đợt đã triển khai ngày 10/08 nhưng giữ nguyên số V0.333 · ✅ ĐÃ TRIỂN KHAI (ghi bù lịch sử, không phát hành lại)
+
+> ℹ️ Đây là **bản ghi bù để giữ dấu vết**: ba đợt ngày 10/08 **đã chạy thật trên máy vận hành** (có sao lưu, triển khai nền độc lập, không gián đoạn) nhưng khi đó **quên tăng số phiên bản**. Nay đánh số **V0.334** với ba nhánh theo giờ triển khai — **không** triển khai lại, chỉ để lịch sử khỏi đứt đoạn (theo luật mới ở V0.335/H1).
+
+- **V0.334a** — Go-live nền Danh Mục (phân quyền sẵn sàng vận hành) + cải tiến giao diện.
+- **V0.334b** — Đợt 1 hoàn thiện bán hàng: xoá bẫy mất dữ liệu + gia cố Khách hàng / Báo giá / Đơn hàng / Chăm sóc khách.
+- **V0.334c** — Thêm 2 trang Liên hệ (liên hệ + hỗ trợ) và Hướng dẫn vận hành cơ bản + tinh chỉnh giao diện.
+- **[Phạm vi]** Ghi bù lịch sử phiên bản.
 
 ---
 
