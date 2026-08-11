@@ -16,7 +16,7 @@
 | **Mốc phiên bản hiện tại** | V0.333 |
 | **Ngày bắt đầu** | 18/01/2026 |
 | **Phát hành lên vận hành thật** | 24/07/2026 — Đợt V0.326–V0.333 (gần nhất) · 23/07/2026 — Đợt R1/R1.1/R1.2 |
-| **Cập nhật báo cáo này** | 09/08/2026 |
+| **Cập nhật báo cáo này** | 11/08/2026 |
 | **Tech Stack** | Next.js 16.1.6 · React 19.2.4 · Tailwind 4.2.1 · TypeScript 5.9.3 · MariaDB 10.11 (**cả máy vận hành lẫn máy phát triển**, đồng bộ từ 09/08/2026) |
 | **Architecture** | Server Actions + Server Components + SSE |
 | **UI Framework** | Metronic (Demo 1 backbone) |
@@ -199,6 +199,25 @@ tải bình thường, không còn liên kết chết. Dựng bản phát hành 
   giữa chừng; đã khắc phục bằng cách chạy lại trọn vẹn ở chế độ chạy nền độc lập. Đã **sao lưu cơ
   sở dữ liệu vận hành trước khi triển khai** và luôn có sẵn điểm quay lui.
 - **[Phạm vi]** DevOps / Go-live.
+
+---
+
+### V0.333 (11/08/2026) — Thông suốt luồng công việc Thiết Kế + gọn 3 màn (Công Việc, Bàn Thiết Kế, Chăm Sóc Khách) · CHƯA TRIỂN KHAI
+
+> ℹ️ **Chỉ máy nội bộ.** Đã kiểm thử đầy đủ, chờ Chủ dự án xem giao diện rồi mới phát hành. Có một thay đổi nhỏ ở dữ liệu (thêm một dấu "cần thiết kế" theo **từng dòng đơn**) — sẽ chạy trên máy vận hành **cùng đợt** khi phát hành, có sẵn điểm quay lui và đã diễn tập được lặp lại nhiều lần không lỗi.
+
+**🎯 Chủ dự án yêu cầu:** ba phân hệ Công Việc – Thiết Kế – Chăm Sóc Khách "cứ lẩn quẩn, chồng chéo, khó thoát ra". Yêu cầu **gom gọn cho rõ ràng**, làm **tuần tự từ dễ đến khó**, chỗ nào chưa rõ thì hỏi.
+
+**🛠️ Đã làm**
+
+- **Tự động nối việc:** chốt đơn hàng xong, nếu đơn có món **cần thiết kế** (nhân viên bán tự bật dấu theo từng dòng đơn — vì cùng một sản phẩm, đơn tái bản có thể không cần, đơn làm mới thì cần) → hệ thống **tự tạo yêu cầu thiết kế và giao việc cho bộ phận thiết kế**. Mẫu được khách **duyệt xong → tự mở Lệnh Sản Xuất bản nháp** chờ một cú bấm phát hành. Khách **chậm duyệt quá 2 ngày → hệ thống tự nhắc**.
+- **Trạng thái tự đồng bộ một chiều:** đổi trạng thái ở phiếu thiết kế thì thẻ việc bên Công Việc **tự cập nhật theo** — không phải sửa hai nơi.
+- **Bàn Thiết Kế đổi thành bảng 6 cột** dễ nhìn (Mới → Đang làm layout → Chờ khách duyệt → Đã duyệt → Làm lệnh SX → Đang theo dõi sản xuất), **chạy tốt trên cả điện thoại lẫn máy tính**, không tràn ngang.
+- **Gộp phân hệ Công Việc còn một link** — trước phải mở qua 2–3 lớp mới tới nơi làm việc, nay vào thẳng.
+- **Trang Chăm Sóc Khách thành sổ tay** dạng dòng thời gian: nhìn nhanh đã gọi/gặp/nhắn gì với khách; việc lớn (thiết kế, đơn, sản xuất) chuyển sang Công Việc để đỡ chồng chéo.
+- **Dọn dẹp an toàn:** bỏ một trang nhập liệu **bấm "Lưu" nhưng không lưu thật** (nguy cơ tưởng đã lưu mà mất dữ liệu) → chuyển thành **chỉ xem**; gỡ đoạn mã thừa; chuẩn hoá lại vài trạng thái cũ cho khớp toàn hệ.
+
+**✅ Kiểm chứng:** mọi phần logic đều **chạy thử trên dữ liệu thật của máy nội bộ — đạt toàn bộ và tự dọn sạch** sau kiểm thử. Dựng bản phát hành **thành công (không lỗi)**. Bộ kiểm thử nền tảng vẫn **đạt toàn bộ** (danh mục 67, phân quyền 99, menu 39, cột ghi nhận 15/15, đường dẫn 25/25, chính sách phiên bản 25/25, đồng bộ tài liệu quản trị) → **không làm hỏng phần đang chạy**. Đang chờ Chủ dự án xem giao diện trên máy nội bộ trước khi phát hành.
 
 ---
 
