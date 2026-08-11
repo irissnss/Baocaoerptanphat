@@ -11,9 +11,10 @@
 | Thông tin | Chi tiết |
 |-----------|----------|
 | **Tên dự án** | ERP Tân Phát (Tân Phát Packaging) |
-| **Phiên bản mã nguồn** | `V0.335` (đóng gói máy nội bộ, chờ ký) |
-| **Phiên bản đang chạy thật** | `V0.334` ✅ (ba đợt 10/08/2026, ghi bù số — trước ghi nhầm là V0.333) — ⚠️ đợt **V0.335** hiện **chỉ ở máy nội bộ, chờ Chủ dự án ký** |
-| **Mốc phiên bản hiện tại** | V0.335 (chờ ký) · máy vận hành đang ở V0.334 |
+| **Sơ đồ số phiên bản** | `V{aa}.{bb}.{xxx}` (Owner chốt 11/08/2026) — ví dụ `V1.00.337`; mỗi đợt phát hành `xxx +1`, `xxx→999` thì `bb +1`, `bb→99` thì `aa +1`. Thay sơ đồ cũ `V0.XXX`. |
+| **Phiên bản mã nguồn** | `V1.00.337` (đóng gói máy nội bộ, chờ ký) |
+| **Phiên bản đang chạy thật** | `V1.00.336` ✅ (ba đợt 10/08/2026 = V1.00.334/335/336, ghi bù số — trước ghi nhầm là V0.333) — ⚠️ đợt **V1.00.337** hiện **chỉ ở máy nội bộ, chờ Chủ dự án ký** |
+| **Mốc phiên bản hiện tại** | V1.00.337 (chờ ký) · máy vận hành đang ở V1.00.336 |
 | **Ngày bắt đầu** | 18/01/2026 |
 | **Phát hành lên vận hành thật** | 24/07/2026 — Đợt V0.326–V0.333 (gần nhất) · 23/07/2026 — Đợt R1/R1.1/R1.2 |
 | **Cập nhật báo cáo này** | 11/08/2026 |
@@ -202,7 +203,9 @@ tải bình thường, không còn liên kết chết. Dựng bản phát hành 
 
 ---
 
-### V0.335 (11/08/2026) — Đóng gói đợt bán hàng M3 + vá quy tắc phiên bản (ghi bù V0.334) · CHỜ CHỦ DỰ ÁN KÝ, CHƯA TRIỂN KHAI
+### V1.00.337 (11/08/2026) — Đóng gói đợt bán hàng M3 + đổi sơ đồ số phiên bản 3 tầng (ghi bù V1.00.334–336) · CHỜ CHỦ DỰ ÁN KÝ, CHƯA TRIỂN KHAI
+
+> 🔢 **Đổi sơ đồ số phiên bản (Owner 11/08/2026):** từ `V0.XXX` (2 tầng) sang **`V{aa}.{bb}.{xxx}`** (ví dụ `V1.00.337`) để dễ tra soát và chỉ định nhanh. Các số `V0.xxx` cũ được **giữ lại làm lịch sử** (đánh dấu đã thay thế), không xoá. Số phiên bản chính thức khi vận hành sẽ do Chủ dự án quyết sau. *(Các mục changelog cũ bên dưới vẫn ghi số `V0.333` — là số ở thời điểm đó, giữ nguyên để truy vết.)*
 
 > ℹ️ **Chỉ máy nội bộ.** Đóng gói xong, kèm **kế hoạch phát hành + cách quay lui + tiêu chí đạt/không đạt cho từng bước**, chờ Chủ dự án ký rồi mới triển khai. Không tự động phát hành.
 
@@ -223,13 +226,13 @@ tải bình thường, không còn liên kết chết. Dựng bản phát hành 
 
 ---
 
-### V0.334 (10/08/2026) — GHI BÙ dấu vết: 3 đợt đã triển khai ngày 10/08 nhưng giữ nguyên số V0.333 · ✅ ĐÃ TRIỂN KHAI (ghi bù lịch sử, không phát hành lại)
+### V1.00.334 / 335 / 336 (10/08/2026) — GHI BÙ dấu vết: 3 đợt đã triển khai ngày 10/08 nhưng giữ nguyên số V0.333 · ✅ ĐÃ TRIỂN KHAI (ghi bù lịch sử, không phát hành lại)
 
-> ℹ️ Đây là **bản ghi bù để giữ dấu vết**: ba đợt ngày 10/08 **đã chạy thật trên máy vận hành** (có sao lưu, triển khai nền độc lập, không gián đoạn) nhưng khi đó **quên tăng số phiên bản**. Nay đánh số **V0.334** với ba nhánh theo giờ triển khai — **không** triển khai lại, chỉ để lịch sử khỏi đứt đoạn (theo luật mới ở V0.335/H1).
+> ℹ️ Đây là **bản ghi bù để giữ dấu vết**: ba đợt ngày 10/08 **đã chạy thật trên máy vận hành** (có sao lưu, triển khai nền độc lập, không gián đoạn) nhưng khi đó **quên tăng số phiên bản**. Nay đánh số theo sơ đồ mới **V1.00.334 / 335 / 336** (mỗi đợt một số, kèm mốc giờ theo bản ghi công việc) — **không** triển khai lại, chỉ để lịch sử khỏi đứt đoạn. Máy vận hành hiện đang ở **V1.00.336**.
 
-- **V0.334a** — Go-live nền Danh Mục (phân quyền sẵn sàng vận hành) + cải tiến giao diện.
-- **V0.334b** — Đợt 1 hoàn thiện bán hàng: xoá bẫy mất dữ liệu + gia cố Khách hàng / Báo giá / Đơn hàng / Chăm sóc khách.
-- **V0.334c** — Thêm 2 trang Liên hệ (liên hệ + hỗ trợ) và Hướng dẫn vận hành cơ bản + tinh chỉnh giao diện.
+- **V1.00.334** (~09:09) — Go-live nền Danh Mục (phân quyền sẵn sàng vận hành) + cải tiến giao diện.
+- **V1.00.335** (~11:15) — Đợt 1 hoàn thiện bán hàng: xoá bẫy mất dữ liệu + gia cố Khách hàng / Báo giá / Đơn hàng / Chăm sóc khách.
+- **V1.00.336** (~12:32) — Thêm 2 trang Liên hệ (liên hệ + hỗ trợ) và Hướng dẫn vận hành cơ bản + tinh chỉnh giao diện.
 - **[Phạm vi]** Ghi bù lịch sử phiên bản.
 
 ---
