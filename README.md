@@ -12,9 +12,9 @@
 |-----------|----------|
 | **Tên dự án** | ERP Tân Phát (Tân Phát Packaging) |
 | **Sơ đồ số phiên bản** | `V{aa}.{bb}.{xxx}` (Owner chốt 11/08/2026) — ví dụ `V1.00.337`; mỗi đợt phát hành `xxx +1`, `xxx→999` thì `bb +1`, `bb→99` thì `aa +1`. Thay sơ đồ cũ `V0.XXX`. |
-| **Phiên bản mã nguồn** | `V1.00.337` (đóng gói máy nội bộ, chờ ký) |
-| **Phiên bản đang chạy thật** | `V1.00.336` ✅ (ba đợt 10/08/2026 = V1.00.334/335/336, ghi bù số — trước ghi nhầm là V0.333) — ⚠️ đợt **V1.00.337** hiện **chỉ ở máy nội bộ, chờ Chủ dự án ký** |
-| **Mốc phiên bản hiện tại** | V1.00.337 (chờ ký) · máy vận hành đang ở V1.00.336 |
+| **Phiên bản mã nguồn** | `V1.00.337` ✅ (đã phát hành) |
+| **Phiên bản đang chạy thật** | `V1.00.337` ✅ **ĐÃ TRIỂN KHAI 11/08/2026** — có sao lưu CSDL trước khi triển khai, cổng kiểm tương thích schema chạy qua, máy vận hành phục vụ bình thường (kiểm HTTP 200). *(Trước đó máy vận hành ở V0.333 do 3 đợt 10/08 quên tăng số — đã ghi bù V1.00.334/335/336.)* |
+| **Mốc phiên bản hiện tại** | V1.00.337 (local = GitHub = máy vận hành, cùng một số) |
 | **Ngày bắt đầu** | 18/01/2026 |
 | **Phát hành lên vận hành thật** | 24/07/2026 — Đợt V0.326–V0.333 (gần nhất) · 23/07/2026 — Đợt R1/R1.1/R1.2 |
 | **Cập nhật báo cáo này** | 11/08/2026 |
@@ -203,7 +203,9 @@ tải bình thường, không còn liên kết chết. Dựng bản phát hành 
 
 ---
 
-### V1.00.337 (11/08/2026) — Đóng gói đợt bán hàng M3 + đổi sơ đồ số phiên bản 3 tầng (ghi bù V1.00.334–336) · CHỜ CHỦ DỰ ÁN KÝ, CHƯA TRIỂN KHAI
+### V1.00.337 (11/08/2026) — Đóng gói đợt bán hàng M3 + đổi sơ đồ số phiên bản 3 tầng (ghi bù V1.00.334–336) · ✅ ĐÃ TRIỂN KHAI 11/08/2026
+
+> ✅ **Đã triển khai lên máy vận hành 11/08/2026** (đưa từ V0.333 → V1.00.337). Quy trình an toàn: **sao lưu CSDL trước** (≈3,6 MB, 99 bảng) → cổng kiểm tương thích schema chạy qua (đã bổ sung 1 cột "cần thiết kế" theo dòng đơn) → dựng lại + khởi động lại → **kiểm tra máy vận hành phục vụ bình thường (HTTP 200), không gián đoạn dịch vụ**. `local = GitHub = máy vận hành` cùng một số phiên bản.
 
 > 🔢 **Đổi sơ đồ số phiên bản (Owner 11/08/2026):** từ `V0.XXX` (2 tầng) sang **`V{aa}.{bb}.{xxx}`** (ví dụ `V1.00.337`) để dễ tra soát và chỉ định nhanh. Các số `V0.xxx` cũ được **giữ lại làm lịch sử** (đánh dấu đã thay thế), không xoá. Số phiên bản chính thức khi vận hành sẽ do Chủ dự án quyết sau. *(Các mục changelog cũ bên dưới vẫn ghi số `V0.333` — là số ở thời điểm đó, giữ nguyên để truy vết.)*
 >
