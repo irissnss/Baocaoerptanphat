@@ -203,6 +203,26 @@ tải bình thường, không còn liên kết chết. Dựng bản phát hành 
 
 ---
 
+### GOV (15/08/2026) — Dọn LUẬT: thêm 4 luật mới + rà đối chiếu 5 file quản trị · CHỈ TÀI LIỆU, KHÔNG đổi số phiên bản
+
+> 📚 Phiên **chỉ đụng tài liệu luật** (5 file hướng dẫn Agent + báo cáo). **Không** đổi mã nguồn/CSDL, **không** triển khai, **giữ nguyên** số phiên bản đang chạy.
+
+**🎯 Chủ dự án yêu cầu:** làm kỹ phần LUẬT trước khi code tiếp — xuất toàn bộ quy tắc đang chạy để rà 1 lần, ghi các luật mới còn thiếu, đảm bảo 5 file đồng nhất.
+
+**🛠️ Đã làm**
+- **Rà đối chiếu (read-only):** lập bảng toàn bộ quy tắc đang hoạt động (`docs/RULES-INVENTORY-2026-08-15.md`). Kết quả: **5 file quản trị giống hệt nhau từng chữ** (cùng mã băm) → mọi quy tắc có mặt ở cả 5 file, **không lệch chỗ nào**.
+- **Thêm 4 luật mới** (chỉ thêm, không bớt — mỗi file +25 dòng):
+  1. **Hai cuốn luật, không gộp** — luật trên Notion (do công cụ tài liệu soạn cùng Chủ dự án) và luật trong file hướng dẫn Agent lập trình là 2 cuốn khác mục đích; mọi quyết định trong phiên code phải ghi vào Sổ Yêu Cầu Owner + đẩy báo cáo công khai.
+  2. **Ghi nhận đầy đủ khi sửa mã** — mỗi lần sửa mã phải đủ số phiên bản + nhật ký thay đổi + lịch sử + ghi nhận đã đẩy mã nguồn; báo cáo phải nêu rõ bảng/cấu trúc dữ liệu liên quan (theo luật báo cáo an toàn).
+  3. **Soạn prompt phải có bằng chứng** — công cụ tài liệu chỉ viết prompt khi đã biết rõ đối tượng có thật/đúng vị trí/đúng cấu trúc; không rõ thì hỏi hoặc kiểm chứng trước, cấm đoán mò.
+  4. **Tách LUẬT khỏi TRẠNG THÁI** — văn bản luật chỉ chứa chuẩn mực/điều cấm/cơ chế; số phiên bản đang chạy và mốc triển khai cụ thể để ở sổ vận hành, luật chỉ trỏ tới nơi tra.
+- **Phát hiện + trình Chủ dự án:** một số chỗ trong luật đang lẫn chi tiết trạng thái thời điểm → đã **liệt kê**, **KHÔNG tự dời** (bảo toàn dấu vết), chờ Chủ dự án quyết.
+
+**✅ Kiểm chứng:** cổng đồng bộ tài liệu quản trị **PASS** · kiểm đường dẫn **25/25 PASS** · 5 file byte-identical sau khi thêm.
+- **[Phạm vi]** Tài liệu/luật · giữ nguyên số phiên bản đang chạy.
+
+---
+
 ### V1.00.337 (11/08/2026) — Đóng gói đợt bán hàng M3 + đổi sơ đồ số phiên bản 3 tầng (ghi bù V1.00.334–336) · ✅ ĐÃ TRIỂN KHAI 11/08/2026
 
 > ✅ **Đã triển khai lên máy vận hành 11/08/2026** (đưa từ V0.333 → V1.00.337). Quy trình an toàn: **sao lưu CSDL trước** (≈3,6 MB, 99 bảng) → cổng kiểm tương thích schema chạy qua (đã bổ sung 1 cột "cần thiết kế" theo dòng đơn) → dựng lại + khởi động lại → **kiểm tra máy vận hành phục vụ bình thường (HTTP 200), không gián đoạn dịch vụ**. `local = GitHub = máy vận hành` cùng một số phiên bản.
