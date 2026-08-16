@@ -16,23 +16,24 @@
 | **Phiên bản đang chạy thật** | `V1.00.337` ✅ **ĐÃ TRIỂN KHAI 11/08/2026** — có sao lưu CSDL trước khi triển khai, cổng kiểm tương thích schema chạy qua, máy vận hành phục vụ bình thường (kiểm HTTP 200). *(Trước đó máy vận hành ở V0.333 do 3 đợt 10/08 quên tăng số — đã ghi bù V1.00.334/335/336.)* |
 | **Mốc phiên bản hiện tại** | V1.00.337 (local = GitHub = máy vận hành, cùng một số) |
 | **Ngày bắt đầu** | 18/01/2026 |
-| **Phát hành lên vận hành thật** | 24/07/2026 — Đợt V0.326–V0.333 (gần nhất) · 23/07/2026 — Đợt R1/R1.1/R1.2 |
-| **Cập nhật báo cáo này** | 11/08/2026 |
+| **Phát hành lên vận hành thật** | 11/08/2026 — **V1.00.337** (gần nhất) · 10/08/2026 — V1.00.334/335/336 · 24/07/2026 — Đợt V0.326–V0.333 |
+| **Cập nhật báo cáo này** | 16/08/2026 |
+| **Nguồn trạng thái (chuẩn)** | registry trong repo private (`.governance/registry/`) — bảng công khai này đồng bộ theo đó |
 | **Tech Stack** | Next.js 16.1.6 · React 19.2.4 · Tailwind 4.2.1 · TypeScript 5.9.3 · MariaDB 10.11 (**cả máy vận hành lẫn máy phát triển**, đồng bộ từ 09/08/2026) |
 | **Architecture** | Server Actions + Server Components + SSE |
 | **UI Framework** | Metronic (Demo 1 backbone) |
 | **Tổng modules** | 11 modules (M0–M9, MC, MF) |
 | **Tổng bảng DB** | 99 bảng (đã kiểm đếm trên môi trường vận hành 23/07/2026) |
-| **Trạng thái** | Bản V0.333 đã go-live · công việc nội bộ sau đó **chưa triển khai** (chi tiết hạ tầng không công khai) |
+| **Trạng thái** | **V1.00.337 đã go-live 11/08/2026** (local = GitHub = máy vận hành, cùng một số). Các đợt tài liệu/governance sau đó KHÔNG đổi số phiên bản. |
 
 ---
 
-## 📋 Trạng Thái Modules (cập nhật 09/08/2026)
+## 📋 Trạng Thái Modules (cập nhật 16/08/2026)
 
 | Module | Tên | Status | Mô tả chức năng | Sub-routes |
 |--------|-----|--------|------------------|------------|
 | M0 | Hệ Thống | ✅ Ready | Danh mục chung, phòng ban, quy trình, auth/session, RBAC | 6 sub-routes |
-| M1 | Danh Mục | ✅ Ready *(bản đã vận hành)* · 🧪 Local UAT hoàn tất foundation / **chờ triển khai** | Khách hàng, sản phẩm, vật tư, nhân sự, vị trí, bảng giá công đoạn | 10 sub-routes |
+| M1 | Danh Mục | ✅ Ready *(đã vận hành — go-live 10/08 + 11/08, gồm nền phân quyền)* | Khách hàng, sản phẩm, vật tư, nhân sự, vị trí, bảng giá công đoạn | 10 sub-routes |
 | M3 | CRM & Bán Hàng | 🔨 In Dev | Báo giá, đơn hàng, CRM, tính giá thủ công/tự động, pricing admin | 7 sub-routes |
 | M4 | Sản Xuất | 🔨 In Dev | Lệnh sản xuất, phiếu điều in, gộp/tách LSX | 2 sub-routes |
 | M5 | Kho Hàng | 🔨 In Dev | NCC, mua hàng, nhập/xuất kho, giao hàng, kiểm kê, kho thành phẩm — CRUD đầy đủ + RBAC + realtime; còn thiếu tự động hoá tồn kho | 10 sub-routes |
@@ -44,7 +45,7 @@
 | MF | Tài Chính | 🔨 In Dev | Phiếu thu/chi, công nợ, ngân hàng, đối chiếu, nghiệm thu | 7 sub-routes |
 
 ### Tổng kết trạng thái:
-- **✅ Ready (đã vận hành):** 2 modules (M0, M1) — *riêng M1 có nền phân quyền mới hoàn tất kiểm thử nội bộ, **chưa** triển khai*
+- **✅ Ready (đã vận hành):** 2 modules (M0, M1) — *M1 (gồm nền phân quyền) đã triển khai 10/08 + 11/08/2026*
 - **🔨 In Dev (đang phát triển):** 8 modules (M3, M4, M5, M6, M7, M8, MC, MF)
 - **📋 Planned:** 1 module (M9)
 
@@ -203,6 +204,23 @@ tải bình thường, không còn liên kết chết. Dựng bản phát hành 
 
 ---
 
+### GOV (16/08/2026 — dọn kho báo cáo) — Một nguồn sự thật cho trạng thái + gắn nhãn lịch sử · CHỈ TÀI LIỆU
+
+> 📚 Phiên **chỉ sửa tài liệu báo cáo** (không đụng mã nguồn/CSDL, không triển khai, giữ số phiên bản).
+
+**🎯 Chủ dự án yêu cầu:** kho báo cáo công khai tự mâu thuẫn (đầu file nói đã triển khai V1.00.337, cuối file còn ghi V0.333/chưa triển khai) + vài tài liệu lỗi thời → dọn cho **một nguồn sự thật duy nhất**, không xoá lịch sử.
+
+**🛠️ Đã làm (chỉ gắn nhãn + con trỏ, KHÔNG xoá nội dung cũ)**
+- **README:** bảng trạng thái đầu file là **nguồn duy nhất** — version đang chạy **V1.00.337 (đã triển khai 11/08)**, cập nhật báo cáo **16/08**, **M1 = đã vận hành** (bỏ "chờ triển khai"), thêm dòng "nguồn trạng thái: registry ở repo riêng tư". Mọi chỗ cũ ở cuối file (V0.333, thống kê 24/07, ghi chú "MySQL local") **gắn nhãn LỊCH SỬ + trỏ về bảng đầu file**.
+- **Sổ governance:** mô hình cũ "một file chủ, bốn file đồng bộ theo" → gắn nhãn **đã thay thế**; thêm mô hình hiện hành **5 bản sao ngang hàng** (không file chủ, kiểm bằng mã băm). Ranh giới bảo mật cũ (chặn cả tên bảng/cột/route) → **đã thay bởi luật báo cáo an toàn mới** (được nêu định danh kỹ thuật; chặn bí mật/PII/tiền/hạ tầng).
+- **Tiến độ module:** gắn banner **LỊCH SỬ (14/06)** + trỏ về README; sửa tên phân hệ hợp đồng cho khớp.
+- **Kho riêng tư:** thêm bảng phân xử luật lịch sử (mỗi luật cũ: còn hiệu lực / đã thay / chỉ tham khảo) để không áp nhầm luật đã chết.
+
+**✅ Kiểm chứng:** 5 file quản trị **không đụng tới** (mã băm không đổi) · cổng đồng bộ tài liệu PASS · kiểm đường dẫn 25/25 → chứng minh dọn đúng phạm vi.
+- **[Phạm vi]** Tài liệu báo cáo · giữ nguyên số phiên bản.
+
+---
+
 ### GOV (16/08/2026 — tooling) — Cập nhật 2 cổng kiểm cho khớp cấu trúc mới + quét an toàn · CHỈ CÔNG CỤ/TÀI LIỆU, KHÔNG đổi số phiên bản
 
 > 🔧 Phiên **chỉ sửa 2 công cụ kiểm tra + ghi sổ + báo cáo**. Không đụng mã nguồn nghiệp vụ/CSDL, không triển khai, giữ nguyên số phiên bản.
@@ -295,7 +313,7 @@ tải bình thường, không còn liên kết chết. Dựng bản phát hành 
 >
 > 🔴 **Việc chờ Agent Notion (tách bạch — không thuộc phần mã nguồn):** phần **số phiên bản TÀI LIỆU** (`Doc Vx.y.z`, tách riêng số phiên bản mã nguồn) + **giữ cố định tiêu đề trang tài liệu** là trách nhiệm của công cụ quản lý tài liệu (Agent Notion), **chưa** được cập nhật ở tầng tài liệu. Ghi ra đây để công cụ tài liệu tự đối chiếu và tự bổ sung. Phần **mã nguồn** đã xử lý xong (sơ đồ mới + cơ chế kiểm + ghi bù lịch sử).
 
-> ℹ️ **Chỉ máy nội bộ.** Đóng gói xong, kèm **kế hoạch phát hành + cách quay lui + tiêu chí đạt/không đạt cho từng bước**, chờ Chủ dự án ký rồi mới triển khai. Không tự động phát hành.
+> ℹ️ **Đã đóng gói kèm kế hoạch phát hành + cách quay lui + tiêu chí đạt/không đạt từng bước; Chủ dự án đã ký và ĐÃ TRIỂN KHAI 11/08/2026** (xem entry đầu mục này). *(Câu "chờ ký" là trạng thái tại thời điểm đóng gói — nay đã phát hành.)*
 
 **🎯 Chủ dự án yêu cầu phiên này (Sổ Yêu Cầu Owner):**
 - **H1 — Vá quy tắc phiên bản:** ba đợt ngày 10/08 đã lên máy vận hành nhưng **giữ nguyên số V0.333** → mất dấu vết. Chốt luật mới: **mọi lần phát hành lên máy vận hành BẮT BUỘC tăng số phiên bản + ghi nhật ký thay đổi + giữ lịch sử**; cấm phát hành mà giữ nguyên số.
@@ -310,13 +328,13 @@ tải bình thường, không còn liên kết chết. Dựng bản phát hành 
 - **Nền dữ liệu:** một thay đổi nhỏ — thêm dấu **"cần thiết kế" theo từng dòng đơn** (an toàn chạy lại nhiều lần, có sẵn bước quay lui, chạy được trên cả hai dòng cơ sở dữ liệu).
 
 **✅ Kiểm chứng (máy nội bộ):** kiểu dữ liệu tĩnh **0 lỗi** · dựng bản phát hành **thành công** · bộ kiểm nền (danh mục **67**, phân quyền **99**, menu **39**, cột ghi nhận **15/15**, đường dẫn **25/25**, chính sách phiên bản **29/29**) + kiểm mới của phiên (giao việc thiết kế **19/19**, cổng báo giá→đơn **11/11**) — **tất cả đạt**, tự dọn sạch dữ liệu thử về nguyên trạng.
-- **[Phạm vi]** Logic + UI + một thay đổi nhỏ ở dữ liệu · **CHỜ KÝ, CHƯA TRIỂN KHAI.**
+- **[Phạm vi]** Logic + UI + một thay đổi nhỏ ở dữ liệu · **✅ ĐÃ TRIỂN KHAI 11/08/2026.**
 
 ---
 
 ### V1.00.334 / 335 / 336 (10/08/2026) — GHI BÙ dấu vết: 3 đợt đã triển khai ngày 10/08 nhưng giữ nguyên số V0.333 · ✅ ĐÃ TRIỂN KHAI (ghi bù lịch sử, không phát hành lại)
 
-> ℹ️ Đây là **bản ghi bù để giữ dấu vết**: ba đợt ngày 10/08 **đã chạy thật trên máy vận hành** (có sao lưu, triển khai nền độc lập, không gián đoạn) nhưng khi đó **quên tăng số phiên bản**. Nay đánh số theo sơ đồ mới **V1.00.334 / 335 / 336** (mỗi đợt một số, kèm mốc giờ theo bản ghi công việc) — **không** triển khai lại, chỉ để lịch sử khỏi đứt đoạn. Máy vận hành hiện đang ở **V1.00.336**.
+> ℹ️ Đây là **bản ghi bù để giữ dấu vết**: ba đợt ngày 10/08 **đã chạy thật trên máy vận hành** (có sao lưu, triển khai nền độc lập, không gián đoạn) nhưng khi đó **quên tăng số phiên bản**. Nay đánh số theo sơ đồ mới **V1.00.334 / 335 / 336** (mỗi đợt một số, kèm mốc giờ theo bản ghi công việc) — **không** triển khai lại, chỉ để lịch sử khỏi đứt đoạn. *(Tại thời điểm ghi bù, máy vận hành đang ở **V1.00.336**; nay đã lên **V1.00.337** — xem bảng trạng thái đầu file.)*
 
 - **V1.00.334** (~09:09) — Go-live nền Danh Mục (phân quyền sẵn sàng vận hành) + cải tiến giao diện.
 - **V1.00.335** (~11:15) — Đợt 1 hoàn thiện bán hàng: xoá bẫy mất dữ liệu + gia cố Khách hàng / Báo giá / Đơn hàng / Chăm sóc khách.
@@ -568,9 +586,7 @@ tăng 142 dòng ở cả 5 tệp):**
 131 — nó định đụng cả một trường vốn đã đúng từ trước. Đã đối chiếu bản sao lưu, xác định chính xác
 và vá lại trước khi chạy thật.
 
-**⏳ Chờ chủ dự án quyết:** nhóm trường 4 bảng (khuyến nghị **giữ nguyên**, đã đúng chuẩn) · xử lý
-từng nhóm đường dẫn kỹ thuật cũ · thời điểm triển khai phân hệ Danh mục — **nay đơn giản hơn hẳn
-vì không còn phải đổi cấu trúc dữ liệu**.
+**✅ ĐÃ CHỐT (Chủ dự án 09/08/2026 20:32):** nhóm trường **4 bảng GIỮ NGUYÊN** (đã đúng chuẩn — quyết định đã chốt, không hỏi lại) · các nhóm đường dẫn kỹ thuật cũ xử lý **theo phán định từng nhóm** · phân hệ Danh mục sau đó **đã triển khai** (10/08 + 11/08).
 
 ---
 
@@ -698,8 +714,9 @@ cập nhật quên mất trường", thứ mà kiểm tra trên giấy không th
 nhầm. Đây là **bằng chứng lịch sử**, sửa vào là làm sai lệch hồ sơ. Đã phát hiện và **khôi phục
 nguyên trạng**, ghi rõ trong nhật ký thay đổi.
 
-**⏳ Chờ chủ dự án quyết:** (1) nhóm trường ở 4 bảng nêu trên có đổi theo không; (2) 6 điểm kết nối
-kiểu cũ có dọn không; (3) kiểm tra lại môi trường vận hành trước lần triển khai tới.
+**✅ ĐÃ CHỐT (Chủ dự án 09/08/2026 20:32):** (1) nhóm trường **4 bảng GIỮ NGUYÊN** (không hỏi lại);
+(2) 6 điểm kết nối kiểu cũ xử lý **theo phán định từng nhóm**; (3) môi trường vận hành đã kiểm và
+**đã triển khai** (10/08 + 11/08).
 
 ---
 
@@ -1510,6 +1527,8 @@ trúc dữ liệu, không đổi dữ liệu thật, không đổi phân quyền
 
 ## 📊 Thống Kê Tổng Hợp (cập nhật 24/07/2026)
 
+> 🗄️ **HISTORICAL — số liệu tại thời điểm 24/07/2026, KHÔNG phản ánh trạng thái hiện tại** (bảng dưới còn ghi `V0.333`, `M5 skeleton`, `9/11`). Trạng thái hiện hành (V1.00.337 đã vận hành, M1/M5 đã vận hành) xem **bảng Thông Tin Dự Án + Trạng Thái Modules ở ĐẦU file**. Giữ nguyên làm lịch sử.
+
 | Metric | Giá trị |
 |--------|---------|
 | **Mốc phiên bản hiện tại** | V0.333 |
@@ -1544,6 +1563,8 @@ trúc dữ liệu, không đổi dữ liệu thật, không đổi phân quyền
 
 ## 📋 Ghi Chú Trạng Thái (24/07/2026)
 
+> 🗄️ **HISTORICAL — ghi chú tại 24/07/2026** (còn nhắc "MySQL local", mốc V0.32x). Trạng thái hiện hành (V1.00.337, MariaDB cả 2 môi trường) xem **bảng đầu file**. Giữ nguyên làm lịch sử.
+
 - **Mới nhất:** Đợt R1/R1.1/R1.2 — **đã đưa lên vận hành thật ngày 23/07/2026**, không gián đoạn dịch vụ.
 - **PL4 (Nhân sự – Tổ chức – Phân quyền):** đã hợp nhất và **đang chạy thật** (đính chính cho các bản báo cáo trước ghi "chưa deploy/merge").
 - **Phân quyền:** đã kiểm chứng đầy đủ trên môi trường chạy thật — **126/126 đạt** (đính chính cho bản trước ghi "còn chờ, thiếu test identities").
@@ -1554,6 +1575,8 @@ trúc dữ liệu, không đổi dữ liệu thật, không đổi phân quyền
 
 ---
 
+> 🗄️ **HISTORICAL (chân trang cũ)** — mốc dưới đây tại 23/07–09/08/2026. Trạng thái + mốc cập nhật hiện hành (**16/08/2026, V1.00.337**) ở **bảng Thông Tin Dự Án đầu file**.
+>
 > **Phát hành lên vận hành thật:** 23/07/2026 — V0.323 (Đợt R1/R1.1/R1.2)
 >
 > **Cập nhật báo cáo này:** 09/08/2026

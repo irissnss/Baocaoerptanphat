@@ -1,5 +1,9 @@
 # 📦 Module Progress — ERP Tân Phát
 
+> 🗄️ **HISTORICAL — cập nhật lần cuối 14/06/2026, KHÔNG phản ánh trạng thái sau ngày đó.**
+> **Trạng thái module HIỆN HÀNH: xem bảng "Trạng Thái Modules" trong [README.md](README.md).**
+> File này giữ làm chi tiết chức năng lịch sử tại thời điểm 14/06/2026.
+
 > Chi tiết chức năng đã hoàn thành, đang phát triển, và planned cho từng module.
 > 
 > **Cập nhật:** 14/06/2026 — Audit toàn hệ thống
@@ -214,7 +218,7 @@
 
 ---
 
-## MC — Marketing/Content (🔨 In Dev)
+## MC — Quản Lý Hợp Đồng (🔨 In Dev)
 
 **Mô tả:** Quản lý hợp đồng, content marketing.
 

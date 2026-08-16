@@ -6,9 +6,19 @@
 
 ---
 
-## Governance Files (5-WAY SYNC)
+## Mô Hình Governance HIỆN HÀNH — 5 REPLICA NGANG HÀNG (GOV-FIVE-REPLICA-SYNC-001)
 
-| File | Vai trò | Size |
+> ✅ **HIỆN HÀNH (chốt 16/08/2026):** 5 file quản trị (`.cursorrules` · `.antigravityrules` · `AGENTS.md` · `CLAUDE.md` · `GEMINI.md`) là **5 bản sao NGANG HÀNG, giống hệt nhau từng byte** — **KHÔNG file nào là "chủ"**. Ghi **cùng một lượt** cùng nội dung; kiểm đồng bộ bằng **mã băm sha256** (parity). Mục đích: Chủ dự án đổi công cụ IDE/AI bất kỳ, Agent bắt nhịp ngay.
+>
+> **3 phiên 16/08/2026:** (1) nâng cấp VNext (4.151 dòng) → (2) **khép vòng gọn còn 1.400 dòng** (phần lịch sử dời sang kho lưu trữ, trạng thái sang thư mục registry) → (3) cập nhật 2 cổng kiểm cho khớp cấu trúc mới. Mô hình 5 file **không bị loại bỏ**.
+
+---
+
+## Governance Files — mô hình CŨ (SUPERSEDED)
+
+> ⏭️ **SUPERSEDED 16/08/2026 bởi mô hình 5 REPLICA NGANG HÀNG ở trên.** Khối "AGENTS.md là master, 4 file sync theo" dưới đây là **lịch sử** — nay KHÔNG còn "file chủ". Giữ nguyên làm lịch sử.
+
+| File | Vai trò (cũ) | Size |
 |------|---------|------|
 | `AGENTS.md` | Master rules — 14 sections | ~87KB |
 | `CLAUDE.md` | Sync 100% với AGENTS.md | ~87KB |
@@ -16,7 +26,7 @@
 | `.cursorrules` | Sync 100% với AGENTS.md | ~87KB |
 | `.antigravityrules` | Sync 100% với AGENTS.md | ~87KB |
 
-**Quy tắc:** Khi update 1 file → tự động sync sang 4 files còn lại. Verify bằng SHA256 hash.
+**Quy tắc (cũ):** Khi update 1 file → tự động sync sang 4 files còn lại. Verify bằng SHA256 hash.
 
 ---
 
@@ -108,6 +118,8 @@
 ---
 
 ## Security Boundaries (Rule 14)
+
+> ⏭️ **SUPERSEDED 16/08/2026 bởi `GOV-PUBLIC-SAFE-001`.** Cách hiểu cũ dưới đây **chặn cả tên bảng/cột/route** — nay ĐƯỢC nêu **tên định danh kỹ thuật** (bảng/cột/route/module) để truy vết; chỉ **CHẶN**: credential/token/secret · dữ liệu cá nhân (PII) · dữ liệu nghiệp vụ dính tiền (tên khách, đơn giá, giá vốn, công nợ, doanh thu) · hạ tầng máy chủ (IP/cổng/đường dẫn/tên & phiên bản dịch vụ). Danh sách cũ giữ nguyên làm lịch sử.
 
 ### ĐƯỢC PHÉP public:
 - ✅ Version number + changelog entries
