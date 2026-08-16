@@ -2,7 +2,25 @@
 
 > Lịch sử thay đổi governance rules, skills, architecture decisions, và system audit.
 >
-> **Cập nhật:** 16/08/2026 — **Kho Hàng M5 mở rộng — khảo sát + chốt hướng**: trả trước NCC · upload chứng từ · giao thiếu/đóng đơn thiếu. Owner duyệt tạo 1 bảng chứng từ chung. Chưa code (chỉ đọc + thiết kế). Trước đó: Lát 1 giao hàng tự trừ tồn (đã code, local).
+> **Cập nhật:** 17/08/2026 — **Kho Hàng M5 · Lát C ĐÃ CODE (local)**: giao thiếu / chặn giao vượt tổng đặt (cộng dồn nhiều phiếu) / cho đóng đơn thiếu — không dùng âm kho. Phần trả trước (A) gác vì cần Lát 2 (chưa có code). Kế: upload chứng từ (B).
+
+---
+
+## 17/08/2026 — Kho Hàng M5 · Lát C: Giao thiếu / đóng đơn thiếu (đã code, local)
+
+**Chỉ local — chưa triển khai, chưa đổi số phiên bản, KHÔNG đổi cấu trúc dữ liệu.**
+
+**Bối cảnh:** Owner yêu cầu thi công theo thứ tự C → A → B. Kiểm tra trước: phần **A (trả trước nhà cung cấp)** cần chuỗi "đặt hàng → tự phiếu chi/công nợ" (Lát 2) — mà **Lát 2 chưa có code** (đã xác minh). Vì vậy **A tạm gác**, không tự làm thay; Owner chốt làm **C và B** trước.
+
+**Đã làm (Lát C — giao thiếu, không đổi cấu trúc dữ liệu):**
+- Khi nhập/ sửa dòng hàng trên phiếu giao: hệ **chặn giao VƯỢT tổng đặt** — cộng dồn số giao của **mọi phiếu cùng đơn + cùng sản phẩm** (bỏ phiếu đã hủy) không được vượt số đặt ghi trên dòng.
+- **Cho phép giao THIẾU** so với đặt (sản xuất có hư hỏng) → đóng đơn thiếu được, ghi lý do vào **ô Ghi chú sẵn có** của đơn.
+- **Giao bù đợt sau** = phiếu giao thứ 2 cùng đơn, cộng dồn, chặn khi vượt.
+- Trừ tồn theo **số thực giao** giữ nguyên cơ chế Lát 1 (nguyên tử · chống trùng · đảo khi hủy · chặn khi tồn không đủ) — tồn kho là chặn cứng thứ hai.
+
+**Bằng chứng (máy phát triển):** bộ kiểm thử mới **6/6 đạt** (giao thiếu cho phép · giao bù cộng dồn đúng · vượt tổng đặt bị chặn · sửa gây vượt bị chặn) · Lát 1 **13/13 đạt** (không vỡ) · kiểm kiểu 0 lỗi · build đạt.
+
+**Kế tiếp:** **B — upload chứng từ**: tạo 1 bảng chứng từ dùng chung (migration diễn tập trên bản sao dữ liệu vận hành trước) · lưu thư mục riêng có kiểm quyền · bổ sung sao lưu thư mục chứng từ cùng lịch sao lưu CSDL.
 
 ---
 
