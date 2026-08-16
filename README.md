@@ -219,6 +219,12 @@ tải bình thường, không còn liên kết chết. Dựng bản phát hành 
 - **Tách LUẬT khỏi TRẠNG THÁI:** lớp điều khiển hiện hành **không chứa số phiên bản/mốc triển khai cụ thể** — chỉ trỏ tới sổ vận hành.
 
 **✅ Kiểm chứng:** 5 file **giống hệt từng chữ** (một mã băm duy nhất) · cổng đồng bộ tài liệu **PASS** · kiểm đường dẫn **25/25 PASS** · cổng "không để trạng thái trong luật" **PASS**. Kịch bản kiểm luật (5 tình huống an toàn) **đạt**.
+
+**🔑 Chủ dự án chốt (16/08 chiều):**
+- **Không đổi mật khẩu** (các mật khẩu hiện chưa lộ; đổi chỉ là an toàn dài hạn, chưa cần).
+- **Tạo "sổ bí mật nội bộ"** đặt ở máy làm việc để Chủ dự án tra nhanh thông số (không chuyên, hay quên) — **file này KHÓA, KHÔNG bao giờ đưa lên GitHub** (đúng luật cấm để bí mật trong file luật). Bí mật chỉ nằm ở cấu hình môi trường/sổ nội bộ này.
+- **Giữ** email định danh trong phụ lục lịch sử.
+- **Công cụ đang dùng:** chỉ Cursor + Claude Code — đã ghi nhận để công cụ tài liệu kiểm soát.
 - **[Phạm vi]** Tài liệu/luật · giữ nguyên số phiên bản đang chạy.
 
 ---
