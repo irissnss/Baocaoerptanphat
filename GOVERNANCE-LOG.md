@@ -2,7 +2,27 @@
 
 > Lịch sử thay đổi governance rules, skills, architecture decisions, và system audit.
 >
-> **Cập nhật:** 16/08/2026 — Probe Cursor #2: đọc tài liệu UI/list **trước** khi viết mã; 0 dòng mã ứng dụng. Probe #1 (nạp `.cursorrules`) vẫn hiện hành.
+> **Cập nhật:** 16/08/2026 — Khép vòng luật khép phiên (thêm trường "nén phiên & đọc lại tham chiếu") + mở màn khảo sát tồn kho M5 (chỉ đọc, chưa viết mã). Probe Cursor #1/#2 vẫn hiện hành.
+
+---
+
+## 16/08/2026 — Khép vòng luật khép phiên + mở màn khảo sát tồn kho M5
+
+**Việc 1 — Thêm trường 11 vào khối "Báo cáo kết thúc" (luật khép phiên).**
+
+| Nội dung | Kết quả |
+|---|---|
+| Trường mới | "Nén phiên & đọc lại tham chiếu" — buộc khai phiên có bị nén ngữ cảnh không; nếu có mà việc đụng đối tượng cần tham chiếu thì phải **đọc lại tài liệu chuẩn TRƯỚC khi kết thúc**, cấm kết luận bằng trí nhớ trước nén |
+| Lý do | Luật gốc được hệ thống tiêm lại sau khi nén, nhưng tài liệu tham chiếu (chuẩn giao diện, sổ đăng ký, kho lưu trữ) thì **không** — nên phải chủ động đọc lại |
+| Đồng bộ | 5 file quản trị ghi **cùng lúc, giống nhau từng byte** (một mã băm chung), cổng kiểm đồng bộ đạt |
+| Cổng kiểm tự động | Nâng từ 10 → **11 trường**; bộ tự kiểm **7/7 đạt** (đủ 11 → đạt · thiếu 11 → bị bắt) |
+
+**Việc 2 — Khảo sát tồn kho Module Kho Hàng (M5), CHỈ ĐỌC, chưa viết dòng mã nào.**
+
+- Rà toàn bộ 5 nghiệp vụ kho (nhập kho · xuất kho · giao hàng · mua hàng · kiểm kê) đối chiếu mã nguồn thật.
+- **Phát hiện chính:** khi phiếu được **xác nhận**, hệ hiện **chưa tự động** ghi sổ giao dịch kho và **chưa tự động** cập nhật số tồn — hai việc này đang phải làm tay. Sổ giao dịch kho gần như chưa được dùng tự động.
+- Đã có **thiết kế đề xuất trên giấy** (chia 3 lát theo mức rủi ro): lát đầu (giao hàng tự trừ tồn thành phẩm + ghi sổ) **không cần đổi cấu trúc dữ liệu**; các lát sau (tồn vật tư, chống ghi trùng mức chặt) **cần đổi cấu trúc dữ liệu → chỉ trình, chưa làm**.
+- **Chưa viết mã, chưa đụng cơ sở dữ liệu, chưa triển khai.** Toàn bộ chờ Owner duyệt trước khi làm bước đầu tiên.
 
 ---
 
