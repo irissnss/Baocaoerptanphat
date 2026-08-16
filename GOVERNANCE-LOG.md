@@ -2,7 +2,29 @@
 
 > Lịch sử thay đổi governance rules, skills, architecture decisions, và system audit.
 >
-> **Cập nhật:** 16/08/2026 — Khép vòng luật khép phiên (thêm trường "nén phiên & đọc lại tham chiếu") + mở màn khảo sát tồn kho M5 (chỉ đọc, chưa viết mã). Probe Cursor #1/#2 vẫn hiện hành.
+> **Cập nhật:** 16/08/2026 — Khảo sát Kho Hàng M5 **vòng 2**: nạp quy trình nghiệp vụ thật của Owner, đối chiếu mã, cập nhật thiết kế theo hướng **ít bước thao tác** (chỉ đọc, chưa viết mã). Trước đó: khép vòng luật khép phiên + vòng 1 khảo sát M5.
+
+---
+
+## 16/08/2026 (vòng 2) — Khảo sát Kho Hàng M5 theo quy trình nghiệp vụ thật của Owner
+
+**Chỉ đọc — chưa viết mã, chưa đụng cơ sở dữ liệu, chưa triển khai.**
+
+**1. Truy hồi lịch sử (có bằng chứng, không nhớ đại).**
+- Nguyên tắc **"ít bước thao tác — 1 bước làm được thì không tách 2 bước"**: không tìm thấy câu nguyên văn, nhưng **đúng tinh thần đó Owner đã nhắc nhiều lần** ("mở từng lớp rườm rà", "đẻ ra nhiều quá — gom gọn", "lẩn quẩn chồng chéo").
+- Quy trình mua hàng: Owner từng chốt luồng một chiều **Nháp → Đã đặt → Đã nhận → Hoàn tất**, dùng thuật ngữ **"Công nợ"**, và **đơn chỉ tạo từ báo giá đã duyệt giá**.
+- **Bốn chi tiết mới** (tự tạo phiếu chi khi chi trực tiếp · gom đơn công nợ · kho đối tác / kho Tân Phát · nhập để dùng trực tiếp không xuất vòng): **chưa có trong bất kỳ tài liệu nào** — Owner mới nêu 16/08, đã **ghi nhận và đưa vào danh sách cần Owner xác nhận** (không tự suy diễn).
+
+**2. Đối chiếu mã thật.** Module Kho Hàng và Mua Hàng hiện là **các bảng rời rạc**: khi phiếu xác nhận **không** tự ghi sổ giao dịch kho, **không** tự trừ/cộng tồn, **không** nối sang phân hệ Tài chính (phiếu chi / công nợ); **chưa có danh mục kho**; **chưa có nơi lưu tồn vật tư** (chỉ thành phẩm có tồn). Giao hàng hiện chỉ **đọc** kho thành phẩm để hiển thị, **chưa trừ tồn** — đúng hướng "giao từ kho thành phẩm" nhưng thiếu bước tự trừ.
+
+**3. Trình Owner: 8 câu hỏi chốt** (đáng chú ý: **hợp nhất vòng đời mua hàng** giữa bản 30/07 và mô tả 16/08; **vật tư dùng trực tiếp có cần theo dõi tồn hay chỉ ghi 1 lần** — quyết định này chi phối có phải đổi cấu trúc dữ liệu hay không).
+
+**4. Thiết kế 3 lát — đo bằng số bước thao tác** (tiêu chí duyệt của Owner):
+- **Lát 1** (giao hàng tự trừ tồn thành phẩm + ghi sổ): **giảm 3 bước → 1 bước**, **không đổi cấu trúc dữ liệu**.
+- **Lát 2** (mua hàng: duyệt 1 lần tự sinh phiếu chi/công nợ, nhập dùng trực tiếp 2 đích kho): **giảm ~5 bước → 1 bước**; **đổi cấu trúc dữ liệu tùy câu trả lời của Owner → chỉ trình**.
+- **Lát 3** (chống ghi trùng chặt + gom đơn công nợ): **giảm n bước → 1 bước**; **đổi cấu trúc dữ liệu → chỉ trình**.
+
+→ **Chờ Owner trả lời 8 câu** trước khi làm Lát 1. Các phần đụng cấu trúc dữ liệu: **chỉ trình, chưa làm.**
 
 ---
 
