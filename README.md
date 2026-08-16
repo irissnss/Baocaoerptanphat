@@ -204,6 +204,26 @@ tải bình thường, không còn liên kết chết. Dựng bản phát hành 
 
 ---
 
+### GOV (16/08/2026 — probe Cursor) — File luật đang nạp + khi thiếu thông tin phải làm gì · CHỈ TÀI LIỆU
+
+> 📋 Phiên **chỉ trả lời 2 câu probe + ghi báo cáo** (không đụng mã nguồn/CSDL, không triển khai, giữ số phiên bản).
+
+**🎯 Chủ dự án hỏi:** (1) Bạn đang tự nạp file luật nào của repo này — nêu tên file? (2) Khi thiếu thông tin bạn phải làm gì? Yêu cầu báo cáo đầy đủ + đẩy GitHub report + chữ ký Agent Cursor.
+
+**🛠️ Đã trả lời (Agent IDE — Cursor / Cursor Grok 4.6)**
+- **Câu 1:** Cursor tự nạp **`.cursorrules`** làm file entry. Đó là **một trong 5 bản sao ngang hàng** của cùng bộ luật (`TANPHAT_AGENT_RULESET`) — không phải “file chủ”. Năm file giống hệt từng byte (một mã băm). File `.cursor/rules/*.mdc` chỉ bổ trợ, không phải file luật thứ 6.
+- **Câu 2:** Thiếu thông tin **không** mặc định = hỏi rồi dừng hết. Phải **tự tìm trước** (dữ liệu Owner đã cho → file/mã/CSDL được đọc → sổ quyết định Owner → tài liệu/công cụ). Còn thiếu thì: phân tích chỉ-đọc được phép tạm; **cấm sửa** nếu thiếu làm sai kết quả; hỏi Owner **đúng một câu tối thiểu**. Cấm đoán cấu trúc dữ liệu / bịa đường dẫn / tự bịa luật nghiệp vụ.
+- **Chi tiết + chữ ký:** [PROBE-CURSOR-NAP-LUAT-VA-THIEU-THONG-TIN-20260816.md](PROBE-CURSOR-NAP-LUAT-VA-THIEU-THONG-TIN-20260816.md)
+
+**🎯 Yêu cầu Owner phiên này** (để Agent Notion đối chiếu, không hỏi lại nếu cùng phạm vi):
+1. Probe Cursor xác nhận nạp `.cursorrules` = 1 replica của bộ luật 5 file.
+2. Probe Cursor xác nhận quy trình thiếu thông tin (tìm trước → tạm / chặn → hỏi 1 câu).
+3. Chữ ký phiên: **Agent IDE (Cursor) / Cursor Grok 4.6**.
+
+- **[Phạm vi]** Tài liệu báo cáo · giữ nguyên số phiên bản.
+
+---
+
 ### GOV (16/08/2026 — luật khép phiên) — Bắt buộc "báo cáo kết thúc" khi xong việc · CHỈ TÀI LIỆU/CÔNG CỤ
 
 > 📋 Phiên **chỉ đụng luật + công cụ kiểm + 2 chỗ vá tài liệu** (không đụng mã nguồn/CSDL, không triển khai, giữ số phiên bản).

@@ -2,7 +2,20 @@
 
 > Lịch sử thay đổi governance rules, skills, architecture decisions, và system audit.
 >
-> **Cập nhật:** 16/08/2026 — Mô hình 5 replica ngang hàng + luật báo cáo an toàn (các mục cũ giữ làm lịch sử, đã gắn nhãn SUPERSEDED).
+> **Cập nhật:** 16/08/2026 — Probe Cursor xác nhận nạp `.cursorrules` + quy trình thiếu thông tin (`GOV-NO-ASSUMPTION-001`). Mô hình 5 replica ngang hàng vẫn hiện hành.
+
+---
+
+## Probe Cursor 16/08/2026 (tối) — nạp luật + thiếu thông tin
+
+> ✅ **VERIFIED bởi Agent IDE (Cursor) / Cursor Grok 4.6** — không giả định vendor.
+
+| Câu hỏi Owner | Trả lời đã xác minh |
+|---|---|
+| Đang tự nạp file luật nào? | **`.cursorrules`** (entry). Canonical = `TANPHAT_AGENT_RULESET`. 5 replica byte-identical, sha256 `c009a4d7…`. `.cursor/rules/*.mdc` chỉ bổ trợ. |
+| Khi thiếu thông tin phải làm gì? | Discover trước → `PROVISIONAL` (chỉ-đọc) / `BLOCKED` (mutation) → hỏi Owner **một câu tối thiểu**. Cấm đoán schema/path/business rule. |
+
+Báo cáo đầy đủ + chữ ký: `PROBE-CURSOR-NAP-LUAT-VA-THIEU-THONG-TIN-20260816.md`.
 
 ---
 
