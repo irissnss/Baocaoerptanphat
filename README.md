@@ -203,6 +203,23 @@ tải bình thường, không còn liên kết chết. Dựng bản phát hành 
 
 ---
 
+### GOV (16/08/2026 — tooling) — Cập nhật 2 cổng kiểm cho khớp cấu trúc mới + quét an toàn · CHỈ CÔNG CỤ/TÀI LIỆU, KHÔNG đổi số phiên bản
+
+> 🔧 Phiên **chỉ sửa 2 công cụ kiểm tra + ghi sổ + báo cáo**. Không đụng mã nguồn nghiệp vụ/CSDL, không triển khai, giữ nguyên số phiên bản.
+
+**🎯 Chủ dự án yêu cầu:** sau khi rút gọn 5 file luật, **hai cổng kiểm tự động** (đồng bộ tài liệu + kiểm đường dẫn) còn giả định cấu trúc cũ nên báo lỗi — cập nhật cho khớp nhà mới; đồng thời quét an toàn lịch sử.
+
+**🛠️ Đã làm**
+- **Cập nhật 2 cổng kiểm** trỏ sang cấu trúc mới (kho lưu trữ + thư mục trạng thái): cổng đồng bộ nay kiểm 5 file giống hệt nhau + nhóm an toàn nằm trong 5 file + mọi file tham chiếu tồn tại; cổng kiểm đường dẫn chuyển sang đọc bản đồ thư mục ở thư mục trạng thái.
+- **Kiểm chứng không hư hại:** cổng đồng bộ **ĐẠT** · kiểm đường dẫn **25/25** · chính sách phiên bản **37/37** · cột ghi nhận **15/15** · kiểu dữ liệu tĩnh **0 lỗi** · dựng bản phát hành **thành công**.
+- **Quét an toàn lịch sử (2 kho mã):** **kho báo cáo công khai — SẠCH** (không có mật khẩu trong toàn bộ lịch sử). Kho mã nguồn nội bộ: **có** dấu vết cũ (đã che ở bản hiện hành) — thuộc kho riêng tư, không công khai. *(Không nêu bất kỳ giá trị nào.)*
+- **Ghi chú minh bạch:** bản chụp trước đó đã được chỉnh sửa có chủ đích (gỡ mật khẩu) — đã lập ghi chú kèm dấu vân tay trước/sau.
+
+**✅ Kết luận:** kho công khai an toàn (giữ quyết định không đổi mật khẩu, kèm điều kiện mở lại nếu tình huống thay đổi). Công cụ kiểm đã xanh trở lại — **sẵn sàng cho lần triển khai kế tiếp**.
+- **[Phạm vi]** Công cụ kiểm + tài liệu · giữ nguyên số phiên bản.
+
+---
+
 ### GOV (16/08/2026 — khép vòng) — 5 file quản trị GỌN LẠI + dời lịch sử sang kho lưu trữ · CHỈ TÀI LIỆU, KHÔNG đổi số phiên bản
 
 > 📚 Phiên **chỉ đụng tài liệu luật + kho lưu trữ + báo cáo**. Không đụng mã nguồn/CSDL, không triển khai, giữ nguyên số phiên bản.
