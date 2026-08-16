@@ -203,6 +203,26 @@ tải bình thường, không còn liên kết chết. Dựng bản phát hành 
 
 ---
 
+### GOV (16/08/2026) — Nâng cấp 5 file quản trị lên bộ luật VNext · CHỈ TÀI LIỆU, KHÔNG đổi số phiên bản
+
+> 📚 Phiên **chỉ đụng tài liệu luật** (5 file hướng dẫn Agent + báo cáo). **Không** đụng mã nguồn/CSDL, **không** triển khai, **giữ nguyên** số phiên bản đang chạy.
+
+**🎯 Chủ dự án yêu cầu:** duyệt nâng cấp 5 file quản trị lên bộ luật VNext (bản chuẩn Chủ dự án cung cấp), **giữ mô hình 5 bản sao giống hệt nhau từng chữ** (không gộp về 1 file + con trỏ).
+
+**🛠️ Đã làm**
+- **Trước khi sửa:** tạo bản chụp (snapshot) 5 file + mốc lưu (checkpoint); xác nhận 5 file đang **giống hệt nhau từng chữ**; đối chiếu bản nâng cấp giữ **100% nội dung cũ** ở phụ lục lịch sử (kiểm bằng mã băm — khớp tuyệt đối).
+- **Bộ luật VNext** tổ chức lại thành **lớp điều khiển hiện hành** (chuẩn mực/điều cấm/cơ chế) + **phụ lục lịch sử nguyên văn** (không mất thông tin). Ghi vào **cả 5 file cùng một lượt, giống hệt từng chữ** (đã kiểm mã băm 5 file trùng nhau).
+- **2 luật mới:**
+  1. **Chuẩn đối chiếu local ↔ máy vận hành (2 bước)** — bước 1 bắt buộc soi chéo cả hai bên (cấm mặc định tin một bên; không có luật "máy vận hành luôn đúng"); bước 2 nếu không phân định được thì nghiêng về **không đụng máy vận hành**.
+  2. **Cấm để mật khẩu/bí mật trong file luật** — bí mật chỉ nằm ở cấu hình môi trường/sổ bí mật nội bộ.
+- **Dọn bảo mật:** đã **gỡ một mật khẩu thật** ra khỏi file luật (thay bằng ghi chú "đã gỡ — tra sổ nội bộ"). **Phát hiện** cùng mật khẩu đó còn ở một số tệp khác **ngoài phạm vi luật** → đã ghi nhận, **khuyến nghị Chủ dự án đổi mật khẩu** và dọn riêng (ngoài phạm vi phiên này).
+- **Tách LUẬT khỏi TRẠNG THÁI:** lớp điều khiển hiện hành **không chứa số phiên bản/mốc triển khai cụ thể** — chỉ trỏ tới sổ vận hành.
+
+**✅ Kiểm chứng:** 5 file **giống hệt từng chữ** (một mã băm duy nhất) · cổng đồng bộ tài liệu **PASS** · kiểm đường dẫn **25/25 PASS** · cổng "không để trạng thái trong luật" **PASS**. Kịch bản kiểm luật (5 tình huống an toàn) **đạt**.
+- **[Phạm vi]** Tài liệu/luật · giữ nguyên số phiên bản đang chạy.
+
+---
+
 ### GOV (15/08/2026) — Dọn LUẬT: thêm 4 luật mới + rà đối chiếu 5 file quản trị · CHỈ TÀI LIỆU, KHÔNG đổi số phiên bản
 
 > 📚 Phiên **chỉ đụng tài liệu luật** (5 file hướng dẫn Agent + báo cáo). **Không** đổi mã nguồn/CSDL, **không** triển khai, **giữ nguyên** số phiên bản đang chạy.
