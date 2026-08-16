@@ -159,3 +159,18 @@ Phiên này **không chờ câu đó** vì việc giao là probe + report.
 
 **Agent IDE (Cursor)** · model **Cursor Grok 4.6** · 16/08/2026  
 Đã hiểu câu advisor, đã đọc tài liệu bắt buộc **trước** mọi dòng mã, đã kiểm chứng file mẫu tồn tại, **0 dòng mã ứng dụng**.
+
+---
+
+## Báo cáo kết thúc (GOV-COMPLETION-REPORT-001)
+
+1. **ĐÃ LÀM** — hiểu câu advisor; đọc bộ tài liệu bắt buộc; xác minh file mẫu; 0 dòng mã `src/`; ghi sổ #54; đẩy báo cáo công khai kèm chữ ký Cursor.
+2. **PHẠM VI** — ĐỤNG: repo `Baocaoerptanphat` (file báo cáo, README, GOVERNANCE-LOG) + `docs/OWNER-REQUEST-LEDGER.md` #54. KHÔNG ĐỤNG: `src/`, CSDL, deploy, version, 5 file luật.
+3. **BẰNG CHỨNG** — đã đọc `docs/UI-STANDARD.md` · archive Master List/Detail/Title Case · 5 skill · file mẫu `kho-thanh-pham-client.tsx` có `toVietnameseTitleCase` · `page-header.tsx` tồn tại. `git push` `c63eef8..fbdca56` → origin/main.
+4. **GHI SỔ** — ĐÃ GHI mục #54.
+5. **PUSH BÁO CÁO CÔNG KHAI** — ĐÃ PUSH — kho `irissnss/Baocaoerptanphat` · commit `fbdca56337671f2c3f62e22d6dfebe85b5fccc50` · file `PROBE-CURSOR-DOC-TRUOC-MA-DANH-SACH-20260816.md`.
+6. **CÒN SÓT** — sổ #54 ở repo ERP mới ghi local, chưa commit/push erptanphat.
+7. **ĐANG CHỜ OWNER** — không có câu hỏi chặn. Nếu sau này muốn sửa list thật: cần nêu đúng màn + đúng lỗi.
+8. **BƯỚC KẾ** — Owner mở link GitHub report để xác nhận chữ ký Cursor.
+9. **CHƯA XÁC MINH** — Agent Notion đã đọc báo cáo này chưa — chỉ Agent Notion xác minh được.
+10. **TRẠNG THÁI** — PASS cho phạm vi probe đọc-trước-mã + báo cáo công khai.
