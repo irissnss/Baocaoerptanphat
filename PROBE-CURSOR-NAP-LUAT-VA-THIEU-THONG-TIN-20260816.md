@@ -167,3 +167,18 @@ Hai luật khép phiên (`GOV-COMPLETION-REPORT-001`, `GOV-DONE-DEFINITION-001`)
 
 **Agent IDE (Cursor)** · model **Cursor Grok 4.6** · 16/08/2026  
 Đã trả lời 2 câu probe theo luật đang chạy trên đĩa (parity PASS, sha256 `c009a4d7…`).
+
+---
+
+## Báo cáo kết thúc (GOV-COMPLETION-REPORT-001)
+
+1. **ĐÃ LÀM** — trả lời 2 câu probe; ghi sổ Owner #53; viết + đẩy báo cáo công khai kèm chữ ký Cursor.
+2. **PHẠM VI** — ĐỤNG: repo `Baocaoerptanphat` (file báo cáo, README, GOVERNANCE-LOG) + `docs/OWNER-REQUEST-LEDGER.md` (nội bộ, chưa commit). KHÔNG ĐỤNG: `src/`, CSDL, deploy, version, 5 file luật.
+3. **BẰNG CHỨNG** — `Get-FileHash` 5 file → cùng sha256 `c009a4d7…` → FILE_PROVEN / PARITY PASS. `git push` `5468ee8..8c28364` → origin/main.
+4. **GHI SỔ** — ĐÃ GHI mục #53.
+5. **PUSH BÁO CÁO CÔNG KHAI** — ĐÃ PUSH — kho `irissnss/Baocaoerptanphat` · commit `8c28364f736555af464ae6902b57f19d6eb5111c` · file `PROBE-CURSOR-NAP-LUAT-VA-THIEU-THONG-TIN-20260816.md`.
+6. **CÒN SÓT** — sổ Owner #53 ở repo mã nguồn mới ghi local, chưa commit/push repo ERP (Owner chưa yêu cầu commit ERP).
+7. **ĐANG CHỜ OWNER** — không có câu hỏi chặn. Owner chỉ cần biết chữ ký Cursor trên báo cáo này.
+8. **BƯỚC KẾ** — Owner mở link GitHub report để xác nhận chữ ký Cursor.
+9. **CHƯA XÁC MINH** — Agent Notion đã đọc báo cáo này chưa — chỉ Agent Notion xác minh được.
+10. **TRẠNG THÁI** — PASS cho phạm vi probe + báo cáo công khai.
