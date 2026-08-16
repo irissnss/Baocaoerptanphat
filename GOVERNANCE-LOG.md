@@ -2,7 +2,33 @@
 
 > Lịch sử thay đổi governance rules, skills, architecture decisions, và system audit.
 >
-> **Cập nhật:** 16/08/2026 — Khảo sát Kho Hàng M5 **vòng 2**: nạp quy trình nghiệp vụ thật của Owner, đối chiếu mã, cập nhật thiết kế theo hướng **ít bước thao tác** (chỉ đọc, chưa viết mã). Trước đó: khép vòng luật khép phiên + vòng 1 khảo sát M5.
+> **Cập nhật:** 16/08/2026 — **Kho Hàng M5 — Lát 1 ĐÃ CODE (local)**: phiếu giao hàng xác nhận giao (khách ký nhận) → **tự trừ tồn thành phẩm + tự ghi sổ kho** (chỉ local, chưa triển khai). Trước đó: khảo sát M5 vòng 1+2, khép vòng luật khép phiên.
+
+---
+
+## 16/08/2026 — Kho Hàng M5 · Lát 1: Giao hàng tự trừ tồn thành phẩm + ghi sổ (đã code, local)
+
+**Chỉ local — CHƯA triển khai, chưa đổi số phiên bản, KHÔNG đổi cấu trúc dữ liệu.**
+
+**Owner chốt (khóa):** mô hình tồn kho **C** — thành phẩm theo dõi tồn đầy đủ; vật tư mặc định "nhập = dùng trực tiếp" (ghi 1 lần, chưa theo dõi tồn), có đường nâng cấp sau. Giao hàng **xuất từ kho thành phẩm**. Tiêu chí duyệt = **ít bước thao tác** (Lát 1: 3 bước → 1 bấm).
+
+**Đã làm (Lát 1):**
+- Khi phiếu giao hàng chuyển sang **"Đã Giao" (khách ký nhận)** → hệ **tự động** ghi sổ giao dịch kho (dòng xuất) và **tự trừ tồn kho thành phẩm** đúng số lượng giao — trong 1 giao dịch nguyên tử.
+- Thêm **1 nút "Xác Nhận Giao Hàng"**: 1 bấm chạy toàn bộ (đổi trạng thái + trừ tồn + ghi sổ).
+- **Chặn khi tồn không đủ** (mặc định an toàn): báo lỗi tiếng Việt rõ ràng, phiếu **không** bị đánh dấu đã giao (không trừ nhầm).
+- **Hủy phiếu sau khi đã giao** → ghi **bút toán đảo** + hoàn tồn; **không** sửa/xóa dòng sổ cũ (sổ chỉ thêm, không sửa).
+- **Chống trừ trùng** (bấm lại/chạy lại không trừ 2 lần).
+
+**Bằng chứng (máy phát triển):** bộ kiểm thử mới **13/13 đạt** (trừ đúng · chống trùng · đảo · chặn tồn không đủ và tự hoàn nguyên) · kiểm kiểu 0 lỗi · build đạt · cổng đồng bộ luật đạt · cổng khép phiên 7/7.
+
+**Còn chờ Owner (liền mạch — để Agent Notion đọc trực tiếp):**
+1. **Hợp nhất vòng đời mua hàng**: bản 30/07 (*Nháp → Đã đặt → Đã nhận → Hoàn tất*) và mô tả 16/08 (*nháp → yêu cầu báo giá → thêm giá → gửi đơn → duyệt*) — gộp thành một luồng thống nhất thế nào?
+2. **Kho đối tác / kho Tân Phát**: chỉ cần 2 nhãn trên phiếu, hay cần danh mục kho riêng?
+3. **Gom đơn công nợ**: quy tắc gom nhiều đơn mua vào 1 phiếu chi/công nợ (theo nhà cung cấp? theo kỳ?).
+4. **Ai xác nhận** phiếu nhập/xuất/giao (vai trò nào)?
+5. **Tồn âm khi giao vượt tồn**: hiện mặc định CHẶN — Owner giữ chặn hay cho phép âm kèm cảnh báo?
+
+→ **Lát 1 chưa triển khai** (chờ Owner duyệt đưa lên máy vận hành). Lát 2 (mua hàng) & Lát 3 (nối tài chính, gom đơn) chờ trả lời các câu trên.
 
 ---
 
