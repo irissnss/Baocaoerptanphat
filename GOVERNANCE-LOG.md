@@ -2,7 +2,33 @@
 
 > Lịch sử thay đổi governance rules, skills, architecture decisions, và system audit.
 >
-> **Cập nhật:** 16/08/2026 — **Kho Hàng M5 — Lát 1 ĐÃ CODE (local)**: phiếu giao hàng xác nhận giao (khách ký nhận) → **tự trừ tồn thành phẩm + tự ghi sổ kho** (chỉ local, chưa triển khai). Trước đó: khảo sát M5 vòng 1+2, khép vòng luật khép phiên.
+> **Cập nhật:** 16/08/2026 — **Kho Hàng M5 mở rộng — khảo sát + chốt hướng**: trả trước NCC · upload chứng từ · giao thiếu/đóng đơn thiếu. Owner duyệt tạo 1 bảng chứng từ chung. Chưa code (chỉ đọc + thiết kế). Trước đó: Lát 1 giao hàng tự trừ tồn (đã code, local).
+
+---
+
+## 16/08/2026 — Kho Hàng M5 mở rộng: trả trước NCC · upload chứng từ · giao thiếu (khảo sát + chốt hướng)
+
+**Chỉ đọc + thiết kế — chưa code, chưa đụng cơ sở dữ liệu, chưa triển khai.**
+
+**Ba yêu cầu mới của Owner:**
+- **A. Trả trước nhà cung cấp**: một số NCC bắt trả tiền trước khi giao → quy trình mua cho phép chi tiền sớm gắn đơn.
+- **B. Upload chứng từ**: mọi phiếu (giao hàng có chữ ký, chứng nhận hàng, phiếu chi…) cần chỗ đính kèm ảnh/PDF; up chứng từ xong mới coi là hoàn tất quy trình.
+- **C. Đính chính "tồn âm"**: ý thật là **đơn có thể kết thúc với số lượng thiếu** (sản xuất có hư hỏng) → hỗ trợ **giao thiếu + đóng đơn thiếu có ghi nhận**, KHÔNG dùng cơ chế âm kho.
+
+**Khảo sát (bằng chứng):**
+- Cơ chế nối mua hàng → tài chính/kho (Lát 2) **chưa có code**.
+- Chức năng **upload file chứng từ: chưa có** (không có nơi nhận file, không có cột đính kèm trên phiếu nào; ảnh sản phẩm chỉ là danh sách link đặt tay công khai).
+- Trả trước & giao thiếu: **phần lớn tận dụng được cột/trạng thái sẵn có**, không cần thêm bảng.
+
+**Owner đã chốt hướng:**
+1. **Duyệt tạo 1 bảng chứng từ dùng chung** cho mọi phiếu (gọn hơn thêm cột vào từng bảng; có kiểm quyền + ghi ai up/khi nào + xóa mềm). Đây là **thay đổi cấu trúc dữ liệu duy nhất** của đợt này.
+2. Chứng từ (giấy tờ tiền) lưu **thư mục riêng có kiểm quyền**, không để công khai.
+3. Hoàn tất phiếu khi **chưa có chứng từ = cảnh báo nhưng vẫn cho** (không kẹt việc).
+4. **Đóng đơn thiếu** ghi lý do vào **ô Ghi chú** sẵn có (không thêm cột).
+
+**Thứ tự thi công (làm từng lát, test từng lát):** C (giao thiếu) → A (trả trước) → B (upload chứng từ).
+
+**Còn chờ Owner (nối tài chính tự động):** hợp nhất vòng đời đơn mua · ai xác nhận phiếu · quy tắc gom nợ.
 
 ---
 
