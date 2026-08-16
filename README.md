@@ -215,6 +215,8 @@ tải bình thường, không còn liên kết chết. Dựng bản phát hành 
 - **Quét an toàn lịch sử (2 kho mã):** **kho báo cáo công khai — SẠCH** (không có mật khẩu trong toàn bộ lịch sử). Kho mã nguồn nội bộ: **có** dấu vết cũ (đã che ở bản hiện hành) — thuộc kho riêng tư, không công khai. *(Không nêu bất kỳ giá trị nào.)*
 - **Ghi chú minh bạch:** bản chụp trước đó đã được chỉnh sửa có chủ đích (gỡ mật khẩu) — đã lập ghi chú kèm dấu vân tay trước/sau.
 
+**🔒 Kiểm nạp luật (Claude Code):** trả lời đúng 3 câu an toàn (thiếu thông tin → dừng & hỏi · thay đổi rủi ro mất dữ liệu → bắt buộc sao lưu trước · cấm ghi mật khẩu vào file luật) → **ĐÃ XÁC NHẬN**.
+
 **✅ Kết luận:** kho công khai an toàn (giữ quyết định không đổi mật khẩu, kèm điều kiện mở lại nếu tình huống thay đổi). Công cụ kiểm đã xanh trở lại — **sẵn sàng cho lần triển khai kế tiếp**.
 - **[Phạm vi]** Công cụ kiểm + tài liệu · giữ nguyên số phiên bản.
 
