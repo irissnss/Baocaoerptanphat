@@ -77,7 +77,7 @@
 
 > 📦 **M5 Kho Hàng — đính chính (25/07/2026): KHÔNG phải "skeleton".** 10 khu vực đã có CRUD đầy đủ + phân quyền (RBAC) + realtime; khoảng trống còn lại là **tự động hoá tồn kho** (chưa tự ghi sổ giao dịch kho + chưa tự cập nhật tồn khi nhập/xuất/giao). Chi tiết: [AUDIT-M5-WAREHOUSE-20260725.md](AUDIT-M5-WAREHOUSE-20260725.md).
 >
-> 🚀 **MỚI NHẤT: V0.333 — Rà soát và sửa tràn ngang cho toàn bộ màn hình trên điện thoại (25/07/2026). ĐÃ ĐƯA LÊN VẬN HÀNH THẬT.**
+> 🗄️ **LỊCH SỬ: V0.333 — Rà soát và sửa tràn ngang cho toàn bộ màn hình trên điện thoại (25/07/2026). Đã đưa lên vận hành thật.** *(Không còn là "mới nhất" — trạng thái hiện hành V1.00.337, xem bảng Thông Tin Dự Án ở đầu file.)*
 >
 > 🚀 **V0.332 — Tối ưu giao diện trên điện thoại và máy tính bảng, cả chiều ngang lẫn dọc (25/07/2026). ĐÃ ĐƯA LÊN VẬN HÀNH THẬT.**
 >
@@ -201,6 +201,24 @@ tải bình thường, không còn liên kết chết. Dựng bản phát hành 
   giữa chừng; đã khắc phục bằng cách chạy lại trọn vẹn ở chế độ chạy nền độc lập. Đã **sao lưu cơ
   sở dữ liệu vận hành trước khi triển khai** và luôn có sẵn điểm quay lui.
 - **[Phạm vi]** DevOps / Go-live.
+
+---
+
+### GOV (16/08/2026 — luật khép phiên) — Bắt buộc "báo cáo kết thúc" khi xong việc · CHỈ TÀI LIỆU/CÔNG CỤ
+
+> 📋 Phiên **chỉ đụng luật + công cụ kiểm + 2 chỗ vá tài liệu** (không đụng mã nguồn/CSDL, không triển khai, giữ số phiên bản).
+
+**🎯 Chủ dự án phản hồi:** *"Agent xong việc hay im lặng / báo quá ngắn — không nói đã đẩy chưa, commit nào, còn gì chờ tôi xác nhận."* → yêu cầu **luật khép phiên bắt buộc**.
+
+**🛠️ Đã làm**
+- **2 luật mới vào nhóm an toàn** (nằm ngay trong bộ luật chính, không tách ra file phụ — vì phải có mặt đúng lúc cuối phiên): mỗi khi xong một việc, Agent **bắt buộc xuất "Báo cáo kết thúc" đủ 10 mục** — đã làm gì · phạm vi đụng/không đụng · bằng chứng · đã ghi sổ chưa · **đã đẩy lên GitHub chưa (kèm mã commit thật)** · còn sót gì · đang chờ Chủ dự án gì · bước kế tiếp · chỗ chưa xác minh được · trạng thái (xong / tạm / bị chặn). Kèm luật "định nghĩa XONG" (không coi "chạy được" là xong).
+- **Cổng kiểm nửa tự động:** một công cụ **đếm đủ 10 mục**, **bắt lỗi** ghi "đã đẩy" mà không kèm mã commit thật, kiểm mã commit **có tồn tại thật**, và mục sổ được viện dẫn **có thật**. Chạy thử: mẫu đúng **đạt**, mẫu thiếu **bị bắt** (5/5).
+- **Đo thật cách công cụ Cursor nạp luật** (không giả định): xác nhận Cursor **có đọc** bộ luật chính (bằng chứng: trước đó đã trả lời đúng 3 câu an toàn chỉ có trong luật) → 2 luật mới nằm cùng file nên cũng được nạp. **Không tạo thêm file mới.**
+- **Vá 2 chỗ sót:** cập nhật ngày ở đầu Sổ Governance (14/06 → 16/08); mục "MỚI NHẤT V0.333" → gắn nhãn **LỊCH SỬ** + trỏ về bảng đầu file.
+- **Kiểm chứng lại đợt trước (chỉ đọc):** dọn kho báo cáo, phân xử luật cũ, xử lý file nháp, ghi sổ, và **lớp bảo vệ máy chủ thứ hai đều ĐÚNG THỰC TẾ** — không có chỗ nào báo "xong" mà thực chưa xong.
+
+> 💡 *Chính báo cáo này là ví dụ áp dụng luật mới — cuối phiên có "Báo cáo kết thúc" đầy đủ.*
+- **[Phạm vi]** Luật + công cụ kiểm + tài liệu · giữ nguyên số phiên bản.
 
 ---
 

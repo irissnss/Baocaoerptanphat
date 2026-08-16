@@ -2,7 +2,7 @@
 
 > Lịch sử thay đổi governance rules, skills, architecture decisions, và system audit.
 >
-> **Cập nhật:** 14/06/2026 — Audit toàn hệ thống
+> **Cập nhật:** 16/08/2026 — Mô hình 5 replica ngang hàng + luật báo cáo an toàn (các mục cũ giữ làm lịch sử, đã gắn nhãn SUPERSEDED).
 
 ---
 
