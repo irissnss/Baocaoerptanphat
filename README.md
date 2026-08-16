@@ -204,6 +204,16 @@ tải bình thường, không còn liên kết chết. Dựng bản phát hành 
 
 ---
 
+### 🛡️ Bảo mật (16/08/2026) — Siết thêm một lớp bảo vệ cho máy chủ vận hành
+
+> **Việc:** trước đây kho dữ liệu của hệ thống đã được **chặn khỏi Internet bằng một lớp tường lửa**. Nay bổ sung **lớp bảo vệ thứ hai**: kho dữ liệu **chỉ nhận kết nối từ chính máy chủ đó**, không mở ra bên ngoài — nên **kể cả khi lớp tường lửa lỡ bị vô hiệu**, cửa vẫn đóng kín (bảo vệ hai lớp).
+>
+> **An toàn:** đã **sao lưu cấu hình + chuẩn bị sẵn cách khôi phục TRƯỚC khi sửa**. Sau khi áp dụng đã **kiểm chứng đầy đủ**: trang web chạy bình thường (mở được, đăng nhập được), hệ thống hoạt động ổn định. Chủ dự án đã **chấp nhận gián đoạn vài giây** trong lúc khởi động lại. Không cần khôi phục.
+>
+> *(Chi tiết kỹ thuật không nêu ở đây theo quy tắc an toàn báo cáo công khai.)*
+
+---
+
 ### GOV (16/08/2026 — dọn kho báo cáo) — Một nguồn sự thật cho trạng thái + gắn nhãn lịch sử · CHỈ TÀI LIỆU
 
 > 📚 Phiên **chỉ sửa tài liệu báo cáo** (không đụng mã nguồn/CSDL, không triển khai, giữ số phiên bản).
