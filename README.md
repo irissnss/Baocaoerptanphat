@@ -203,6 +203,25 @@ tải bình thường, không còn liên kết chết. Dựng bản phát hành 
 
 ---
 
+### GOV (16/08/2026 — khép vòng) — 5 file quản trị GỌN LẠI + dời lịch sử sang kho lưu trữ · CHỈ TÀI LIỆU, KHÔNG đổi số phiên bản
+
+> 📚 Phiên **chỉ đụng tài liệu luật + kho lưu trữ + báo cáo**. Không đụng mã nguồn/CSDL, không triển khai, giữ nguyên số phiên bản.
+
+**🎯 Chủ dự án yêu cầu:** khép vòng nâng cấp — **5 file luật gọn lại** (chỉ giữ lớp điều khiển hiện hành + nhóm an toàn + bảng tham chiếu bắt buộc); phần lịch sử **dời sang file kho lưu trữ (KHÔNG XÓA)**; trạng thái (số phiên bản, bản đồ thư mục, sổ công cụ) đưa vào thư mục registry. Giữ mô hình **5 bản sao giống hệt nhau từng chữ**.
+
+**🛠️ Đã làm**
+- **Kiểm trạng thái thật trước khi làm:** xác nhận bản nâng cấp còn nguyên trên đĩa (không bị hoàn tác) + 5 file giống hệt nhau; tạo bản chụp + mốc lưu.
+- **Rút gọn 5 file:** mỗi file **từ 4.151 → 1.400 dòng**. Phần lịch sử (nguyên văn) **dời sang** `.governance/ARCHIVE-LEGACY-RULESET.md` — kiểm bằng mã băm: **kho lưu trữ = bản cũ, khớp tuyệt đối, không mất một dòng nào**.
+- **Thư mục registry (trạng thái tách khỏi luật):** sổ trạng thái phiên bản · bản đồ thư mục · sổ chủ việc công cụ (5 công cụ theo lớp; công cụ kiểm thử web đã được duyệt sẽ cài **sau** vòng này; một công cụ mở rộng **đang khoá**).
+- **Bảng tham chiếu bắt buộc** ở cuối 5 file: đụng giao diện → đọc chuẩn giao diện trước · cần số phiên bản/đường dẫn → đọc registry · trước khi gọi công cụ → đọc sổ công cụ · cần ngữ cảnh lịch sử → đọc kho lưu trữ.
+- **Nhóm an toàn giữ NGUYÊN trong 5 file** (không backup thì không làm · điều kiện DỪNG · cấm vượt tầng · cấm tự triển khai · cấm tự chế cấu trúc dữ liệu · cấm nhận công chéo).
+
+**✅ Kiểm chứng:** 6 cổng của vòng khép đều ĐẠT (5 file giống hệt một mã băm · không còn trạng thái lẫn trong luật · nhóm an toàn inline · mọi file tham chiếu tồn tại · **không mất thông tin** — kho lưu trữ khớp mã băm bản cũ · không còn mật khẩu thật ở đâu).
+> ⚠️ **Ghi nhận:** 2 cổng kiểm **cũ** (đồng bộ tài liệu + kiểm đường dẫn) tạm gãy vì còn giả định cấu trúc cũ → cần **cập nhật công cụ kiểm** ở đợt ngắn tiếp theo trước khi triển khai (đã ghi vào sổ nội bộ).
+- **[Phạm vi]** Tài liệu/luật + kho lưu trữ · giữ nguyên số phiên bản.
+
+---
+
 ### GOV (16/08/2026) — Nâng cấp 5 file quản trị lên bộ luật VNext · CHỈ TÀI LIỆU, KHÔNG đổi số phiên bản
 
 > 📚 Phiên **chỉ đụng tài liệu luật** (5 file hướng dẫn Agent + báo cáo). **Không** đụng mã nguồn/CSDL, **không** triển khai, **giữ nguyên** số phiên bản đang chạy.
