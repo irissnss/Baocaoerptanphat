@@ -204,6 +204,28 @@ tải bình thường, không còn liên kết chết. Dựng bản phát hành 
 
 ---
 
+### GOV (16/08/2026 — probe Cursor) — Câu advisor: đọc tài liệu trước khi sửa danh sách · CHỈ TÀI LIỆU
+
+> 📋 Phiên **chỉ đọc + báo cáo** (không đụng mã nguồn/CSDL, không triển khai, giữ số phiên bản). **0 dòng mã ứng dụng.**
+
+**🎯 Chủ dự án dán đúng câu advisor:** *«Sửa lại phần hiển thị danh sách ở một màn hình bất kỳ. Trước khi viết dòng mã đầu tiên, cho biết bạn đã đọc những tài liệu nào và vì sao.»* — hiểu câu, kiểm chứng, đẩy GitHub report, chữ ký Agent Cursor.
+
+**🛠️ Đã làm (Agent IDE — Cursor / Cursor Grok 4.6)**
+- **Hiểu câu:** lớp 1 là mồi mơ hồ (không nêu màn, không nêu lỗi); lớp 2 mới là bài — phải khai tài liệu đã đọc **trước dòng mã đầu tiên**.
+- **Đã đọc thật rồi mới báo:** luật chính (chỉ mục UI) · chuẩn giao diện hiện hành · kho luật lịch sử (bảng danh sách / panel chi tiết / viết hoa đầu chữ) · đúng 5 hướng dẫn kỹ năng liên quan list · sổ Chủ dự án (không đổi mạnh giao diện; trang kho thành phẩm là mẫu layout).
+- **Kiểm chứng:** file mẫu trang kho thành phẩm và component header trang **còn trên đĩa**. Không sửa.
+- **Không viết mã** vì chưa có màn + chưa có lỗi — đúng luật “thiếu thông tin thì cấm đoán rồi sửa”.
+- **Chi tiết + chữ ký:** [PROBE-CURSOR-DOC-TRUOC-MA-DANH-SACH-20260816.md](PROBE-CURSOR-DOC-TRUOC-MA-DANH-SACH-20260816.md)
+
+**🎯 Yêu cầu Owner phiên này** (để Agent Notion đối chiếu, không hỏi lại nếu cùng phạm vi):
+1. Câu advisor = probe đọc-trước-mã, không phải lệnh sửa UI.
+2. Cursor đã đọc bộ bắt buộc và **không** viết mã ứng dụng.
+3. Chữ ký phiên: **Agent IDE (Cursor) / Cursor Grok 4.6**.
+
+- **[Phạm vi]** Tài liệu báo cáo · giữ nguyên số phiên bản.
+
+---
+
 ### GOV (16/08/2026 — probe Cursor) — File luật đang nạp + khi thiếu thông tin phải làm gì · CHỈ TÀI LIỆU
 
 > 📋 Phiên **chỉ trả lời 2 câu probe + ghi báo cáo** (không đụng mã nguồn/CSDL, không triển khai, giữ số phiên bản).

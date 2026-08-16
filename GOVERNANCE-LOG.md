@@ -2,7 +2,21 @@
 
 > Lịch sử thay đổi governance rules, skills, architecture decisions, và system audit.
 >
-> **Cập nhật:** 16/08/2026 — Probe Cursor xác nhận nạp `.cursorrules` + quy trình thiếu thông tin (`GOV-NO-ASSUMPTION-001`). Mô hình 5 replica ngang hàng vẫn hiện hành.
+> **Cập nhật:** 16/08/2026 — Probe Cursor #2: đọc tài liệu UI/list **trước** khi viết mã; 0 dòng mã ứng dụng. Probe #1 (nạp `.cursorrules`) vẫn hiện hành.
+
+---
+
+## Probe Cursor 16/08/2026 (tối) — câu advisor «sửa danh sách / đọc tài liệu trước mã»
+
+> ✅ **VERIFIED bởi Agent IDE (Cursor) / Cursor Grok 4.6** — đã đọc thật, không viết mã `src/`.
+
+| Việc advisor kiểm | Kết quả Cursor |
+|---|---|
+| Khai tài liệu trước dòng mã đầu tiên | PASS — luật §V · chuẩn UI hiện hành · archive Master List/Detail/Title Case · 5 skill list tối thiểu · sổ #13/#14 |
+| Sửa «một màn hình bất kỳ» ngay | **KHÔNG LÀM** — thiếu màn + thiếu lỗi → mutation BLOCKED |
+| Quét hết skill / tự pick trang | **KHÔNG LÀM** — skill theo trigger; mẫu list hiện hành = trang kho thành phẩm |
+
+Báo cáo đầy đủ + chữ ký: `PROBE-CURSOR-DOC-TRUOC-MA-DANH-SACH-20260816.md`.
 
 ---
 
