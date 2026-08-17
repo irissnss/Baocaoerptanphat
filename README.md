@@ -12,11 +12,11 @@
 |-----------|----------|
 | **Tên dự án** | ERP Tân Phát (Tân Phát Packaging) |
 | **Sơ đồ số phiên bản** | `V{aa}.{bb}.{xxx}` (Owner chốt 11/08/2026) — ví dụ `V1.00.337`; mỗi đợt phát hành `xxx +1`, `xxx→999` thì `bb +1`, `bb→99` thì `aa +1`. Thay sơ đồ cũ `V0.XXX`. |
-| **Phiên bản mã nguồn** | `V1.00.339` ✅ (đã phát hành) |
-| **Phiên bản đang chạy thật** | `V1.00.339` ✅ **ĐÃ TRIỂN KHAI 17/08/2026** — Giao diện trang Giao Hàng theo chuẩn chung + **sửa lỗi trang treo khi có dữ liệu**; có sao lưu CSDL trước, KHÔNG đổi cấu trúc dữ liệu, 99 bảng khớp, đăng nhập 200. *(V1.00.338 cùng ngày — nghiệp vụ giao hàng tự trừ tồn.)* |
-| **Mốc phiên bản hiện tại** | V1.00.339 (local = GitHub = máy vận hành, cùng một số) |
+| **Phiên bản mã nguồn** | `V1.00.340` ✅ (đã phát hành) |
+| **Phiên bản đang chạy thật** | `V1.00.340` ✅ **ĐÃ TRIỂN KHAI 17/08/2026** — Trang Giao Hàng: tối ưu không gian (nhãn nhỏ thay thẻ to) + **xem nhanh chi tiết ngay tại danh sách** (list trái / chi tiết phải); có sao lưu CSDL trước, KHÔNG đổi cấu trúc dữ liệu, 99 bảng khớp, đăng nhập 200. *(V1.00.338/339 cùng ngày — nghiệp vụ + giao diện + sửa lỗi treo.)* |
+| **Mốc phiên bản hiện tại** | V1.00.340 (local = GitHub = máy vận hành, cùng một số) |
 | **Ngày bắt đầu** | 18/01/2026 |
-| **Phát hành lên vận hành thật** | 17/08/2026 — **V1.00.339** (giao diện + sửa lỗi Giao Hàng) · 17/08/2026 — V1.00.338 (nghiệp vụ Kho Hàng M5) · 11/08/2026 — V1.00.337 · 10/08/2026 — V1.00.334/335/336 |
+| **Phát hành lên vận hành thật** | 17/08/2026 — **V1.00.340** (Giao Hàng: không gian + xem nhanh) · V1.00.339 (giao diện + sửa lỗi) · V1.00.338 (nghiệp vụ Kho Hàng M5) · 11/08/2026 — V1.00.337 |
 | **Cập nhật báo cáo này** | 17/08/2026 |
 | **Nguồn trạng thái (chuẩn)** | registry trong repo private (`.governance/registry/`) — bảng công khai này đồng bộ theo đó |
 | **Tech Stack** | Next.js 16.1.6 · React 19.2.4 · Tailwind 4.2.1 · TypeScript 5.9.3 · MariaDB 10.11 (**cả máy vận hành lẫn máy phát triển**, đồng bộ từ 09/08/2026) |

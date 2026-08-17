@@ -2,7 +2,22 @@
 
 > Lịch sử thay đổi governance rules, skills, architecture decisions, và system audit.
 >
-> **Cập nhật:** 17/08/2026 — **ĐÃ PHÁT HÀNH V1.00.339**: làm lại giao diện trang Giao Hàng đúng chuẩn chung + **sửa lỗi trang bị treo khi có dữ liệu**. Có sao lưu CSDL trước, 99 bảng khớp, đăng nhập 200. (Trước đó V1.00.338 — nghiệp vụ giao hàng.)
+> **Cập nhật:** 17/08/2026 — **ĐÃ PHÁT HÀNH V1.00.340**: trang Giao Hàng — tối ưu không gian (bỏ thẻ thống kê to → nhãn nhỏ gọn) + **xem nhanh chi tiết ngay tại danh sách** (list trái, chi tiết phải). Có sao lưu CSDL trước, 99 bảng khớp, đăng nhập 200.
+
+---
+
+## 17/08/2026 — PHÁT HÀNH V1.00.340 (Giao Hàng: tối ưu không gian + xem nhanh master-detail)
+
+**Bối cảnh:** đợt V1.00.339 làm lại giao diện nhưng Owner kiểm tra vẫn thấy **(1) lãng phí diện tích/mật độ thấp** và **(2) thiếu phần xem nhanh chi tiết**. Đợt này **học theo trang mẫu Khách Hàng** (Owner chỉ định).
+
+**Đã làm (chỉ trình bày/giao diện — KHÔNG đổi nghiệp vụ, KHÔNG đổi cấu trúc dữ liệu):**
+- **Tối ưu không gian:** bỏ 4 thẻ thống kê to (chiếm nhiều chỗ) → thay bằng **nhãn nhỏ gọn cạnh tiêu đề** (Tổng / Đang giao / Đã giao) · dòng bảng **dày hơn** · vùng danh sách **cao hơn** (thấy nhiều phiếu hơn cùng lúc).
+- **Xem nhanh (master-detail):** chọn 1 phiếu → **chi tiết mở ngay bên phải danh sách** (không còn lớp phủ che màn hình); danh sách tự co lại nhường chỗ; trên điện thoại chi tiết xếp xuống dưới. Bấm lại dòng đang chọn để đóng.
+- Giữ chuẩn chung: viết hoa tên, màu trạng thái, ngày đầy đủ, chống bấm trùng, responsive không tràn.
+
+**Bằng chứng:** ảnh chụp TRƯỚC (V1.00.339) / SAU (mật độ mới + xem nhanh) ở 3 kích thước + đặt cạnh trang mẫu Khách Hàng — lưu **máy phát triển/nội bộ** (dữ liệu giả), KHÔNG đưa lên kho công khai. Kiểm kiểu 0 lỗi · build đạt · kiểm thử nền đạt (13/13 + 5/5).
+
+**Phát hành:** V1.00.339 → **V1.00.340** — sao lưu CSDL trước · không đổi cấu trúc dữ liệu · **99 bảng khớp** · **đăng nhập 200** · trang Giao Hàng tải đúng.
 
 ---
 
