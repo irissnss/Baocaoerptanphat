@@ -2,7 +2,21 @@
 
 > Lịch sử thay đổi governance rules, skills, architecture decisions, và system audit.
 >
-> **Cập nhật:** 17/08/2026 — **ĐÃ PHÁT HÀNH V1.00.344**: trang Giao Hàng — sửa 4 điểm giao diện (lề sát mép · nhãn thống kê xuống hàng riêng · gộp tìm-lọc + bảng vào 1 khung · form nhập có đầu màu + chia mục). 99 bảng khớp, đăng nhập 200.
+> **Cập nhật:** 17/08/2026 — **ĐÃ PHÁT HÀNH V1.00.345**: trang Giao Hàng — **đồng bộ bo góc nhẹ** (nhãn thống kê bo tròn hẳn · form nhập bo góc cạnh + đầu form bo) và **viết TÀI LIỆU CHUẨN GIAO DIỆN đầy đủ** (`docs/UI-STANDARD.md`, 16 mục) làm chuẩn xử lý giao diện về sau. 99 bảng khớp, đăng nhập 200.
+
+---
+
+## 17/08/2026 — PHÁT HÀNH V1.00.345 (Giao Hàng: đồng bộ bo góc + TÀI LIỆU CHUẨN GIAO DIỆN)
+
+**Bối cảnh:** Owner phản hồi trang Giao Hàng **thiếu bo góc nhẹ** ở các điểm (đầu mục, thẻ…) và yêu cầu **một tài liệu chuẩn giao diện chi tiết** để mỗi lần xử lý giao diện về sau đỡ tốn thời gian — lấy 4 trang nền tảng (Sản Phẩm · Khách Hàng · Nhân Sự · Kho Thành Phẩm) làm gốc thống nhất.
+
+**Đã làm (chỉ giao diện + tài liệu — KHÔNG đổi nghiệp vụ/cấu trúc dữ liệu):**
+1. **Tài liệu chuẩn giao diện** — viết lại `docs/UI-STANDARD.md` toàn diện **16 mục**: bảng **bo góc theo TỪNG loại phần tử** (thẻ/khung/đầu mục/bảng bo vừa · ô nhập/lọc bo lớn hơn · nhãn tròn/ảnh đại diện bo tròn hẳn · ngăn kéo form bo góc cạnh) · bảng màu + 6 bộ màu mục · quy ước khung ngoài/đầu trang/thống kê/thanh công cụ/bảng/phân trang/panel/form/nút/nhãn/chữ/responsive · phần tra nhanh — kèm lớp giao diện thật rút từ 4 trang nền tảng. Đây là **chuẩn dùng lại** cho các trang sau.
+2. **Đồng bộ bo góc trang Giao Hàng**: nhãn thống kê → **bo tròn hẳn**; ngăn kéo form → **bo góc cạnh + đầu form bo** (nút đóng hiện rõ); các thẻ/khung/mục giữ **bo góc vừa** thống nhất.
+
+**Bằng chứng:** ảnh chụp form (ngăn kéo đã bo góc) — lưu máy phát triển/nội bộ. Kiểm kiểu 0 lỗi · build đạt · kiểm thử nền đạt (13/13).
+
+**Phát hành:** V1.00.344 → **V1.00.345** — sao lưu CSDL trước · không đổi cấu trúc dữ liệu · **99 bảng khớp** · **đăng nhập 200** · trang Giao Hàng phản hồi đúng.
 
 ---
 
