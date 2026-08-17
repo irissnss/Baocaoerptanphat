@@ -2,7 +2,22 @@
 
 > Lịch sử thay đổi governance rules, skills, architecture decisions, và system audit.
 >
-> **Cập nhật:** 17/08/2026 — **ĐÃ PHÁT HÀNH V1.00.342**: trang Giao Hàng **siết lề 2 bên** (24px → 12px) — danh sách trải gần sát mép, tận dụng tối đa bề ngang làm việc. 99 bảng khớp, đăng nhập 200.
+> **Cập nhật:** 17/08/2026 — **ĐÃ PHÁT HÀNH V1.00.343**: dựng lại **bảng chi tiết trang Giao Hàng theo chuẩn giao diện dự án** — hết "sơ sài" (hero có nút thao tác + các thẻ mục màu như trang Khách Hàng). 99 bảng khớp, đăng nhập 200.
+
+---
+
+## 17/08/2026 — PHÁT HÀNH V1.00.343 (Giao Hàng: bảng chi tiết theo chuẩn giao diện, hết "sơ sài")
+
+**Bối cảnh:** Owner phản hồi giao diện trang Giao Hàng **quá đơn sơ** so với chuẩn giao diện chung của dự án (các trang mẫu: Sản Phẩm · Khách Hàng · Nhân Sự · Kho Thành Phẩm). Bảng chi tiết cũ chỉ là các dòng "nhãn — giá trị" trơn.
+
+**Đã dựng lại bảng chi tiết cho GIÀU & CHỈN CHU như trang mẫu (chỉ giao diện — KHÔNG đổi nghiệp vụ/cấu trúc dữ liệu):**
+- **Đầu bảng chi tiết**: tên khách hàng lớn + mã phiếu + **cụm nút thao tác tròn** (Sửa · Xóa · Đóng) + nhãn nhanh (trạng thái có chấm màu · số đơn hàng · tổng số lượng).
+- **Thân**: chia thành các **THẺ MỤC có màu riêng + biểu tượng**: Thông Tin Chung · Khách Hàng & Giao Nhận · Phương Tiện · Số Lượng & Giá Trị (ô số liệu lớn) · Ghi Chú · Chi Tiết Sản Phẩm (kèm đếm + nút thêm).
+- Đầu bảng danh sách chỉnh màu chuyển sắc chuẩn.
+
+**Bằng chứng:** ảnh chụp bảng chi tiết ĐANG MỞ đặt cạnh trang mẫu Khách Hàng — lưu máy phát triển/nội bộ. Kiểm kiểu 0 lỗi · build đạt · kiểm thử nền đạt (13/13 + 5/5).
+
+**Phát hành:** V1.00.342 → **V1.00.343** — sao lưu CSDL trước · không đổi cấu trúc dữ liệu · **99 bảng khớp** · **đăng nhập 200**.
 
 ---
 
