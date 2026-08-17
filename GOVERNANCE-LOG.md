@@ -2,7 +2,23 @@
 
 > Lịch sử thay đổi governance rules, skills, architecture decisions, và system audit.
 >
-> **Cập nhật:** 17/08/2026 — **ĐÃ PHÁT HÀNH V1.00.343**: dựng lại **bảng chi tiết trang Giao Hàng theo chuẩn giao diện dự án** — hết "sơ sài" (hero có nút thao tác + các thẻ mục màu như trang Khách Hàng). 99 bảng khớp, đăng nhập 200.
+> **Cập nhật:** 17/08/2026 — **ĐÃ PHÁT HÀNH V1.00.344**: trang Giao Hàng — sửa 4 điểm giao diện (lề sát mép · nhãn thống kê xuống hàng riêng · gộp tìm-lọc + bảng vào 1 khung · form nhập có đầu màu + chia mục). 99 bảng khớp, đăng nhập 200.
+
+---
+
+## 17/08/2026 — PHÁT HÀNH V1.00.344 (Giao Hàng: 4 điểm giao diện theo chuẩn)
+
+**Bối cảnh:** Owner gửi ảnh khoanh 4 điểm trang Giao Hàng còn lệch chuẩn (so với trang mẫu):
+
+**Đã sửa (chỉ trình bày — KHÔNG đổi nghiệp vụ/cấu trúc dữ liệu):**
+1. **Lề 2 bên còn rộng** — nguyên nhân: khung bao ngoài đã có lề sẵn, trang lại thêm lề nữa (cộng dồn). Bỏ lề thừa của trang → danh sách sát mép, tận dụng tối đa bề ngang.
+2. **Nhãn thống kê** (Tổng/Đang giao/Đã giao) tách **xuống hàng riêng** dưới tiêu đề (thay vì chen cùng hàng).
+3. **Gộp [thanh tìm kiếm + lọc + bảng + phân trang] vào MỘT khung** liền mạch (như trang Khách Hàng); ô tìm kiếm thu gọn.
+4. **Form tạo/sửa phiếu**: thêm **đầu form nền màu** + chia thành các **mục có màu + biểu tượng** (Thông Tin Phiếu · Khách Hàng & Giao Nhận · Phương Tiện · Ghi Chú) — thay form phẳng.
+
+**Bằng chứng:** ảnh chụp danh sách (màn 1920) + form + bảng chi tiết — lưu máy phát triển/nội bộ. Kiểm kiểu 0 lỗi · build đạt · kiểm thử nền đạt (13/13).
+
+**Phát hành:** V1.00.343 → **V1.00.344** — sao lưu CSDL trước · không đổi cấu trúc dữ liệu · **99 bảng khớp** · **đăng nhập 200**.
 
 ---
 
