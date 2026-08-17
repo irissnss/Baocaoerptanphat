@@ -2,7 +2,35 @@
 
 > Lịch sử thay đổi governance rules, skills, architecture decisions, và system audit.
 >
-> **Cập nhật:** 17/08/2026 — **ĐÃ PHÁT HÀNH V1.00.338 lên vận hành thật**: Kho Hàng M5 — giao hàng tự trừ tồn thành phẩm + giao đủ/thiếu/vượt + nâng giao diện trang giao hàng. Có sao lưu CSDL trước, 99 bảng khớp, đăng nhập 200.
+> **Cập nhật:** 17/08/2026 — **ĐÃ PHÁT HÀNH V1.00.339**: làm lại giao diện trang Giao Hàng đúng chuẩn chung + **sửa lỗi trang bị treo khi có dữ liệu**. Có sao lưu CSDL trước, 99 bảng khớp, đăng nhập 200. (Trước đó V1.00.338 — nghiệp vụ giao hàng.)
+
+---
+
+## 17/08/2026 — PHÁT HÀNH V1.00.339 (giao diện trang Giao Hàng + sửa lỗi treo)
+
+**Bối cảnh:** đợt V1.00.338 có ghi "nâng giao diện" nhưng thực chất chỉ chỉnh nhẹ và **không kiểm bằng mắt**. Owner kiểm tra thực tế → giao diện chưa đạt chuẩn. Đợt này làm lại đúng chuẩn + **chứng minh bằng ảnh chụp** (trước/sau, 3 kích thước, dữ liệu giả trên máy phát triển).
+
+**Sửa lỗi quan trọng (phát hiện khi chụp ảnh có dữ liệu):** trang Giao Hàng **bị treo/hiện lỗi khi danh sách có phiếu** (do cách xử lý sắp xếp theo ngày). Lỗi này **có sẵn từ trước**, bị che vì trước đó danh sách trống. **Đã sửa triệt để** — sắp xếp an toàn với mọi kiểu dữ liệu ngày.
+
+**Bảng đối chiếu chuẩn giao diện (so với trang mẫu Kho Thành Phẩm):**
+
+| Tiêu chí | Trước | Sau |
+|---|---|---|
+| Tiêu đề trang | Chữ trơn | Biểu tượng huy hiệu (icon-badge) chuẩn |
+| Thẻ thống kê | Không có | 4 thẻ: tổng phiếu / đang giao / đã giao / tổng giá trị |
+| Bảng danh sách | Cuộn ngang, tiêu đề không dính | Cuộn dọc chuẩn + tiêu đề dính khi cuộn |
+| Panel chi tiết | Tiêu đề trơn | Đầu panel nền chuyển sắc cam (hero) + lớp nền mờ |
+| Viết hoa tên | Chưa | Viết Hoa Đầu Chữ tên khách/sản phẩm |
+| Màu trạng thái | Xám/đỏ lệch chuẩn | Theo bảng màu chung (nháp = hổ phách, huỷ = hồng…) |
+| Định dạng ngày | 2 chữ số năm | Đầy đủ DD/MM/YYYY |
+| Chống bấm trùng | Nút xóa chưa khoá | Khoá + báo "đang xóa" cho nút xóa phiếu/dòng |
+| Điện thoại/máy tính bảng | — | Không tràn ngang; thẻ thống kê 2×2; bảng cuộn trong khung |
+
+**Không đổi:** luồng nghiệp vụ giao hàng (tự trừ tồn / giao đủ-thiếu-vượt của V1.00.338) · cấu trúc dữ liệu.
+
+**Bằng chứng:** ảnh chụp TRƯỚC (treo)/SAU (chuẩn) ở 3 kích thước — lưu **máy phát triển/nội bộ, KHÔNG đưa lên kho công khai** (dữ liệu giả). Kiểm kiểu 0 lỗi · build đạt · kiểm thử nền đạt (giao hàng 13/13 + giao thiếu 5/5).
+
+**Phát hành:** V1.00.338 → **V1.00.339** — sao lưu CSDL trước · không đổi cấu trúc dữ liệu · **99 bảng khớp** · **đăng nhập 200** · trang Giao Hàng tải đúng.
 
 ---
 
