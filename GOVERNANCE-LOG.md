@@ -2,7 +2,19 @@
 
 > Lịch sử thay đổi governance rules, skills, architecture decisions, và system audit.
 >
-> **Cập nhật:** 17/08/2026 — **ĐÃ PHÁT HÀNH V1.00.340**: trang Giao Hàng — tối ưu không gian (bỏ thẻ thống kê to → nhãn nhỏ gọn) + **xem nhanh chi tiết ngay tại danh sách** (list trái, chi tiết phải). Có sao lưu CSDL trước, 99 bảng khớp, đăng nhập 200.
+> **Cập nhật:** 17/08/2026 — **ĐÃ PHÁT HÀNH V1.00.341**: trang Giao Hàng dùng **toàn bộ bề ngang màn hình** (bỏ giới hạn 1400px căn giữa) — tối ưu không gian làm việc theo mẫu trang Khách Hàng. 99 bảng khớp, đăng nhập 200.
+
+---
+
+## 17/08/2026 — PHÁT HÀNH V1.00.341 (Giao Hàng: dùng toàn bộ bề ngang màn hình)
+
+**Bối cảnh:** Owner phản hồi V1.00.340 vẫn **chưa tối ưu không gian làm việc**. Rà lại: trang Giao Hàng bị **giới hạn bề ngang ~1400px + căn giữa** → trên màn hình rộng bị **bỏ trống ~300px hai bên**. Trang mẫu Khách Hàng dùng **toàn bộ bề ngang** (không giới hạn).
+
+**Đã sửa (chỉ trình bày — KHÔNG đổi nghiệp vụ/cấu trúc dữ liệu):** bỏ giới hạn bề ngang → danh sách **trải hết màn hình**; thu nhỏ biểu tượng tiêu đề; thu gọn khoảng cách; **vùng danh sách cao hơn** (thấy nhiều phiếu hơn).
+
+**Bằng chứng:** ảnh chụp ở màn 1920px — bảng trải hết bề ngang (bản trước chừa ~300px trống bên phải). Lưu máy phát triển/nội bộ, không đưa lên kho công khai. Kiểm kiểu 0 lỗi · build đạt · kiểm thử nền đạt (13/13 + 5/5).
+
+**Phát hành:** V1.00.340 → **V1.00.341** — sao lưu CSDL trước · không đổi cấu trúc dữ liệu · **99 bảng khớp** · **đăng nhập 200**.
 
 ---
 
