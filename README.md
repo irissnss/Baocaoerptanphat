@@ -12,9 +12,9 @@
 |-----------|----------|
 | **Tên dự án** | ERP Tân Phát (Tân Phát Packaging) |
 | **Sơ đồ số phiên bản** | `V{aa}.{bb}.{xxx}` (Owner chốt 11/08/2026) — ví dụ `V1.00.337`; mỗi đợt phát hành `xxx +1`, `xxx→999` thì `bb +1`, `bb→99` thì `aa +1`. Thay sơ đồ cũ `V0.XXX`. |
-| **Phiên bản mã nguồn** | `V1.00.341` ✅ (đã phát hành) |
-| **Phiên bản đang chạy thật** | `V1.00.341` ✅ **ĐÃ TRIỂN KHAI 17/08/2026** — Trang Giao Hàng dùng **toàn bộ bề ngang màn hình** (bỏ giới hạn 1400px căn giữa) — tối ưu không gian làm việc theo mẫu trang Khách Hàng; có sao lưu CSDL trước, KHÔNG đổi cấu trúc dữ liệu, 99 bảng khớp, đăng nhập 200. *(V1.00.338/339/340 cùng ngày.)* |
-| **Mốc phiên bản hiện tại** | V1.00.341 (local = GitHub = máy vận hành, cùng một số) |
+| **Phiên bản mã nguồn** | `V1.00.342` ✅ (đã phát hành) |
+| **Phiên bản đang chạy thật** | `V1.00.342` ✅ **ĐÃ TRIỂN KHAI 17/08/2026** — Trang Giao Hàng **siết lề 2 bên (24px → 12px)**, danh sách trải gần sát mép — tận dụng tối đa bề ngang làm việc; có sao lưu CSDL trước, KHÔNG đổi cấu trúc dữ liệu, 99 bảng khớp, đăng nhập 200. *(V1.00.338–341 cùng ngày — nghiệp vụ + giao diện Kho/Giao Hàng.)* |
+| **Mốc phiên bản hiện tại** | V1.00.342 (local = GitHub = máy vận hành, cùng một số) |
 | **Ngày bắt đầu** | 18/01/2026 |
 | **Phát hành lên vận hành thật** | 17/08/2026 — **V1.00.341** (Giao Hàng: full bề ngang) · V1.00.340 (không gian + xem nhanh) · V1.00.339 (giao diện + sửa lỗi) · V1.00.338 (nghiệp vụ Kho M5) · 11/08 — V1.00.337 |
 | **Cập nhật báo cáo này** | 17/08/2026 |

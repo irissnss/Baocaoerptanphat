@@ -2,7 +2,19 @@
 
 > Lịch sử thay đổi governance rules, skills, architecture decisions, và system audit.
 >
-> **Cập nhật:** 17/08/2026 — **ĐÃ PHÁT HÀNH V1.00.341**: trang Giao Hàng dùng **toàn bộ bề ngang màn hình** (bỏ giới hạn 1400px căn giữa) — tối ưu không gian làm việc theo mẫu trang Khách Hàng. 99 bảng khớp, đăng nhập 200.
+> **Cập nhật:** 17/08/2026 — **ĐÃ PHÁT HÀNH V1.00.342**: trang Giao Hàng **siết lề 2 bên** (24px → 12px) — danh sách trải gần sát mép, tận dụng tối đa bề ngang làm việc. 99 bảng khớp, đăng nhập 200.
+
+---
+
+## 17/08/2026 — PHÁT HÀNH V1.00.342 (Giao Hàng: siết lề, tận dụng tối đa bề ngang)
+
+**Bối cảnh:** Owner gửi ảnh so sánh (Khách Hàng vs Giao Hàng): V1.00.341 tuy đã dùng toàn bộ bề ngang nhưng **lề trái/phải vẫn còn rộng** (~24px mỗi bên) so với mong muốn.
+
+**Đã sửa (chỉ trình bày — KHÔNG đổi nghiệp vụ/cấu trúc dữ liệu):** giảm lề hai bên của trang từ 24px xuống **12px** → **danh sách trải gần sát mép**, gần như dùng hết bề ngang khu làm việc.
+
+**Bằng chứng:** ảnh chụp màn 1920px — bảng dùng gần hết bề ngang, lề còn ~12px mỗi bên. Lưu máy phát triển/nội bộ. Kiểm kiểu 0 lỗi · build đạt · kiểm thử nền đạt (13/13).
+
+**Phát hành:** V1.00.341 → **V1.00.342** — sao lưu CSDL trước · không đổi cấu trúc dữ liệu · **99 bảng khớp** · **đăng nhập 200**.
 
 ---
 
