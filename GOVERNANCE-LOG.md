@@ -2,7 +2,26 @@
 
 > Lịch sử thay đổi governance rules, skills, architecture decisions, và system audit.
 >
-> **Cập nhật:** 17/08/2026 — **Kho Hàng M5 · Lát C ĐÃ CODE (local)**: giao thiếu / chặn giao vượt tổng đặt (cộng dồn nhiều phiếu) / cho đóng đơn thiếu — không dùng âm kho. Phần trả trước (A) gác vì cần Lát 2 (chưa có code). Kế: upload chứng từ (B).
+> **Cập nhật:** 17/08/2026 — **ĐÃ PHÁT HÀNH V1.00.338 lên vận hành thật**: Kho Hàng M5 — giao hàng tự trừ tồn thành phẩm + giao đủ/thiếu/vượt + nâng giao diện trang giao hàng. Có sao lưu CSDL trước, 99 bảng khớp, đăng nhập 200.
+
+---
+
+## 17/08/2026 — PHÁT HÀNH V1.00.338 (Kho Hàng M5) lên vận hành thật
+
+**Đợt phát hành gộp 3 phần (đã kiểm thử máy phát triển trước, rồi mới lên máy chủ):**
+- **Lát 1** — Phiếu giao hàng xác nhận "Đã Giao" → **tự trừ tồn kho thành phẩm + tự ghi sổ kho** (nguyên tử · chống trùng · bút toán đảo khi hủy · chặn khi tồn không đủ · nút 1 bấm).
+- **Lát C (đã đảo theo Owner)** — giao **đủ / thiếu / vượt số đặt đều được**; nghiệm thu theo **số thực giao**; đóng đơn thiếu/vượt ghi lý do vào ô Ghi chú; tồn kho vẫn là chặn cứng. Không dùng âm kho.
+- **Giao diện** — nâng trang giao hàng theo chuẩn chung (viết hoa đầu chữ tên KH/SP, màu trạng thái chuẩn, chống bấm trùng khi xóa, cuộn danh sách + tiêu đề dính).
+
+**Quy trình phát hành (an toàn):**
+- **Sao lưu CSDL vận hành TRƯỚC** khi deploy + ghi điểm quay lui.
+- Xác nhận **không thay đổi cấu trúc dữ liệu** (không migration mới).
+- Deploy mã nguồn → build → khởi động lại dịch vụ.
+- **Kiểm chứng:** **99 bảng khớp** · **đăng nhập 200** (cả tên miền lẫn nội bộ) · trang Kho/Giao hàng phản hồi đúng (chuyển hướng đăng nhập cho khách chưa đăng nhập) · dịch vụ chạy ổn. **Không tạo phiếu thử trên dữ liệu thật.**
+
+**Số phiên bản:** V1.00.337 → **V1.00.338** (local = GitHub = máy vận hành).
+
+**Kế tiếp (chưa làm):** Lát 2 mua hàng (đặt hàng → tự phiếu chi/công nợ, nhập 2 nhãn kho) · mở rộng trả trước NCC + upload chứng từ. Làm ở máy phát triển, kiểm thử xong mới phát hành đợt sau.
 
 ---
 
