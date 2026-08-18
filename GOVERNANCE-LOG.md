@@ -2,7 +2,23 @@
 
 > Lịch sử thay đổi governance rules, skills, architecture decisions, và system audit.
 >
-> **Cập nhật:** 18/08/2026 — **ĐÃ PHÁT HÀNH V1.00.347**: trang Giao Hàng — **nhãn thống kê đầu trang bo góc GIỐNG HỆT trang Khách Hàng** (bo góc vừa, không bo tròn hẳn — "1 tiêu chuẩn 1"). 99 bảng khớp, đăng nhập 200.
+> **Cập nhật:** 18/08/2026 — **ĐÃ PHÁT HÀNH V1.00.348**: đồng bộ giao diện M5 đợt 1 (4 trang danh mục: Nhà Cung Cấp · Mua Hàng · NCC Vật Tư · Giá Vật Tư) — **thanh tiêu đề bảng dùng chung 1 dải màu cam chuẩn + bo góc trên**, nhất quán với các trang mẫu. 99 bảng khớp, đăng nhập 200.
+
+---
+
+## 18/08/2026 — PHÁT HÀNH V1.00.348 (Đồng bộ giao diện M5 — đợt 1: 4 trang danh mục)
+
+**Bối cảnh:** sau khi trang Giao Hàng được duyệt, Owner chọn hướng tiếp theo: **đồng bộ giao diện các trang M5 còn lại** theo tài liệu chuẩn (`docs/UI-STANDARD.md`).
+
+**Khảo sát:** 10 trang trong khu Kho Hàng — 2 trang đã chuẩn (Giao Hàng, Kho Thành Phẩm), 8 trang lệch. Chia 2 đợt.
+
+**Đợt 1 — 4 trang danh mục** (Nhà Cung Cấp · Mua Hàng · NCC Vật Tư · Giá Vật Tư):
+- **Thanh tiêu đề bảng**: trước mỗi trang một kiểu (dải cam-đỏ 2 màu, vuông góc) → nay **dùng chung 1 dải màu cam chuẩn 3 sắc** + **bo góc trên** + bảng nằm trong khung bo góc — đồng bộ với các trang mẫu.
+- **Mức làm:** "đồng bộ nhìn nhất quán" — CHỈ chuẩn hoá phần dễ thấy nhất (thanh tiêu đề bảng), **KHÔNG đập lại bố cục/panel** để giảm rủi ro và tiết kiệm thời gian.
+
+**Bằng chứng:** ảnh chụp 4 trang (dải cam chuẩn + bo góc) — lưu máy phát triển/nội bộ. Kiểm kiểu 0 lỗi · build đạt.
+
+**Phát hành:** V1.00.347 → **V1.00.348** — sao lưu CSDL trước · không đổi cấu trúc dữ liệu · **99 bảng khớp** · **đăng nhập 200**. *(Đợt 2 — 4 trang chứng từ: Phiếu Nhập · Phiếu Xuất · Giao Dịch Kho · Kiểm Kê — đang làm tiếp.)*
 
 ---
 
