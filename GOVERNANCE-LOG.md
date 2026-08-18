@@ -2,7 +2,7 @@
 
 > Lịch sử thay đổi governance rules, skills, architecture decisions, và system audit.
 >
-> **Cập nhật:** 18/08/2026 — **KẾ HOẠCH IMPORT (PLAN-ONLY)**: đối chiếu DB AppSheet cũ ↔ schema ERP để lập kế hoạch nạp 3 danh mục nền (Nhân viên → Khách hàng → Nhà cung cấp). Chưa nạp dữ liệu — chờ Owner duyệt. (Trước đó: tài liệu tham chiếu 32 sheet; V1.00.350 tồn kho vật tư.)
+> **Cập nhật:** 18/08/2026 — **KẾ HOẠCH IMPORT (PLAN-ONLY, đã nâng lên v2)**: đối chiếu DB AppSheet cũ ↔ schema ERP để lập kế hoạch nạp 3 danh mục nền (Nhân viên → Khách hàng → Nhà cung cấp); v2 bổ sung cơ chế sinh mã tự động, cấp mật khẩu tạm bắt buộc đổi, đa địa chỉ + tự nhận diện tỉnh, và các quy tắc an toàn dữ liệu. **Chưa nạp dữ liệu — chờ Owner duyệt v2.** (Trước đó: tài liệu tham chiếu 32 sheet; V1.00.350 tồn kho vật tư.)
 
 ---
 
