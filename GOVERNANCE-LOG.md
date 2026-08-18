@@ -2,7 +2,21 @@
 
 > Lịch sử thay đổi governance rules, skills, architecture decisions, và system audit.
 >
-> **Cập nhật:** 18/08/2026 — **TÀI LIỆU THAM CHIẾU**: phân tích DB AppSheet "Tân Phát Packaging" (32 sheet, DB vận hành thật nhiều năm) → nền tảng cho ERP. Xem [`APPSHEET-DB-REFERENCE.md`](./APPSHEET-DB-REFERENCE.md). (Trước đó: V1.00.350 nối tồn kho vật tư.)
+> **Cập nhật:** 18/08/2026 — **KẾ HOẠCH IMPORT (PLAN-ONLY)**: đối chiếu DB AppSheet cũ ↔ schema ERP để lập kế hoạch nạp 3 danh mục nền (Nhân viên → Khách hàng → Nhà cung cấp). Chưa nạp dữ liệu — chờ Owner duyệt. (Trước đó: tài liệu tham chiếu 32 sheet; V1.00.350 tồn kho vật tư.)
+
+---
+
+## 18/08/2026 — KẾ HOẠCH IMPORT 3 DANH MỤC NỀN TỪ APPSHEET (PLAN-ONLY, chưa thực thi)
+
+**Bối cảnh:** Owner giao khai thác DB AppSheet cũ để nạp 3 danh mục nền cho ERP, đúng thứ tự **Nhân viên → Khách hàng → Nhà cung cấp**. Phiên này **chỉ lập kế hoạch** — không ghi dữ liệu, không sửa mã, không phát hành.
+
+**Đã làm (đọc-đối chiếu):** đọc cấu trúc 3 bảng nguồn (Nhân viên, Khách hàng, Liên hệ) và đối chiếu với cấu trúc bảng đích trong ERP (nhân sự, tài khoản/vai trò, khách hàng + liên hệ + địa chỉ, nhà cung cấp). Lập bảng **map từng cột** + **ma trận THIẾU/ĐỦ/DƯ** + **quy trình thực thi** (làm sạch định dạng → bảng trung gian → chạy thử xuất mẫu → sao lưu → ghi local → kiểm đếm đối chứng → phương án hoàn tác).
+
+**Số lượng danh mục (không kèm dữ liệu cá nhân):** Nhân viên ~17 · Khách hàng ~1.692 · Nhà cung cấp ~109 · Liên hệ ~1.764.
+
+**Kết luận kỹ thuật (public-safe):** nhân sự và tài khoản đăng nhập là 2 bảng tách (quyền theo vai trò, không lưu theo từng người); khách hàng trong ERP đã có sẵn bảng con liên hệ + địa chỉ nhiều dòng; nhà cung cấp cấu trúc phẳng hơn. Một số điểm cần Owner quyết trước khi nạp (bổ sung phòng ban còn thiếu, cột ngân hàng, quy tắc trùng mã số thuế, giá trị mặc định bắt buộc). **KHÔNG** nạp cột số liệu tính toán (ERP tự tính) và **KHÔNG** mang mật khẩu cũ.
+
+**An toàn:** file dữ liệu gốc + mọi thông tin cá nhân **KHÔNG** đưa lên kho công khai. Chờ Owner duyệt kế hoạch mới thực thi trên máy phát triển.
 
 ---
 
