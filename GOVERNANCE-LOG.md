@@ -2,7 +2,19 @@
 
 > Lịch sử thay đổi governance rules, skills, architecture decisions, và system audit.
 >
-> **Cập nhật:** 18/08/2026 — **ĐÃ PHÁT HÀNH V1.00.350**: nối **TỒN KHO VẬT TƯ** cho Phiếu Nhập / Phiếu Xuất (theo dõi kiểu SỔ KHO). Nhập kho → tăng tồn; xuất kho → giảm tồn + CHẶN xuất vượt tồn; hủy phiếu → tự hoàn/gỡ tồn. 99 bảng khớp, đăng nhập 200.
+> **Cập nhật:** 18/08/2026 — **TÀI LIỆU THAM CHIẾU**: phân tích DB AppSheet "Tân Phát Packaging" (32 sheet, DB vận hành thật nhiều năm) → nền tảng cho ERP. Xem [`APPSHEET-DB-REFERENCE.md`](./APPSHEET-DB-REFERENCE.md). (Trước đó: V1.00.350 nối tồn kho vật tư.)
+
+---
+
+## 18/08/2026 — TÀI LIỆU: Tham chiếu DB AppSheet "Tân Phát Packaging" → nền tảng ERP
+
+**Bối cảnh:** Owner cung cấp file DB đang vận hành thật bằng AppSheet (nhiều năm) để khai thác làm nền cho ERP.
+
+**Đã làm:** phân tích toàn bộ **32 sheet** (đọc trực tiếp bằng openpyxl), rút **cấu trúc + danh mục cấu hình + thống kê quy mô**, viết tài liệu tham chiếu bài bản: [`APPSHEET-DB-REFERENCE.md`](./APPSHEET-DB-REFERENCE.md) — bản đồ thực thể/luồng nghiệp vụ, danh mục nền (KH/NCC/SP/vật tư/nhân viên/công đoạn), chứng từ (báo giá→đơn→giao→nghiệm thu→công nợ/thu chi), bộ trạng thái, ánh xạ sheet→module ERP, nhận định + vấn đề chất lượng dữ liệu.
+
+**Điểm đáng giá rút ra:** KH và NCC gộp chung 1 danh bạ (phân bằng "Hạng mục"); **vật tư đã có sẵn mô hình tồn nhập-xuất-tồn** (khớp 100% quyết định "sổ kho" của ERP); 24 công đoạn sản xuất chuẩn; ~200 loại chất liệu giấy; quy ước trạng thái đánh số rõ ràng; và các vấn đề cần chuẩn hoá khi migrate (trùng danh mục do hoa/thường, quy trình sản xuất free-text).
+
+**An toàn dữ liệu:** tài liệu đã **public-safe** — GỠ toàn bộ credential (token tích hợp), số liệu tài chính, và thông tin cá nhân (tên/SĐT/địa chỉ KH, mật khẩu nhân viên). File `.xlsx` gốc là dữ liệu nội bộ, **KHÔNG** đưa lên kho công khai.
 
 ---
 
