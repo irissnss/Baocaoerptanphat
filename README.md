@@ -123,6 +123,17 @@
 
 ---
 
+### 📜 19/08/2026 — Công bố snapshot tài liệu quản trị + rà an toàn thông tin · CHỈ TÀI LIỆU, KHÔNG đổi số phiên bản
+
+- **Công bố snapshot governance:** thư mục [`LUAT-QUAN-TRI-20260819/`](LUAT-QUAN-TRI-20260819/) — 1 bản replica bộ luật (`CLAUDE.md`, sha256 `05a8ff93`, parity **5/5 OK**), chuẩn giao diện (`UI-STANDARD.md`), registry nguồn UI, mẫu bảng nghiệm thu, và **bản CÔNG KHAI (đã che vị trí)** của trạng thái rà thông tin nhạy cảm.
+- **An toàn:** toàn bộ file đã qua cổng `test:secret-scan` (2 chế độ: theo MẪU + theo GIÁ TRỊ) → **0 vi phạm**; bản trạng thái công khai đã **che mọi file:dòng + mã commit + giá trị**. KHÔNG đăng mã nguồn/script/schema/dữ liệu thật.
+- **Rà thông tin nhạy cảm:** quét lại toàn kho tìm được **12 vị trí / 11 file** (gấp ~4 lần con số ban đầu) — **đã gỡ 12/12** khỏi cây làm việc (chuyển đọc biến môi trường / thay placeholder); cổng quét đã **kiểm ngược** (bắt 4/4 dạng thực tế).
+- **Kho mã nguồn:** Owner xác nhận `origin` là **RIÊNG TƯ** → **KHÔNG viết lại git history** (tránh hỏng mọi bản clone); xử lý bằng **đổi khoá**.
+- **Đổi mật khẩu quản trị:** đang thực hiện **đổi mật khẩu 1 tài khoản admin, đồng bộ máy nội bộ + máy vận hành** (giá trị chỉ tồn tại trong biến môi trường phiên — KHÔNG lưu git/log/báo cáo). *(Hoàn tất khi Owner cung cấp mật khẩu mới qua kênh an toàn.)*
+- **[Phạm vi]** Tài liệu/quản trị + kho công khai · giữ nguyên số phiên bản.
+
+---
+
 ### ✅ 10/08/2026 — Giao diện: 2 trang mới (Liên hệ & Hỗ trợ · Hướng dẫn) + tinh chỉnh UI + quy tắc ghi nhận yêu cầu Owner · ĐÃ TRIỂN KHAI
 
 > Chỉ giao diện + tài liệu, **KHÔNG đổi cấu trúc dữ liệu**. Đã kiểm thử + triển khai lên vận hành.
