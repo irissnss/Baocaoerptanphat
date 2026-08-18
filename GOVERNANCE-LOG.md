@@ -2,7 +2,23 @@
 
 > Lịch sử thay đổi governance rules, skills, architecture decisions, và system audit.
 >
-> **Cập nhật:** 18/08/2026 — **ĐÃ PHÁT HÀNH V1.00.346**: trang Giao Hàng — **bo góc trên thanh tiêu đề bảng** (thanh cam đầu bảng trước còn vuông góc → nay bo góc mềm, khớp trang mẫu Kho Thành Phẩm). 99 bảng khớp, đăng nhập 200.
+> **Cập nhật:** 18/08/2026 — **ĐÃ PHÁT HÀNH V1.00.347**: trang Giao Hàng — **nhãn thống kê đầu trang bo góc GIỐNG HỆT trang Khách Hàng** (bo góc vừa, không bo tròn hẳn — "1 tiêu chuẩn 1"). 99 bảng khớp, đăng nhập 200.
+
+---
+
+## 18/08/2026 — PHÁT HÀNH V1.00.347 (Giao Hàng: nhãn thống kê đầu trang đồng bộ 1 tiêu chuẩn)
+
+**Bối cảnh:** Owner gửi ảnh trang mẫu Khách Hàng, yêu cầu: **"góc bo giống như hình — 1 tiêu chuẩn 1"** (khoanh cụm nhãn thống kê đầu trang: Tổng / Doanh Nghiệp / Cá Nhân).
+
+**Nguyên nhân:** nhãn thống kê đầu trang mẫu dùng **bo góc vừa** (rounded-md); bản Giao Hàng trước đó lại để **bo tròn hẳn** (rounded-full) → lệch chuẩn.
+
+**Đã sửa (chỉ giao diện — KHÔNG đổi nghiệp vụ/cấu trúc dữ liệu):** 3 nhãn Tổng / Đang giao / Đã giao → đổi về **bo góc vừa** + kiểu nền/viền/chữ y hệt trang Khách Hàng (nền nhạt trong suốt nhẹ · viền cùng tông · số in đậm · biểu tượng cùng màu). Nhãn "Tổng" dùng xanh dương như trang mẫu.
+
+**Tài liệu chuẩn:** cập nhật `docs/UI-STANDARD.md` mục bo góc — **tách rõ**: nhãn thống kê ĐẦU TRANG = bo góc vừa; còn nhãn trạng thái/loại TRONG HÀNG bảng = bo tròn hẳn.
+
+**Bằng chứng:** ảnh chụp danh sách (5 dòng mẫu) — nhãn thống kê đã bo góc vừa khớp mẫu — lưu máy phát triển/nội bộ. Kiểm kiểu 0 lỗi · build đạt · kiểm thử nền đạt (13/13).
+
+**Phát hành:** V1.00.346 → **V1.00.347** — sao lưu CSDL trước · không đổi cấu trúc dữ liệu · **99 bảng khớp** · **đăng nhập 200** · trang Giao Hàng phản hồi đúng.
 
 ---
 
