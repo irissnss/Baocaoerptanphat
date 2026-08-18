@@ -2,7 +2,27 @@
 
 > Lịch sử thay đổi governance rules, skills, architecture decisions, và system audit.
 >
-> **Cập nhật:** 18/08/2026 — **ĐÃ PHÁT HÀNH V1.00.349**: đồng bộ giao diện M5 đợt 2 (4 trang chứng từ: Phiếu Nhập · Phiếu Xuất · Giao Dịch Kho · Kiểm Kê) — **thanh tiêu đề bảng + dải đầu trang chuyển về màu cam chuẩn**. Toàn bộ 10 trang khu Kho Hàng nay nhất quán một kiểu. 99 bảng khớp, đăng nhập 200.
+> **Cập nhật:** 18/08/2026 — **ĐÃ PHÁT HÀNH V1.00.350**: nối **TỒN KHO VẬT TƯ** cho Phiếu Nhập / Phiếu Xuất (theo dõi kiểu SỔ KHO). Nhập kho → tăng tồn; xuất kho → giảm tồn + CHẶN xuất vượt tồn; hủy phiếu → tự hoàn/gỡ tồn. 99 bảng khớp, đăng nhập 200.
+
+---
+
+## 18/08/2026 — PHÁT HÀNH V1.00.350 (Kho Hàng: nối TỒN VẬT TƯ cho Phiếu Nhập / Phiếu Xuất)
+
+**Bối cảnh:** Owner chuyển hướng từ chỉnh giao diện sang **hoàn thiện chức năng thật** của module Kho Hàng. Rà soát toàn module cho thấy: **không có dữ liệu giả** (tốt), nhưng nhiều thao tác **chỉ lưu phiếu mà không tác động tồn kho** — nhập kho không làm tăng tồn, xuất kho không làm giảm tồn và không chặn xuất quá số còn.
+
+**Quyết định Owner:** theo dõi **tồn vật tư kiểu SỔ KHO** (tồn = tổng nhập − tổng xuất, ghi vào sổ kho sẵn có) — **không thêm bảng mới, không đổi cấu trúc dữ liệu**.
+
+**Đã làm (KHÔNG đổi cấu trúc dữ liệu):**
+- **Phiếu Xuất** khi *Xác Nhận* → ghi sổ xuất, **trừ tồn**; **CHẶN nếu xuất vượt tồn** (báo lỗi rõ, phiếu không được xác nhận); *Hủy* phiếu đã xác nhận → tự **hoàn tồn** (bút toán đảo).
+- **Phiếu Nhập** khi *Hoàn Thành* → ghi sổ nhập, **cộng tồn** (chỉ vật tư; thành phẩm theo mô hình riêng); *Hủy* phiếu đã hoàn thành → tự **gỡ tồn**.
+- Chạy trong 1 giao dịch an toàn + khóa dòng chống ghi trùng (bấm lại không cộng/trừ 2 lần).
+- **Sửa 2 lỗi tiềm ẩn** ở tạo dòng phiếu nhập (giá trị mặc định sai kiểu → trước đây tạo dòng nào cũng lỗi).
+
+**Bằng chứng:** bộ kiểm thử mới **15/15 đạt** trên CSDL thật (nhập tăng tồn · xuất giảm tồn · chặn vượt tồn · hủy hoàn tồn · chống ghi trùng) + kiểm thử nền giao hàng 13/13 + 5/5 · kiểm kiểu 0 lỗi · build đạt.
+
+**Phát hành:** V1.00.349 → **V1.00.350** — sao lưu CSDL trước · **không đổi cấu trúc dữ liệu** · **99 bảng khớp** · **đăng nhập 200**.
+
+**Còn chờ Owner quyết chính sách:** Mua Hàng → sinh công nợ nhà cung cấp / phiếu chi; Kiểm Kê → sinh phiếu điều chỉnh tồn.
 
 ---
 
