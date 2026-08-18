@@ -2,7 +2,25 @@
 
 > Lịch sử thay đổi governance rules, skills, architecture decisions, và system audit.
 >
-> **Cập nhật:** 18/08/2026 — **ĐÃ PHÁT HÀNH V1.00.348**: đồng bộ giao diện M5 đợt 1 (4 trang danh mục: Nhà Cung Cấp · Mua Hàng · NCC Vật Tư · Giá Vật Tư) — **thanh tiêu đề bảng dùng chung 1 dải màu cam chuẩn + bo góc trên**, nhất quán với các trang mẫu. 99 bảng khớp, đăng nhập 200.
+> **Cập nhật:** 18/08/2026 — **ĐÃ PHÁT HÀNH V1.00.349**: đồng bộ giao diện M5 đợt 2 (4 trang chứng từ: Phiếu Nhập · Phiếu Xuất · Giao Dịch Kho · Kiểm Kê) — **thanh tiêu đề bảng + dải đầu trang chuyển về màu cam chuẩn**. Toàn bộ 10 trang khu Kho Hàng nay nhất quán một kiểu. 99 bảng khớp, đăng nhập 200.
+
+---
+
+## 18/08/2026 — PHÁT HÀNH V1.00.349 (Đồng bộ giao diện M5 — đợt 2: 4 trang chứng từ)
+
+**Bối cảnh:** tiếp nối đợt 1, Owner chọn **đồng bộ luôn nhóm 4 trang chứng từ** (Phiếu Nhập · Phiếu Xuất · Giao Dịch Kho · Kiểm Kê) vốn đang dùng thanh tiêu đề bảng màu xám/phẳng — khác nhóm danh mục.
+
+**Đã làm (chỉ giao diện — KHÔNG đổi nghiệp vụ/cấu trúc dữ liệu):**
+- **Phiếu Nhập · Phiếu Xuất:** thanh tiêu đề bảng phẳng → **dải màu cam chuẩn** (chữ trắng) + **bo góc trên** + bảng nằm trong khung bo góc.
+- **Giao Dịch Kho · Kiểm Kê:** thanh tiêu đề bảng xám → **dải cam chuẩn** (giữ tính năng dính khi cuộn) + khung bo góc; **dải màu đầu trang** đổi từ xanh dương → **cam** cho khỏi chọi màu với bảng.
+
+**Kết quả:** toàn bộ 10 trang khu Kho Hàng nay **dùng chung một kiểu thanh tiêu đề bảng màu cam**.
+
+**Mức làm & phần còn nợ (khai rõ):** đợt này chỉ đồng bộ **thanh tiêu đề bảng** — CHƯA dựng lại bố cục/panel chi tiết cho nhóm chứng từ (để sau, tránh rủi ro).
+
+**Bằng chứng:** ảnh chụp 6 trang — lưu máy phát triển/nội bộ. Kiểm kiểu 0 lỗi · build đạt.
+
+**Phát hành:** V1.00.348 → **V1.00.349** — sao lưu CSDL trước · không đổi cấu trúc dữ liệu · **99 bảng khớp** · **đăng nhập 200**.
 
 ---
 
