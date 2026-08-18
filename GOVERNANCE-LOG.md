@@ -2,7 +2,21 @@
 
 > Lịch sử thay đổi governance rules, skills, architecture decisions, và system audit.
 >
-> **Cập nhật:** 17/08/2026 — **ĐÃ PHÁT HÀNH V1.00.345**: trang Giao Hàng — **đồng bộ bo góc nhẹ** (nhãn thống kê bo tròn hẳn · form nhập bo góc cạnh + đầu form bo) và **viết TÀI LIỆU CHUẨN GIAO DIỆN đầy đủ** (`docs/UI-STANDARD.md`, 16 mục) làm chuẩn xử lý giao diện về sau. 99 bảng khớp, đăng nhập 200.
+> **Cập nhật:** 18/08/2026 — **ĐÃ PHÁT HÀNH V1.00.346**: trang Giao Hàng — **bo góc trên thanh tiêu đề bảng** (thanh cam đầu bảng trước còn vuông góc → nay bo góc mềm, khớp trang mẫu Kho Thành Phẩm). 99 bảng khớp, đăng nhập 200.
+
+---
+
+## 18/08/2026 — PHÁT HÀNH V1.00.346 (Giao Hàng: bo góc trên thanh tiêu đề bảng)
+
+**Bối cảnh:** Owner phản hồi (ảnh khoanh) trang Giao Hàng: **thanh tiêu đề bảng (dải màu cam) vẫn vuông góc 90°** dù bản trước đã nói "đồng bộ bo góc".
+
+**Nguyên nhân:** trang mẫu chuẩn (Kho Thành Phẩm) bo **2 góc trên** của dải cam bằng cách bo ô tiêu đề đầu (góc trên-trái) và ô tiêu đề cuối (góc trên-phải); trang Giao Hàng **thiếu đúng 2 điểm bo này** nên dải cam vuông.
+
+**Đã sửa (chỉ giao diện — KHÔNG đổi nghiệp vụ/cấu trúc dữ liệu):** bo góc trên-trái ô "Số Phiếu" + góc trên-phải ô "Thao Tác" → dải cam đầu bảng **bo góc trên mềm**, đồng bộ trang mẫu.
+
+**Bằng chứng:** ảnh chụp danh sách (5 dòng mẫu) — dải cam đầu bảng đã bo góc trên — lưu máy phát triển/nội bộ. Kiểm kiểu 0 lỗi · build đạt · kiểm thử nền đạt (13/13).
+
+**Phát hành:** V1.00.345 → **V1.00.346** — sao lưu CSDL trước · không đổi cấu trúc dữ liệu · **99 bảng khớp** · **đăng nhập 200** · trang Giao Hàng phản hồi đúng.
 
 ---
 
