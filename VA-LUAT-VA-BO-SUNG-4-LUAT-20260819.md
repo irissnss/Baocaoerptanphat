@@ -216,7 +216,7 @@ Theo §0 của chỉ đạo phiên (việc ngoài luật → ghi sổ nợ, khô
        viết 3 cổng. T9 FAIL: phát hiện phơi nhiễm PII 2 file → DEBT-013."
 
 5. PUSH BÁO CÁO CÔNG KHAI
-   [x] ĐÃ PUSH — kho Baocaoerptanphat · commit <ĐIỀN SAU KHI PUSH>
+   [x] ĐÃ PUSH — kho Baocaoerptanphat · commit d12f8a4
        · file VA-LUAT-VA-BO-SUNG-4-LUAT-20260819.md
    Kho này Owner xác nhận RIÊNG TƯ. Vẫn giữ kỷ luật công-bố-an-toàn: KHÔNG nêu đường dẫn
    chính xác của 2 file chứa PII (giá trị còn trong git history), KHÔNG nêu giá trị nào,
