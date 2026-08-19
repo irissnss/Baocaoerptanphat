@@ -209,7 +209,7 @@ Sửa **2 vị trí cùng chủ đề trong một lượt** (`GOV-EDIT-PRESERVE-
        không tự mở rộng phạm vi. → DEBT-008 đã có sẵn trong sổ nợ (phiên thứ 3 liên tiếp).
 
 5. PUSH BÁO CÁO CÔNG KHAI
-   [x] ĐÃ PUSH — kho Baocaoerptanphat · commit <ĐIỀN SAU KHI PUSH>
+   [x] ĐÃ PUSH — kho Baocaoerptanphat · commit 808757c
        · file KIEM-CONG-DEM-VA-VA-3-NO-LUAT-20260819.md
    Kèm cập nhật 6 file trong LUAT-QUAN-TRI-20260819/ (cảnh báo lỗi thời + làm mới CLAUDE.md).
    Giữ kỷ luật: KHÔNG nêu đường dẫn chính xác file chứa PII, KHÔNG nêu giá trị nào.
