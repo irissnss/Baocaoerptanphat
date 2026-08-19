@@ -1,5 +1,14 @@
 # REGISTRY — BẢNG PHÂN XỬ NGUỒN CHUẨN GIAO DIỆN (ui-standard-sources)
 
+
+> ⚠️ **BẢN CHỤP MỘT THỜI ĐIỂM (19/08/2026) — HÃY KIỂM CÒN HẠN HAY KHÔNG.**
+> **Mã băm BẢN GỐC trong kho riêng tư tại thời điểm chụp (SHA-256):** `494ab485b147bee12b7643c191db7f73b1520fdd9134a2ae387d602aba69a227`
+> Đây là bản chụp của bảng phân xử nguồn chuẩn giao diện. Nội dung dưới đây **khớp đúng bản gốc** tại thời điểm chụp.
+> **Cách kiểm:** chạy `sha256sum` trên **file gốc trong kho riêng tư**.
+> Khác mã trên → bản công bố này đã **LỖI THỜI**, tra kho riêng tư để lấy bản đang có hiệu lực.
+> *(Cố ý ghi mã của BẢN GỐC chứ không phải của chính file này — vì thêm dòng cảnh báo sẽ làm đổi mã của chính nó, thành ra không kiểm được.)*
+> *(Lưu ý: file trong kho báo cáo có thể bị đổi kiểu xuống dòng khi tải về, nên mã băm của CHÍNH file này sẽ khác bản gốc — đó là lý do phải hash bản gốc.)*
+
 > **Doc Version:** 1.0 · **Lập:** 18/08/2026 bởi Agent IDE · **Owner duyệt:** 18/08/2026 (quyết định **Q2** + **Q3**)
 > **Mục đích:** ca thất bại 17–18/08/2026 có **10 nguồn** quy định giao diện, mỗi nguồn tự xưng chuẩn, **không nguồn nào có nhãn hiệu lực**. Bảng phân xử cũ (`legacy-rules-status.md`) **chỉ phủ mục có mã `GOV-*`** nên toàn bộ khối UI nằm ngoài. File này lấp đúng chỗ trống đó.
 > **Nguyên tắc:** `GOV-EDIT-PRESERVE-001` — **GỘP TRƯỚC, HẠ NHÃN SAU. Không xoá bất kỳ nguồn nào.** Mọi nguồn bị hạ nhãn vẫn còn nguyên văn tại vị trí cũ.

@@ -1,5 +1,14 @@
 # 🎨 UI STANDARD — ERP Tân Phát (CHUẨN DUY NHẤT, áp đại trà)
 
+
+> ⚠️ **BẢN CHỤP MỘT THỜI ĐIỂM (19/08/2026) — HÃY KIỂM CÒN HẠN HAY KHÔNG.**
+> **Mã băm BẢN GỐC trong kho riêng tư tại thời điểm chụp (SHA-256):** `ff850b23be89513b55e932bb9c05680aaf46e5329c5be151fae79494430a6e0b`
+> Đây là bản chụp của SSOT chuẩn giao diện. Nội dung dưới đây **khớp đúng bản gốc** tại thời điểm chụp.
+> **Cách kiểm:** chạy `sha256sum` trên **file gốc trong kho riêng tư**.
+> Khác mã trên → bản công bố này đã **LỖI THỜI**, tra kho riêng tư để lấy bản đang có hiệu lực.
+> *(Cố ý ghi mã của BẢN GỐC chứ không phải của chính file này — vì thêm dòng cảnh báo sẽ làm đổi mã của chính nó, thành ra không kiểm được.)*
+> *(Lưu ý: file trong kho báo cáo có thể bị đổi kiểu xuống dòng khi tải về, nên mã băm của CHÍNH file này sẽ khác bản gốc — đó là lý do phải hash bản gốc.)*
+
 > **Mục đích:** hết "mỗi nơi mỗi kiểu / mò mẫm". Mọi task UI mở file này ra tra là làm được ngay — nhanh + nhất quán.
 > **Owner chốt:** 4 trang **NỀN TẢNG** (chưa hoàn hảo nhưng nhất quán/đồng bộ nhất tới nay — bám theo để đỡ tốn thời gian):
 > `/m1/san-pham` · `/m1/khach-hang` · `/m1/nhan-su` · **`/m5/kho-thanh-pham`** (GOLD — layout list/detail).

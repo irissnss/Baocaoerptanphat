@@ -1,5 +1,14 @@
 # MẪU BẢNG TIÊU CHÍ NGHIỆM THU
 
+
+> ⚠️ **BẢN CHỤP MỘT THỜI ĐIỂM (19/08/2026) — HÃY KIỂM CÒN HẠN HAY KHÔNG.**
+> **Mã băm BẢN GỐC trong kho riêng tư tại thời điểm chụp (SHA-256):** `979daa9ad99ed5c3e1c4312f9f0495f694562c7fc7b0ea12301763d27429b0ac`
+> Đây là bản chụp của mẫu bảng tiêu chí nghiệm thu. Nội dung dưới đây **khớp đúng bản gốc** tại thời điểm chụp.
+> **Cách kiểm:** chạy `sha256sum` trên **file gốc trong kho riêng tư**.
+> Khác mã trên → bản công bố này đã **LỖI THỜI**, tra kho riêng tư để lấy bản đang có hiệu lực.
+> *(Cố ý ghi mã của BẢN GỐC chứ không phải của chính file này — vì thêm dòng cảnh báo sẽ làm đổi mã của chính nó, thành ra không kiểm được.)*
+> *(Lưu ý: file trong kho báo cáo có thể bị đổi kiểu xuống dòng khi tải về, nên mã băm của CHÍNH file này sẽ khác bản gốc — đó là lý do phải hash bản gốc.)*
+
 > **Doc Version:** 1.0 · **Ban hành:** 18/08/2026 · **Thuộc luật:** `GOV-ACCEPTANCE-FIRST-001`
 > **Dùng khi nào:** việc thuộc nhóm **KHÔNG CÓ TIÊU CHÍ TỰ THÂN** — chuẩn hoá · nhất quán · dọn dẹp · tối ưu · làm mượt · đồng bộ · rà soát.
 > **Cách dùng:** sao file này sang `.governance/acceptance/<ngày>-<tên-việc>.md`, điền, xin Owner duyệt, **rồi mới sửa dòng mã đầu tiên**.

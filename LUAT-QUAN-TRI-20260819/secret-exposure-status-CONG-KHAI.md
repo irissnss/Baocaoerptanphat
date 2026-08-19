@@ -1,5 +1,10 @@
 # TRẠNG THÁI PHƠI NHIỄM THÔNG TIN NHẠY CẢM — **BẢN CÔNG KHAI (đã che vị trí)**
 
+
+> ⚠️ **BẢN CHỤP MỘT THỜI ĐIỂM (19/08/2026) — HÃY KIỂM CÒN HẠN HAY KHÔNG.**
+> Đây là trạng thái phơi nhiễm (bản đã che vị trí), **chỉ tồn tại ở bản công bố** (không có bản gốc tương ứng trong kho riêng tư để đối chiếu mã băm).
+> **Cách kiểm:** đối chiếu ngày chụp với bản công bố mới nhất trong kho báo cáo; có bản mới hơn → bản này đã **LỖI THỜI**.
+
 > **Bản này KHÔNG chứa:** giá trị nhạy cảm · đường dẫn file:dòng cụ thể · mã commit. Mọi vị trí đã **CHE** (bản đầy đủ nằm trong registry nội bộ — kho riêng tư).
 > **Doc Version:** 1.0-public · **Lập:** 19/08/2026 bởi Agent IDE · **Thuộc luật:** `GOV-SECRET-IN-CODE-001`.
 > Mục đích công bố: minh bạch quy trình rà + gỡ + khuyến nghị đổi khoá, để công cụ AI/đối tác đọc được cách dự án xử lý an toàn — KHÔNG lộ vị trí có thể dùng để dò lịch sử.

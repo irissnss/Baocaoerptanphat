@@ -1,5 +1,10 @@
 # 📜 SNAPSHOT TÀI LIỆU QUẢN TRỊ (GOVERNANCE) — 19/08/2026
 
+
+> ⚠️ **BẢN CHỤP MỘT THỜI ĐIỂM (19/08/2026) — HÃY KIỂM CÒN HẠN HAY KHÔNG.**
+> Đây là mục lục bản công bố, **chỉ tồn tại ở bản công bố** (không có bản gốc tương ứng trong kho riêng tư để đối chiếu mã băm).
+> **Cách kiểm:** đối chiếu ngày chụp với bản công bố mới nhất trong kho báo cáo; có bản mới hơn → bản này đã **LỖI THỜI**.
+
 > **Bản công bố công khai** cho Notion + công cụ AI + đối tác đọc, phục vụ minh bạch cách dự án ERP Tân Phát quản trị luật/quy ước.
 > ⚠️ Đây là **tài liệu luật/quy ước**, KHÔNG phải mã nguồn. KHÔNG chứa credential/schema/dữ liệu nhạy cảm/đường dẫn nhạy cảm.
 > Owner duyệt công bố 19/08/2026 (D3).

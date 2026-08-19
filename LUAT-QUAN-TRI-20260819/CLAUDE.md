@@ -2,6 +2,15 @@
 # ERP TÂN PHÁT — AGENT IDE GOVERNANCE RULESET — VNEXT (ACTIVE)
 # =========================================================
 
+
+> ⚠️ **BẢN CHỤP MỘT THỜI ĐIỂM (19/08/2026) — HÃY KIỂM CÒN HẠN HAY KHÔNG.**
+> **Mã băm BẢN GỐC trong kho riêng tư tại thời điểm chụp (SHA-256):** `ad2a510b0af52e49657a5f9de0aa4379c45b4b3448f6269a5d6d3db573aeffe9`
+> Đây là bản chụp của 5 file quản trị (5 bản byte-identical). Nội dung dưới đây **khớp đúng bản gốc** tại thời điểm chụp.
+> **Cách kiểm:** chạy `sha256sum` trên **file gốc trong kho riêng tư**.
+> Khác mã trên → bản công bố này đã **LỖI THỜI**, tra kho riêng tư để lấy bản đang có hiệu lực.
+> *(Cố ý ghi mã của BẢN GỐC chứ không phải của chính file này — vì thêm dòng cảnh báo sẽ làm đổi mã của chính nó, thành ra không kiểm được.)*
+> *(Lưu ý: file trong kho báo cáo có thể bị đổi kiểu xuống dòng khi tải về, nên mã băm của CHÍNH file này sẽ khác bản gốc — đó là lý do phải hash bản gốc.)*
+
 > **STATUS:** `ACTIVE` — Owner duyệt khép vòng (mốc ngày/giờ tra ở `docs/OWNER-REQUEST-LEDGER.md`).
 >  
 > **MÔ HÌNH TRIỂN KHAI:** Nội dung này đồng bộ **BYTE-IDENTICAL** vào cả 5 file:
@@ -11,7 +20,7 @@
 >
 > **NO INFORMATION LOSS:** Không xóa nội dung cũ. Phụ lục LEGACY nguyên văn đã **DỜI** sang `.governance/ARCHIVE-LEGACY-RULESET.md` (mốc khép vòng tra ở `docs/OWNER-REQUEST-LEDGER.md`) — KHÔNG mất, tra đầy đủ ở archive. Registry trạng thái ở `.governance/registry/`. Xem **CHỈ MỤC THAM CHIẾU BẮT BUỘC** ở cuối file.
 >
-> **DOC VERSION:** `2.1` — cập nhật 19/08/2026. Thay đổi: thêm **§G7 — 9 luật mới** (Owner duyệt 18/08/2026, sinh từ tự soát ca thất bại giao diện 17–18/08). Nhật ký đầy đủ ở mục **W. LỊCH SỬ SỬA ĐỔI** cuối file. Bản trước: `1.0` (16/08/2026, VNext).
+> **DOC VERSION:** `2.3` — cập nhật 19/08/2026. Thay đổi: vá 3 lỗ cổng đếm `GOV-EDIT-PRESERVE-001` + thêm cổng phụ đếm mục file chuẩn + thêm trường `hạn_đóng` vào sổ nợ (`GOV-TECH-DEBT-LEDGER-001`). Bản `2.2`: **§G7 nay có 13 luật** (thêm 4 luật Owner duyệt 19/08) + vá 12 điểm trong 9 luật cũ + Q1 = RIÊNG TƯ. Bản `2.1`: thêm **§G7 — 9 luật mới** (Owner duyệt 18/08/2026, sinh từ tự soát ca thất bại giao diện 17–18/08). Nhật ký đầy đủ ở mục **W. LỊCH SỬ SỬA ĐỔI** cuối file. Bản trước: `1.0` (16/08/2026, VNext).
 
 ---
 
@@ -669,11 +678,13 @@ FAILURE:     BLOCK_ALL
 
 ---
 
-# G7. CHÍN LUẬT MỚI — BAN HÀNH 18/08/2026 (NHÓM AN TOÀN — INLINE)
+# G7. MƯỜI BA LUẬT MỚI — BAN HÀNH 18–19/08/2026 (NHÓM AN TOÀN — INLINE)
 
-> ⛔ **BẮT BUỘC INLINE, CẤM dời sang file tham chiếu/registry/archive.** Chín luật dưới đây sinh ra từ **tự soát ca thất bại giao diện 17–18/08/2026** (báo cáo `docs/reports/TU-SOAT-LUAT-UI-20260818.md`). Số đo của ca đó: **12 gói việc · 9 lượt Owner bác liên tiếp · chỉ 3 lần mở nguồn chuẩn, cả 3 lần đều đọc lỗ khoá (10 · 70 · 73 dòng) · trang mẫu bố cục chỉ mở đúng 1 lần (45 dòng, ở gói thứ hai), 10 gói còn lại không mở trang mẫu**. Chính vì lý do đó, khối này **KHÔNG được đặt ở file tham chiếu** — file luật gốc dự án được tiêm lại sau nén ngữ cảnh, file tham chiếu thì KHÔNG.
+> ⛔ **BẮT BUỘC INLINE, CẤM dời sang file tham chiếu/registry/archive.** Mười ba luật dưới đây: **9 luật đầu (§G7.0–G7.8)** sinh ra từ **tự soát ca thất bại giao diện 17–18/08/2026** (báo cáo `docs/reports/TU-SOAT-LUAT-UI-20260818.md`). Số đo của ca đó: **12 gói việc · 9 lượt Owner bác liên tiếp · chỉ 3 lần mở nguồn chuẩn, cả 3 lần đều đọc lỗ khoá (10 · 70 · 73 dòng) · trang mẫu bố cục chỉ mở đúng 1 lần (45 dòng, ở gói thứ hai), 10 gói còn lại không mở trang mẫu**. Chính vì lý do đó, khối này **KHÔNG được đặt ở file tham chiếu** — file luật gốc dự án được tiêm lại sau nén ngữ cảnh, file tham chiếu thì KHÔNG.
 >
-> **Owner duyệt 18/08/2026.** `SCOPE = RIÊNG — ERP` cho cả 9 luật. Luật `GOV-EDIT-PRESERVE-001` **điều phối cách thi hành 8 luật còn lại và mọi lần sửa file luật/chuẩn/sổ/registry về sau**.
+> **Owner duyệt 18/08/2026** (9 luật đầu) **và 19/08/2026** (4 luật sau: `GOV-TECH-DEBT-LEDGER-001` §G7.10 · `GOV-IMPORT-RECONCILE-001` §G7.11 · `GOV-IMPORT-ERROR-THRESHOLD-001` §G7.12 · `GOV-PII-HANDLING-001` §G7.13). `SCOPE = RIÊNG — ERP` cho **cả 13 luật**. Luật `GOV-EDIT-PRESERVE-001` **điều phối cách thi hành 12 luật còn lại và mọi lần sửa file luật/chuẩn/sổ/registry về sau**.
+>
+> ⚠️ **Thứ tự đánh số:** §G7.10–G7.13 đặt **trước** §G7.9 (bảng quyết định Owner) theo đúng chỉ định 19/08/2026 — bảng quyết định đóng vai trò mục tổng kết cuối khối. Nội dung đúng, chỉ số đọc không liên tục (đã ghi `DEBT-012`).
 
 ---
 
@@ -702,6 +713,11 @@ EVIDENCE:    Cổng đếm HAI ĐIỀU KIỆN ĐỒNG THỜI:
                  còn lại (mã · vị trí mới · ngày · lý do)
              Thiếu một trong hai → khôi phục, làm lại.
              Kèm danh sách vị trí đã quét cùng chủ đề.
+             Cổng phụ cho file chuẩn không mang mã GOV:
+             `npm run test:standard-clause-count -- <đường-dẫn-SSOT>`
+             đếm số mục (§) trong file chuẩn. SAU ≥ TRƯỚC.
+             Cổng phụ kiểm THEO TỪNG FILE và THEO TÊN MỤC — cổng chính
+             đếm gộp nên "điểm dư" của tổng che được việc xoá một mục.
 FAILURE:     BLOCK_ALL
 ENFORCEMENT: AUTO (cổng đếm) + MANUAL (rà cùng chủ đề)
 STATUS:      ACTIVE (Owner duyệt 18/08/2026)
@@ -721,7 +737,8 @@ TITLE:       Chốt tiêu chí nghiệm thu trước khi bắt đầu
 SCOPE:       RIÊNG — ERP
 LEVEL:       MUST
 TRIGGER:     Việc thuộc nhóm KHÔNG CÓ TIÊU CHÍ TỰ THÂN — chuẩn hoá · nhất quán ·
-             dọn dẹp · tối ưu · làm mượt · đồng bộ · rà soát
+             dọn dẹp · tối ưu · làm mượt · đồng bộ · rà soát · nạp dữ liệu
+             hàng loạt · di trú dữ liệu
 REQUIREMENT:
   1. Trước khi sửa dòng mã đầu tiên: chốt với Owner một BẢNG TIÊU CHÍ NGHIỆM THU,
      ghi RA FILE. Mỗi dòng phải ĐO ĐƯỢC.
@@ -730,6 +747,9 @@ REQUIREMENT:
       việc dữ liệu → lớp dữ liệu thật, evidence DB_PROVEN;
       việc vận hành → lớp môi trường vận hành, evidence RUNTIME_PROVEN).
   3. XONG = ĐẠT HẾT mọi dòng. Không phải "trông ổn rồi".
+  4. Bằng chứng phải kiểm được bởi người ngoài phiên: ảnh trước/sau
+     cho UI (đặt cạnh trang mẫu), kết quả truy vấn cho DB, log cho
+     runtime. Ảnh chỉ lưu máy phát triển/nội bộ = KHÔNG kiểm được.
 FORBIDDEN:   Bắt đầu sửa khi chưa có bảng Owner duyệt · dùng chữ định tính
              ("gọn gàng", "hài hoà", "đẹp hơn") làm tiêu chí
 EVIDENCE:    Đường dẫn file bảng tiêu chí + dấu duyệt Owner
@@ -740,6 +760,11 @@ REVIEW:      90 ngày
 REFERENCE:   Mẫu bảng → .governance/procedures/acceptance-template.md
              ĐIỀU KIỆN NẠP: file mẫu phải được TẠO TRONG CÙNG WORK PACKAGE,
              nếu không luật này vi phạm chính GOV-REF-EXISTS-001.
+             Thứ tự: tạo template → nạp luật → chạy cổng L6. Ngược
+             thứ tự = L6 báo FAIL cho L1 (template chưa có), đây là
+             hành vi đúng, không phải lỗi cổng.
+             Việc nạp dữ liệu hàng loạt: checklist riêng ở
+             .governance/procedures/import-checklist.md
 ```
 
 ---
@@ -757,9 +782,18 @@ TRIGGER:     "Đụng giao diện" = sửa BẤT KỲ thứ nào: chữ hiển t
              biểu tượng · component dùng chung · bố cục trang · trạng thái hiển thị
 REQUIREMENT: Đọc TOÀN PHẦN nguồn được chỉ định là SSOT giao diện. Khai trong
              báo cáo: file nào, từ dòng mấy tới dòng mấy.
+             File SSOT > 500 dòng: đọc toàn phần ÍT NHẤT MỘT LẦN
+             trong phiên, ghi dòng đầu–cuối. Trong các lần sửa sau
+             trong cùng phiên: được đọc lại phần liên quan + khai rõ
+             đã đọc toàn phần lần đầu ở dòng nào. Không được dùng
+             "đã đọc lần trước" khi phiên đã bị nén (L8).
 FORBIDDEN:   Đọc lỗ khoá (mở vài dòng quanh chỗ đang sửa) · sửa giao diện khi
              chưa đọc toàn phần
-EVIDENCE:    Dòng khai trong báo cáo + dấu vết công cụ đọc file
+EVIDENCE:    Dòng khai trong báo cáo phải ghi TÊN FILE SSOT (không
+             phải tên chung chung 'chuẩn UI'). Cổng kiểm: tên file
+             trong EVIDENCE = tên file trong REFERENCE của luật.
+             Khớp → PASS. Không khớp → BLOCK_MUTATION. Kèm dấu vết
+             công cụ đọc file.
 FAILURE:     BLOCK_MUTATION
 ENFORCEMENT: MANUAL
 STATUS:      ACTIVE (Owner duyệt 18/08/2026)
@@ -795,6 +829,14 @@ REQUIREMENT:
   3. Phải báo Owner: đã thử gì · vì sao vẫn không đạt · đề xuất CÁCH LÀM MỚI.
   4. Được làm tiếp NGAY khi Owner duyệt một cách làm mới — luật này KHÔNG khoá
      việc, chỉ khoá cách làm đã hỏng.
+  5. "Cùng một yêu cầu" = cùng Business Intent + cùng đối tượng
+     đầu ra. Đổi mã yêu cầu, đổi cách diễn đạt, đổi tên file, nhưng
+     Intent + đối tượng không đổi → vẫn là cùng một. Ai phân định:
+     Owner, không phải Agent.
+  6. "Cách làm mới" phải khác bản chất: đổi công cụ · đổi lớp bằng
+     chứng · đổi nguồn tham chiếu · đổi cấu trúc. Đổi tham số ·
+     đổi số dòng · đổi vị trí sửa trong cùng phương pháp = KHÔNG
+     phải cách mới.
 FORBIDDEN:   Cấp mã yêu cầu mới cho cùng một yêu cầu đang bị bác · thử lại cách
              đã bị bác mà không đổi gì
 EVIDENCE:    Trường lần_lặp trong sổ
@@ -804,6 +846,9 @@ STATUS:      ACTIVE (Owner duyệt 18/08/2026)
 REVIEW:      180 ngày
 REFERENCE:   Ứng viên nâng SCOPE: CHUNG khi có evidence từ dự án thứ hai khác
              bản chất + Owner duyệt.
+             Trường lần_lặp + bác_vì ghi vào cùng Sổ Yêu Cầu Owner
+             (GOV-OWNER-REQUEST-LEDGER-001 §F1). L4 trích nguyên văn
+             cũng ở cùng sổ. Một dòng, đầy đủ cả ba.
 ```
 
 ---
@@ -838,6 +883,9 @@ STATUS:      ACTIVE (Owner duyệt 18/08/2026)
 REVIEW:      90 ngày
 REFERENCE:   Đồng bộ với GOV-OWNER-REQUEST-LEDGER-001 — hai bên sổ một chuẩn
              trung thực. Ứng viên nâng SCOPE: CHUNG về sau.
+             Cụm "cùng một yêu cầu" ở mục 3 dùng ĐÚNG định nghĩa của
+             GOV-ITERATION-LIMIT-001 mục 5 (§G7.3) — một định nghĩa,
+             hai luật dùng chung, KHÔNG định nghĩa lại.
 ```
 
 ---
@@ -863,6 +911,11 @@ STATUS:      ACTIVE (Owner duyệt 18/08/2026)
 REVIEW:      90 ngày
 REFERENCE:   Luật cấm secret trong file luật GIỮ NGUYÊN — luật này MỞ RỘNG phạm
              vi, KHÔNG thay thế. Việc gỡ giá trị đã đẩy lên: xem quy trình D5.
+             Định nghĩa 'nhạy cảm' = danh mục ở §J1b (GOV-SECRET-
+             IN-LAW-001). Khi §J1b mở rộng danh mục → L5 tự áp dụng,
+             không cần sửa luật này.
+             Dữ liệu cá nhân (PII) do GOV-PII-HANDLING-001 (§G7.13)
+             phủ — hai luật bổ sung nhau, KHÔNG thay thế.
 ```
 
 ---
@@ -906,7 +959,9 @@ REQUIREMENT: Cổng phải đọc ĐẦU RA THẬT của phiên — qua tham s�
 FORBIDDEN:   Khai ENFORCEMENT = AUTO cho cổng chỉ chạy trên chuỗi mẫu viết cứng
              trong chính file kiểm → phải khai lại MANUAL
 EVIDENCE:    Đọc mã nguồn cổng, xác nhận có nhận đầu vào ngoài
-FAILURE:     WARN + buộc khai lại ENFORCEMENT
+FAILURE:     BLOCK_ALL cho cổng đó cho tới khi (a) nhận đầu vào
+             thật, HOẶC (b) khai lại MANUAL + Owner duyệt chấp nhận
+             rủi ro
 ENFORCEMENT: MANUAL (rà từng cổng)
 STATUS:      ACTIVE (Owner duyệt 18/08/2026)
 REVIEW:      180 ngày
@@ -938,6 +993,132 @@ REVIEW:      180 ngày
 REFERENCE:   Số đo cho thấy nén là CHẤT KHUẾCH ĐẠI, không phải nguyên nhân gốc —
              đừng kỳ vọng luật này chữa vấn đề chính. Ứng viên nâng SCOPE:
              CHUNG về sau.
+             G5 trường 11 là CỔNG KIỂM thi hành L8. L8 đặt yêu cầu,
+             G5 kiểm thi hành. Không phải hai luật riêng.
+```
+
+---
+
+## G7.10 `GOV-TECH-DEBT-LEDGER-001` — Nợ kỹ thuật phải ghi vào sổ bền vững
+
+```
+RULE_ID:     GOV-TECH-DEBT-LEDGER-001
+REVISION:    1
+TITLE:       Nợ kỹ thuật phải ghi vào sổ bền vững
+SCOPE:       RIÊNG — ERP
+LEVEL:       MUST
+TRIGGER:     Phiên kết thúc có việc còn sót/chưa làm (trường 6
+             khối báo cáo kết thúc có nội dung)
+REQUIREMENT:
+  1. Mọi việc khai "còn sót/chưa làm" ở trường 6 khối báo cáo
+     kết thúc PHẢI ghi vào sổ nợ kỹ thuật (.governance/registry/
+     tech-debt.md). Nếu file chưa có → tạo trong cùng work package.
+  2. Mỗi dòng sổ nợ có: mã (DEBT-xxx) · mô tả · ngày phát hiện ·
+     phiên phát hiện · vùng ảnh hưởng · phiên nên xử lý · hạn_đóng
+     (ngày — NULL nếu không cấp bách) · trạng thái (MỞ · ĐANG XỬ
+     LÝ · ĐÃ XỬ LÝ · KHÔNG CÒN HỢP LỆ).
+  3. Phiên sau mở lại vùng đó: kiểm sổ nợ TRƯỚC. Nếu nợ đã ghi →
+     không coi là lỗi mới, coi là nợ đã biết.
+FORBIDDEN:   Khai nợ trong báo cáo phiên mà không ghi sổ · coi nợ
+             đã ghi là lỗi mới
+EVIDENCE:    Dòng mới trong sổ nợ + mã DEBT-xxx trong báo cáo
+FAILURE:     BLOCK_ALL
+ENFORCEMENT: MANUAL
+STATUS:      ACTIVE (Owner duyệt 19/08/2026)
+REVIEW:      90 ngày
+REFERENCE:   Bổ sung cho GOV-COMPLETION-REPORT-001 (§G5) trường 6 —
+             G5 yêu cầu khai nợ, luật này yêu cầu ghi sổ bền vững.
+             Điều kiện nạp: file sổ phải tạo trong cùng work package,
+             nếu không vi phạm GOV-REF-EXISTS-001.
+```
+
+---
+
+## G7.11 `GOV-IMPORT-RECONCILE-001` — Nạp dữ liệu phải đối chứng số lượng hai đầu
+
+```
+RULE_ID:     GOV-IMPORT-RECONCILE-001
+REVISION:    1
+TITLE:       Nạp dữ liệu phải đối chứng số lượng hai đầu
+SCOPE:       RIÊNG — ERP
+LEVEL:       MUST
+TRIGGER:     Mọi lần nạp dữ liệu hàng loạt từ nguồn ngoài vào ERP
+REQUIREMENT:
+  1. TRƯỚC khi nạp: đếm và ghi số bản ghi nguồn theo từng danh mục.
+  2. SAU khi nạp: đếm lại ở đích. Ghi rõ: vào · ra · bỏ qua · gộp
+     (N→1) · tách (1→N) · lỗi.
+  3. Công thức: ra = vào − bỏ qua − gộp + tách − lỗi.
+     Không khớp → BLOCKED, hoàn tác, tìm nguyên nhân.
+FORBIDDEN:   Tuyên bố nạp xong khi chưa đối chứng đủ hai đầu
+EVIDENCE:    Bảng đối chứng số lượng, có trong báo cáo
+FAILURE:     BLOCK_ALL
+ENFORCEMENT: AUTO (truy vấn đếm) + MANUAL
+STATUS:      ACTIVE (Owner duyệt 19/08/2026)
+REVIEW:      90 ngày
+REFERENCE:   "Gộp" = nhiều nguồn → 1 đích. "Tách" = 1 nguồn →
+             nhiều đích. Cả hai phải đếm và khai rõ.
+             Cổng: npm run test:import-reconcile -- <bảng-đối-chứng>
+             Mẫu bảng + checklist: .governance/procedures/import-checklist.md
+```
+
+---
+
+## G7.12 `GOV-IMPORT-ERROR-THRESHOLD-001` — Dừng nạp khi tỉ lệ lỗi vượt ngưỡng đã chốt
+
+```
+RULE_ID:     GOV-IMPORT-ERROR-THRESHOLD-001
+REVISION:    1
+TITLE:       Dừng nạp khi tỉ lệ lỗi vượt ngưỡng đã chốt
+SCOPE:       RIÊNG — ERP
+LEVEL:       MUST
+TRIGGER:     Trong khi chạy nạp dữ liệu hàng loạt
+REQUIREMENT:
+  1. Ngưỡng lỗi chấp nhận phải được Owner chốt TRƯỚC khi bắt đầu.
+     Chưa chốt = BLOCK_ALL. Ngưỡng = số % hoặc số bản ghi tối đa.
+  2. "Lỗi" = bản ghi không nạp được · sai kiểu dữ liệu · vi phạm
+     ràng buộc · trùng khóa không xử lý được.
+  3. Chạy theo lô, kiểm tỉ lệ lỗi sau mỗi lô.
+  4. Vượt ngưỡng → DỪNG NGAY, hoàn tác lô đó, báo Owner.
+     CẤM chạy hết rồi mới báo.
+FORBIDDEN:   Bắt đầu khi chưa chốt ngưỡng · chạy tiếp sau khi vượt
+EVIDENCE:    Ngưỡng đã chốt + nhật ký tỉ lệ lỗi từng lô
+FAILURE:     BLOCK_MUTATION
+ENFORCEMENT: AUTO
+STATUS:      ACTIVE (Owner duyệt 19/08/2026)
+REVIEW:      90 ngày
+REFERENCE:   Bổ sung schema theo R13 (bản gốc không có trường này).
+             Cổng: npm run test:import-threshold -- <nhật-ký-lô>
+             Mẫu nhật ký: .governance/procedures/import-checklist.md
+```
+
+---
+
+## G7.13 `GOV-PII-HANDLING-001` — Cách ly dữ liệu cá nhân trong mọi khâu nạp
+
+```
+RULE_ID:     GOV-PII-HANDLING-001
+REVISION:    1
+TITLE:       Cách ly dữ liệu cá nhân trong mọi khâu nạp
+SCOPE:       RIÊNG — ERP
+LEVEL:       MUST
+TRIGGER:     Xử lý bất kỳ nguồn nào chứa dữ liệu cá nhân (tên ·
+             SĐT · địa chỉ · email · CCCD/CMND)
+REQUIREMENT:
+  1. File nguồn chứa PII: KHÔNG được git theo dõi. Xác nhận bằng
+     lệnh (git ls-files), không chỉ tin cấu hình.
+  2. Bảng trung gian chứa PII: xoá sau khi nạp xong, ghi rõ đã xoá.
+  3. Báo cáo công khai: chỉ nêu SỐ LƯỢNG, cấm nêu giá trị.
+  4. Ảnh chụp kèm báo cáo: che PII trước khi lưu.
+FORBIDDEN:   Đưa file nguồn hoặc bảng trung gian lên bất kỳ kho nào
+EVIDENCE:    Kết quả git ls-files + xác nhận đã xoá bảng trung gian
+FAILURE:     BLOCK_ALL
+ENFORCEMENT: AUTO (quét kho) + MANUAL
+STATUS:      ACTIVE (Owner duyệt 19/08/2026)
+REVIEW:      90 ngày
+REFERENCE:   Bổ sung cho GOV-SECRET-IN-CODE-001 (L5) — L5 phủ
+             credential/secret, L11 phủ dữ liệu cá nhân. Hai luật
+             bổ sung nhau, KHÔNG thay thế.
+             Cổng: npm run test:pii-scan
 ```
 
 ---
@@ -949,7 +1130,7 @@ REFERENCE:   Số đo cho thấy nén là CHẤT KHUẾCH ĐẠI, không phải 
 | **Q2** | **SSOT giao diện = `docs/UI-STANDARD.md`** (nguồn rút từ code đang chạy). 9 nguồn còn lại nhận nhãn HISTORY/ARCHIVE **SAU KHI** nội dung còn đúng của chúng đã được gộp vào SSOT — **gộp trước, hạ nhãn sau, không mất gì** | `GOV-READ-STANDARD-001` (G7.2) + `.governance/registry/ui-standard-sources.md` |
 | **Q3** | **Nền tảng UI trả phí (Metronic) → HISTORICAL.** Lý do: 12 lượt quét giao diện chưa lần nào tra nó, và file giao thức mà nó khai "bắt buộc phải đọc" **KHÔNG TỒN TẠI** | `.governance/registry/ui-standard-sources.md` + `.governance/ARCHIVE-LEGACY-RULESET.md` (mục METRONIC UI MANDATORY PROTOCOL gắn nhãn HISTORICAL) |
 | **Q4** | **CÓ** — tiêu chí nghiệm thu phải chốt với Owner **trước khi** bắt đầu | `GOV-ACCEPTANCE-FIRST-001` (G7.1) |
-| **Q1** | **CHƯA TRẢ LỜI** — kho mã là công khai hay riêng tư. Việc gỡ giá trị nhạy cảm khỏi **cây làm việc** vẫn tiến hành (quy trình D5); việc **viết lại git history** thì **HOÃN**, chờ Owner trả lời | `GOV-SECRET-IN-CODE-001` (G7.5) |
+| **Q1** | **RIÊNG TƯ** — Owner chốt 19/08/2026. Gỡ giá trị nhạy cảm khỏi **cây làm việc**: XONG (12/12). **Viết lại git history**: KHÔNG (hỏng clone). **Đổi khoá A+B**: CẦN LÀM NGAY | `GOV-SECRET-IN-CODE-001` (G7.5) |
 
 > ⚠️ **Nhãn HISTORICAL không xoá nội dung.** Mọi nguồn bị hạ nhãn vẫn giữ nguyên văn tại vị trí cũ; chỉ thêm dòng nhãn + con trỏ theo `GOV-EDIT-PRESERVE-001`.
 
@@ -1783,6 +1964,9 @@ Khi Owner duyệt:
 | **Trước khi gọi công cụ** (Spec Kit · Graphify · Context7 · WebApp Testing · Superpowers) | `.governance/registry/tools.yml` |
 | **Trước khi bắt đầu** việc chuẩn hoá · nhất quán · dọn dẹp · tối ưu · làm mượt · đồng bộ · rà soát | `.governance/procedures/acceptance-template.md` — **chốt bảng tiêu chí với Owner TRƯỚC khi sửa dòng mã đầu tiên** (`GOV-ACCEPTANCE-FIRST-001` §G7.1) |
 | Cần **nhãn hiệu lực của một nguồn chuẩn giao diện** | `.governance/registry/ui-standard-sources.md` |
+| Cần **kiểm mục chuẩn giao diện không mang mã GOV** | `npm run test:standard-clause-count -- docs/UI-STANDARD.md` (cổng phụ của `GOV-EDIT-PRESERVE-001` §G7.0) |
+| Cần **theo dõi nợ kỹ thuật** | `.governance/registry/tech-debt.md` — **đọc TRƯỚC khi mở lại một vùng** (`GOV-TECH-DEBT-LEDGER-001` §G7.10); nợ đã ghi = nợ đã biết, KHÔNG phải lỗi mới |
+| Trước khi **nạp dữ liệu hàng loạt** | `.governance/procedures/import-checklist.md` — đối chứng (L9 §G7.11) · ngưỡng lỗi (L10 §G7.12) · cách ly PII (L11 §G7.13) |
 | Cần **ngữ cảnh lịch sử / lý do luật cũ / pre-check runbook chi tiết / secret** | `.governance/ARCHIVE-LEGACY-RULESET.md` · secret ở `SO-BI-MAT-NOI-BO.md` (gitignore) |
 
 ---
@@ -1793,6 +1977,29 @@ Khi Owner duyệt:
 |---|---|---|---|---|---|
 | 18/08/2026 | `1.0` → `2.0` | Agent IDE (Owner duyệt 18/08/2026) | Tự soát ca thất bại giao diện 17–18/08/2026 — 9 nguyên nhân gốc (báo cáo `docs/reports/TU-SOAT-LUAT-UI-20260818.md`) | **§G7** — 9 luật: `GOV-EDIT-PRESERVE-001` · `GOV-ACCEPTANCE-FIRST-001` · `GOV-READ-STANDARD-001` · `GOV-ITERATION-LIMIT-001` · `GOV-FAILURE-RECORD-001` · `GOV-SECRET-IN-CODE-001` · `GOV-REF-EXISTS-001` · `GOV-GATE-REAL-INPUT-001` · `GOV-RELOAD-AFTER-COMPACT-001`. Thêm 2 dòng chỉ mục ở §V | **KHÔNG điều nào bị xoá.** Dòng chỉ mục UI ở §V được THAY (dòng cũ giữ nguyên văn ở hàng dưới). `GOV-SECRET-IN-LAW-001` (§J1b) **GIỮ NGUYÊN, không bị thay** — `GOV-SECRET-IN-CODE-001` chỉ MỞ RỘNG phạm vi |
 | 18/08/2026 | — | Agent IDE | `GOV-EDIT-PRESERVE-001` yêu cầu 1: dòng cũ sai → chuyển xuống Lịch sử sửa đổi cùng file | — | **Dòng chỉ mục UI cũ (nguyên văn, §V, thay ngày 18/08/2026 — lý do: không nêu nguồn nào thắng khi 2 nguồn lệch nhau, và không bắt đọc toàn phần):**<br>`| Đụng **UI / form / bảng** | .governance/ARCHIVE-LEGACY-RULESET.md (chuẩn giao diện: Master List, Detail Panel, FormSection, Title Auto Case…) + docs/UI-STANDARD.md — **trước khi sửa** |` |
+| 19/08/2026 | `2.2` → `2.3` | Agent IDE (Owner duyệt 19/08/2026) | Kiểm cổng đếm `GOV-EDIT-PRESERVE-001` bằng kiểm ngược → phát hiện **3 lỗ hổng**; vá cổng + thêm cổng phụ; vá 3 nợ luật (cảnh báo lỗi thời bản công bố · trường `hạn_đóng` sổ nợ · cổng phụ file chuẩn) | **Cổng mới:** `npm run test:standard-clause-count` (đếm THEO TỪNG FILE + THEO TÊN MỤC). **Cổng chính vá 3 lỗ:** đếm ĐỊNH NGHĨA luật thay vì mọi lần NHẮC · thêm ĐK 1b kiểm từng file · dựng lại mốc chuẩn cùng thước đo. **Luật sửa:** §G7.0 EVIDENCE · §G7.10 REQUIREMENT mục 2 · §V · header | **KHÔNG điều nào bị xoá.** 4 điểm sửa đều là BỔ SUNG/LÀM RÕ, dòng cũ giữ nguyên văn ở hàng con |
+| 19/08/2026 | — | Agent IDE | Kiểm ngược 19/08 chứng minh cổng đếm gộp bỏ lọt: xoá TRỌN §1 của docs/UI-STANDARD.md (tổng 391→390, mốc 334) vẫn PASS; xoá TRỌN một luật có mã GOV cũng PASS. Thêm con trỏ tới cổng phụ đếm theo TỪNG FILE + THEO TÊN MỤC | — | **Dòng cũ nguyên văn (§G7.0 `GOV-EDIT-PRESERVE-001` EVIDENCE):**<br>`             Thiếu một trong hai → khôi phục, làm lại.<br>             Kèm danh sách vị trí đã quét cùng chủ đề.` |
+| 19/08/2026 | — | Agent IDE | Nợ cấp bách (đổi khoá, PII) cần hạn đóng cụ thể, không chỉ "phiên nên xử lý" chung chung | — | **Dòng cũ nguyên văn (§G7.10 `GOV-TECH-DEBT-LEDGER-001` REQUIREMENT mục 2):**<br>`  2. Mỗi dòng sổ nợ có: mã (DEBT-xxx) · mô tả · ngày phát hiện ·<br>     phiên phát hiện · vùng ảnh hưởng · phiên nên xử lý · trạng<br>     thái (MỞ · ĐANG XỬ LÝ · ĐÃ XỬ LÝ · KHÔNG CÒN HỢP LỆ).` |
+| 19/08/2026 | — | Agent IDE | Thêm dòng trỏ tới cổng phụ đếm mục file chuẩn | — | **Dòng cũ nguyên văn (§V chỉ mục):**<br>`\| Cần **theo dõi nợ kỹ thuật** \| `.governance/registry/tech-debt.md`` |
+| 19/08/2026 | — | Agent IDE | Nâng 2.2 → 2.3 | — | **Dòng cũ nguyên văn (Doc Version (header)):**<br>`> **DOC VERSION:** `2.2` — cập nhật 19/08/2026. Thay đổi: **§G7 nay có 13 luật**` |
+| 19/08/2026 | `2.1` → `2.2` | Agent IDE (Owner duyệt 19/08/2026) | Vá 7 lỗ hổng (H1–H7) + 3 vấn đề chéo (X1–X3) + 2 bổ sung (H8–H9) trong 9 luật đã ban hành; thêm 4 luật mới; sửa TRIGGER L1; cập nhật Q1 | **4 luật mới:** `GOV-TECH-DEBT-LEDGER-001` (§G7.10) · `GOV-IMPORT-RECONCILE-001` (§G7.11) · `GOV-IMPORT-ERROR-THRESHOLD-001` (§G7.12) · `GOV-PII-HANDLING-001` (§G7.13). **17 điểm vá** trong §G7 + §V + header (từng dòng cũ ở hàng con dưới) | **KHÔNG điều nào bị xoá.** Không luật cũ nào gắn SUPERSEDED — 12 điểm vá đều là BỔ SUNG/LÀM RÕ trong cùng luật, trừ H3 (`FAILURE` của L7) và H7 (ô Q1) là THAY dòng, dòng cũ giữ nguyên văn ở hàng con |
+| 19/08/2026 | — | Agent IDE | Nạp dữ liệu cũng thuộc nhóm KHÔNG CÓ TIÊU CHÍ TỰ THÂN — thiếu thì L1 không kích cho việc nạp | — | **Dòng cũ nguyên văn (E · L1 §G7.1 TRIGGER):**<br>`TRIGGER:     Việc thuộc nhóm KHÔNG CÓ TIÊU CHÍ TỰ THÂN — chuẩn hoá · nhất quán ·<br>             dọn dẹp · tối ưu · làm mượt · đồng bộ · rà soát<br>REQUIREMENT:<br>  1. Trước khi sửa dòng mã đầu tiên` |
+| 19/08/2026 | — | Agent IDE | Bằng chứng "lưu máy phát triển" thì người ngoài phiên không kiểm được — thêm mục 4 | — | **Dòng cũ nguyên văn (H8 · L1 §G7.1 REQUIREMENT):**<br>`  3. XONG = ĐẠT HẾT mọi dòng. Không phải "trông ổn rồi".<br>FORBIDDEN:   Bắt đầu sửa khi chưa có bảng Owner duyệt` |
+| 19/08/2026 | — | Agent IDE | L1 trỏ tới template chưa tạo → L6 báo FAIL; khai rõ thứ tự tạo-trước-nạp-sau | — | **Dòng cũ nguyên văn (X2 · L1 §G7.1 REFERENCE):**<br>`             ĐIỀU KIỆN NẠP: file mẫu phải được TẠO TRONG CÙNG WORK PACKAGE,<br>             nếu không luật này vi phạm chính GOV-REF-EXISTS-001.` |
+| 19/08/2026 | — | Agent IDE | Bắt đọc toàn phần nhưng không hướng dẫn khi file SSOT rất lớn | — | **Dòng cũ nguyên văn (H5 · L2 §G7.2 REQUIREMENT):**<br>`REQUIREMENT: Đọc TOÀN PHẦN nguồn được chỉ định là SSOT giao diện. Khai trong<br>             báo cáo: file nào, từ dòng mấy tới dòng mấy.` |
+| 19/08/2026 | — | Agent IDE | Không luật nào bắt agent đọc ĐÚNG file SSOT — khai chung chung "chuẩn UI" vẫn lọt | — | **Dòng cũ nguyên văn (H6 · L2 §G7.2 EVIDENCE):**<br>`EVIDENCE:    Dòng khai trong báo cáo + dấu vết công cụ đọc file<br>FAILURE:     BLOCK_MUTATION` |
+| 19/08/2026 | — | Agent IDE | Agent đổi cách diễn đạt để coi là yêu cầu mới → L3 không bao giờ kích; và đổi 1 tham số đã khai "cách mới" | — | **Dòng cũ nguyên văn (H1+H2 · L3 §G7.3 REQUIREMENT):**<br>`  4. Được làm tiếp NGAY khi Owner duyệt một cách làm mới — luật này KHÔNG khoá<br>     việc, chỉ khoá cách làm đã hỏng.<br>FORBIDDEN:   Cấp mã yêu cầu mới cho cùng một yêu cầu đang bị bác` |
+| 19/08/2026 | — | Agent IDE | L3 nói "sổ", L4 nói "sổ nội bộ" — chưa khai rõ là CÙNG một sổ | — | **Dòng cũ nguyên văn (X1 · L3 §G7.3 REFERENCE):**<br>`REFERENCE:   Ứng viên nâng SCOPE: CHUNG khi có evidence từ dự án thứ hai khác<br>             bản chất + Owner duyệt.` |
+| 19/08/2026 | — | Agent IDE | Quét cùng chủ đề: L4 mục 3 cũng dùng cụm "cùng một yêu cầu" → trỏ về đúng một định nghĩa ở L3 mục 5 | — | **Dòng cũ nguyên văn (L0 · L4 §G7.4 REFERENCE):**<br>`REFERENCE:   Đồng bộ với GOV-OWNER-REQUEST-LEDGER-001 — hai bên sổ một chuẩn<br>             trung thực. Ứng viên nâng SCOPE: CHUNG về sau.` |
+| 19/08/2026 | — | Agent IDE | L5 mở rộng phạm vi nhưng không định nghĩa "nhạy cảm" — trỏ về danh mục §J1b | — | **Dòng cũ nguyên văn (H4 · L5 §G7.5 REFERENCE):**<br>`REFERENCE:   Luật cấm secret trong file luật GIỮ NGUYÊN — luật này MỞ RỘNG phạm<br>             vi, KHÔNG thay thế. Việc gỡ giá trị đã đẩy lên: xem quy trình D5.` |
+| 19/08/2026 | — | Agent IDE | Cổng giả = thi hành bằng 0; WARN quá nhẹ | — | **Dòng cũ nguyên văn (H3 · L7 §G7.7 FAILURE):**<br>`FAILURE:     WARN + buộc khai lại ENFORCEMENT` |
+| 19/08/2026 | — | Agent IDE | L8 và G5 trường 11 nói cùng việc — khai rõ luật + cổng, không phải trùng lặp | — | **Dòng cũ nguyên văn (X3 · L8 §G7.8 REFERENCE):**<br>`REFERENCE:   Số đo cho thấy nén là CHẤT KHUẾCH ĐẠI, không phải nguyên nhân gốc —<br>             đừng kỳ vọng luật này chữa vấn đề chính. Ứng viên nâng SCOPE:<br>             CHUNG về sau.` |
+| 19/08/2026 | — | Agent IDE | Owner đã trả lời Q1 = RIÊNG TƯ (19/08) nhưng 5 file chưa cập nhật — vi phạm chính GOV-EDIT-PRESERVE-001 | — | **Dòng cũ nguyên văn (H7 · Q1 §G7.9):**<br>`\| **Q1** \| **CHƯA TRẢ LỜI** — kho mã là công khai hay riêng tư. Việc gỡ giá trị nhạy cảm khỏi **cây làm việc** vẫn tiến hành (quy trình D5); việc **viết lại git history** thì **HOÃN**, chờ Owner trả lời \| `GOV-SECRET-IN-CODE-001` (G7.5) \|` |
+| 19/08/2026 | — | Agent IDE | Quét cùng chủ đề: §G7 nay có 13 luật, tiêu đề còn ghi "CHÍN LUẬT" | — | **Dòng cũ nguyên văn (L0 · tiêu đề §G7):**<br>`# G7. CHÍN LUẬT MỚI — BAN HÀNH 18/08/2026 (NHÓM AN TOÀN — INLINE)` |
+| 19/08/2026 | — | Agent IDE | Quét cùng chủ đề: câu mở còn ghi "Chín luật dưới đây" | — | **Dòng cũ nguyên văn (L0 · lời mở §G7):**<br>`Chín luật dưới đây sinh ra từ **tự soát ca thất bại giao diện 17–18/08/2026**` |
+| 19/08/2026 | — | Agent IDE | Quét cùng chủ đề: câu SCOPE còn ghi "cả 9 luật" và "8 luật còn lại" | — | **Dòng cũ nguyên văn (L0 · câu SCOPE §G7):**<br>`> **Owner duyệt 18/08/2026.** `SCOPE = RIÊNG — ERP` cho cả 9 luật. Luật `GOV-EDIT-PRESERVE-001` **điều phối cách thi hành 8 luật còn lại và mọi lần sửa file luật/chuẩn/sổ/registry về sau**.` |
+| 19/08/2026 | — | Agent IDE | Nâng 2.1 → 2.2 | — | **Dòng cũ nguyên văn (Doc Version (header)):**<br>`> **DOC VERSION:** `2.1` — cập nhật 19/08/2026. Thay đổi: thêm **§G7 — 9 luật mới**` |
+| 19/08/2026 | — | Agent IDE | Thêm 2 dòng: sổ nợ kỹ thuật + checklist nạp dữ liệu | — | **Dòng cũ nguyên văn (§V chỉ mục):**<br>`\| Cần **nhãn hiệu lực của một nguồn chuẩn giao diện** \| `.governance/registry/ui-standard-sources.md` \|` |
 | 19/08/2026 | `2.0` → `2.1` | Agent IDE (Owner duyệt 18/08/2026) | `GOV-GATE-REAL-INPUT-001` (§G7.7) buộc rà lại mọi cổng khai AUTO. Cổng khối báo cáo kết thúc chỉ chạy 3 chuỗi mẫu viết cứng → thi hành bằng 0 | Sửa dòng `ENFORCEMENT` của `GOV-COMPLETION-REPORT-001` (§G5) cho trung thực + trỏ sang lệnh đọc đầu ra thật | **Dòng ENFORCEMENT cũ (nguyên văn, §G5, thay 19/08/2026 — lý do: khai AUTO cho cổng không đọc đầu ra thật):**<br>`ENFORCEMENT: MANUAL (Owner kiểm) + AUTO một phần (npm run test:completion-report-gate)` |
 | 16/08/2026 | → `1.0` | Agent IDE | Nâng 5 file lên VNext; legacy nguyên văn DỜI sang archive kèm con trỏ | Toàn bộ §A–§V bản VNext | Phụ lục LEGACY → `.governance/ARCHIVE-LEGACY-RULESET.md` (con trỏ ở header + §V). Trạng thái từng `GOV-*` legacy: `.governance/registry/legacy-rules-status.md` |
 
