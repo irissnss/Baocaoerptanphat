@@ -172,7 +172,7 @@ Các cổng **tồn tại thật và chạy đúng** khi gõ lệnh — nhưng c
    liên tiếp ghi "CHƯA" (DEBT-008, nay ĐÃ XỬ LÝ).
 
 5. PUSH BÁO CÁO CÔNG KHAI
-   [x] ĐÃ PUSH — kho Baocaoerptanphat · commit <ĐIỀN SAU KHI PUSH>
+   [x] ĐÃ PUSH — kho Baocaoerptanphat · commit 01403b9
        · file LUAT-QUYET-DINH-OWNER-TRONG-PHIEN-20260820.md
    Kỷ luật công-bố-an-toàn: KHÔNG nêu đường dẫn chính xác file chứa PII, KHÔNG nêu
    giá trị nhạy cảm, KHÔNG nêu địa chỉ máy chủ.
