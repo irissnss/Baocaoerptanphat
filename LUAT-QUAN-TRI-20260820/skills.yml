@@ -1,0 +1,3970 @@
+# .governance/registry/skills.yml — DANH MỤC TRA CỨU SKILL THEO TRIỆU CHỨNG
+#
+# LUẬT: GOV-SKILL-RESOLUTION-001 (CLAUDE.md §L2) — luồng bắt buộc
+#       TASK SIGNATURE -> SKILL REGISTRY SEARCH -> TRIGGER MATCH -> SCOPE MATCH
+#       -> NEGATIVE TRIGGER -> CONFLICT CHECK -> PRIMARY SKILL -> MINIMAL SUPPORTING -> LOAD
+#       §L6 quy định registry PHẢI index 8 trường: symptom · aliases · failure family ·
+#       domain · operation · quality gate · previous result · trap_seen_before.
+#
+# ĐÂY LÀ REGISTRY (T3 — STATE), KHÔNG PHẢI LUẬT. Skill không có authority (§L1).
+#
+# CÁCH SINH: node scripts/tests/skills-registry-build.mjs
+#   Mọi giá trị rút TỪ NỘI DUNG THẬT của SKILL.md, hoặc từ phép đếm thật
+#   (git ls-files / đếm lần nhắc trong WORK_LOG + docs + git log 12 tháng).
+#   Trường không rút được -> ghi "NEEDS_OWNER_INPUT". CẤM bịa (stop condition phiếu S1).
+#
+# CỔNG KIỂM: npm run test:skills-registry
+#   FAIL khi (a) số entry != số thư mục skill, (b) entry thiếu trường bắt buộc,
+#            (c) entry trỏ slug không tồn tại, (d) thư mục skill không có entry.
+#
+# LƯU Ý ĐỌC SỐ: "NO_USAGE_EVIDENCE" = không có dấu vết VĂN BẢN, KHÔNG đồng nghĩa
+#   "chưa bao giờ dùng" — repo không ghi log kích hoạt skill. Không dùng số này để đề xuất xoá.
+
+meta:
+  generated_at: "2026-08-20"
+  generator: "scripts/tests/skills-registry-build.mjs"
+  skill_count: 128
+  content_sha256: "a1d0d6738ac960415e7e61b1f5f0bd36711c30de400cfa0f2bcbb2f27b385410"
+  source_dir: ".cursor/skills"
+  governs: "GOV-SKILL-RESOLUTION-001 (CLAUDE.md §L2, §L6)"
+
+# LUAT AP CHO MOI SKILL (S2 — hinh thuc theo DC2, Owner chot 20/08/2026).
+# Dat MOT lan o day thay vi lap lai 128 lan trong tung entry.
+# Truong "governance" cua tung entry chi ghi luat/cong RIENG cua domain do.
+governance_universal:
+  - "GOV-COMPLETION-REPORT-001 (§G5 — khối báo cáo kết thúc 11 trường)"
+  - "GOV-DONE-DEFINITION-001 (§G6 — định nghĩa XONG)"
+  - "GOV-TECH-DEBT-LEDGER-001 (§G7.10 — nợ khai ở trường 6 phải vào sổ)"
+  - "GOV-SKILL-RESOLUTION-001 (§L2/§L6 — tra registry trước khi chọn skill)"
+  - "GOV-EVIDENCE-STRENGTH-001 (§G1 — claim không mạnh hơn bằng chứng)"
+
+skills:
+  - slug: "annotated-screenshot-review"
+    name: "Annotated Screenshot Review (Red Boxes + Arrows)"
+    description: "SSOT quy trình đọc ảnh chú thích của user (khoanh đỏ, oval, mũi tên, text note) để tránh sót yêu cầu và fix đúng vùng cần xử lý."
+    domain: "testing"
+    operation: "VERIFY"
+    failure_family: "UNVERIFIED_CLAIM"
+    health_label: "NO-TRIGGER"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.0.0"
+    bytes: 2631
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=10 git_log=0"
+    trap_seen_before: "Bắt buộc đọc hết tất cả ảnh user đính kèm (không được đọc sơ sài 1–2 ảnh)."
+    symptom:
+      - "(rút từ description) SSOT quy trình đọc ảnh chú thích của user (khoanh đỏ, oval, mũi tên, text note) để tránh sót yêu cầu và fix đúng vùng cần xử lý."
+    aliases:
+      - "annotated"
+      - "screenshot"
+      - "review"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-EVIDENCE-STRENGTH-001 (§G1)"
+      - "GOV-GATE-REAL-INPUT-001 (§G7.7)"
+      - "Quality Gate theo applicability (§I2)"
+
+  - slug: "async-await-conversion"
+    name: "async-await-conversion"
+    description: "|"
+    domain: "versioning"
+    operation: "SYNC"
+    failure_family: "TRACEABILITY_GAP"
+    health_label: "HEALTHY"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.0.0"
+    bytes: 10944
+    previous_result: "USAGE_EVIDENCE work_log=1 docs=7 git_log=0"
+    trap_seen_before: "error handling, avoid race conditions."
+    symptom:
+      - "✅ Use: Khi store chuyển từ in-memory → DB-backed"
+      - "✅ Use: Khi cần await database queries"
+      - "✅ Use: Khi cần Promise-based error handling"
+    aliases:
+      - "async"
+      - "await"
+      - "conversion"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-VERSION-RELEASE-001 (§I3 — ghi history ≠ bump version)"
+      - "cổng: test:version-policy"
+
+  - slug: "audit-gap-report"
+    name: "audit-gap-report"
+    description: "Systematic audit với Gap Report table để đối chiếu implementation với requirements"
+    domain: "governance"
+    operation: "VERIFY"
+    failure_family: "GOVERNANCE_DRIFT"
+    health_label: "HEALTHY"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "UNVERSIONED"
+    bytes: 8408
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=16 git_log=0"
+    trap_seen_before: "NONE_RECORDED"
+    symptom:
+      - "Kích hoạt skill này khi:"
+      - "Cần audit hệ thống/module để đối chiếu implementation với requirements/spec"
+      - "Pre-release review để đảm bảo compliance"
+    aliases:
+      - "audit"
+      - "gap"
+      - "report"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-FIVE-REPLICA-SYNC-001 (§A1)"
+      - "GOV-EDIT-PRESERVE-001 (§G7.0)"
+      - "GOV-REF-EXISTS-001 (§G7.6)"
+      - "GOV-GATE-REAL-INPUT-001 (§G7.7)"
+      - "GOV-RELOAD-AFTER-COMPACT-001 (§G7.8)"
+      - "GOV-LAW-STATE-SEPARATION-001 (§B3)"
+      - "cổng: check:governance · test:clause-count · test:standard-clause-count · test:ref-exists-gate · test:skills-registry"
+
+  - slug: "audit-ui"
+    name: "Audit UI Pattern (History Icon + Audit Dialog)"
+    description: "SSOT hiển thị thông tin audit theo chuẩn `dm_nhom_universal`: icon History trên từng dòng + Dialog “Thông Tin Audit” (Ngày/Người tạo & sửa)."
+    domain: "ui-layout"
+    operation: "VERIFY"
+    failure_family: "UI_INCONSISTENCY"
+    health_label: "NO-TRIGGER"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.0.0"
+    bytes: 2260
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=12 git_log=2"
+    trap_seen_before: "Tránh bug: click audit không được trigger row-click/select."
+    symptom:
+      - "(rút từ description) SSOT hiển thị thông tin audit theo chuẩn `dm_nhom_universal`: icon History trên từng dòng + Dialog “Thông Tin Audit” (Ngày/Người tạo & sửa)."
+    aliases:
+      - "audit"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "e.stopPropagation() để không kích hoạt onRowClick"
+    governance:
+      - "GOV-READ-STANDARD-001 (§G7.2 — đọc TOÀN PHẦN docs/UI-STANDARD.md, cấm đọc lỗ khoá)"
+      - "GOV-ACCEPTANCE-FIRST-001 (§G7.1 — chốt bảng tiêu chí TRƯỚC khi sửa dòng mã đầu tiên)"
+      - "GOV-ITERATION-LIMIT-001 (§G7.3 — Owner bác lần thứ ba thì DỪNG cách làm cũ)"
+      - "cổng: test:standard-clause-count"
+
+  - slug: "auto-name-generation-formula"
+    name: "Auto Name Generation Formula (Computed composite names)"
+    description: "SSOT pattern: Auto-generate tên đầy đủ từ nhiều fields riêng lẻ theo formula cố định, giữ nhất quán format và dễ search."
+    domain: "ui-layout"
+    operation: "CREATE"
+    failure_family: "UI_INCONSISTENCY"
+    health_label: "HEALTHY"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.0.0"
+    bytes: 5812
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=2 git_log=0"
+    trap_seen_before: "NONE_RECORDED"
+    symptom:
+      - "Spec yêu cầu format tên theo formula cố định."
+      - "Entity có nhiều attributes cần ghép thành tên."
+      - "Muốn tránh user đặt tên tùy ý (không nhất quán)."
+    aliases:
+      - "auto"
+      - "name"
+      - "generation"
+      - "formula"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-READ-STANDARD-001 (§G7.2 — đọc TOÀN PHẦN docs/UI-STANDARD.md, cấm đọc lỗ khoá)"
+      - "GOV-ACCEPTANCE-FIRST-001 (§G7.1 — chốt bảng tiêu chí TRƯỚC khi sửa dòng mã đầu tiên)"
+      - "GOV-ITERATION-LIMIT-001 (§G7.3 — Owner bác lần thứ ba thì DỪNG cách làm cũ)"
+      - "cổng: test:standard-clause-count"
+
+  - slug: "autocomplete-input-component"
+    name: "autocomplete-input-component"
+    description: "Tạo input field với dropdown gợi ý (variables, functions, operators) có search và click-to-insert"
+    domain: "ui-layout"
+    operation: "CREATE"
+    failure_family: "UI_INCONSISTENCY"
+    health_label: "HEALTHY"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "UNVERSIONED"
+    bytes: 4148
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=13 git_log=0"
+    trap_seen_before: "NONE_RECORDED"
+    symptom:
+      - "Khi cần tạo input field có dropdown gợi ý cho:"
+      - "Expression/formula fields"
+      - "Variable selection"
+    aliases:
+      - "autocomplete"
+      - "input"
+      - "component"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-READ-STANDARD-001 (§G7.2 — đọc TOÀN PHẦN docs/UI-STANDARD.md, cấm đọc lỗ khoá)"
+      - "GOV-ACCEPTANCE-FIRST-001 (§G7.1 — chốt bảng tiêu chí TRƯỚC khi sửa dòng mã đầu tiên)"
+      - "GOV-ITERATION-LIMIT-001 (§G7.3 — Owner bác lần thứ ba thì DỪNG cách làm cũ)"
+      - "cổng: test:standard-clause-count"
+
+  - slug: "backup-before-db-mutation"
+    name: "backup-before-db-mutation"
+    description: "Sao lưu bắt buộc + verify SHA-256 TRƯỚC mọi thay đổi cấu trúc hoặc dữ liệu (ALTER/DROP/CREATE TABLE, seed, xoá, chạy file migrations). Output contract 6 trường; backup không verify được thì DỪNG HOÀN TOÀN, không được tiếp tục mutation. Pair với schema-migration-safe."
+    domain: "db-schema"
+    operation: "APPLY"
+    failure_family: "DATA_LOSS"
+    health_label: "HEALTHY"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.0.0"
+    bytes: 4866
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=2 git_log=3"
+    trap_seen_before: "description: Sao lưu bắt buộc + verify SHA-256 TRƯỚC mọi thay đổi cấu trúc hoặc dữ liệu (ALTER/DROP/CREATE TABLE, seed, xoá, chạy file migrations). Output contract 6 trường; backup không verify được thì DỪNG HOÀN TOÀN, k"
+    symptom:
+      - "Kích hoạt khi sắp chạy bất kỳ thao tác nào sau đây, ở bất kỳ môi trường nào (nội bộ hay vận hành):"
+      - "ALTER TABLE · DROP TABLE · DROP COLUMN · CREATE TABLE"
+      - "đổi kiểu dữ liệu · nullable · default · charset · collation"
+    aliases:
+      - "backup"
+      - "before"
+      - "mutation"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "TUYỆT ĐỐI KHÔNG kích hoạt khi"
+      - "chỉ chạy SELECT / truy vấn đọc"
+      - "chỉ sửa mã nguồn, không đụng CSDL"
+    governance:
+      - "GOV-SCHEMA-NO-INVENT-001 (§H1)"
+      - "Schema Gate (§H2)"
+      - "Migration Safety (§H4)"
+      - "GOV-IMPORT-RECONCILE-001 (§G7.11)"
+      - "GOV-IMPORT-ERROR-THRESHOLD-001 (§G7.12)"
+      - "GOV-PII-HANDLING-001 (§G7.13 — khi nguồn nạp có dữ liệu cá nhân)"
+      - "cổng: test:pii-scan · test:import-reconcile · test:import-threshold"
+
+  - slug: "bundle-transaction-pattern"
+    name: "Bundle Transaction Pattern"
+    description: "Pattern xử lý transaction cho multi-table bundles (header + items + options)"
+    domain: "ui-layout"
+    operation: "APPLY"
+    failure_family: "DATA_LOSS"
+    health_label: "UNKNOWN-PURPOSE"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.0.0"
+    bytes: 8318
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=8 git_log=0"
+    trap_seen_before: "NONE_RECORDED"
+    symptom:
+      - "Trigger khi:"
+      - "INSERT/UPDATE nhiều bảng liên quan (parent-child)"
+      - "Có FK relationships giữa các bảng"
+    aliases:
+      - "bundle"
+      - "transaction"
+      - "pattern"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "Single table operation"
+      - "Read-only operations"
+    governance:
+      - "GOV-READ-STANDARD-001 (§G7.2 — đọc TOÀN PHẦN docs/UI-STANDARD.md, cấm đọc lỗ khoá)"
+      - "GOV-ACCEPTANCE-FIRST-001 (§G7.1 — chốt bảng tiêu chí TRƯỚC khi sửa dòng mã đầu tiên)"
+      - "GOV-ITERATION-LIMIT-001 (§G7.3 — Owner bác lần thứ ba thì DỪNG cách làm cũ)"
+      - "cổng: test:standard-clause-count"
+
+  - slug: "column-config-workflow"
+    name: "Column Config Workflow"
+    description: "Cấu hình nhanh cột hiển thị cho Bảng/Detail bằng số thứ tự"
+    domain: "NEEDS_OWNER_INPUT"
+    operation: "APPLY"
+    failure_family: "DATA_LOSS"
+    health_label: "NO-TRIGGER"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.0.0"
+    bytes: 2150
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=6 git_log=0"
+    trap_seen_before: "NONE_RECORDED"
+    symptom:
+      - "(rút từ description) Cấu hình nhanh cột hiển thị cho Bảng/Detail bằng số thứ tự"
+    aliases:
+      - "column"
+      - "config"
+      - "workflow"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "(domain chua co anh xa luat rieng — chi ap luat chung o governance_universal)"
+
+  - slug: "confirm-action-dialog"
+    name: "Confirm Action Dialog (Delete/Destructive Confirm)"
+    description: "SSOT cho dialog xác nhận hành động (đặc biệt XÓA). Tách bạch với Exit Guard (Ở Lại/Thoát). Bắt buộc có pending state + inline error, text đúng nghĩa Hủy/Xóa."
+    domain: "ui-layout"
+    operation: "APPLY"
+    failure_family: "UI_INCONSISTENCY"
+    health_label: "UNKNOWN-PURPOSE"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.0.0"
+    bytes: 2914
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=33 git_log=0"
+    trap_seen_before: "NONE_RECORDED"
+    symptom:
+      - "Bất kỳ action “destructive”:"
+      - "Xóa record"
+      - "Hủy / Đóng trạng thái"
+    aliases:
+      - "confirm"
+      - "action"
+      - "dialog"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-READ-STANDARD-001 (§G7.2 — đọc TOÀN PHẦN docs/UI-STANDARD.md, cấm đọc lỗ khoá)"
+      - "GOV-ACCEPTANCE-FIRST-001 (§G7.1 — chốt bảng tiêu chí TRƯỚC khi sửa dòng mã đầu tiên)"
+      - "GOV-ITERATION-LIMIT-001 (§G7.3 — Owner bác lần thứ ba thì DỪNG cách làm cũ)"
+      - "cổng: test:standard-clause-count"
+
+  - slug: "contract-preservation-check"
+    name: "Contract Preservation Check"
+    description: "Đảm bảo không phá contract mà component khác đang dùng khi thay đổi schema/logic"
+    domain: "db-schema"
+    operation: "VERIFY"
+    failure_family: "SCHEMA_DRIFT"
+    health_label: "HEALTHY"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.0.0"
+    bytes: 5461
+    previous_result: "USAGE_EVIDENCE work_log=2 docs=7 git_log=0"
+    trap_seen_before: "Contract = Cam kết một component (Engine, API, Job) đang đọc/ghi một resource (column, table, endpoint)."
+    symptom:
+      - "Kích hoạt skill này khi:"
+      - "ALTER/DROP/RENAME cột mà có code đang đọc"
+      - "User gửi \"KHÔNG PHÁ CONTRACT\" hoặc \"CONTRACT CORE\""
+    aliases:
+      - "contract"
+      - "preservation"
+      - "check"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-SCHEMA-NO-INVENT-001 (§H1)"
+      - "Schema Gate (§H2)"
+      - "Migration Safety (§H4)"
+      - "GOV-IMPORT-RECONCILE-001 (§G7.11)"
+      - "GOV-IMPORT-ERROR-THRESHOLD-001 (§G7.12)"
+      - "GOV-PII-HANDLING-001 (§G7.13 — khi nguồn nạp có dữ liệu cá nhân)"
+      - "cổng: test:pii-scan · test:import-reconcile · test:import-threshold"
+
+  - slug: "cross-module-consistency"
+    name: "Cross-Module Consistency"
+    description: "Meta-skill hướng dẫn workflow đảm bảo consistency giữa các modules bằng cách reference implementation đã có"
+    domain: "NEEDS_OWNER_INPUT"
+    operation: "SYNC"
+    failure_family: "NEEDS_OWNER_INPUT"
+    health_label: "NO-TRIGGER"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.0.0"
+    bytes: 8146
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=6 git_log=0"
+    trap_seen_before: "Agent KHÔNG ĐƯỢC:"
+    symptom:
+      - "(rút từ description) Meta-skill hướng dẫn workflow đảm bảo consistency giữa các modules bằng cách reference implementation đã có"
+    aliases:
+      - "cross"
+      - "module"
+      - "consistency"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "(domain chua co anh xa luat rieng — chi ap luat chung o governance_universal)"
+
+  - slug: "currency-input-preview"
+    name: "currency-input-preview"
+    description: "Pattern thêm preview realtime cho input số tiền với dấu phân cách nghìn"
+    domain: "pricing"
+    operation: "VERIFY"
+    failure_family: "NEEDS_OWNER_INPUT"
+    health_label: "UNKNOWN-PURPOSE"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "UNVERSIONED"
+    bytes: 3580
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=7 git_log=0"
+    trap_seen_before: "NONE_RECORDED"
+    symptom:
+      - "Khi có input nhập số tiền (giá, chi phí, thanh toán, đơn giá...)."
+    aliases:
+      - "currency"
+      - "input"
+      - "preview"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-OWNER-AUTHORITY-001 (§C1)"
+      - "GOV-PUBLIC-SAFE-001 (§J1 — dữ liệu dính tiền là nhóm CHẶN)"
+
+  - slug: "data-access-layer"
+    name: "Data Access Layer (DAL)"
+    description: "Hướng dẫn viết Store/DAL để truy cập Database (thay vì viết query trực tiếp trong Page)"
+    domain: "db-schema"
+    operation: "APPLY"
+    failure_family: "SCHEMA_DRIFT"
+    health_label: "NO-TRIGGER"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.0.0"
+    bytes: 1582
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=1 git_log=0"
+    trap_seen_before: "NONE_RECORDED"
+    symptom:
+      - "(rút từ description) Hướng dẫn viết Store/DAL để truy cập Database (thay vì viết query trực tiếp trong Page)"
+    aliases:
+      - "data"
+      - "access"
+      - "layer"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "2. No Raw Query in View: Tuyệt đối không viết await db.query(...) bên trong page.tsx hay layout.tsx."
+    governance:
+      - "GOV-SCHEMA-NO-INVENT-001 (§H1)"
+      - "Schema Gate (§H2)"
+      - "Migration Safety (§H4)"
+      - "GOV-IMPORT-RECONCILE-001 (§G7.11)"
+      - "GOV-IMPORT-ERROR-THRESHOLD-001 (§G7.12)"
+      - "GOV-PII-HANDLING-001 (§G7.13 — khi nguồn nạp có dữ liệu cá nhân)"
+      - "cổng: test:pii-scan · test:import-reconcile · test:import-threshold"
+
+  - slug: "data-safety-legacy-columns"
+    name: "data-safety-legacy-columns"
+    description: "|"
+    domain: "NEEDS_OWNER_INPUT"
+    operation: "APPLY"
+    failure_family: "DATA_LOSS"
+    health_label: "HEALTHY"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.0.0"
+    bytes: 8600
+    previous_result: "USAGE_EVIDENCE work_log=1 docs=6 git_log=0"
+    trap_seen_before: "Checklist (KHÔNG được bỏ qua)"
+    symptom:
+      - "✅ Use: Khi có columns không dùng nữa theo spec mới"
+      - "✅ Use: Khi cần migrate data từ legacy → new columns"
+      - "✅ Use: Khi cần quyết định giữ hay xóa columns"
+    aliases:
+      - "data"
+      - "safety"
+      - "legacy"
+      - "columns"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "(domain chua co anh xa luat rieng — chi ap luat chung o governance_universal)"
+
+  - slug: "database-ops"
+    name: "Database Operations"
+    description: "Hướng dẫn Backup, Restore, Migration database an toàn + Windows encoding-safe dump/import + refresh-from-source + charset diagnosis"
+    domain: "db-schema"
+    operation: "APPLY"
+    failure_family: "DATA_LOSS"
+    health_label: "NO-TRIGGER"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.1.0"
+    bytes: 6443
+    previous_result: "USAGE_EVIDENCE work_log=5 docs=9 git_log=0"
+    trap_seen_before: "Lưu ý: File backup được lưu trong thư mục BACKUPS/ hoặc LOCALBACKUP/."
+    symptom:
+      - "(rút từ description) Hướng dẫn Backup, Restore, Migration database an toàn + Windows encoding-safe dump/import + refresh-from-source + charset diagnosis"
+    aliases:
+      - "database"
+      - "ops"
+    quality_gate:
+      - "npm run test:mysql"
+      - "npm run migrate:"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-SCHEMA-NO-INVENT-001 (§H1)"
+      - "Schema Gate (§H2)"
+      - "Migration Safety (§H4)"
+      - "GOV-IMPORT-RECONCILE-001 (§G7.11)"
+      - "GOV-IMPORT-ERROR-THRESHOLD-001 (§G7.12)"
+      - "GOV-PII-HANDLING-001 (§G7.13 — khi nguồn nạp có dữ liệu cá nhân)"
+      - "cổng: test:pii-scan · test:import-reconcile · test:import-threshold"
+
+  - slug: "db-id-lookup-from-backup"
+    name: "db-id-lookup-from-backup"
+    description: "Pattern tìm ID chính xác từ DB backup SQL khi không có direct DB access"
+    domain: "db-schema"
+    operation: "VERIFY"
+    failure_family: "DATA_LOSS"
+    health_label: "HEALTHY"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "UNVERSIONED"
+    bytes: 3203
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=8 git_log=0"
+    trap_seen_before: "Lưu ý về Backup Files"
+    symptom:
+      - "Khi cần tìm ID chính xác của record trong DB thực nhưng:"
+      - "Không có direct DB access (CLI)"
+      - "Mock data không đáng tin cậy"
+    aliases:
+      - "lookup"
+      - "from"
+      - "backup"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-SCHEMA-NO-INVENT-001 (§H1)"
+      - "Schema Gate (§H2)"
+      - "Migration Safety (§H4)"
+      - "GOV-IMPORT-RECONCILE-001 (§G7.11)"
+      - "GOV-IMPORT-ERROR-THRESHOLD-001 (§G7.12)"
+      - "GOV-PII-HANDLING-001 (§G7.13 — khi nguồn nạp có dữ liệu cá nhân)"
+      - "cổng: test:pii-scan · test:import-reconcile · test:import-threshold"
+
+  - slug: "db-label-to-human-text"
+    name: "db-label-to-human-text"
+    description: "Quy trình đổi text hiển thị từ tên bảng/cột DB (snake_case) sang tiếng Việt dễ đọc"
+    domain: "db-schema"
+    operation: "APPLY"
+    failure_family: "SCHEMA_DRIFT"
+    health_label: "HEALTHY"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "UNVERSIONED"
+    bytes: 4141
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=9 git_log=0"
+    trap_seen_before: "Lưu ý: Đây chỉ là gợi ý, LUÔN confirm với user trước khi áp dụng."
+    symptom:
+      - "Kích hoạt skill này khi:"
+      - "Text hiển thị là tên bảng/cột DB (ví dụ: dmnhomuniversal, dmquytrinh)"
+      - "Cần đổi sang tiếng Việt dễ đọc (ví dụ: \"Nhóm Danh Mục\", \"Quy Trình Workflow\")"
+    aliases:
+      - "label"
+      - "human"
+      - "text"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-SCHEMA-NO-INVENT-001 (§H1)"
+      - "Schema Gate (§H2)"
+      - "Migration Safety (§H4)"
+      - "GOV-IMPORT-RECONCILE-001 (§G7.11)"
+      - "GOV-IMPORT-ERROR-THRESHOLD-001 (§G7.12)"
+      - "GOV-PII-HANDLING-001 (§G7.13 — khi nguồn nạp có dữ liệu cá nhân)"
+      - "cổng: test:pii-scan · test:import-reconcile · test:import-threshold"
+
+  - slug: "debug-systematic"
+    name: "debug-systematic"
+    description: "Quy trình debug có hệ thống khi gặp lỗi runtime, build error, hoặc behavior không đúng"
+    domain: "ui-layout"
+    operation: "APPLY"
+    failure_family: "UI_INCONSISTENCY"
+    health_label: "UNKNOWN-PURPOSE"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "UNVERSIONED"
+    bytes: 2742
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=11 git_log=0"
+    trap_seen_before: "NONE_RECORDED"
+    symptom:
+      - "Kích hoạt skill này khi:"
+      - "Gặp runtime error"
+      - "Build failed"
+    aliases:
+      - "debug"
+      - "systematic"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-READ-STANDARD-001 (§G7.2 — đọc TOÀN PHẦN docs/UI-STANDARD.md, cấm đọc lỗ khoá)"
+      - "GOV-ACCEPTANCE-FIRST-001 (§G7.1 — chốt bảng tiêu chí TRƯỚC khi sửa dòng mã đầu tiên)"
+      - "GOV-ITERATION-LIMIT-001 (§G7.3 — Owner bác lần thứ ba thì DỪNG cách làm cũ)"
+      - "cổng: test:standard-clause-count"
+
+  - slug: "demo-before-implement"
+    name: "demo-before-implement"
+    description: "Tạo HTML demo trước khi implement UI lớn để giảm rework"
+    domain: "ui-layout"
+    operation: "APPLY"
+    failure_family: "UI_INCONSISTENCY"
+    health_label: "UNKNOWN-PURPOSE"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "UNVERSIONED"
+    bytes: 3286
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=14 git_log=0"
+    trap_seen_before: "NONE_RECORDED"
+    symptom:
+      - "Kích hoạt skill này khi task có yếu tố visual/UI lớn:"
+      - "Redesign layout (dashboard, module page, sidebar, topbar)"
+      - "Component mới có nhiều variants"
+    aliases:
+      - "demo"
+      - "before"
+      - "implement"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-READ-STANDARD-001 (§G7.2 — đọc TOÀN PHẦN docs/UI-STANDARD.md, cấm đọc lỗ khoá)"
+      - "GOV-ACCEPTANCE-FIRST-001 (§G7.1 — chốt bảng tiêu chí TRƯỚC khi sửa dòng mã đầu tiên)"
+      - "GOV-ITERATION-LIMIT-001 (§G7.3 — Owner bác lần thứ ba thì DỪNG cách làm cũ)"
+      - "cổng: test:standard-clause-count"
+
+  - slug: "dependency-relationship-scan"
+    name: "Dependency Relationship Scan"
+    description: "Quy trình bắt buộc quét đầy đủ mọi mối liên hệ (direct + indirect) trước khi code/fix/refactor để tránh lỗi dây chuyền. Read/Grep trực tiếp là đường mặc định; Graphify chỉ là bước tra cứu ADVISORY tuỳ chọn."
+    domain: "NEEDS_OWNER_INPUT"
+    operation: "VERIFY"
+    failure_family: "NEEDS_OWNER_INPUT"
+    health_label: "HEALTHY"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.2.0"
+    bytes: 16363
+    previous_result: "USAGE_EVIDENCE work_log=5 docs=27 git_log=1"
+    trap_seen_before: "Verify: graph.json tồn tại; rule graphify.mdc alwaysApply; AGENTS.md cấm API routes/fetch."
+    symptom:
+      - "Trigger khi:"
+      - "Bất kỳ thay đổi nào không thuần \"copy text\":"
+      - "Sửa logic (functions, hooks, helpers)"
+    aliases:
+      - "dependency"
+      - "relationship"
+      - "scan"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "Copy/paste text thuần túy (không đổi logic)"
+      - "Thêm comment/documentation (không ảnh hưởng code)"
+    governance:
+      - "(domain chua co anh xa luat rieng — chi ap luat chung o governance_universal)"
+
+  - slug: "deploy-local-github-vps"
+    name: "deploy-local-github-vps"
+    description: "Executes reliable Local -> GitHub -> VPS deployments for TanPhat ERP, including code-only and code+database flows with preflight checks, verification, and rollback guards. Use when the user asks to deploy, sync VPS, update production code, run migrations, or push DB/schema changes."
+    domain: "deploy-env"
+    operation: "APPLY"
+    failure_family: "DATA_LOSS"
+    health_label: "NO-TRIGGER"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "UNVERSIONED"
+    bytes: 12049
+    previous_result: "USAGE_EVIDENCE work_log=10 docs=17 git_log=1"
+    trap_seen_before: "Code path: D:/Viber Coding Webapp/TanPhat ERP (SSOT: GOV-PATH-REGISTRY-001; scripts must derive the root dynamically, never hardcode it)"
+    symptom:
+      - "(rút từ description) Executes reliable Local -> GitHub -> VPS deployments for TanPhat ERP, including code-only and code+database flows with preflight checks, verification, and rollback guards. Use when the user asks to de"
+    aliases:
+      - "deploy"
+      - "local"
+      - "github"
+      - "vps"
+    quality_gate:
+      - "npm run migrate:m0-security"
+      - "npm run migrate:m01-m13-m6"
+      - "npm run migrate:m7"
+      - "npm run migrate:mc"
+      - "npm run verify:m0-security"
+      - "npm run verify:m01-m13-m6"
+      - "npm run verify:m7"
+      - "npm run verify:mc"
+      - "npm run release:final"
+      - "npm run release:final:force"
+      - "npm run check:governance"
+      - "npm run deploy:vps:git"
+      - "npm run build"
+      - "npm run deploy:vps"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-CONVENTION-BASELINE-002 (§H3b — soi chéo CẢ HAI bên trước, không mặc định tin VPS)"
+      - "Deploy (§I4 — build success KHÔNG chứng minh deploy success)"
+
+  - slug: "detail-panel-layout"
+    name: "Detail Panel Layout"
+    description: "Chuẩn hóa bố cục Detail Panel với premium gradient header, section cards, toggle row, và X button"
+    domain: "ui-layout"
+    operation: "APPLY"
+    failure_family: "UI_INCONSISTENCY"
+    health_label: "NO-TRIGGER"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "2.1.0"
+    bytes: 16298
+    previous_result: "USAGE_EVIDENCE work_log=3 docs=22 git_log=0"
+    trap_seen_before: "NONE_RECORDED"
+    symptom:
+      - "(rút từ description) Chuẩn hóa bố cục Detail Panel với premium gradient header, section cards, toggle row, và X button"
+    aliases:
+      - "detail"
+      - "panel"
+      - "layout"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-READ-STANDARD-001 (§G7.2 — đọc TOÀN PHẦN docs/UI-STANDARD.md, cấm đọc lỗ khoá)"
+      - "GOV-ACCEPTANCE-FIRST-001 (§G7.1 — chốt bảng tiêu chí TRƯỚC khi sửa dòng mã đầu tiên)"
+      - "GOV-ITERATION-LIMIT-001 (§G7.3 — Owner bác lần thứ ba thì DỪNG cách làm cũ)"
+      - "cổng: test:standard-clause-count"
+
+  - slug: "detail-panel-toggle"
+    name: "detail-panel-toggle"
+    description: "Pattern implement layout Master-Detail với toggle panel bên phải, bao gồm state management và animation"
+    domain: "ui-layout"
+    operation: "APPLY"
+    failure_family: "UI_INCONSISTENCY"
+    health_label: "UNKNOWN-PURPOSE"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "UNVERSIONED"
+    bytes: 3550
+    previous_result: "USAGE_EVIDENCE work_log=2 docs=7 git_log=0"
+    trap_seen_before: "NONE_RECORDED"
+    symptom:
+      - "Cần implement layout list với detail panel bên phải"
+      - "Click row mở panel, click lại đóng panel"
+      - "Không muốn dùng modal/sheet cho xem chi tiết"
+    aliases:
+      - "detail"
+      - "panel"
+      - "toggle"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-READ-STANDARD-001 (§G7.2 — đọc TOÀN PHẦN docs/UI-STANDARD.md, cấm đọc lỗ khoá)"
+      - "GOV-ACCEPTANCE-FIRST-001 (§G7.1 — chốt bảng tiêu chí TRƯỚC khi sửa dòng mã đầu tiên)"
+      - "GOV-ITERATION-LIMIT-001 (§G7.3 — Owner bác lần thứ ba thì DỪNG cách làm cũ)"
+      - "cổng: test:standard-clause-count"
+
+  - slug: "deventry-link-management"
+    name: "Dev Entry Link Management"
+    description: "Pattern quản lý Dev Entry links trong module overview pages"
+    domain: "ui-layout"
+    operation: "APPLY"
+    failure_family: "UI_INCONSISTENCY"
+    health_label: "HEALTHY"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.0.0"
+    bytes: 7521
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=12 git_log=0"
+    trap_seen_before: "NONE_RECORDED"
+    symptom:
+      - "Trigger khi:"
+      - "Tạo module overview page (M0, M1, M3, MF, ...)"
+      - "Thêm mới Dev Entry cho submodule"
+    aliases:
+      - "deventry"
+      - "link"
+      - "management"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "Single-page modules không có submodules"
+      - "External links (không phải internal routes)"
+    governance:
+      - "GOV-READ-STANDARD-001 (§G7.2 — đọc TOÀN PHẦN docs/UI-STANDARD.md, cấm đọc lỗ khoá)"
+      - "GOV-ACCEPTANCE-FIRST-001 (§G7.1 — chốt bảng tiêu chí TRƯỚC khi sửa dòng mã đầu tiên)"
+      - "GOV-ITERATION-LIMIT-001 (§G7.3 — Owner bác lần thứ ba thì DỪNG cách làm cũ)"
+      - "cổng: test:standard-clause-count"
+
+  - slug: "documentation-sync"
+    name: "documentation-sync"
+    description: "Đồng bộ 5 file quản trị thành 5 bản BYTE-IDENTICAL, có kiểm chứng bằng md5 + cổng đếm điều khoản. Dùng khi sắp sửa .cursorrules, .antigravityrules, AGENTS.md, CLAUDE.md, GEMINI.md. Sửa canonical rồi cp đè 4 file — KHÔNG sửa tay 5 lần, KHÔNG sync theo từng mục."
+    domain: "governance"
+    operation: "SYNC"
+    failure_family: "DATA_LOSS"
+    health_label: "HEALTHY"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "3.0.0"
+    bytes: 8735
+    previous_result: "USAGE_EVIDENCE work_log=5 docs=9 git_log=3"
+    trap_seen_before: "Output contract — 7 BƯỚC, KHÔNG ĐƯỢC BỎ BƯỚC NÀO"
+    symptom:
+      - "Sắp sửa bất kỳ file nào trong 5 file trên — kể cả sửa một dấu chấm."
+    aliases:
+      - "documentation"
+      - "sync"
+    quality_gate:
+      - "npm run test:clause-count"
+      - "npm run check:governance"
+      - "npm run test:standard-clause-count"
+    negative_trigger:
+      - "TUYỆT ĐỐI KHÔNG kích hoạt khi"
+      - "Sửa .cursor/rules/.mdc — khác cơ chế nạp hoàn toàn"
+      - "Sửa file trong .governance/ — không thuộc 5 replica"
+    governance:
+      - "GOV-FIVE-REPLICA-SYNC-001 (§A1)"
+      - "GOV-EDIT-PRESERVE-001 (§G7.0)"
+      - "GOV-REF-EXISTS-001 (§G7.6)"
+      - "GOV-GATE-REAL-INPUT-001 (§G7.7)"
+      - "GOV-RELOAD-AFTER-COMPACT-001 (§G7.8)"
+      - "GOV-LAW-STATE-SEPARATION-001 (§B3)"
+      - "cổng: check:governance · test:clause-count · test:standard-clause-count · test:ref-exists-gate · test:skills-registry"
+
+  - slug: "dropdown-display-name-only"
+    name: "Dropdown Display-only Name (Không Show Mã/ID)"
+    description: "SSOT cho dropdown chỉ hiển thị TÊN - không show mã/ID để UI gọn, dễ đọc"
+    domain: "ui-layout"
+    operation: "APPLY"
+    failure_family: "UI_INCONSISTENCY"
+    health_label: "NO-TRIGGER"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.0.0"
+    bytes: 5437
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=7 git_log=0"
+    trap_seen_before: "NONE_RECORDED"
+    symptom:
+      - "(rút từ description) SSOT cho dropdown chỉ hiển thị TÊN - không show mã/ID để UI gọn, dễ đọc"
+    aliases:
+      - "dropdown"
+      - "display"
+      - "name"
+      - "only"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-READ-STANDARD-001 (§G7.2 — đọc TOÀN PHẦN docs/UI-STANDARD.md, cấm đọc lỗ khoá)"
+      - "GOV-ACCEPTANCE-FIRST-001 (§G7.1 — chốt bảng tiêu chí TRƯỚC khi sửa dòng mã đầu tiên)"
+      - "GOV-ITERATION-LIMIT-001 (§G7.3 — Owner bác lần thứ ba thì DỪNG cách làm cũ)"
+      - "cổng: test:standard-clause-count"
+
+  - slug: "dual-key-standard"
+    name: "Dual Key Standard (ID + Ma) for Master Data"
+    description: "SSOT quy tắc dùng dual key: ID (system unique) + Mã (display/business unique) để chống trùng và đảm bảo thẩm mỹ."
+    domain: "NEEDS_OWNER_INPUT"
+    operation: "APPLY"
+    failure_family: "NEEDS_OWNER_INPUT"
+    health_label: "NO-TRIGGER"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.0.0"
+    bytes: 1801
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=8 git_log=0"
+    trap_seen_before: "3) Cấm tuyệt đối"
+    symptom:
+      - "(rút từ description) SSOT quy tắc dùng dual key: ID (system unique) + Mã (display/business unique) để chống trùng và đảm bảo thẩm mỹ."
+    aliases:
+      - "dual"
+      - "key"
+      - "standard"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "(domain chua co anh xa luat rieng — chi ap luat chung o governance_universal)"
+
+  - slug: "duplicate-file-1-resolution"
+    name: "Duplicate File (1) Resolution"
+    description: "Quy trình chuẩn xác định file gốc vs file \"(1)\" trước khi xóa — không được suy luận từ kích thước, phải diff + mtime + báo Owner quyết định."
+    domain: "NEEDS_OWNER_INPUT"
+    operation: "APPLY"
+    failure_family: "DATA_LOSS"
+    health_label: "NO-TRIGGER"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.0.0"
+    bytes: 4645
+    previous_result: "USAGE_EVIDENCE work_log=2 docs=7 git_log=0"
+    trap_seen_before: "description: Quy trình chuẩn xác định file gốc vs file \"(1)\" trước khi xóa — không được suy luận từ kích thước, phải diff + mtime + báo Owner quyết định."
+    symptom:
+      - "(rút từ description) Quy trình chuẩn xác định file gốc vs file \"(1)\" trước khi xóa — không được suy luận từ kích thước, phải diff + mtime + báo Owner quyết định."
+    aliases:
+      - "duplicate"
+      - "file"
+      - "resolution"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "(domain chua co anh xa luat rieng — chi ap luat chung o governance_universal)"
+
+  - slug: "erp-change-control"
+    name: "erp-change-control"
+    description: "Khung kiểm soát thay đổi ERP Tân Phát — Owner authority, controlled documentation, implementation evidence, mismatch handling, feature-sized change, Owner gate, agent attribution, independent challenge. Dùng trước khi đề xuất/thực hiện bất kỳ thay đổi nghiệp vụ, schema, quyền, trạng thái, workflow, migration, deploy hoặc public exposure. Độc lập Spec Kit và Graphify."
+    domain: "governance"
+    operation: "APPLY"
+    failure_family: "DATA_LOSS"
+    health_label: "HEALTHY"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.0.0"
+    bytes: 11168
+    previous_result: "USAGE_EVIDENCE work_log=4 docs=24 git_log=1"
+    trap_seen_before: "Actor | Được làm | KHÔNG được |"
+    symptom:
+      - "Trước khi đề xuất hoặc thực hiện thay đổi nghiệp vụ, schema, quyền, trạng thái, workflow, migration, deploy, public exposure."
+      - "Khi lập plan/prompt cho một đợt thay đổi."
+      - "Khi phát hiện tài liệu và code/DB thật nói khác nhau."
+    aliases:
+      - "erp"
+      - "change"
+      - "control"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "KHÔNG dùng quy tắc máy móc CODE-WINS hoặc DOCS-WINS."
+      - "Khi phát hiện sai lệch, làm đủ các bước:"
+      - "1. Ghi rõ implementation hiện tại — cái gì đang chạy, ở đâu, bằng chứng nào."
+    governance:
+      - "GOV-FIVE-REPLICA-SYNC-001 (§A1)"
+      - "GOV-EDIT-PRESERVE-001 (§G7.0)"
+      - "GOV-REF-EXISTS-001 (§G7.6)"
+      - "GOV-GATE-REAL-INPUT-001 (§G7.7)"
+      - "GOV-RELOAD-AFTER-COMPACT-001 (§G7.8)"
+      - "GOV-LAW-STATE-SEPARATION-001 (§B3)"
+      - "cổng: check:governance · test:clause-count · test:standard-clause-count · test:ref-exists-gate · test:skills-registry"
+
+  - slug: "feature-flag-phased-rollout"
+    name: "Feature Flag Phased Rollout"
+    description: "Rollout feature mới từng bước với flag ON/OFF, đảm bảo backward compatibility"
+    domain: "NEEDS_OWNER_INPUT"
+    operation: "APPLY"
+    failure_family: "DATA_LOSS"
+    health_label: "HEALTHY"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.0.0"
+    bytes: 4828
+    previous_result: "USAGE_EVIDENCE work_log=1 docs=8 git_log=0"
+    trap_seen_before: "NONE_RECORDED"
+    symptom:
+      - "Kích hoạt skill này khi:"
+      - "Feature mới cần Phase 0 → Phase 1 → Full rollout"
+      - "User yêu cầu \"phased rollout\" hoặc \"feature flag\""
+    aliases:
+      - "feature"
+      - "flag"
+      - "phased"
+      - "rollout"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "(domain chua co anh xa luat rieng — chi ap luat chung o governance_universal)"
+
+  - slug: "field-name-consistency-check"
+    name: "field-name-consistency-check"
+    description: "Quy trình fix field name mismatch khi helper/store function trả về field name khác với UI component expect"
+    domain: "ui-layout"
+    operation: "VERIFY"
+    failure_family: "UI_INCONSISTENCY"
+    health_label: "HEALTHY"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "UNVERSIONED"
+    bytes: 5350
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=3 git_log=0"
+    trap_seen_before: "NONE_RECORDED"
+    symptom:
+      - "Kích hoạt skill này khi:"
+      - "Console báo [fieldName] is undefined hoặc Cannot read property '[field]' of undefined"
+      - "Refactor/rename fields trong helper/store functions"
+    aliases:
+      - "field"
+      - "name"
+      - "consistency"
+      - "check"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-READ-STANDARD-001 (§G7.2 — đọc TOÀN PHẦN docs/UI-STANDARD.md, cấm đọc lỗ khoá)"
+      - "GOV-ACCEPTANCE-FIRST-001 (§G7.1 — chốt bảng tiêu chí TRƯỚC khi sửa dòng mã đầu tiên)"
+      - "GOV-ITERATION-LIMIT-001 (§G7.3 — Owner bác lần thứ ba thì DỪNG cách làm cũ)"
+      - "cổng: test:standard-clause-count"
+
+  - slug: "file-update-safe-workflow"
+    name: "File Update Safe Workflow"
+    description: "Quy trình cập nhật file tài liệu an toàn (đọc trước, giữ nguyên, thêm/cập nhật, ghi versioning)"
+    domain: "versioning"
+    operation: "APPLY"
+    failure_family: "TRACEABILITY_GAP"
+    health_label: "HEALTHY"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.0.0"
+    bytes: 7043
+    previous_result: "USAGE_EVIDENCE work_log=1 docs=0 git_log=0"
+    trap_seen_before: "Agent KHÔNG ĐƯỢC:"
+    symptom:
+      - "Trigger khi:"
+      - "Cập nhật .cursorrules"
+      - "Cập nhật AGENTS.md"
+    aliases:
+      - "file"
+      - "update"
+      - "safe"
+      - "workflow"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-VERSION-RELEASE-001 (§I3 — ghi history ≠ bump version)"
+      - "cổng: test:version-policy"
+
+  - slug: "fk-ref-by-id-not-name"
+    name: "fk-ref-by-id-not-name"
+    description: "Pattern để ref FK bằng ID (integer) thay vì name/ma (string) để đảm bảo stable reference"
+    domain: "db-schema"
+    operation: "APPLY"
+    failure_family: "DATA_LOSS"
+    health_label: "UNKNOWN-PURPOSE"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "UNVERSIONED"
+    bytes: 3144
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=7 git_log=0"
+    trap_seen_before: "NONE_RECORDED"
+    symptom:
+      - "Khi cần filter/ref dữ liệu theo FK (foreign key) từ bảng reference."
+    aliases:
+      - "ref"
+      - "not"
+      - "name"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "KHÔNG dùng mock data - dùng skill db-id-lookup-from-backup hoặc query DB trực tiếp."
+      - "Step 3: Hardcode ID với comment giải thích"
+      - "typescript"
+    governance:
+      - "GOV-SCHEMA-NO-INVENT-001 (§H1)"
+      - "Schema Gate (§H2)"
+      - "Migration Safety (§H4)"
+      - "GOV-IMPORT-RECONCILE-001 (§G7.11)"
+      - "GOV-IMPORT-ERROR-THRESHOLD-001 (§G7.12)"
+      - "GOV-PII-HANDLING-001 (§G7.13 — khi nguồn nạp có dữ liệu cá nhân)"
+      - "cổng: test:pii-scan · test:import-reconcile · test:import-threshold"
+
+  - slug: "fk-safe-delete-guard"
+    name: "FK-safe Delete Guard (Ref Count + Friendly Message)"
+    description: "SSOT cho thao tác XÓA khi DB có foreign key constraints: chặn xóa nếu đang được tham chiếu, báo rõ lý do + số lượng refs, UI có trạng thái pending và inline error."
+    domain: "db-schema"
+    operation: "VERIFY"
+    failure_family: "DATA_LOSS"
+    health_label: "UNKNOWN-PURPOSE"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.0.0"
+    bytes: 3421
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=8 git_log=0"
+    trap_seen_before: "NONE_RECORDED"
+    symptom:
+      - "Bất kỳ DELETE action nào có khả năng bị chặn bởi FK (master data, transactional, link tables…)."
+    aliases:
+      - "safe"
+      - "delete"
+      - "guard"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-SCHEMA-NO-INVENT-001 (§H1)"
+      - "Schema Gate (§H2)"
+      - "Migration Safety (§H4)"
+      - "GOV-IMPORT-RECONCILE-001 (§G7.11)"
+      - "GOV-IMPORT-ERROR-THRESHOLD-001 (§G7.12)"
+      - "GOV-PII-HANDLING-001 (§G7.13 — khi nguồn nạp có dữ liệu cá nhân)"
+      - "cổng: test:pii-scan · test:import-reconcile · test:import-threshold"
+
+  - slug: "fk-snapshot-field-pattern"
+    name: "FK Snapshot Field Pattern (Denormalize for Performance & History)"
+    description: "SSOT pattern: Thêm snapshot field (denormalize) từ FK để tránh JOIN khi query và giữ lịch sử (tên cũ không mất khi master data đổi tên)."
+    domain: "db-schema"
+    operation: "APPLY"
+    failure_family: "SCHEMA_DRIFT"
+    health_label: "UNKNOWN-PURPOSE"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.0.0"
+    bytes: 8510
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=19 git_log=0"
+    trap_seen_before: "NONE_RECORDED"
+    symptom:
+      - "Bảng có FK và cần hiển thị tên/giá trị từ master data thường xuyên"
+      - "Cần giữ lịch sử (immutable snapshot) - tên cũ không bị mất khi master đổi tên"
+      - "Spec yêu cầu \"snapshot\" hoặc \"immutable\" data"
+    aliases:
+      - "snapshot"
+      - "field"
+      - "pattern"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-SCHEMA-NO-INVENT-001 (§H1)"
+      - "Schema Gate (§H2)"
+      - "Migration Safety (§H4)"
+      - "GOV-IMPORT-RECONCILE-001 (§G7.11)"
+      - "GOV-IMPORT-ERROR-THRESHOLD-001 (§G7.12)"
+      - "GOV-PII-HANDLING-001 (§G7.13 — khi nguồn nạp có dữ liệu cá nhân)"
+      - "cổng: test:pii-scan · test:import-reconcile · test:import-threshold"
+
+  - slug: "flex-layout-expand-fix"
+    name: "flex-layout-expand-fix"
+    description: "Fix component expand/collapse bị ẩn hoặc tràn trong flex container"
+    domain: "ui-layout"
+    operation: "FIX"
+    failure_family: "UI_INCONSISTENCY"
+    health_label: "HEALTHY"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "UNVERSIONED"
+    bytes: 3813
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=12 git_log=0"
+    trap_seen_before: "NONE_RECORDED"
+    symptom:
+      - "Khi component con expand/collapse nhưng:"
+      - "Bị ẩn một phần hoặc hoàn toàn"
+      - "Tràn ra ngoài container"
+    aliases:
+      - "flex"
+      - "layout"
+      - "expand"
+      - "fix"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-READ-STANDARD-001 (§G7.2 — đọc TOÀN PHẦN docs/UI-STANDARD.md, cấm đọc lỗ khoá)"
+      - "GOV-ACCEPTANCE-FIRST-001 (§G7.1 — chốt bảng tiêu chí TRƯỚC khi sửa dòng mã đầu tiên)"
+      - "GOV-ITERATION-LIMIT-001 (§G7.3 — Owner bác lần thứ ba thì DỪNG cách làm cũ)"
+      - "cổng: test:standard-clause-count"
+
+  - slug: "form-field-validation"
+    name: "form-field-validation"
+    description: "Validation patterns cho forms với HTML5 và custom validation"
+    domain: "ui-layout"
+    operation: "APPLY"
+    failure_family: "UI_INCONSISTENCY"
+    health_label: "UNKNOWN-PURPOSE"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "UNVERSIONED"
+    bytes: 3911
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=11 git_log=0"
+    trap_seen_before: "newErrors.ten = \"Tên không được để trống\""
+    symptom:
+      - "Kích hoạt skill này khi:"
+      - "Tạo form create/edit mới"
+      - "Thêm field validation vào form có sẵn"
+    aliases:
+      - "form"
+      - "field"
+      - "validation"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-READ-STANDARD-001 (§G7.2 — đọc TOÀN PHẦN docs/UI-STANDARD.md, cấm đọc lỗ khoá)"
+      - "GOV-ACCEPTANCE-FIRST-001 (§G7.1 — chốt bảng tiêu chí TRƯỚC khi sửa dòng mã đầu tiên)"
+      - "GOV-ITERATION-LIMIT-001 (§G7.3 — Owner bác lần thứ ba thì DỪNG cách làm cũ)"
+      - "cổng: test:standard-clause-count"
+
+  - slug: "form-helper-text-pattern"
+    name: "Form Helper Text Pattern (User Notes vs Dev Notes)"
+    description: "SSOT cho ghi chú trong form - phân biệt User Notes (luôn hiện) vs Dev Notes (chỉ dev thấy)"
+    domain: "ui-layout"
+    operation: "APPLY"
+    failure_family: "UI_INCONSISTENCY"
+    health_label: "NO-TRIGGER"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.0.0"
+    bytes: 7995
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=6 git_log=0"
+    trap_seen_before: "Dev Notes: Lưu ý kỹ thuật cho developer (chỉ hiển thị khi isDev = true)"
+    symptom:
+      - "(rút từ description) SSOT cho ghi chú trong form - phân biệt User Notes (luôn hiện) vs Dev Notes (chỉ dev thấy)"
+    aliases:
+      - "form"
+      - "helper"
+      - "text"
+      - "pattern"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-READ-STANDARD-001 (§G7.2 — đọc TOÀN PHẦN docs/UI-STANDARD.md, cấm đọc lỗ khoá)"
+      - "GOV-ACCEPTANCE-FIRST-001 (§G7.1 — chốt bảng tiêu chí TRƯỚC khi sửa dòng mã đầu tiên)"
+      - "GOV-ITERATION-LIMIT-001 (§G7.3 — Owner bác lần thứ ba thì DỪNG cách làm cũ)"
+      - "cổng: test:standard-clause-count"
+
+  - slug: "globalthis-singleton-store"
+    name: "GlobalThis Singleton Store"
+    description: "Pattern tạo in-memory store dùng globalThis để persist data across Server Component renders và Server Actions"
+    domain: "ui-layout"
+    operation: "APPLY"
+    failure_family: "UI_INCONSISTENCY"
+    health_label: "HEALTHY"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.0.0"
+    bytes: 6009
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=12 git_log=0"
+    trap_seen_before: "NONE_RECORDED"
+    symptom:
+      - "Trigger khi:"
+      - "Tạo mới in-memory store cho module"
+      - "Refactor store để hoạt động với Server Components + Server Actions"
+    aliases:
+      - "globalthis"
+      - "singleton"
+      - "store"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "Production với real database"
+      - "Cần data persistence across server restarts"
+    governance:
+      - "GOV-READ-STANDARD-001 (§G7.2 — đọc TOÀN PHẦN docs/UI-STANDARD.md, cấm đọc lỗ khoá)"
+      - "GOV-ACCEPTANCE-FIRST-001 (§G7.1 — chốt bảng tiêu chí TRƯỚC khi sửa dòng mã đầu tiên)"
+      - "GOV-ITERATION-LIMIT-001 (§G7.3 — Owner bác lần thứ ba thì DỪNG cách làm cũ)"
+      - "cổng: test:standard-clause-count"
+
+  - slug: "hard-enforcement-review"
+    name: "hard-enforcement-review"
+    description: "Protocol nghiêm ngặt cho review/fix UI với Requirements Restate, Scope Lock, Plan, Pass/Fail, Change Log"
+    domain: "governance"
+    operation: "VERIFY"
+    failure_family: "GOVERNANCE_DRIFT"
+    health_label: "HEALTHY"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "UNVERSIONED"
+    bytes: 4198
+    previous_result: "USAGE_EVIDENCE work_log=1 docs=15 git_log=0"
+    trap_seen_before: "Cần độ chính xác cao, không được sai"
+    symptom:
+      - "Kích hoạt skill này khi:"
+      - "User gửi tin với ký hiệu [HARD ENFORCEMENT MODE]"
+      - "User yêu cầu review/fix theo chuẩn nghiêm ngặt"
+    aliases:
+      - "hard"
+      - "enforcement"
+      - "review"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-FIVE-REPLICA-SYNC-001 (§A1)"
+      - "GOV-EDIT-PRESERVE-001 (§G7.0)"
+      - "GOV-REF-EXISTS-001 (§G7.6)"
+      - "GOV-GATE-REAL-INPUT-001 (§G7.7)"
+      - "GOV-RELOAD-AFTER-COMPACT-001 (§G7.8)"
+      - "GOV-LAW-STATE-SEPARATION-001 (§B3)"
+      - "cổng: check:governance · test:clause-count · test:standard-clause-count · test:ref-exists-gate · test:skills-registry"
+
+  - slug: "header-inline-badge"
+    name: "header-inline-badge"
+    description: "Pattern đặt badges/tags cùng hàng với Page Title thay vì xuống dòng"
+    domain: "ui-layout"
+    operation: "APPLY"
+    failure_family: "UI_INCONSISTENCY"
+    health_label: "UNKNOWN-PURPOSE"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "UNVERSIONED"
+    bytes: 2012
+    previous_result: "USAGE_EVIDENCE work_log=2 docs=6 git_log=0"
+    trap_seen_before: "NONE_RECORDED"
+    symptom:
+      - "Badges (Master Data, Total count, Status) nằm dưới title, chiếm thêm vertical space"
+      - "User yêu cầu \"bố trí lên cùng hàng với title\""
+    aliases:
+      - "header"
+      - "inline"
+      - "badge"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-READ-STANDARD-001 (§G7.2 — đọc TOÀN PHẦN docs/UI-STANDARD.md, cấm đọc lỗ khoá)"
+      - "GOV-ACCEPTANCE-FIRST-001 (§G7.1 — chốt bảng tiêu chí TRƯỚC khi sửa dòng mã đầu tiên)"
+      - "GOV-ITERATION-LIMIT-001 (§G7.3 — Owner bác lần thứ ba thì DỪNG cách làm cũ)"
+      - "cổng: test:standard-clause-count"
+
+  - slug: "hierarchical-leaf-only-filter"
+    name: "Hierarchical Leaf-only Filter (Dropdown Parent-Child)"
+    description: "SSOT cho dropdown ref hierarchical data (parent-child) - chỉ show leaf nodes (cha có con thì ẩn cha)"
+    domain: "ui-layout"
+    operation: "APPLY"
+    failure_family: "UI_INCONSISTENCY"
+    health_label: "NO-TRIGGER"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.0.0"
+    bytes: 7883
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=6 git_log=0"
+    trap_seen_before: "NONE_RECORDED"
+    symptom:
+      - "(rút từ description) SSOT cho dropdown ref hierarchical data (parent-child) - chỉ show leaf nodes (cha có con thì ẩn cha)"
+    aliases:
+      - "hierarchical"
+      - "leaf"
+      - "only"
+      - "filter"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-READ-STANDARD-001 (§G7.2 — đọc TOÀN PHẦN docs/UI-STANDARD.md, cấm đọc lỗ khoá)"
+      - "GOV-ACCEPTANCE-FIRST-001 (§G7.1 — chốt bảng tiêu chí TRƯỚC khi sửa dòng mã đầu tiên)"
+      - "GOV-ITERATION-LIMIT-001 (§G7.3 — Owner bác lần thứ ba thì DỪNG cách làm cũ)"
+      - "cổng: test:standard-clause-count"
+
+  - slug: "icon-style-guideline"
+    name: "icon-style-guideline"
+    description: "Phong cách icon chuẩn cho toàn bộ ERP TanPhat — Outline/Line SVG (Lucide), KHÔNG dùng emoji hoặc filled circle wrappers"
+    domain: "ui-layout"
+    operation: "APPLY"
+    failure_family: "UI_INCONSISTENCY"
+    health_label: "NO-TRIGGER"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "UNVERSIONED"
+    bytes: 3897
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=4 git_log=1"
+    trap_seen_before: "Phong cách icon này đã được Owner xác nhận và hài lòng. KHÔNG được tự ý thay đổi."
+    symptom:
+      - "(rút từ description) Phong cách icon chuẩn cho toàn bộ ERP TanPhat — Outline/Line SVG (Lucide), KHÔNG dùng emoji hoặc filled circle wrappers"
+    aliases:
+      - "icon"
+      - "style"
+      - "guideline"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-READ-STANDARD-001 (§G7.2 — đọc TOÀN PHẦN docs/UI-STANDARD.md, cấm đọc lỗ khoá)"
+      - "GOV-ACCEPTANCE-FIRST-001 (§G7.1 — chốt bảng tiêu chí TRƯỚC khi sửa dòng mã đầu tiên)"
+      - "GOV-ITERATION-LIMIT-001 (§G7.3 — Owner bác lần thứ ba thì DỪNG cách làm cũ)"
+      - "cổng: test:standard-clause-count"
+
+  - slug: "implement-g2-ux"
+    name: "Implement G2 UX"
+    description: "Hướng dẫn implement chuẩn Global UX (G2) cho Form (Dirty tracking, Safe close, Custom dialogs, Nested overlay)"
+    domain: "ui-layout"
+    operation: "APPLY"
+    failure_family: "DATA_LOSS"
+    health_label: "HEALTHY"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.1.0"
+    bytes: 17849
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=8 git_log=0"
+    trap_seen_before: "{toVietnameseTitleCase(\"Lưu Ý\")}"
+    symptom:
+      - "Use Case | Component |"
+      - "Orange left border stripe | FormSection |"
+      - "Colored icon circles (pastel backgrounds) | PremiumSection |"
+    aliases:
+      - "implement"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-READ-STANDARD-001 (§G7.2 — đọc TOÀN PHẦN docs/UI-STANDARD.md, cấm đọc lỗ khoá)"
+      - "GOV-ACCEPTANCE-FIRST-001 (§G7.1 — chốt bảng tiêu chí TRƯỚC khi sửa dòng mã đầu tiên)"
+      - "GOV-ITERATION-LIMIT-001 (§G7.3 — Owner bác lần thứ ba thì DỪNG cách làm cũ)"
+      - "cổng: test:standard-clause-count"
+
+  - slug: "implement-wizard-step"
+    name: "Implement Wizard Step"
+    description: "Hướng dẫn tạo bước mới trong Wizard (Addon Library, Configurator, etc.) + Wizard Header Mobile Compact pattern"
+    domain: "ui-layout"
+    operation: "APPLY"
+    failure_family: "UI_INCONSISTENCY"
+    health_label: "HEALTHY"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.1.0"
+    bytes: 4825
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=1 git_log=0"
+    trap_seen_before: "NONE_RECORDED"
+    symptom:
+      - "Khi wizard header (gradient variant) quá to trên mobile, cần thu gọn."
+    aliases:
+      - "implement"
+      - "wizard"
+      - "step"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-READ-STANDARD-001 (§G7.2 — đọc TOÀN PHẦN docs/UI-STANDARD.md, cấm đọc lỗ khoá)"
+      - "GOV-ACCEPTANCE-FIRST-001 (§G7.1 — chốt bảng tiêu chí TRƯỚC khi sửa dòng mã đầu tiên)"
+      - "GOV-ITERATION-LIMIT-001 (§G7.3 — Owner bác lần thứ ba thì DỪNG cách làm cũ)"
+      - "cổng: test:standard-clause-count"
+
+  - slug: "in-memory-to-db-migration"
+    name: "In-Memory to DB Migration"
+    description: "Pattern chuyển đổi từ in-memory store (globalThis) sang MySQL persistence"
+    domain: "db-schema"
+    operation: "APPLY"
+    failure_family: "DATA_LOSS"
+    health_label: "HEALTHY"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.0.0"
+    bytes: 9524
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=7 git_log=0"
+    trap_seen_before: "Never delete old store until new store verified"
+    symptom:
+      - "Trigger khi:"
+      - "Module sử dụng globalThis.xxxstore pattern"
+      - "Data bị mất sau server restart"
+    aliases:
+      - "memory"
+      - "migration"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "Đang rapid prototyping, chưa cần persistence"
+      - "DB schema chưa finalize"
+    governance:
+      - "GOV-SCHEMA-NO-INVENT-001 (§H1)"
+      - "Schema Gate (§H2)"
+      - "Migration Safety (§H4)"
+      - "GOV-IMPORT-RECONCILE-001 (§G7.11)"
+      - "GOV-IMPORT-ERROR-THRESHOLD-001 (§G7.12)"
+      - "GOV-PII-HANDLING-001 (§G7.13 — khi nguồn nạp có dữ liệu cá nhân)"
+      - "cổng: test:pii-scan · test:import-reconcile · test:import-threshold"
+
+  - slug: "inline-filter-bar-layout"
+    name: "Inline Filter Bar Layout (Card Tổng + Dropdown + Search)"
+    description: "SSOT layout cho filter box: Card tổng số + Dropdown filter + Search input cùng 1 hàng ngang (inline), không xuống dòng. Pattern chuẩn cho master data pages."
+    domain: "ui-layout"
+    operation: "APPLY"
+    failure_family: "UI_INCONSISTENCY"
+    health_label: "UNKNOWN-PURPOSE"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.0.0"
+    bytes: 6089
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=7 git_log=0"
+    trap_seen_before: "NONE_RECORDED"
+    symptom:
+      - "Khi implement filter box cho master data table"
+      - "Khi user phàn nàn \"layout sai, bố trí lộn xộn\""
+      - "Khi cần filter bar có: total count + category dropdown + search input"
+    aliases:
+      - "inline"
+      - "filter"
+      - "bar"
+      - "layout"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-READ-STANDARD-001 (§G7.2 — đọc TOÀN PHẦN docs/UI-STANDARD.md, cấm đọc lỗ khoá)"
+      - "GOV-ACCEPTANCE-FIRST-001 (§G7.1 — chốt bảng tiêu chí TRƯỚC khi sửa dòng mã đầu tiên)"
+      - "GOV-ITERATION-LIMIT-001 (§G7.3 — Owner bác lần thứ ba thì DỪNG cách làm cũ)"
+      - "cổng: test:standard-clause-count"
+
+  - slug: "input-validation-on-blur"
+    name: "input-validation-on-blur"
+    description: "Add validation on blur cho input fields để catch errors sớm nhưng không intrusive (không validate mỗi keystroke)"
+    domain: "ui-layout"
+    operation: "APPLY"
+    failure_family: "UI_INCONSISTENCY"
+    health_label: "UNKNOWN-PURPOSE"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "UNVERSIONED"
+    bytes: 5424
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=14 git_log=0"
+    trap_seen_before: "NONE_RECORDED"
+    symptom:
+      - "Kích hoạt skill này khi:"
+      - "Input field cần validation nhưng không muốn validate on every keystroke"
+      - "Expression/formula fields (có thể có syntax errors)"
+    aliases:
+      - "input"
+      - "validation"
+      - "blur"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-READ-STANDARD-001 (§G7.2 — đọc TOÀN PHẦN docs/UI-STANDARD.md, cấm đọc lỗ khoá)"
+      - "GOV-ACCEPTANCE-FIRST-001 (§G7.1 — chốt bảng tiêu chí TRƯỚC khi sửa dòng mã đầu tiên)"
+      - "GOV-ITERATION-LIMIT-001 (§G7.3 — Owner bác lần thứ ba thì DỪNG cách làm cũ)"
+      - "cổng: test:standard-clause-count"
+
+  - slug: "layout-component-redesign"
+    name: "layout-component-redesign"
+    description: "Quy trình redesign Sidebar/Topbar/MainLayout components"
+    domain: "ui-layout"
+    operation: "FIX"
+    failure_family: "UI_INCONSISTENCY"
+    health_label: "HEALTHY"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "UNVERSIONED"
+    bytes: 3823
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=14 git_log=0"
+    trap_seen_before: "NONE_RECORDED"
+    symptom:
+      - "Kích hoạt skill này khi:"
+      - "User yêu cầu thay đổi Sidebar, Topbar, MainLayout"
+      - "Cần update layout cho phù hợp với module pages"
+    aliases:
+      - "layout"
+      - "component"
+      - "redesign"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-READ-STANDARD-001 (§G7.2 — đọc TOÀN PHẦN docs/UI-STANDARD.md, cấm đọc lỗ khoá)"
+      - "GOV-ACCEPTANCE-FIRST-001 (§G7.1 — chốt bảng tiêu chí TRƯỚC khi sửa dòng mã đầu tiên)"
+      - "GOV-ITERATION-LIMIT-001 (§G7.3 — Owner bác lần thứ ba thì DỪNG cách làm cũ)"
+      - "cổng: test:standard-clause-count"
+
+  - slug: "master-list-data-table"
+    name: "Master List DataTable (Sticky Header + Sort Icons)"
+    description: "Chuẩn hoá UI cho bảng Danh Mục (Master Data) theo style “Material Item”: header 1 hàng (sortable icons), filter tách riêng, header sticky khi scroll."
+    domain: "ui-layout"
+    operation: "APPLY"
+    failure_family: "UI_INCONSISTENCY"
+    health_label: "HEALTHY"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.3.0"
+    bytes: 16824
+    previous_result: "USAGE_EVIDENCE work_log=3 docs=14 git_log=0"
+    trap_seen_before: "🎨 Chuẩn màu sắc & độ nổi bật (cam nhạt / đậm nhạt)"
+    symptom:
+      - "Khi Owner yêu cầu ẩn/hiện cột trong bảng master data."
+    aliases:
+      - "master"
+      - "list"
+      - "data"
+      - "table"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-READ-STANDARD-001 (§G7.2 — đọc TOÀN PHẦN docs/UI-STANDARD.md, cấm đọc lỗ khoá)"
+      - "GOV-ACCEPTANCE-FIRST-001 (§G7.1 — chốt bảng tiêu chí TRƯỚC khi sửa dòng mã đầu tiên)"
+      - "GOV-ITERATION-LIMIT-001 (§G7.3 — Owner bác lần thứ ba thì DỪNG cách làm cũ)"
+      - "cổng: test:standard-clause-count"
+
+  - slug: "master-list-page-template"
+    name: "master-list-page-template"
+    description: "Template chuẩn UI cho trang danh sách (list page) toàn dự án ERP TanPhat — lấy Khách Hàng làm reference chính thức"
+    domain: "ui-layout"
+    operation: "APPLY"
+    failure_family: "UI_INCONSISTENCY"
+    health_label: "NO-TRIGGER"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "UNVERSIONED"
+    bytes: 13345
+    previous_result: "USAGE_EVIDENCE work_log=4 docs=10 git_log=1"
+    trap_seen_before: "CẤM thêm sm:px-6 (24px) vào grid/table → cộng dồn với gutter MainLayout thành ~40px mỗi bên → nội dung bị thụt vào, \"lọt tỏm\", lãng phí không gian ngang."
+    symptom:
+      - "(rút từ description) Template chuẩn UI cho trang danh sách (list page) toàn dự án ERP TanPhat — lấy Khách Hàng làm reference chính thức"
+    aliases:
+      - "master"
+      - "list"
+      - "page"
+      - "template"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-READ-STANDARD-001 (§G7.2 — đọc TOÀN PHẦN docs/UI-STANDARD.md, cấm đọc lỗ khoá)"
+      - "GOV-ACCEPTANCE-FIRST-001 (§G7.1 — chốt bảng tiêu chí TRƯỚC khi sửa dòng mã đầu tiên)"
+      - "GOV-ITERATION-LIMIT-001 (§G7.3 — Owner bác lần thứ ba thì DỪNG cách làm cũ)"
+      - "cổng: test:standard-clause-count"
+
+  - slug: "mobile-responsive-ui-patterns"
+    name: "mobile-responsive-ui-patterns"
+    description: "Chuẩn hóa toàn bộ quy tắc responsive mobile cho UI ERP TanPhat — text abbreviation, sizing, spacing, visibility, wizard compact, column hide/show, audit icon relocation."
+    domain: "ui-layout"
+    operation: "APPLY"
+    failure_family: "UI_INCONSISTENCY"
+    health_label: "HEALTHY"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.0.0"
+    bytes: 8673
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=8 git_log=0"
+    trap_seen_before: "NONE_RECORDED"
+    symptom:
+      - "Áp dụng skill này khi:"
+      - "Implement bất kỳ component UI mới (table, form, wizard, stats, buttons)"
+      - "Owner phản hồi \"mobile trông xấu / chật / text quá dài\""
+    aliases:
+      - "mobile"
+      - "responsive"
+      - "patterns"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-READ-STANDARD-001 (§G7.2 — đọc TOÀN PHẦN docs/UI-STANDARD.md, cấm đọc lỗ khoá)"
+      - "GOV-ACCEPTANCE-FIRST-001 (§G7.1 — chốt bảng tiêu chí TRƯỚC khi sửa dòng mã đầu tiên)"
+      - "GOV-ITERATION-LIMIT-001 (§G7.3 — Owner bác lần thứ ba thì DỪNG cách làm cũ)"
+      - "cổng: test:standard-clause-count"
+
+  - slug: "mock-data-generator"
+    name: "mock-data-generator"
+    description: "Tạo mock data chuẩn cho module/table mới khi chưa có DB connection"
+    domain: "ui-layout"
+    operation: "APPLY"
+    failure_family: "UI_INCONSISTENCY"
+    health_label: "HEALTHY"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "UNVERSIONED"
+    bytes: 2886
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=9 git_log=0"
+    trap_seen_before: "NONE_RECORDED"
+    symptom:
+      - "Kích hoạt skill này khi:"
+      - "Tạo module/page mới cần data hiển thị"
+      - "Develop UI trước khi có API"
+    aliases:
+      - "mock"
+      - "data"
+      - "generator"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-READ-STANDARD-001 (§G7.2 — đọc TOÀN PHẦN docs/UI-STANDARD.md, cấm đọc lỗ khoá)"
+      - "GOV-ACCEPTANCE-FIRST-001 (§G7.1 — chốt bảng tiêu chí TRƯỚC khi sửa dòng mã đầu tiên)"
+      - "GOV-ITERATION-LIMIT-001 (§G7.3 — Owner bác lần thứ ba thì DỪNG cách làm cũ)"
+      - "cổng: test:standard-clause-count"
+
+  - slug: "module-color-palette"
+    name: "module-color-palette"
+    description: "SSOT reference cho module colors trong UI"
+    domain: "ui-layout"
+    operation: "APPLY"
+    failure_family: "UI_INCONSISTENCY"
+    health_label: "HEALTHY"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "UNVERSIONED"
+    bytes: 4242
+    previous_result: "USAGE_EVIDENCE work_log=1 docs=18 git_log=1"
+    trap_seen_before: "NONE_RECORDED"
+    symptom:
+      - "Kích hoạt skill này khi:"
+      - "Cần apply màu cho module mới"
+      - "Cần màu cho component liên quan module (sidebar, cards, headers)"
+    aliases:
+      - "module"
+      - "color"
+      - "palette"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-READ-STANDARD-001 (§G7.2 — đọc TOÀN PHẦN docs/UI-STANDARD.md, cấm đọc lỗ khoá)"
+      - "GOV-ACCEPTANCE-FIRST-001 (§G7.1 — chốt bảng tiêu chí TRƯỚC khi sửa dòng mã đầu tiên)"
+      - "GOV-ITERATION-LIMIT-001 (§G7.3 — Owner bác lần thứ ba thì DỪNG cách làm cũ)"
+      - "cổng: test:standard-clause-count"
+
+  - slug: "mysql-schema-extraction"
+    name: "MySQL Schema Extraction"
+    description: "Lấy full schema từ MySQL (DESCRIBE/SHOW CREATE TABLE) một cách chính xác trên Windows/Laragon"
+    domain: "db-schema"
+    operation: "APPLY"
+    failure_family: "DATA_LOSS"
+    health_label: "UNKNOWN-PURPOSE"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.0.0"
+    bytes: 6294
+    previous_result: "USAGE_EVIDENCE work_log=4 docs=10 git_log=0"
+    trap_seen_before: "⚠️ LƯU Ý: Dùng & operator để call external command trong PowerShell. Dùng single quotes cho path có spaces."
+    symptom:
+      - "Kích hoạt skill này khi:"
+      - "User yêu cầu \"DB Evidence\" hoặc \"SHOW CREATE TABLE\""
+      - "Agent cần schema để verify implementation vs DB"
+    aliases:
+      - "mysql"
+      - "schema"
+      - "extraction"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-SCHEMA-NO-INVENT-001 (§H1)"
+      - "Schema Gate (§H2)"
+      - "Migration Safety (§H4)"
+      - "GOV-IMPORT-RECONCILE-001 (§G7.11)"
+      - "GOV-IMPORT-ERROR-THRESHOLD-001 (§G7.12)"
+      - "GOV-PII-HANDLING-001 (§G7.13 — khi nguồn nạp có dữ liệu cá nhân)"
+      - "cổng: test:pii-scan · test:import-reconcile · test:import-threshold"
+
+  - slug: "not-implemented-placeholder"
+    name: "not-implemented-placeholder"
+    description: "Tạo UI placeholder cho feature chưa implemented (Phase 2)"
+    domain: "ui-layout"
+    operation: "APPLY"
+    failure_family: "UI_INCONSISTENCY"
+    health_label: "HEALTHY"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "UNVERSIONED"
+    bytes: 3199
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=12 git_log=0"
+    trap_seen_before: "NONE_RECORDED"
+    symptom:
+      - "Khi có tab/section/feature:"
+      - "Chưa implemented nhưng cần UI placeholder"
+      - "Đã plan cho Phase 2"
+    aliases:
+      - "not"
+      - "implemented"
+      - "placeholder"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-READ-STANDARD-001 (§G7.2 — đọc TOÀN PHẦN docs/UI-STANDARD.md, cấm đọc lỗ khoá)"
+      - "GOV-ACCEPTANCE-FIRST-001 (§G7.1 — chốt bảng tiêu chí TRƯỚC khi sửa dòng mã đầu tiên)"
+      - "GOV-ITERATION-LIMIT-001 (§G7.3 — Owner bác lần thứ ba thì DỪNG cách làm cũ)"
+      - "cổng: test:standard-clause-count"
+
+  - slug: "nullable-conditional-logic"
+    name: "Nullable Conditional Logic Safety"
+    description: "Tránh lỗi logic khi dùng optional chaining (?.) trong điều kiện với giá trị có thể null/undefined"
+    domain: "NEEDS_OWNER_INPUT"
+    operation: "APPLY"
+    failure_family: "NEEDS_OWNER_INPUT"
+    health_label: "HEALTHY"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.0.0"
+    bytes: 4840
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=12 git_log=0"
+    trap_seen_before: "NONE_RECORDED"
+    symptom:
+      - "✅ Khi viết điều kiện có ?. với giá trị có thể null"
+      - "✅ Khi test phát hiện behavior ngược với expected"
+      - "✅ Khi tạo mới (object = null) nhưng điều kiện xử lý như đã tồn tại"
+    aliases:
+      - "nullable"
+      - "conditional"
+      - "logic"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "(domain chua co anh xa luat rieng — chi ap luat chung o governance_universal)"
+
+  - slug: "number-input-live-preview"
+    name: "Number Input Live Preview (Currency-first)"
+    description: "SSOT pattern cho field số/tiền tệ: Input type=\"number\" + Live Preview format vi-VN dưới ô (không format trực tiếp trong input)."
+    domain: "ui-layout"
+    operation: "VERIFY"
+    failure_family: "UI_INCONSISTENCY"
+    health_label: "UNKNOWN-PURPOSE"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.0.0"
+    bytes: 2607
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=7 git_log=0"
+    trap_seen_before: "❌ Anti-patterns (cấm)"
+    symptom:
+      - "Tiền tệ: VNĐ, VNĐ/kg, VNĐ/cái, USD..."
+      - "Số lớn dễ nhầm (nhiều số 0): > 1000"
+      - "Các field numeric cần “đọc nhanh” (giá, hạn mức, công nợ, số lượng lớn…)"
+    aliases:
+      - "number"
+      - "input"
+      - "live"
+      - "preview"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-READ-STANDARD-001 (§G7.2 — đọc TOÀN PHẦN docs/UI-STANDARD.md, cấm đọc lỗ khoá)"
+      - "GOV-ACCEPTANCE-FIRST-001 (§G7.1 — chốt bảng tiêu chí TRƯỚC khi sửa dòng mã đầu tiên)"
+      - "GOV-ITERATION-LIMIT-001 (§G7.3 — Owner bác lần thứ ba thì DỪNG cách làm cũ)"
+      - "cổng: test:standard-clause-count"
+
+  - slug: "optimistic-ui-updates"
+    name: "optimistic-ui-updates"
+    description: "Pattern optimistic UI updates - cập nhật local state ngay lập tức sau create/update/delete để UX mượt mà"
+    domain: "ui-layout"
+    operation: "APPLY"
+    failure_family: "DATA_LOSS"
+    health_label: "HEALTHY"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "UNVERSIONED"
+    bytes: 7898
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=3 git_log=0"
+    trap_seen_before: "NONE_RECORDED"
+    symptom:
+      - "Kích hoạt skill này khi:"
+      - "Sau mọi create/update/delete operation trong CRUD forms"
+      - "Cần UI phản hồi ngay lập tức (không chờ server response)"
+    aliases:
+      - "optimistic"
+      - "updates"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-READ-STANDARD-001 (§G7.2 — đọc TOÀN PHẦN docs/UI-STANDARD.md, cấm đọc lỗ khoá)"
+      - "GOV-ACCEPTANCE-FIRST-001 (§G7.1 — chốt bảng tiêu chí TRƯỚC khi sửa dòng mã đầu tiên)"
+      - "GOV-ITERATION-LIMIT-001 (§G7.3 — Owner bác lần thứ ba thì DỪNG cách làm cũ)"
+      - "cổng: test:standard-clause-count"
+
+  - slug: "phase-2-placeholder-notes"
+    name: "phase-2-placeholder-notes"
+    description: "Add placeholder notes cho incomplete features để set expectation về Phase 2 và inform users"
+    domain: "ui-layout"
+    operation: "APPLY"
+    failure_family: "UI_INCONSISTENCY"
+    health_label: "UNKNOWN-PURPOSE"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "UNVERSIONED"
+    bytes: 5951
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=14 git_log=0"
+    trap_seen_before: "NONE_RECORDED"
+    symptom:
+      - "Kích hoạt skill này khi:"
+      - "Implement feature nhưng một phần chưa làm (để Phase 2)"
+      - "UI elements dùng raw input thay vì builder (condition AST, expression)"
+    aliases:
+      - "phase"
+      - "placeholder"
+      - "notes"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-READ-STANDARD-001 (§G7.2 — đọc TOÀN PHẦN docs/UI-STANDARD.md, cấm đọc lỗ khoá)"
+      - "GOV-ACCEPTANCE-FIRST-001 (§G7.1 — chốt bảng tiêu chí TRƯỚC khi sửa dòng mã đầu tiên)"
+      - "GOV-ITERATION-LIMIT-001 (§G7.3 — Owner bác lần thứ ba thì DỪNG cách làm cũ)"
+      - "cổng: test:standard-clause-count"
+
+  - slug: "phased-migration-with-backfill"
+    name: "Phased Migration with Backfill"
+    description: "Schema migration an toàn với backfill dữ liệu thật, có rollback plan"
+    domain: "db-schema"
+    operation: "APPLY"
+    failure_family: "DATA_LOSS"
+    health_label: "UNKNOWN-PURPOSE"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.0.0"
+    bytes: 4841
+    previous_result: "USAGE_EVIDENCE work_log=1 docs=8 git_log=0"
+    trap_seen_before: "NONE_RECORDED"
+    symptom:
+      - "Kích hoạt skill này khi:"
+      - "ALTER TABLE ADD COLUMN với bảng đang có dữ liệu thật (≥1 row)"
+      - "Thay đổi cột computed/derived từ cột cũ"
+    aliases:
+      - "phased"
+      - "migration"
+      - "with"
+      - "backfill"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-SCHEMA-NO-INVENT-001 (§H1)"
+      - "Schema Gate (§H2)"
+      - "Migration Safety (§H4)"
+      - "GOV-IMPORT-RECONCILE-001 (§G7.11)"
+      - "GOV-IMPORT-ERROR-THRESHOLD-001 (§G7.12)"
+      - "GOV-PII-HANDLING-001 (§G7.13 — khi nguồn nạp có dữ liệu cá nhân)"
+      - "cổng: test:pii-scan · test:import-reconcile · test:import-threshold"
+
+  - slug: "plan-execution-protocol"
+    name: "plan-execution-protocol"
+    description: "Vòng thực thi có cổng theo CLAUDE.md §E5 — CHUẨN BỊ → CỔNG → THỰC THI → XÁC MINH → ĐỐI CHIẾU → ĐÓNG, kèm Plan Ledger 6 trạng thái §E4 và luật một Plan of Record §E3. Dùng cho việc nhiều bước, mutation nhiều mặt, di trú dữ liệu, phát hành, audit lớn. KHÔNG dùng cho fix nhỏ, đọc file, giải thích."
+    domain: "governance"
+    operation: "APPLY"
+    failure_family: "DATA_LOSS"
+    health_label: "HEALTHY"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "2.0.0"
+    bytes: 10314
+    previous_result: "USAGE_EVIDENCE work_log=2 docs=22 git_log=1"
+    trap_seen_before: "1. Plan ID lịch sử KHÔNG đổi. Cấm cấp mã mới cho cùng một việc đang bị bác (GOV-ITERATION-LIMIT-001 §G7.3)."
+    symptom:
+      - "Đúng danh sách MUST có Plan ở CLAUDE.md §E2:"
+      - "việc nhiều bước · mutation nhiều mặt"
+      - "migration schema / dữ liệu · release / deploy"
+    aliases:
+      - "plan"
+      - "execution"
+      - "protocol"
+    quality_gate:
+      - "npm run test:report-gate"
+    negative_trigger:
+      - "TUYỆT ĐỐI KHÔNG kích hoạt khi"
+      - "Đúng danh sách MAY không có Plan ở §E2:"
+      - "giải thích · đọc file"
+    governance:
+      - "GOV-FIVE-REPLICA-SYNC-001 (§A1)"
+      - "GOV-EDIT-PRESERVE-001 (§G7.0)"
+      - "GOV-REF-EXISTS-001 (§G7.6)"
+      - "GOV-GATE-REAL-INPUT-001 (§G7.7)"
+      - "GOV-RELOAD-AFTER-COMPACT-001 (§G7.8)"
+      - "GOV-LAW-STATE-SEPARATION-001 (§B3)"
+      - "cổng: check:governance · test:clause-count · test:standard-clause-count · test:ref-exists-gate · test:skills-registry"
+
+  - slug: "popover-scroll-fix"
+    name: "Popover Scroll Fix"
+    description: "Fix scroll issue trong Popover/Dropdown khi nằm inside Sheet/Dialog - wheel event bị nuốt bởi parent portal"
+    domain: "deploy-env"
+    operation: "FIX"
+    failure_family: "ENV_BREAKAGE"
+    health_label: "HEALTHY"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.0.0"
+    bytes: 2853
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=6 git_log=0"
+    trap_seen_before: "NONE_RECORDED"
+    symptom:
+      - "✅ Popover/Dropdown có danh sách dài (>5 items) cần scroll"
+      - "✅ Popover nằm trong Sheet/Dialog/Modal (nested portals)"
+      - "✅ User báo \"không cuộn chuột được\" trong dropdown"
+    aliases:
+      - "popover"
+      - "scroll"
+      - "fix"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-CONVENTION-BASELINE-002 (§H3b — soi chéo CẢ HAI bên trước, không mặc định tin VPS)"
+      - "Deploy (§I4 — build success KHÔNG chứng minh deploy success)"
+
+  - slug: "portal-safe-dropdown-overlay"
+    name: "Portal-safe Dropdown Overlay (Avoid Overflow Clipping)"
+    description: "SSOT cho dropdown/combobox overlay không bị kẹt/clip trong card/section có overflow-hidden; dùng Portal (Radix Popover) + ESC/Wheel safe theo G2."
+    domain: "deploy-env"
+    operation: "APPLY"
+    failure_family: "ENV_BREAKAGE"
+    health_label: "UNKNOWN-PURPOSE"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.0.0"
+    bytes: 3210
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=6 git_log=0"
+    trap_seen_before: "name: Portal-safe Dropdown Overlay (Avoid Overflow Clipping)"
+    symptom:
+      - "Khi dropdown list đang implement kiểu absolute trong card/section và bị:"
+      - "“Nằm trong card”, bị cắt phần list"
+      - "Scroll wheel kéo cả Sheet thay vì list"
+    aliases:
+      - "portal"
+      - "safe"
+      - "dropdown"
+      - "overlay"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-CONVENTION-BASELINE-002 (§H3b — soi chéo CẢ HAI bên trước, không mặc định tin VPS)"
+      - "Deploy (§I4 — build success KHÔNG chứng minh deploy success)"
+
+  - slug: "premium-module-page-redesign"
+    name: "premium-module-page-redesign"
+    description: "Defines the base redesign workflow for module overview pages with premium UI structure, module color identity, and approval-first demo flow. Use for module shells and overview pages; use transactional-page-redesign only for heavy stats/filter/table transactional screens."
+    domain: "ui-layout"
+    operation: "FIX"
+    failure_family: "UI_INCONSISTENCY"
+    health_label: "UNKNOWN-PURPOSE"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.1.0"
+    bytes: 3834
+    previous_result: "USAGE_EVIDENCE work_log=2 docs=14 git_log=0"
+    trap_seen_before: "UI redesign must not quietly change business workflow, schema contract, or field meaning."
+    symptom:
+      - "Apply this skill when:"
+      - "redesigning a module landing page"
+      - "improving module overview consistency"
+    aliases:
+      - "premium"
+      - "module"
+      - "page"
+      - "redesign"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "the page is primarily a transactional workspace with large filters, tables, and row actions"
+      - "the task is only a small component fix"
+    governance:
+      - "GOV-READ-STANDARD-001 (§G7.2 — đọc TOÀN PHẦN docs/UI-STANDARD.md, cấm đọc lỗ khoá)"
+      - "GOV-ACCEPTANCE-FIRST-001 (§G7.1 — chốt bảng tiêu chí TRƯỚC khi sửa dòng mã đầu tiên)"
+      - "GOV-ITERATION-LIMIT-001 (§G7.3 — Owner bác lần thứ ba thì DỪNG cách làm cũ)"
+      - "cổng: test:standard-clause-count"
+
+  - slug: "premium-table-styling"
+    name: "Premium Table Styling"
+    description: "Chuẩn hóa styling cho table rows với status-colored icons, premium badges, highlight colors, mobile badge abbreviation, và audit icon relocation"
+    domain: "ui-layout"
+    operation: "APPLY"
+    failure_family: "UI_INCONSISTENCY"
+    health_label: "NO-TRIGGER"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.1.0"
+    bytes: 7374
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=12 git_log=1"
+    trap_seen_before: "NONE_RECORDED"
+    symptom:
+      - "(rút từ description) Chuẩn hóa styling cho table rows với status-colored icons, premium badges, highlight colors, mobile badge abbreviation, và audit icon relocation"
+    aliases:
+      - "premium"
+      - "table"
+      - "styling"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-READ-STANDARD-001 (§G7.2 — đọc TOÀN PHẦN docs/UI-STANDARD.md, cấm đọc lỗ khoá)"
+      - "GOV-ACCEPTANCE-FIRST-001 (§G7.1 — chốt bảng tiêu chí TRƯỚC khi sửa dòng mã đầu tiên)"
+      - "GOV-ITERATION-LIMIT-001 (§G7.3 — Owner bác lần thứ ba thì DỪNG cách làm cũ)"
+      - "cổng: test:standard-clause-count"
+
+  - slug: "print-html-template"
+    name: "Print HTML Template"
+    description: "Pattern tạo print functionality cho documents bằng HTML template và window.print()"
+    domain: "NEEDS_OWNER_INPUT"
+    operation: "APPLY"
+    failure_family: "NEEDS_OWNER_INPUT"
+    health_label: "HEALTHY"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.0.0"
+    bytes: 10173
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=12 git_log=0"
+    trap_seen_before: "NONE_RECORDED"
+    symptom:
+      - "Trigger khi:"
+      - "Cần in documents (Báo giá, Đơn hàng, Phiếu)"
+      - "Quick print cho internal use"
+    aliases:
+      - "print"
+      - "html"
+      - "template"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "Cần PDF file để gửi email"
+      - "Complex layouts (multi-page, headers/footers)"
+    governance:
+      - "(domain chua co anh xa luat rieng — chi ap luat chung o governance_universal)"
+
+  - slug: "props-from-server-not-mock"
+    name: "Props From Server Not Mock"
+    description: "Pattern đảm bảo Client Component nhận data từ Server Component props (DB) thay vì gọi mock helper"
+    domain: "ui-layout"
+    operation: "APPLY"
+    failure_family: "UI_INCONSISTENCY"
+    health_label: "HEALTHY"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.1.0"
+    bytes: 4431
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=6 git_log=0"
+    trap_seen_before: "NONE_RECORDED"
+    symptom:
+      - "✅ Dropdown/Select hiển thị ít options hơn expected"
+      - "✅ Data trong UI không khớp với data trong DB"
+      - "✅ Client Component đang import helper từ mock file"
+    aliases:
+      - "props"
+      - "from"
+      - "server"
+      - "not"
+      - "mock"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-READ-STANDARD-001 (§G7.2 — đọc TOÀN PHẦN docs/UI-STANDARD.md, cấm đọc lỗ khoá)"
+      - "GOV-ACCEPTANCE-FIRST-001 (§G7.1 — chốt bảng tiêu chí TRƯỚC khi sửa dòng mã đầu tiên)"
+      - "GOV-ITERATION-LIMIT-001 (§G7.3 — Owner bác lần thứ ba thì DỪNG cách làm cũ)"
+      - "cổng: test:standard-clause-count"
+
+  - slug: "public-report-sanitize-gate"
+    name: "public-report-sanitize-gate"
+    description: "Cổng lọc bắt buộc trước khi đẩy bất kỳ nội dung nào lên kho báo cáo CÔNG KHAI. Điều phối các cổng đã có (test:secret-scan 2 chế độ + test:pii-scan) rồi đối chiếu checklist public-safe theo đúng danh mục GOV-PUBLIC-SAFE-001 §J1. KHÔNG tự viết lại bộ regex riêng."
+    domain: "public-report"
+    operation: "VERIFY"
+    failure_family: "DATA_EXPOSURE"
+    health_label: "HEALTHY"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.0.0"
+    bytes: 6570
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=2 git_log=1"
+    trap_seen_before: "Bất kỳ cổng nào FAIL ⇒ KHÔNG PUSH. Sửa nguồn rồi chạy lại. Cấm hạ cổng để ép PASS (GOV-GATE-REAL-INPUT-001 §G7.7)."
+    symptom:
+      - "Sắp git push vào kho báo cáo công khai"
+      - "Sắp dán nội dung dự án ra ngoài workspace (chat ngoài, issue công khai, tài liệu chia sẻ)"
+      - "Tạo snapshot tài liệu quản trị để công bố"
+    aliases:
+      - "public"
+      - "report"
+      - "sanitize"
+      - "gate"
+    quality_gate:
+      - "npm run test:secret-scan"
+      - "npm run test:pii-scan"
+    negative_trigger:
+      - "TUYỆT ĐỐI KHÔNG kích hoạt khi"
+      - "Push vào kho mã riêng tư — khác chính sách hoàn toàn; kho riêng tư ĐƯỢC chứa đường dẫn, schema, tên file nội bộ"
+      - "Commit tài liệu nội bộ trong docs/ của kho riêng tư"
+    governance:
+      - "GOV-PUBLIC-SAFE-001 (§J1 — thắng mọi diễn giải cũ)"
+      - "GOV-SECRET-IN-LAW-001 (§J1b)"
+      - "GOV-PII-HANDLING-001 (§G7.13)"
+      - "Public Report Bridge (§J2)"
+      - "cổng: test:secret-scan (2 chế độ) · test:pii-scan"
+
+  - slug: "radix-overlay-guard"
+    name: "Radix Overlay Guard"
+    description: "Pattern xử lý nested Radix overlays (Sheet > Popover > Dialog) + gate a11y bắt buộc DialogTitle/SheetTitle cho mọi Sheet/Dialog"
+    domain: "ui-layout"
+    operation: "VERIFY"
+    failure_family: "UI_INCONSISTENCY"
+    health_label: "HEALTHY"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.1.0"
+    bytes: 10366
+    previous_result: "USAGE_EVIDENCE work_log=3 docs=12 git_log=0"
+    trap_seen_before: "[ ] Focus trap hoạt động đúng"
+    symptom:
+      - "Trigger khi:"
+      - "Form trong Sheet có dropdown/combobox (Radix Popover)"
+      - "Form trong Sheet có date picker (Radix Popover)"
+    aliases:
+      - "radix"
+      - "overlay"
+      - "guard"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "Simple forms không có interactive overlays"
+      - "Sheet chỉ có static content"
+    governance:
+      - "GOV-READ-STANDARD-001 (§G7.2 — đọc TOÀN PHẦN docs/UI-STANDARD.md, cấm đọc lỗ khoá)"
+      - "GOV-ACCEPTANCE-FIRST-001 (§G7.1 — chốt bảng tiêu chí TRƯỚC khi sửa dòng mã đầu tiên)"
+      - "GOV-ITERATION-LIMIT-001 (§G7.3 — Owner bác lần thứ ba thì DỪNG cách làm cũ)"
+      - "cổng: test:standard-clause-count"
+
+  - slug: "ref-dropdown-scope-filter"
+    name: "Ref Dropdown Scope Filter (Category/Group-specific options)"
+    description: "SSOT pattern: Lọc options dropdown ref master data theo scope nghiệp vụ cụ thể (category/group) thay vì hiển thị toàn bộ, tránh user chọn nhầm nhóm."
+    domain: "ui-layout"
+    operation: "APPLY"
+    failure_family: "UI_INCONSISTENCY"
+    health_label: "HEALTHY"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.0.0"
+    bytes: 5062
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=1 git_log=0"
+    trap_seen_before: "NONE_RECORDED"
+    symptom:
+      - "Dropdown ref bảng có nhiều nhóm (vd: dmuom có nhóm VT/SP/CD)."
+      - "Spec yêu cầu \"chỉ hiển thị nhóm X, không lấy nhóm Y\"."
+      - "UI cần scope rõ ràng để tránh nhầm lẫn."
+    aliases:
+      - "ref"
+      - "dropdown"
+      - "scope"
+      - "filter"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-READ-STANDARD-001 (§G7.2 — đọc TOÀN PHẦN docs/UI-STANDARD.md, cấm đọc lỗ khoá)"
+      - "GOV-ACCEPTANCE-FIRST-001 (§G7.1 — chốt bảng tiêu chí TRƯỚC khi sửa dòng mã đầu tiên)"
+      - "GOV-ITERATION-LIMIT-001 (§G7.3 — Owner bác lần thứ ba thì DỪNG cách làm cũ)"
+      - "cổng: test:standard-clause-count"
+
+  - slug: "ref-options-from-server"
+    name: "Ref Options From Server (No Mock, DB-first)"
+    description: "SSOT pattern: Server Component load options (master/hierarchical refs) từ DB → pass xuống client; tránh mock; giữ scope đúng (category/leaf-only) và có labelById."
+    domain: "ui-layout"
+    operation: "APPLY"
+    failure_family: "UI_INCONSISTENCY"
+    health_label: "UNKNOWN-PURPOSE"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.0.0"
+    bytes: 3566
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=13 git_log=0"
+    trap_seen_before: "NONE_RECORDED"
+    symptom:
+      - "Dropdown/combobox ref các bảng danh mục (M0/M1…)."
+      - "Options có logic “scope” (category / leaf-only / combine categories)."
+      - "Khi muốn UI update đúng ngay theo DB local/production."
+    aliases:
+      - "ref"
+      - "options"
+      - "from"
+      - "server"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-READ-STANDARD-001 (§G7.2 — đọc TOÀN PHẦN docs/UI-STANDARD.md, cấm đọc lỗ khoá)"
+      - "GOV-ACCEPTANCE-FIRST-001 (§G7.1 — chốt bảng tiêu chí TRƯỚC khi sửa dòng mã đầu tiên)"
+      - "GOV-ITERATION-LIMIT-001 (§G7.3 — Owner bác lần thứ ba thì DỪNG cách làm cũ)"
+      - "cổng: test:standard-clause-count"
+
+  - slug: "refactor-extract-component"
+    name: "refactor-extract-component"
+    description: "Extract component khi phát hiện pattern lặp lại ≥3 lần"
+    domain: "ui-layout"
+    operation: "FIX"
+    failure_family: "UI_INCONSISTENCY"
+    health_label: "HEALTHY"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "UNVERSIONED"
+    bytes: 3925
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=9 git_log=0"
+    trap_seen_before: "NONE_RECORDED"
+    symptom:
+      - "Kích hoạt skill này khi:"
+      - "Phát hiện JSX pattern lặp lại ≥3 lần"
+      - "Copy-paste code giữa các files"
+    aliases:
+      - "refactor"
+      - "extract"
+      - "component"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-READ-STANDARD-001 (§G7.2 — đọc TOÀN PHẦN docs/UI-STANDARD.md, cấm đọc lỗ khoá)"
+      - "GOV-ACCEPTANCE-FIRST-001 (§G7.1 — chốt bảng tiêu chí TRƯỚC khi sửa dòng mã đầu tiên)"
+      - "GOV-ITERATION-LIMIT-001 (§G7.3 — Owner bác lần thứ ba thì DỪNG cách làm cũ)"
+      - "cổng: test:standard-clause-count"
+
+  - slug: "remove-raw-json-editing"
+    name: "remove-raw-json-editing"
+    description: "Replace editable JSON textarea với view-only display + View JSON button để comply với \"NO RAW JSON\" requirement"
+    domain: "ui-layout"
+    operation: "FIX"
+    failure_family: "UI_INCONSISTENCY"
+    health_label: "UNKNOWN-PURPOSE"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "UNVERSIONED"
+    bytes: 7174
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=14 git_log=0"
+    trap_seen_before: "Requirement yêu cầu \"NO RAW JSON\" (user không được edit JSON trực tiếp)"
+    symptom:
+      - "Kích hoạt skill này khi:"
+      - "Form/dialog cho phép edit raw JSON (blueprintjson, configjson, formulajson)"
+      - "Requirement yêu cầu \"NO RAW JSON\" (user không được edit JSON trực tiếp)"
+    aliases:
+      - "remove"
+      - "raw"
+      - "json"
+      - "editing"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-READ-STANDARD-001 (§G7.2 — đọc TOÀN PHẦN docs/UI-STANDARD.md, cấm đọc lỗ khoá)"
+      - "GOV-ACCEPTANCE-FIRST-001 (§G7.1 — chốt bảng tiêu chí TRƯỚC khi sửa dòng mã đầu tiên)"
+      - "GOV-ITERATION-LIMIT-001 (§G7.3 — Owner bác lần thứ ba thì DỪNG cách làm cũ)"
+      - "cổng: test:standard-clause-count"
+
+  - slug: "repo-integrity-recovery-audit"
+    name: "repo-integrity-recovery-audit"
+    description: "Rà toàn vẹn kho mã sau sự cố mất tệp — 6 bước bắt buộc, trong đó bước kiểm VÙNG GITIGNORED là vùng mù thật mà Git không cứu được. Bỏ bước đó = FAIL. Dùng khi file biến mất không rõ nguyên nhân, hoặc build/test hỏng đột ngột sau khi máy khởi động lại."
+    domain: "governance"
+    operation: "FIX"
+    failure_family: "DATA_LOSS"
+    health_label: "HEALTHY"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.0.0"
+    bytes: 6378
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=2 git_log=0"
+    trap_seen_before: "Luật liên quan: CLAUDE.md §I1 (Local-first, cấm destructive cleanup nếu Owner chưa duyệt)"
+    symptom:
+      - "git status báo file bị xoá mà không ai chủ ý xoá"
+      - "Build/test hỏng đột ngột sau khi máy khởi động lại"
+      - "Nghi công cụ dọn file / diệt virus / đồng bộ đám mây can thiệp"
+    aliases:
+      - "repo"
+      - "integrity"
+      - "recovery"
+      - "audit"
+    quality_gate:
+      - "npm run check:governance"
+    negative_trigger:
+      - "TUYỆT ĐỐI KHÔNG kích hoạt khi"
+      - "File bị xoá có chủ ý trong chính lượt hiện tại"
+      - "Đang giữa một đợt refactor đã lên kế hoạch xoá file"
+    governance:
+      - "GOV-FIVE-REPLICA-SYNC-001 (§A1)"
+      - "GOV-EDIT-PRESERVE-001 (§G7.0)"
+      - "GOV-REF-EXISTS-001 (§G7.6)"
+      - "GOV-GATE-REAL-INPUT-001 (§G7.7)"
+      - "GOV-RELOAD-AFTER-COMPACT-001 (§G7.8)"
+      - "GOV-LAW-STATE-SEPARATION-001 (§B3)"
+      - "cổng: check:governance · test:clause-count · test:standard-clause-count · test:ref-exists-gate · test:skills-registry"
+
+  - slug: "reusable-component-from-demo"
+    name: "Reusable Component From Demo"
+    description: "Tạo reusable component từ demo HTML khi phát hiện pattern lặp lại"
+    domain: "ui-layout"
+    operation: "APPLY"
+    failure_family: "UI_INCONSISTENCY"
+    health_label: "HEALTHY"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.0.0"
+    bytes: 5337
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=6 git_log=0"
+    trap_seen_before: "LƯU Ý QUAN TRỌNG: Khi replace component cũ bằng component mới:"
+    symptom:
+      - "Kích hoạt skill này khi:"
+      - "Demo HTML có styling pattern cần tái sử dụng ≥3 lần"
+      - "Phát hiện pattern lặp lại (section cards, badges, headers)"
+    aliases:
+      - "reusable"
+      - "component"
+      - "from"
+      - "demo"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-READ-STANDARD-001 (§G7.2 — đọc TOÀN PHẦN docs/UI-STANDARD.md, cấm đọc lỗ khoá)"
+      - "GOV-ACCEPTANCE-FIRST-001 (§G7.1 — chốt bảng tiêu chí TRƯỚC khi sửa dòng mã đầu tiên)"
+      - "GOV-ITERATION-LIMIT-001 (§G7.3 — Owner bác lần thứ ba thì DỪNG cách làm cũ)"
+      - "cổng: test:standard-clause-count"
+
+  - slug: "root-directory-verification"
+    name: "Root Directory Verification"
+    description: "Xác minh thư mục gốc dự án theo registry SSOT và ép script suy gốc động (cấm gán cứng path)"
+    domain: "testing"
+    operation: "APPLY"
+    failure_family: "UNVERIFIED_CLAIM"
+    health_label: "HEALTHY"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "2.0.0"
+    bytes: 8102
+    previous_result: "USAGE_EVIDENCE work_log=1 docs=0 git_log=1"
+    trap_seen_before: "description: Xác minh thư mục gốc dự án theo registry SSOT và ép script suy gốc động (cấm gán cứng path)"
+    symptom:
+      - "Trigger khi:"
+      - "Bắt đầu phiên làm việc mới (verify gốc trước lệnh đầu tiên)"
+      - "Root/workspace vừa đổi chỗ"
+    aliases:
+      - "root"
+      - "directory"
+      - "verification"
+    quality_gate:
+      - "npm run test:path-audit"
+      - "npm run test:path-audit:"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-EVIDENCE-STRENGTH-001 (§G1)"
+      - "GOV-GATE-REAL-INPUT-001 (§G7.7)"
+      - "Quality Gate theo applicability (§I2)"
+
+  - slug: "safe-cross-module-error"
+    name: "Safe Cross-Module Error Handling"
+    description: "Pattern đảm bảo Module B failure không fail Module A transaction"
+    domain: "NEEDS_OWNER_INPUT"
+    operation: "APPLY"
+    failure_family: "NEEDS_OWNER_INPUT"
+    health_label: "HEALTHY"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.0.0"
+    bytes: 8195
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=7 git_log=0"
+    trap_seen_before: "Primary operation never blocked by secondary"
+    symptom:
+      - "Trigger khi:"
+      - "Module A triggers action trong Module B"
+      - "Module B operation là \"nice to have\" không phải \"must have\""
+    aliases:
+      - "safe"
+      - "cross"
+      - "module"
+      - "error"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "Module B là required dependency"
+      - "Cả 2 operations phải atomic"
+    governance:
+      - "(domain chua co anh xa luat rieng — chi ap luat chung o governance_universal)"
+
+  - slug: "scaffold-module"
+    name: "Scaffold New Module"
+    description: "Tạo module CRUD mới chuẩn Server Components + Server Actions + SSE (BẮT BUỘC)"
+    domain: "ui-layout"
+    operation: "CREATE"
+    failure_family: "UI_INCONSISTENCY"
+    health_label: "NO-TRIGGER"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.0.0"
+    bytes: 2777
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=8 git_log=0"
+    trap_seen_before: "Lưu ý: Sau khi tạo files, chạy npm run lint để đảm bảo code sạch."
+    symptom:
+      - "(rút từ description) Tạo module CRUD mới chuẩn Server Components + Server Actions + SSE (BẮT BUỘC)"
+    aliases:
+      - "scaffold"
+      - "module"
+    quality_gate:
+      - "npm run lint"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-READ-STANDARD-001 (§G7.2 — đọc TOÀN PHẦN docs/UI-STANDARD.md, cấm đọc lỗ khoá)"
+      - "GOV-ACCEPTANCE-FIRST-001 (§G7.1 — chốt bảng tiêu chí TRƯỚC khi sửa dòng mã đầu tiên)"
+      - "GOV-ITERATION-LIMIT-001 (§G7.3 — Owner bác lần thứ ba thì DỪNG cách làm cũ)"
+      - "cổng: test:standard-clause-count"
+
+  - slug: "schema-column-drop-safe"
+    name: "Schema Column Drop Safe (DROP Column with FK/Data Migration)"
+    description: "SSOT pattern: DROP cột DB an toàn (backup + migrate data/FK + verify) để tránh data loss và không gãy FK constraint."
+    domain: "db-schema"
+    operation: "APPLY"
+    failure_family: "DATA_LOSS"
+    health_label: "HEALTHY"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.0.0"
+    bytes: 4691
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=2 git_log=0"
+    trap_seen_before: "NONE_RECORDED"
+    symptom:
+      - "Spec yêu cầu bỏ cột không cần thiết (vd: thutu, mota)."
+      - "Cần gộp 2 cột thành 1 (vd: tenvattu + tenvattudaydu → chỉ giữ tenvattudaydu)."
+      - "Refactoring schema để giảm tải DB."
+    aliases:
+      - "schema"
+      - "column"
+      - "drop"
+      - "safe"
+    quality_gate:
+      - "npm run lint"
+      - "npm run build"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-SCHEMA-NO-INVENT-001 (§H1)"
+      - "Schema Gate (§H2)"
+      - "Migration Safety (§H4)"
+      - "GOV-IMPORT-RECONCILE-001 (§G7.11)"
+      - "GOV-IMPORT-ERROR-THRESHOLD-001 (§G7.12)"
+      - "GOV-PII-HANDLING-001 (§G7.13 — khi nguồn nạp có dữ liệu cá nhân)"
+      - "cổng: test:pii-scan · test:import-reconcile · test:import-threshold"
+
+  - slug: "schema-migration-safe"
+    name: "schema-migration-safe"
+    description: "Protects real data during schema changes. Use when adding, modifying, deprecating, renaming, or dropping DB fields, and when TypeScript, store, and UI must stay aligned with the live schema."
+    domain: "db-schema"
+    operation: "APPLY"
+    failure_family: "DATA_LOSS"
+    health_label: "UNKNOWN-PURPOSE"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.1.0"
+    bytes: 5210
+    previous_result: "USAGE_EVIDENCE work_log=3 docs=16 git_log=2"
+    trap_seen_before: "IMMUTABLE: snapshot/approved/locked records that must not be edited directly"
+    symptom:
+      - "Apply this skill when:"
+      - "a table/column/FK/index changes"
+      - "store code expects new persisted fields"
+    aliases:
+      - "schema"
+      - "migration"
+      - "safe"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "UI-only changes"
+      - "pure query optimizations with no schema impact"
+    governance:
+      - "GOV-SCHEMA-NO-INVENT-001 (§H1)"
+      - "Schema Gate (§H2)"
+      - "Migration Safety (§H4)"
+      - "GOV-IMPORT-RECONCILE-001 (§G7.11)"
+      - "GOV-IMPORT-ERROR-THRESHOLD-001 (§G7.12)"
+      - "GOV-PII-HANDLING-001 (§G7.13 — khi nguồn nạp có dữ liệu cá nhân)"
+      - "cổng: test:pii-scan · test:import-reconcile · test:import-threshold"
+
+  - slug: "schema-visualization"
+    name: "Schema Visualization (Show Schema Tables for Review)"
+    description: "SSOT format: Hiển thị schema đầy đủ (DB + UI Table + UI Form) dạng bảng trực quan (có kiểu dữ liệu, logic, constraints) để user dễ ra lệnh ẩn/hiện/sắp xếp cột chính xác."
+    domain: "db-schema"
+    operation: "APPLY"
+    failure_family: "SCHEMA_DRIFT"
+    health_label: "UNKNOWN-PURPOSE"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.0.0"
+    bytes: 5389
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=6 git_log=0"
+    trap_seen_before: "Field A XOR Field B: không được có cả 2"
+    symptom:
+      - "User yêu cầu: \"show toàn bộ schema\", \"liệt kê đầy đủ\", \"schema chi tiết\", \"bảng + form\"."
+      - "Trước khi refactor UI table/form (để user biết hiện trạng)."
+      - "Sau khi schema change lớn (để confirm lại với user)."
+    aliases:
+      - "schema"
+      - "visualization"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-SCHEMA-NO-INVENT-001 (§H1)"
+      - "Schema Gate (§H2)"
+      - "Migration Safety (§H4)"
+      - "GOV-IMPORT-RECONCILE-001 (§G7.11)"
+      - "GOV-IMPORT-ERROR-THRESHOLD-001 (§G7.12)"
+      - "GOV-PII-HANDLING-001 (§G7.13 — khi nguồn nạp có dữ liệu cá nhân)"
+      - "cổng: test:pii-scan · test:import-reconcile · test:import-threshold"
+
+  - slug: "screenshot-verification"
+    name: "screenshot-verification"
+    description: "Screenshot verification sau mỗi UI implementation"
+    domain: "testing"
+    operation: "APPLY"
+    failure_family: "UNVERIFIED_CLAIM"
+    health_label: "UNKNOWN-PURPOSE"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "UNVERSIONED"
+    bytes: 4192
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=18 git_log=0"
+    trap_seen_before: "NONE_RECORDED"
+    symptom:
+      - "Kích hoạt skill này:"
+      - "Sau mỗi UI implementation lớn"
+      - "Khi cần verify implementation matches demo"
+    aliases:
+      - "screenshot"
+      - "verification"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-EVIDENCE-STRENGTH-001 (§G1)"
+      - "GOV-GATE-REAL-INPUT-001 (§G7.7)"
+      - "Quality Gate theo applicability (§I2)"
+
+  - slug: "search-normalization"
+    name: "Search Normalization (Accent-insensitive + Scope-aware)"
+    description: "Chuẩn hoá search toàn hệ thống: tìm được có dấu/không dấu, lowercase, trim; scope search phụ thuộc vị trí (global/module/table)."
+    domain: "ui-layout"
+    operation: "FIX"
+    failure_family: "UI_INCONSISTENCY"
+    health_label: "NO-TRIGGER"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.1.0"
+    bytes: 1917
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=19 git_log=0"
+    trap_seen_before: "NONE_RECORDED"
+    symptom:
+      - "(rút từ description) Chuẩn hoá search toàn hệ thống: tìm được có dấu/không dấu, lowercase, trim; scope search phụ thuộc vị trí (global/module/table)."
+    aliases:
+      - "search"
+      - "normalization"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-READ-STANDARD-001 (§G7.2 — đọc TOÀN PHẦN docs/UI-STANDARD.md, cấm đọc lỗ khoá)"
+      - "GOV-ACCEPTANCE-FIRST-001 (§G7.1 — chốt bảng tiêu chí TRƯỚC khi sửa dòng mã đầu tiên)"
+      - "GOV-ITERATION-LIMIT-001 (§G7.3 — Owner bác lần thứ ba thì DỪNG cách làm cũ)"
+      - "cổng: test:standard-clause-count"
+
+  - slug: "searchable-dropdown"
+    name: "Searchable Dropdown/Combobox Pattern"
+    description: "SSOT cho dropdown có search (>10 options) - gõ để lọc nhanh, normalize không dấu, ESC safe cho G2 nested overlay"
+    domain: "ui-layout"
+    operation: "APPLY"
+    failure_family: "UI_INCONSISTENCY"
+    health_label: "HEALTHY"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.0.0"
+    bytes: 10124
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=6 git_log=0"
+    trap_seen_before: "Lưu ý: Nếu UI yêu cầu “không có add” thì bắt buộc dùng No-add (không tự ý bật CTA)."
+    symptom:
+      - "✅ Dropdown có >10 options (user khó scroll để tìm)"
+      - "✅ Options là master data (danh mục, nhóm, loại...)"
+      - "✅ User có thể biết trước tên (hoặc 1 phần tên) để gõ"
+    aliases:
+      - "searchable"
+      - "dropdown"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-READ-STANDARD-001 (§G7.2 — đọc TOÀN PHẦN docs/UI-STANDARD.md, cấm đọc lỗ khoá)"
+      - "GOV-ACCEPTANCE-FIRST-001 (§G7.1 — chốt bảng tiêu chí TRƯỚC khi sửa dòng mã đầu tiên)"
+      - "GOV-ITERATION-LIMIT-001 (§G7.3 — Owner bác lần thứ ba thì DỪNG cách làm cũ)"
+      - "cổng: test:standard-clause-count"
+
+  - slug: "searchable-multiselect-popover"
+    name: "Searchable Multi-Select Popover (Portal + Normalize + G2 Safe)"
+    description: "SSOT cho multi-select dạng popover có search không dấu, portal-safe (thoát overflow-hidden), ESC/wheel safe trong Sheet/Dialog, hiển thị name-only, mặc định no-add."
+    domain: "deploy-env"
+    operation: "APPLY"
+    failure_family: "ENV_BREAKAGE"
+    health_label: "UNKNOWN-PURPOSE"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.0.0"
+    bytes: 6581
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=7 git_log=0"
+    trap_seen_before: "NONE_RECORDED"
+    symptom:
+      - "Field cần chọn nhiều giá trị: công đoạn, tag, nhóm filter đa chọn, vật tư/chất liệu..."
+      - "Options > 10 items và cần search nhanh."
+      - "Đang trong Sheet/Dialog/Card và gặp lỗi scroll/clip."
+    aliases:
+      - "searchable"
+      - "multiselect"
+      - "popover"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-CONVENTION-BASELINE-002 (§H3b — soi chéo CẢ HAI bên trước, không mặc định tin VPS)"
+      - "Deploy (§I4 — build success KHÔNG chứng minh deploy success)"
+
+  - slug: "section-field-reorder"
+    name: "section-field-reorder"
+    description: "Pattern di chuyển field giữa các sections trong form/detail panel theo yêu cầu"
+    domain: "ui-layout"
+    operation: "FIX"
+    failure_family: "UI_INCONSISTENCY"
+    health_label: "UNKNOWN-PURPOSE"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "UNVERSIONED"
+    bytes: 2966
+    previous_result: "USAGE_EVIDENCE work_log=2 docs=6 git_log=0"
+    trap_seen_before: "NONE_RECORDED"
+    symptom:
+      - "User yêu cầu di chuyển field từ section này sang section khác"
+      - "Annotated screenshot chỉ field cần move với mũi tên"
+      - "Yêu cầu \"đưa X xuống/lên section Y\""
+    aliases:
+      - "section"
+      - "field"
+      - "reorder"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-READ-STANDARD-001 (§G7.2 — đọc TOÀN PHẦN docs/UI-STANDARD.md, cấm đọc lỗ khoá)"
+      - "GOV-ACCEPTANCE-FIRST-001 (§G7.1 — chốt bảng tiêu chí TRƯỚC khi sửa dòng mã đầu tiên)"
+      - "GOV-ITERATION-LIMIT-001 (§G7.3 — Owner bác lần thứ ba thì DỪNG cách làm cũ)"
+      - "cổng: test:standard-clause-count"
+
+  - slug: "server-client-split-pattern"
+    name: "Server-Client Split Pattern"
+    description: "Pattern tách page.tsx thành Server Component + Client Component cho Next.js 16 App Router"
+    domain: "ui-layout"
+    operation: "APPLY"
+    failure_family: "UI_INCONSISTENCY"
+    health_label: "HEALTHY"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.0.0"
+    bytes: 8642
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=13 git_log=0"
+    trap_seen_before: "✅ NO MainLayout wrapper (avoid double wrapping)"
+    symptom:
+      - "Trigger khi:"
+      - "Refactor Client Component thành Server + Client"
+      - "Module cần SSE (Server-Sent Events) refresh"
+    aliases:
+      - "server"
+      - "client"
+      - "split"
+      - "pattern"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "Simple static pages"
+      - "No interactivity needed"
+    governance:
+      - "GOV-READ-STANDARD-001 (§G7.2 — đọc TOÀN PHẦN docs/UI-STANDARD.md, cấm đọc lỗ khoá)"
+      - "GOV-ACCEPTANCE-FIRST-001 (§G7.1 — chốt bảng tiêu chí TRƯỚC khi sửa dòng mã đầu tiên)"
+      - "GOV-ITERATION-LIMIT-001 (§G7.3 — Owner bác lần thứ ba thì DỪNG cách làm cũ)"
+      - "cổng: test:standard-clause-count"
+
+  - slug: "server-page-filter-defaults"
+    name: "Server Page Filter Defaults (\"Tất cả\" + queryParam)"
+    description: "SSOT để filter/search giữa Server Component và Client UI không bị lệch (đặc biệt case “Tất cả”/default), tránh việc client xoá param nhưng server lại auto-pick default làm filter không bao giờ hoạt động đúng."
+    domain: "ui-layout"
+    operation: "APPLY"
+    failure_family: "UI_INCONSISTENCY"
+    health_label: "NO-TRIGGER"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.0.0"
+    bytes: 2564
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=6 git_log=0"
+    trap_seen_before: "2) Server Component KHÔNG được auto-pick default làm mất trạng thái “Tất cả”"
+    symptom:
+      - "(rút từ description) SSOT để filter/search giữa Server Component và Client UI không bị lệch (đặc biệt case “Tất cả”/default), tránh việc client xoá param nhưng server lại auto-pick default làm filter không bao giờ hoạt độ"
+    aliases:
+      - "server"
+      - "page"
+      - "filter"
+      - "defaults"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-READ-STANDARD-001 (§G7.2 — đọc TOÀN PHẦN docs/UI-STANDARD.md, cấm đọc lỗ khoá)"
+      - "GOV-ACCEPTANCE-FIRST-001 (§G7.1 — chốt bảng tiêu chí TRƯỚC khi sửa dòng mã đầu tiên)"
+      - "GOV-ITERATION-LIMIT-001 (§G7.3 — Owner bác lần thứ ba thì DỪNG cách làm cũ)"
+      - "cổng: test:standard-clause-count"
+
+  - slug: "server-props-lookup-pattern"
+    name: "server-props-lookup-pattern"
+    description: "Pattern để lookup tên/label từ ID sử dụng props từ Server Component thay vì static mock data"
+    domain: "ui-layout"
+    operation: "VERIFY"
+    failure_family: "UI_INCONSISTENCY"
+    health_label: "UNKNOWN-PURPOSE"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "UNVERSIONED"
+    bytes: 2513
+    previous_result: "USAGE_EVIDENCE work_log=2 docs=0 git_log=0"
+    trap_seen_before: "NONE_RECORDED"
+    symptom:
+      - "UI hiển thị ID thay vì tên/label (ví dụ: \"ID: 50\" thay vì \"Giấy Couche\")"
+      - "Client Component dùng helper tĩnh như getEntityLabelById(id) trả về fallback"
+    aliases:
+      - "server"
+      - "props"
+      - "lookup"
+      - "pattern"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-READ-STANDARD-001 (§G7.2 — đọc TOÀN PHẦN docs/UI-STANDARD.md, cấm đọc lỗ khoá)"
+      - "GOV-ACCEPTANCE-FIRST-001 (§G7.1 — chốt bảng tiêu chí TRƯỚC khi sửa dòng mã đầu tiên)"
+      - "GOV-ITERATION-LIMIT-001 (§G7.3 — Owner bác lần thứ ba thì DỪNG cách làm cũ)"
+      - "cổng: test:standard-clause-count"
+
+  - slug: "skill-mining-governance"
+    name: "skill-mining-governance"
+    description: "Mines repeated patterns from code, reviews, fixes, and conversation history to decide whether to keep, supplement, merge, reorganize, propose, or downgrade project skills. Use when auditing the skill library or before creating/updating skills."
+    domain: "governance"
+    operation: "APPLY"
+    failure_family: "GOVERNANCE_DRIFT"
+    health_label: "HEALTHY"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.0.0"
+    bytes: 4692
+    previous_result: "USAGE_EVIDENCE work_log=3 docs=16 git_log=0"
+    trap_seen_before: "Skill Name | Intent | Trigger | Procedure | Output Format | PASS/FAIL | Benefits | Risks | Use/Avoid | Test Cases | Integration Notes | Change Type | Version Suggestion | Files Affected |"
+    symptom:
+      - "Apply this skill when:"
+      - "a new skill is being considered"
+      - "an existing skill feels weak, duplicate, or too narrow"
+    aliases:
+      - "skill"
+      - "mining"
+      - "governance"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "module-specific implementation specs"
+      - "one-off fixes that do not show reusable patterns"
+    governance:
+      - "GOV-FIVE-REPLICA-SYNC-001 (§A1)"
+      - "GOV-EDIT-PRESERVE-001 (§G7.0)"
+      - "GOV-REF-EXISTS-001 (§G7.6)"
+      - "GOV-GATE-REAL-INPUT-001 (§G7.7)"
+      - "GOV-RELOAD-AFTER-COMPACT-001 (§G7.8)"
+      - "GOV-LAW-STATE-SEPARATION-001 (§B3)"
+      - "cổng: check:governance · test:clause-count · test:standard-clause-count · test:ref-exists-gate · test:skills-registry"
+
+  - slug: "speckit-analyze"
+    name: "speckit-analyze"
+    description: "Perform a non-destructive cross-artifact consistency and quality analysis across spec.md, plan.md, and tasks.md after task generation."
+    domain: "speckit"
+    operation: "APPLY"
+    failure_family: "NEEDS_OWNER_INPUT"
+    health_label: "NO-TRIGGER"
+    tracked: false
+    frontmatter_opens_line_1: true
+    version: "UNVERSIONED"
+    bytes: 11642
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=3 git_log=0"
+    trap_seen_before: "NEVER modify files (this is read-only analysis)"
+    symptom:
+      - "(rút từ description) Perform a non-destructive cross-artifact consistency and quality analysis across spec.md, plan.md, and tasks.md after task generation."
+    aliases:
+      - "speckit"
+      - "analyze"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-TOOL-ORCHESTRATION-001 (§M1 — tool không phải Agent/SSOT/authority)"
+      - "GOV-ONE-PLAN-OF-RECORD-001 (§E3)"
+      - "Spec Kit profile (§M3)"
+
+  - slug: "speckit-checklist"
+    name: "speckit-checklist"
+    description: "Generate a custom checklist for the current feature based on user requirements."
+    domain: "speckit"
+    operation: "VERIFY"
+    failure_family: "DATA_LOSS"
+    health_label: "NO-TRIGGER"
+    tracked: false
+    frontmatter_opens_line_1: true
+    version: "UNVERSIONED"
+    bytes: 21196
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=2 git_log=0"
+    trap_seen_before: "Never ask the user to restate what they already said"
+    symptom:
+      - "(rút từ description) Generate a custom checklist for the current feature based on user requirements."
+    aliases:
+      - "speckit"
+      - "checklist"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NOT for verification/testing:"
+    governance:
+      - "GOV-TOOL-ORCHESTRATION-001 (§M1 — tool không phải Agent/SSOT/authority)"
+      - "GOV-ONE-PLAN-OF-RECORD-001 (§E3)"
+      - "Spec Kit profile (§M3)"
+
+  - slug: "speckit-clarify"
+    name: "speckit-clarify"
+    description: "Identify underspecified areas in the current feature spec by asking up to 5 highly targeted clarification questions and encoding answers back into the spec."
+    domain: "speckit"
+    operation: "APPLY"
+    failure_family: "NEEDS_OWNER_INPUT"
+    health_label: "NO-TRIGGER"
+    tracked: false
+    frontmatter_opens_line_1: true
+    version: "UNVERSIONED"
+    bytes: 18086
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=2 git_log=0"
+    trap_seen_before: "Ensure category coverage balance: attempt to cover the highest impact unresolved categories first; avoid asking two low-impact questions when a single high-impact area (e.g., security posture) is unresolved."
+    symptom:
+      - "(rút từ description) Identify underspecified areas in the current feature spec by asking up to 5 highly targeted clarification questions and encoding answers back into the spec."
+    aliases:
+      - "speckit"
+      - "clarify"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "If it does NOT exist, skip this step silently."
+    governance:
+      - "GOV-TOOL-ORCHESTRATION-001 (§M1 — tool không phải Agent/SSOT/authority)"
+      - "GOV-ONE-PLAN-OF-RECORD-001 (§E3)"
+      - "Spec Kit profile (§M3)"
+
+  - slug: "speckit-constitution"
+    name: "speckit-constitution"
+    description: "Create or update the project constitution from interactive or provided principle inputs, ensuring all dependent templates stay in sync."
+    domain: "speckit"
+    operation: "APPLY"
+    failure_family: "NEEDS_OWNER_INPUT"
+    health_label: "NO-TRIGGER"
+    tracked: false
+    frontmatter_opens_line_1: true
+    version: "UNVERSIONED"
+    bytes: 9615
+    previous_result: "USAGE_EVIDENCE work_log=1 docs=4 git_log=0"
+    trap_seen_before: "Avoid trailing whitespace."
+    symptom:
+      - "(rút từ description) Create or update the project constitution from interactive or provided principle inputs, ensuring all dependent templates stay in sync."
+    aliases:
+      - "speckit"
+      - "constitution"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-TOOL-ORCHESTRATION-001 (§M1 — tool không phải Agent/SSOT/authority)"
+      - "GOV-ONE-PLAN-OF-RECORD-001 (§E3)"
+      - "Spec Kit profile (§M3)"
+
+  - slug: "speckit-converge"
+    name: "speckit-converge"
+    description: "Assess the current codebase against the feature's spec, plan, and tasks, then append any remaining unbuilt work as new tasks to tasks.md so implement can complete it."
+    domain: "speckit"
+    operation: "APPLY"
+    failure_family: "NEEDS_OWNER_INPUT"
+    health_label: "NO-TRIGGER"
+    tracked: false
+    frontmatter_opens_line_1: true
+    version: "UNVERSIONED"
+    bytes: 12639
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=2 git_log=0"
+    trap_seen_before: "APPEND-ONLY, NEVER REWRITE: The command's only write is appending a new"
+    symptom:
+      - "(rút từ description) Assess the current codebase against the feature's spec, plan, and tasks, then append any remaining unbuilt work as new tasks to tasks.md so implement can complete it."
+    aliases:
+      - "speckit"
+      - "converge"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-TOOL-ORCHESTRATION-001 (§M1 — tool không phải Agent/SSOT/authority)"
+      - "GOV-ONE-PLAN-OF-RECORD-001 (§E3)"
+      - "Spec Kit profile (§M3)"
+
+  - slug: "speckit-erp-ssot-adapter"
+    name: "speckit-erp-ssot-adapter"
+    description: "Cách dùng GitHub Spec Kit (/speckit-*) trên ERP TanPhat brownfield mà KHÔNG cạnh tranh Notion FullSpec. Ràng buộc SSOT, feature-sized specs, Graphify trước, đồng bộ docs↔code, Owner gate bắt buộc."
+    domain: "speckit"
+    operation: "APPLY"
+    failure_family: "NEEDS_OWNER_INPUT"
+    health_label: "HEALTHY"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.0.0"
+    bytes: 6219
+    previous_result: "USAGE_EVIDENCE work_log=5 docs=21 git_log=2"
+    trap_seen_before: "4. Feature-sized spec (/speckit-specify): tạo specs/NNN-<slug>; ghi rõ nguồn Notion + bằng chứng code. CẤM mega-spec \"build-entire-erp\"."
+    symptom:
+      - "Áp dụng khi:"
+      - "Build feature mới / hoàn thiện lớn / nhiều module bằng Spec Kit."
+      - "Chạy bất kỳ /speckit- trên repo ERP."
+    aliases:
+      - "speckit"
+      - "erp"
+      - "ssot"
+      - "adapter"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "Bug fix nhỏ, UI 1–2 file, typo, hotfix hiển nhiên (dùng vibe + Graphify nếu cần)."
+    governance:
+      - "GOV-TOOL-ORCHESTRATION-001 (§M1 — tool không phải Agent/SSOT/authority)"
+      - "GOV-ONE-PLAN-OF-RECORD-001 (§E3)"
+      - "Spec Kit profile (§M3)"
+
+  - slug: "speckit-implement"
+    name: "speckit-implement"
+    description: "Execute the implementation plan by processing and executing all tasks defined in tasks.md"
+    domain: "speckit"
+    operation: "APPLY"
+    failure_family: "DATA_EXPOSURE"
+    health_label: "NO-TRIGGER"
+    tracked: false
+    frontmatter_opens_line_1: true
+    version: "UNVERSIONED"
+    bytes: 12146
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=2 git_log=0"
+    trap_seen_before: "NONE_RECORDED"
+    symptom:
+      - "(rút từ description) Execute the implementation plan by processing and executing all tasks defined in tasks.md"
+    aliases:
+      - "speckit"
+      - "implement"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-TOOL-ORCHESTRATION-001 (§M1 — tool không phải Agent/SSOT/authority)"
+      - "GOV-ONE-PLAN-OF-RECORD-001 (§E3)"
+      - "Spec Kit profile (§M3)"
+
+  - slug: "speckit-plan"
+    name: "speckit-plan"
+    description: "Execute the implementation planning workflow using the plan template to generate design artifacts."
+    domain: "speckit"
+    operation: "APPLY"
+    failure_family: "NEEDS_OWNER_INPUT"
+    health_label: "NO-TRIGGER"
+    tracked: false
+    frontmatter_opens_line_1: true
+    version: "UNVERSIONED"
+    bytes: 7857
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=2 git_log=1"
+    trap_seen_before: "NONE_RECORDED"
+    symptom:
+      - "(rút từ description) Execute the implementation planning workflow using the plan template to generate design artifacts."
+    aliases:
+      - "speckit"
+      - "plan"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "Skip if project is purely internal (build scripts, one-off tools, etc.)"
+    governance:
+      - "GOV-TOOL-ORCHESTRATION-001 (§M1 — tool không phải Agent/SSOT/authority)"
+      - "GOV-ONE-PLAN-OF-RECORD-001 (§E3)"
+      - "Spec Kit profile (§M3)"
+
+  - slug: "speckit-specify"
+    name: "speckit-specify"
+    description: "Create or update the feature specification from a natural language feature description."
+    domain: "speckit"
+    operation: "APPLY"
+    failure_family: "NEEDS_OWNER_INPUT"
+    health_label: "NO-TRIGGER"
+    tracked: false
+    frontmatter_opens_line_1: true
+    version: "UNVERSIONED"
+    bytes: 18258
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=3 git_log=0"
+    trap_seen_before: "The spec directory and file are always created by this command, never by the hook"
+    symptom:
+      - "(rút từ description) Create or update the feature specification from a natural language feature description."
+    aliases:
+      - "speckit"
+      - "specify"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-TOOL-ORCHESTRATION-001 (§M1 — tool không phải Agent/SSOT/authority)"
+      - "GOV-ONE-PLAN-OF-RECORD-001 (§E3)"
+      - "Spec Kit profile (§M3)"
+
+  - slug: "speckit-tasks"
+    name: "speckit-tasks"
+    description: "Generate an actionable, dependency-ordered tasks.md for the feature based on available design artifacts."
+    domain: "speckit"
+    operation: "APPLY"
+    failure_family: "NEEDS_OWNER_INPUT"
+    health_label: "NO-TRIGGER"
+    tracked: false
+    frontmatter_opens_line_1: true
+    version: "UNVERSIONED"
+    bytes: 10953
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=2 git_log=0"
+    trap_seen_before: "NONE_RECORDED"
+    symptom:
+      - "(rút từ description) Generate an actionable, dependency-ordered tasks.md for the feature based on available design artifacts."
+    aliases:
+      - "speckit"
+      - "tasks"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-TOOL-ORCHESTRATION-001 (§M1 — tool không phải Agent/SSOT/authority)"
+      - "GOV-ONE-PLAN-OF-RECORD-001 (§E3)"
+      - "Spec Kit profile (§M3)"
+
+  - slug: "speckit-taskstoissues"
+    name: "speckit-taskstoissues"
+    description: "Convert existing tasks into actionable, dependency-ordered GitHub issues for the feature based on available design artifacts."
+    domain: "speckit"
+    operation: "APPLY"
+    failure_family: "NEEDS_OWNER_INPUT"
+    health_label: "NO-TRIGGER"
+    tracked: false
+    frontmatter_opens_line_1: true
+    version: "UNVERSIONED"
+    bytes: 7196
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=2 git_log=0"
+    trap_seen_before: "NONE_RECORDED"
+    symptom:
+      - "(rút từ description) Convert existing tasks into actionable, dependency-ordered GitHub issues for the feature based on available design artifacts."
+    aliases:
+      - "speckit"
+      - "taskstoissues"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-TOOL-ORCHESTRATION-001 (§M1 — tool không phải Agent/SSOT/authority)"
+      - "GOV-ONE-PLAN-OF-RECORD-001 (§E3)"
+      - "Spec Kit profile (§M3)"
+
+  - slug: "ssot-docs-extraction"
+    name: "SSOT Docs Extraction"
+    description: "Trích xuất SSOT từ docs mới nhất trước khi implement, tránh đoán/dùng spec cũ"
+    domain: "governance"
+    operation: "APPLY"
+    failure_family: "GOVERNANCE_DRIFT"
+    health_label: "HEALTHY"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.0.0"
+    bytes: 4929
+    previous_result: "USAGE_EVIDENCE work_log=2 docs=8 git_log=0"
+    trap_seen_before: "Agent KHÔNG ĐƯỢC:"
+    symptom:
+      - "Kích hoạt skill này khi:"
+      - "User gửi [DOCS SCAN] hoặc [SSOT EXTRACTION]"
+      - "Implement feature mới cần verify spec"
+    aliases:
+      - "ssot"
+      - "docs"
+      - "extraction"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-FIVE-REPLICA-SYNC-001 (§A1)"
+      - "GOV-EDIT-PRESERVE-001 (§G7.0)"
+      - "GOV-REF-EXISTS-001 (§G7.6)"
+      - "GOV-GATE-REAL-INPUT-001 (§G7.7)"
+      - "GOV-RELOAD-AFTER-COMPACT-001 (§G7.8)"
+      - "GOV-LAW-STATE-SEPARATION-001 (§B3)"
+      - "cổng: check:governance · test:clause-count · test:standard-clause-count · test:ref-exists-gate · test:skills-registry"
+
+  - slug: "ssot-verification-before-code"
+    name: "ssot-verification-before-code"
+    description: "|"
+    domain: "governance"
+    operation: "APPLY"
+    failure_family: "DATA_LOSS"
+    health_label: "HEALTHY"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.1.0"
+    bytes: 12348
+    previous_result: "USAGE_EVIDENCE work_log=5 docs=14 git_log=0"
+    trap_seen_before: "Checklist (KHÔNG được bỏ qua)"
+    symptom:
+      - "✅ Use: Trước mọi code change liên quan schema/logic"
+      - "✅ Use: Khi implement feature mới"
+      - "✅ Use: Khi có conflict giữa DB và docs"
+    aliases:
+      - "ssot"
+      - "verification"
+      - "before"
+      - "code"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-FIVE-REPLICA-SYNC-001 (§A1)"
+      - "GOV-EDIT-PRESERVE-001 (§G7.0)"
+      - "GOV-REF-EXISTS-001 (§G7.6)"
+      - "GOV-GATE-REAL-INPUT-001 (§G7.7)"
+      - "GOV-RELOAD-AFTER-COMPACT-001 (§G7.8)"
+      - "GOV-LAW-STATE-SEPARATION-001 (§B3)"
+      - "cổng: check:governance · test:clause-count · test:standard-clause-count · test:ref-exists-gate · test:skills-registry"
+
+  - slug: "status-color-mapping"
+    name: "Status Color Mapping"
+    description: "SSOT cho status → color mapping dùng chung trong toàn bộ hệ thống"
+    domain: "ui-layout"
+    operation: "APPLY"
+    failure_family: "UI_INCONSISTENCY"
+    health_label: "NO-TRIGGER"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.0.0"
+    bytes: 5904
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=11 git_log=0"
+    trap_seen_before: "NONE_RECORDED"
+    symptom:
+      - "(rút từ description) SSOT cho status → color mapping dùng chung trong toàn bộ hệ thống"
+    aliases:
+      - "status"
+      - "color"
+      - "mapping"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-READ-STANDARD-001 (§G7.2 — đọc TOÀN PHẦN docs/UI-STANDARD.md, cấm đọc lỗ khoá)"
+      - "GOV-ACCEPTANCE-FIRST-001 (§G7.1 — chốt bảng tiêu chí TRƯỚC khi sửa dòng mã đầu tiên)"
+      - "GOV-ITERATION-LIMIT-001 (§G7.3 — Owner bác lần thứ ba thì DỪNG cách làm cũ)"
+      - "cổng: test:standard-clause-count"
+
+  - slug: "status-workflow-actions"
+    name: "Status Workflow Actions"
+    description: "Pattern cho workflow action buttons theo status (Đơn Hàng, Báo Giá, CRM) với conditional rendering và gradient styling"
+    domain: "ui-layout"
+    operation: "APPLY"
+    failure_family: "UI_INCONSISTENCY"
+    health_label: "NO-TRIGGER"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.0.0"
+    bytes: 9613
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=6 git_log=0"
+    trap_seen_before: "NONE_RECORDED"
+    symptom:
+      - "(rút từ description) Pattern cho workflow action buttons theo status (Đơn Hàng, Báo Giá, CRM) với conditional rendering và gradient styling"
+    aliases:
+      - "status"
+      - "workflow"
+      - "actions"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-READ-STANDARD-001 (§G7.2 — đọc TOÀN PHẦN docs/UI-STANDARD.md, cấm đọc lỗ khoá)"
+      - "GOV-ACCEPTANCE-FIRST-001 (§G7.1 — chốt bảng tiêu chí TRƯỚC khi sửa dòng mã đầu tiên)"
+      - "GOV-ITERATION-LIMIT-001 (§G7.3 — Owner bác lần thứ ba thì DỪNG cách làm cũ)"
+      - "cổng: test:standard-clause-count"
+
+  - slug: "sticky-gradient-sheet-header"
+    name: "Sticky Gradient Sheet Header (Top-Flush)"
+    description: "SSOT cho Sheet form có gradient header: header sticky sát top (không dải trắng), SheetContent p-0, padding dời xuống body, tương thích G2 safe close."
+    domain: "ui-layout"
+    operation: "APPLY"
+    failure_family: "UI_INCONSISTENCY"
+    health_label: "UNKNOWN-PURPOSE"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.0.0"
+    bytes: 1987
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=6 git_log=0"
+    trap_seen_before: "NONE_RECORDED"
+    symptom:
+      - "Các form create/edit hiển thị trong Sheet có header dạng gradient (title + subtitle)."
+    aliases:
+      - "sticky"
+      - "gradient"
+      - "sheet"
+      - "header"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-READ-STANDARD-001 (§G7.2 — đọc TOÀN PHẦN docs/UI-STANDARD.md, cấm đọc lỗ khoá)"
+      - "GOV-ACCEPTANCE-FIRST-001 (§G7.1 — chốt bảng tiêu chí TRƯỚC khi sửa dòng mã đầu tiên)"
+      - "GOV-ITERATION-LIMIT-001 (§G7.3 — Owner bác lần thứ ba thì DỪNG cách làm cũ)"
+      - "cổng: test:standard-clause-count"
+
+  - slug: "tab-separated-content-dialog"
+    name: "tab-separated-content-dialog"
+    description: "Tách nội dung riêng từng tab trong Dialog thay vì dồn chung tất cả"
+    domain: "ui-layout"
+    operation: "APPLY"
+    failure_family: "UI_INCONSISTENCY"
+    health_label: "HEALTHY"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "UNVERSIONED"
+    bytes: 3285
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=12 git_log=0"
+    trap_seen_before: "NONE_RECORDED"
+    symptom:
+      - "Khi Dialog có nhiều tabs nhưng:"
+      - "Content đang hiển thị dồn chung"
+      - "User khó focus vì quá nhiều thông tin"
+    aliases:
+      - "tab"
+      - "separated"
+      - "content"
+      - "dialog"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-READ-STANDARD-001 (§G7.2 — đọc TOÀN PHẦN docs/UI-STANDARD.md, cấm đọc lỗ khoá)"
+      - "GOV-ACCEPTANCE-FIRST-001 (§G7.1 — chốt bảng tiêu chí TRƯỚC khi sửa dòng mã đầu tiên)"
+      - "GOV-ITERATION-LIMIT-001 (§G7.3 — Owner bác lần thứ ba thì DỪNG cách làm cũ)"
+      - "cổng: test:standard-clause-count"
+
+  - slug: "table-column-visibility"
+    name: "table-column-visibility"
+    description: "Pattern ẩn/hiện/thêm/xóa columns trong DataTable theo yêu cầu, đảm bảo không mất data visibility"
+    domain: "ui-layout"
+    operation: "APPLY"
+    failure_family: "UI_INCONSISTENCY"
+    health_label: "UNKNOWN-PURPOSE"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "UNVERSIONED"
+    bytes: 2947
+    previous_result: "USAGE_EVIDENCE work_log=2 docs=6 git_log=0"
+    trap_seen_before: "Không được mất data visibility hoàn toàn"
+    symptom:
+      - "User yêu cầu ẩn/hiện columns"
+      - "Cần declutter table, focus vào data quan trọng"
+      - "Chuyển data từ table sang Detail Panel"
+    aliases:
+      - "table"
+      - "column"
+      - "visibility"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-READ-STANDARD-001 (§G7.2 — đọc TOÀN PHẦN docs/UI-STANDARD.md, cấm đọc lỗ khoá)"
+      - "GOV-ACCEPTANCE-FIRST-001 (§G7.1 — chốt bảng tiêu chí TRƯỚC khi sửa dòng mã đầu tiên)"
+      - "GOV-ITERATION-LIMIT-001 (§G7.3 — Owner bác lần thứ ba thì DỪNG cách làm cũ)"
+      - "cổng: test:standard-clause-count"
+
+  - slug: "tailwind-color-visibility"
+    name: "Tailwind Color Visibility Enhancement"
+    description: "Tăng visibility cho colors pastel quá nhạt (bg-X-100 → bg-X-200)"
+    domain: "ui-layout"
+    operation: "APPLY"
+    failure_family: "UI_INCONSISTENCY"
+    health_label: "HEALTHY"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.0.0"
+    bytes: 4473
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=6 git_log=0"
+    trap_seen_before: "NONE_RECORDED"
+    symptom:
+      - "Kích hoạt skill này khi:"
+      - "Icon backgrounds quá nhạt (pastel -100 shade)"
+      - "UI elements không nổi bật trên white background"
+    aliases:
+      - "tailwind"
+      - "color"
+      - "visibility"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-READ-STANDARD-001 (§G7.2 — đọc TOÀN PHẦN docs/UI-STANDARD.md, cấm đọc lỗ khoá)"
+      - "GOV-ACCEPTANCE-FIRST-001 (§G7.1 — chốt bảng tiêu chí TRƯỚC khi sửa dòng mã đầu tiên)"
+      - "GOV-ITERATION-LIMIT-001 (§G7.3 — Owner bác lần thứ ba thì DỪNG cách làm cũ)"
+      - "cổng: test:standard-clause-count"
+
+  - slug: "tailwind-v4-canonical-classes"
+    name: "Tailwind v4 Canonical Classes"
+    description: "Dọn warning tailwindcss(suggestCanonicalClasses) nhất quán bằng bảng mapping v3→v4 cố định — không đổi CSS output."
+    domain: "ui-layout"
+    operation: "APPLY"
+    failure_family: "UI_INCONSISTENCY"
+    health_label: "HEALTHY"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.0.0"
+    bytes: 5727
+    previous_result: "USAGE_EVIDENCE work_log=8 docs=30 git_log=1"
+    trap_seen_before: "When to use / When to avoid"
+    symptom:
+      - "ReadLints / npm run lint báo warning tailwindcss(suggestCanonicalClasses): \"The class ... can be written as ...\"."
+      - "Sau khi thêm/sửa class Tailwind (đặc biệt copy code cũ v3), rà lại để giữ file 0 warning."
+    aliases:
+      - "tailwind"
+      - "canonical"
+      - "classes"
+    quality_gate:
+      - "npm run lint"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-READ-STANDARD-001 (§G7.2 — đọc TOÀN PHẦN docs/UI-STANDARD.md, cấm đọc lỗ khoá)"
+      - "GOV-ACCEPTANCE-FIRST-001 (§G7.1 — chốt bảng tiêu chí TRƯỚC khi sửa dòng mã đầu tiên)"
+      - "GOV-ITERATION-LIMIT-001 (§G7.3 — Owner bác lần thứ ba thì DỪNG cách làm cũ)"
+      - "cổng: test:standard-clause-count"
+
+  - slug: "test-execution-ui"
+    name: "test-execution-ui"
+    description: "Add UI để execute test cases và hiển thị results (pass/fail, expected vs actual, diff) trong table"
+    domain: "testing"
+    operation: "VERIFY"
+    failure_family: "UNVERIFIED_CLAIM"
+    health_label: "UNKNOWN-PURPOSE"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "UNVERSIONED"
+    bytes: 10848
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=15 git_log=0"
+    trap_seen_before: "NONE_RECORDED"
+    symptom:
+      - "Kích hoạt skill này khi:"
+      - "Có test cases trong DB nhưng cần UI để execute"
+      - "Cần verify test results trực tiếp trong UI"
+    aliases:
+      - "test"
+      - "execution"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-EVIDENCE-STRENGTH-001 (§G1)"
+      - "GOV-GATE-REAL-INPUT-001 (§G7.7)"
+      - "Quality Gate theo applicability (§I2)"
+
+  - slug: "text-first-report"
+    name: "Text-First Report"
+    description: "Tạo report dạng text-first theo chuẩn SSOT với 4 sections bắt buộc + Open Questions"
+    domain: "deploy-env"
+    operation: "APPLY"
+    failure_family: "DATA_LOSS"
+    health_label: "HEALTHY"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.0.0"
+    bytes: 8408
+    previous_result: "USAGE_EVIDENCE work_log=4 docs=10 git_log=0"
+    trap_seen_before: "NONE_RECORDED"
+    symptom:
+      - "Kích hoạt skill này khi:"
+      - "User gửi [HARD ENFORCEMENT MODE]"
+      - "User yêu cầu \"text-first report\" hoặc \"report chuẩn SSOT\""
+    aliases:
+      - "text"
+      - "first"
+      - "report"
+    quality_gate:
+      - "npm run build"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-CONVENTION-BASELINE-002 (§H3b — soi chéo CẢ HAI bên trước, không mặc định tin VPS)"
+      - "Deploy (§I4 — build success KHÔNG chứng minh deploy success)"
+
+  - slug: "title-auto-case"
+    name: "Title Auto Case (Viết Hoa Đầu Chữ) - MANDATORY"
+    description: "SSOT cho Title Auto Case (Viết Hoa Đầu Chữ) - BẮT BUỘC áp dụng cho TẤT CẢ text hiển thị toàn hệ thống"
+    domain: "NEEDS_OWNER_INPUT"
+    operation: "APPLY"
+    failure_family: "NEEDS_OWNER_INPUT"
+    health_label: "NO-TRIGGER"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.0.0"
+    bytes: 11914
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=13 git_log=0"
+    trap_seen_before: "NONE_RECORDED"
+    symptom:
+      - "(rút từ description) SSOT cho Title Auto Case (Viết Hoa Đầu Chữ) - BẮT BUỘC áp dụng cho TẤT CẢ text hiển thị toàn hệ thống"
+    aliases:
+      - "title"
+      - "auto"
+      - "case"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "(domain chua co anh xa luat rieng — chi ap luat chung o governance_universal)"
+
+  - slug: "transactional-page-redesign"
+    name: "transactional-page-redesign"
+    description: "Defines the specialized redesign workflow for transactional workspaces with stats, filters, large tables, and row actions. Use after classifying the page as transactional, and pair it with premium-module-page-redesign for shared shell rules."
+    domain: "ui-layout"
+    operation: "FIX"
+    failure_family: "UI_INCONSISTENCY"
+    health_label: "UNKNOWN-PURPOSE"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.1.0"
+    bytes: 4421
+    previous_result: "USAGE_EVIDENCE work_log=2 docs=8 git_log=0"
+    trap_seen_before: "UI redesign must not alter workflow meaning, status rules, or data persistence without explicit approval."
+    symptom:
+      - "Apply this skill when the page has most of these traits:"
+      - "stats row"
+      - "filter tabs or filter bar"
+    aliases:
+      - "transactional"
+      - "page"
+      - "redesign"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "simple module overviews"
+      - "master-data pages with lightweight table needs only"
+    governance:
+      - "GOV-READ-STANDARD-001 (§G7.2 — đọc TOÀN PHẦN docs/UI-STANDARD.md, cấm đọc lỗ khoá)"
+      - "GOV-ACCEPTANCE-FIRST-001 (§G7.1 — chốt bảng tiêu chí TRƯỚC khi sửa dòng mã đầu tiên)"
+      - "GOV-ITERATION-LIMIT-001 (§G7.3 — Owner bác lần thứ ba thì DỪNG cách làm cũ)"
+      - "cổng: test:standard-clause-count"
+
+  - slug: "ui-components-usage"
+    name: "UI Components Usage"
+    description: "Hướng dẫn sử dụng đúng các UI Components phức tạp (Table, Datepicker, Select)"
+    domain: "ui-layout"
+    operation: "APPLY"
+    failure_family: "UI_INCONSISTENCY"
+    health_label: "NO-TRIGGER"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.0.0"
+    bytes: 6199
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=5 git_log=0"
+    trap_seen_before: "<p className=\"text-sm font-semibold text-amber-800\">Lưu Ý</p>"
+    symptom:
+      - "(rút từ description) Hướng dẫn sử dụng đúng các UI Components phức tạp (Table, Datepicker, Select)"
+    aliases:
+      - "components"
+      - "usage"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-READ-STANDARD-001 (§G7.2 — đọc TOÀN PHẦN docs/UI-STANDARD.md, cấm đọc lỗ khoá)"
+      - "GOV-ACCEPTANCE-FIRST-001 (§G7.1 — chốt bảng tiêu chí TRƯỚC khi sửa dòng mã đầu tiên)"
+      - "GOV-ITERATION-LIMIT-001 (§G7.3 — Owner bác lần thứ ba thì DỪNG cách làm cũ)"
+      - "cổng: test:standard-clause-count"
+
+  - slug: "ui-highlight-styling"
+    name: "UI Highlight Styling"
+    description: "Pattern apply highlight styling cho sections quan trọng (Ghi chú, Sản phẩm, etc.)"
+    domain: "ui-layout"
+    operation: "APPLY"
+    failure_family: "UI_INCONSISTENCY"
+    health_label: "HEALTHY"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.0.0"
+    bytes: 8602
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=12 git_log=0"
+    trap_seen_before: "NONE_RECORDED"
+    symptom:
+      - "Trigger khi:"
+      - "Highlight important information sections (Ghi chú, Notes)"
+      - "Highlight key data lists (Sản phẩm, Items)"
+    aliases:
+      - "highlight"
+      - "styling"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "Everything needs highlight (nothing stands out)"
+      - "Primary actions (use primary button instead)"
+    governance:
+      - "GOV-READ-STANDARD-001 (§G7.2 — đọc TOÀN PHẦN docs/UI-STANDARD.md, cấm đọc lỗ khoá)"
+      - "GOV-ACCEPTANCE-FIRST-001 (§G7.1 — chốt bảng tiêu chí TRƯỚC khi sửa dòng mã đầu tiên)"
+      - "GOV-ITERATION-LIMIT-001 (§G7.3 — Owner bác lần thứ ba thì DỪNG cách làm cũ)"
+      - "cổng: test:standard-clause-count"
+
+  - slug: "ui-section-reorder"
+    name: "ui-section-reorder"
+    description: "Quy trình sắp xếp lại thứ tự tabs/sections/cards trong form hoặc page"
+    domain: "ui-layout"
+    operation: "FIX"
+    failure_family: "DATA_LOSS"
+    health_label: "HEALTHY"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "UNVERSIONED"
+    bytes: 3431
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=9 git_log=0"
+    trap_seen_before: "NONE_RECORDED"
+    symptom:
+      - "Kích hoạt skill này khi:"
+      - "User yêu cầu sắp xếp lại thứ tự tabs/sections/cards"
+      - "Cần di chuyển block JSX trong file"
+    aliases:
+      - "section"
+      - "reorder"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-READ-STANDARD-001 (§G7.2 — đọc TOÀN PHẦN docs/UI-STANDARD.md, cấm đọc lỗ khoá)"
+      - "GOV-ACCEPTANCE-FIRST-001 (§G7.1 — chốt bảng tiêu chí TRƯỚC khi sửa dòng mã đầu tiên)"
+      - "GOV-ITERATION-LIMIT-001 (§G7.3 — Owner bác lần thứ ba thì DỪNG cách làm cũ)"
+      - "cổng: test:standard-clause-count"
+
+  - slug: "ui-typography"
+    name: "UI Typography Standard (Font + Header Styling)"
+    description: "SSOT cho typography toàn hệ thống: font Inter, header prominence, UI visual hierarchy"
+    domain: "ui-layout"
+    operation: "APPLY"
+    failure_family: "UI_INCONSISTENCY"
+    health_label: "NO-TRIGGER"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "2.0.0"
+    bytes: 1865
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=13 git_log=0"
+    trap_seen_before: "Mục tiêu: nhấn đúng chỗ (filter/stat/header), tone cam nhạt đồng nhất."
+    symptom:
+      - "(rút từ description) SSOT cho typography toàn hệ thống: font Inter, header prominence, UI visual hierarchy"
+    aliases:
+      - "typography"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-READ-STANDARD-001 (§G7.2 — đọc TOÀN PHẦN docs/UI-STANDARD.md, cấm đọc lỗ khoá)"
+      - "GOV-ACCEPTANCE-FIRST-001 (§G7.1 — chốt bảng tiêu chí TRƯỚC khi sửa dòng mã đầu tiên)"
+      - "GOV-ITERATION-LIMIT-001 (§G7.3 — Owner bác lần thứ ba thì DỪNG cách làm cũ)"
+      - "cổng: test:standard-clause-count"
+
+  - slug: "update-work-log"
+    name: "update-work-log"
+    description: "Supporting guide for safe WORK_LOG.md editing, especially when concurrency or append-at-top discipline matters. Use together with versioning-auto-log; do not use as the full versioning workflow."
+    domain: "versioning"
+    operation: "APPLY"
+    failure_family: "TRACEABILITY_GAP"
+    health_label: "UNKNOWN-PURPOSE"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.1.0"
+    bytes: 2934
+    previous_result: "USAGE_EVIDENCE work_log=2 docs=2 git_log=0"
+    trap_seen_before: "2. Detect concurrent change risk and avoid overwrite."
+    symptom:
+      - "Use this skill when:"
+      - "WORKLOG.md must be updated safely"
+      - "multiple edits may race on the same file"
+    aliases:
+      - "update"
+      - "work"
+      - "log"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "using it alone as the full versioning and changelog workflow"
+    governance:
+      - "GOV-VERSION-RELEASE-001 (§I3 — ghi history ≠ bump version)"
+      - "cổng: test:version-policy"
+
+  - slug: "version-bump-on-feature"
+    name: "version-bump-on-feature"
+    description: "Supporting guide for deciding when a feature or redesign deserves a larger version bump. Use with versioning-auto-log; do not use as a standalone end-of-task versioning workflow."
+    domain: "versioning"
+    operation: "APPLY"
+    failure_family: "TRACEABILITY_GAP"
+    health_label: "UNKNOWN-PURPOSE"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.1.0"
+    bytes: 2709
+    previous_result: "USAGE_EVIDENCE work_log=2 docs=17 git_log=0"
+    trap_seen_before: "NONE_RECORDED"
+    symptom:
+      - "Use this skill when:"
+      - "deciding whether a redesign or feature is patch, minor, or major"
+      - "checking whether a change is big enough to justify a more visible bump"
+    aliases:
+      - "version"
+      - "bump"
+      - "feature"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "using it as the only versioning step after a task"
+    governance:
+      - "GOV-VERSION-RELEASE-001 (§I3 — ghi history ≠ bump version)"
+      - "cổng: test:version-policy"
+
+  - slug: "versioning-auto-log"
+    name: "versioning-auto-log"
+    description: "Enforces version, changelog, and work log updates after code, skill, rule, or workflow changes. Use when any change must be traceable and reported with why, impact, and verification."
+    domain: "versioning"
+    operation: "APPLY"
+    failure_family: "DATA_LOSS"
+    health_label: "HEALTHY"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.1.0"
+    bytes: 4645
+    previous_result: "USAGE_EVIDENCE work_log=7 docs=14 git_log=2"
+    trap_seen_before: "Never hide behavior-changing work as a “docs-only” change."
+    symptom:
+      - "Apply this skill when:"
+      - "code or behavior changed"
+      - "a skill was created, supplemented, merged, or reorganized"
+    aliases:
+      - "versioning"
+      - "auto"
+      - "log"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "temporary local experiments that are intentionally discarded"
+      - "pure read-only exploration with no file changes"
+    governance:
+      - "GOV-VERSION-RELEASE-001 (§I3 — ghi history ≠ bump version)"
+      - "cổng: test:version-policy"
+
+  - slug: "versioning-change-history"
+    name: "versioning-change-history"
+    description: "Supporting reference for recording change history fields such as scope, affected area, reason, and summary. Use together with versioning-auto-log; do not use as the primary versioning workflow anymore."
+    domain: "versioning"
+    operation: "APPLY"
+    failure_family: "TRACEABILITY_GAP"
+    health_label: "UNKNOWN-PURPOSE"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.1.0"
+    bytes: 2781
+    previous_result: "USAGE_EVIDENCE work_log=2 docs=11 git_log=0"
+    trap_seen_before: "Avoid using this skill alone when:"
+    symptom:
+      - "Use this skill when:"
+      - "you need the meaning of history fields like Scope, Affected, Reason"
+      - "you need a quick reference for change-history formatting"
+    aliases:
+      - "versioning"
+      - "change"
+      - "history"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "full versioning execution"
+    governance:
+      - "GOV-VERSION-RELEASE-001 (§I3 — ghi history ≠ bump version)"
+      - "cổng: test:version-policy"
+
+  - slug: "windows-dev-troubleshoot-quick"
+    name: "Windows Dev Troubleshoot Quick (Pre-check before debugging code)"
+    description: "Bổ sung cho windows-next-cache-stability - quick checklist để tránh debug sai hướng khi gặp \"UI không phản hồi\" trên Windows dev."
+    domain: "deploy-env"
+    operation: "APPLY"
+    failure_family: "DATA_LOSS"
+    health_label: "UNKNOWN-PURPOSE"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.0.0"
+    bytes: 3978
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=4 git_log=0"
+    trap_seen_before: "NONE_RECORDED"
+    symptom:
+      - "UI \"bấm không phản hồi\" (buttons/links không có effect)"
+      - "Form submit không chạy"
+      - "Random errors kiểu Cannot find module, next/static 404/500"
+    aliases:
+      - "windows"
+      - "dev"
+      - "troubleshoot"
+      - "quick"
+    quality_gate:
+      - "npm run dev"
+      - "npm run dev:withdb"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-CONVENTION-BASELINE-002 (§H3b — soi chéo CẢ HAI bên trước, không mặc định tin VPS)"
+      - "Deploy (§I4 — build success KHÔNG chứng minh deploy success)"
+
+  - slug: "windows-next-cache-stability"
+    name: "Windows Next Cache Stability (.next corruption)"
+    description: "SSOT xử lý lỗi Next.js trên Windows khi `.next` bị corrupt (Cannot find module, _document, _next/static), tránh debug sai hướng và đảm bảo build/dev ổn định."
+    domain: "deploy-env"
+    operation: "APPLY"
+    failure_family: "ENV_BREAKAGE"
+    health_label: "UNKNOWN-PURPOSE"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.0.0"
+    bytes: 2623
+    previous_result: "USAGE_EVIDENCE work_log=1 docs=15 git_log=0"
+    trap_seen_before: "NONE_RECORDED"
+    symptom:
+      - "Chỉ khi đã clear .next mà lỗi vẫn y hệt, hoặc lỗi chuyển sang type error/logic error rõ ràng."
+    aliases:
+      - "windows"
+      - "next"
+      - "cache"
+      - "stability"
+    quality_gate:
+      - "npm run build"
+      - "npm run dev:withdb"
+      - "npm run dev"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "GOV-CONVENTION-BASELINE-002 (§H3b — soi chéo CẢ HAI bên trước, không mặc định tin VPS)"
+      - "Deploy (§I4 — build success KHÔNG chứng minh deploy success)"
+
+  - slug: "wizard-crud-bundle"
+    name: "Wizard CRUD Bundle (Create + Edit + Full Dev Columns)"
+    description: "SSOT triển khai CRUD theo Wizard (từng bước) cho dữ liệu dạng bundle (vd Khách hàng + Liên hệ + Địa chỉ), kèm quy tắc Dev-first show full columns."
+    domain: "NEEDS_OWNER_INPUT"
+    operation: "APPLY"
+    failure_family: "NEEDS_OWNER_INPUT"
+    health_label: "HEALTHY"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.0.0"
+    bytes: 4006
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=7 git_log=0"
+    trap_seen_before: "NONE_RECORDED"
+    symptom:
+      - "Khi dùng:"
+      - "1 entity nhỏ, ít field, không có bundle"
+      - "Edit nhanh 1-2 field"
+    aliases:
+      - "wizard"
+      - "crud"
+      - "bundle"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "NEEDS_OWNER_INPUT"
+    governance:
+      - "(domain chua co anh xa luat rieng — chi ap luat chung o governance_universal)"
+
+  - slug: "workflow-status-transition"
+    name: "Workflow Status Transition"
+    description: "Pattern implement status workflow cho documents (draft → sent → confirmed → ...)"
+    domain: "NEEDS_OWNER_INPUT"
+    operation: "APPLY"
+    failure_family: "NEEDS_OWNER_INPUT"
+    health_label: "HEALTHY"
+    tracked: true
+    frontmatter_opens_line_1: true
+    version: "1.0.0"
+    bytes: 8708
+    previous_result: "USAGE_EVIDENCE work_log=0 docs=12 git_log=0"
+    trap_seen_before: "NONE_RECORDED"
+    symptom:
+      - "Trigger khi:"
+      - "Implement status workflow cho documents (Báo giá, Đơn hàng, Phiếu)"
+      - "Entity có lifecycle với multiple states"
+    aliases:
+      - "workflow"
+      - "status"
+      - "transition"
+    quality_gate:
+      - "NONE_DECLARED"
+    negative_trigger:
+      - "Simple CRUD không cần status"
+      - "Binary states (active/inactive) - dùng boolean flag"
+    governance:
+      - "(domain chua co anh xa luat rieng — chi ap luat chung o governance_universal)"

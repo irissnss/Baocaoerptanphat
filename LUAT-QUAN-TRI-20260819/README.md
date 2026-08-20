@@ -1,5 +1,10 @@
 # 📜 SNAPSHOT TÀI LIỆU QUẢN TRỊ (GOVERNANCE) — 19/08/2026
 
+> ⬆️ **ĐÃ CÓ BẢN MỚI HƠN: [`LUAT-QUAN-TRI-20260820/`](../LUAT-QUAN-TRI-20260820/) (Doc 2.4).**
+> Bản 20/08 bổ sung `skills.yml` và vá lỗ hổng §L2 (luật bắt tra danh mục skill nhưng danh mục không tồn tại).
+> Bản 19/08 dưới đây **giữ nguyên làm lịch sử**, KHÔNG xoá (`GOV-EDIT-PRESERVE-001`) — nhưng **KHÔNG còn là bản mới nhất**.
+> ⚠️ Dòng `sha256 = 05a8ff93` trong bảng bên dưới **lỗi thời**; mã đúng là `ad2a510b…` (banner trong chính `CLAUDE.md` của bản này đã ghi đúng). Đính chính chi tiết ở README bản 20/08.
+
 
 > ⚠️ **BẢN CHỤP MỘT THỜI ĐIỂM (19/08/2026) — HÃY KIỂM CÒN HẠN HAY KHÔNG.**
 > Đây là mục lục bản công bố, **chỉ tồn tại ở bản công bố** (không có bản gốc tương ứng trong kho riêng tư để đối chiếu mã băm).

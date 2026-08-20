@@ -123,6 +123,19 @@
 
 ---
 
+### 📜 20/08/2026 — Đóng chủ đề thư viện skill: công bố danh mục skill + vá lỗ hổng bộ luật · CHỈ TÀI LIỆU/CÔNG CỤ, KHÔNG đổi số phiên bản
+
+- **Bản công bố mới:** thư mục [`LUAT-QUAN-TRI-20260820/`](LUAT-QUAN-TRI-20260820/) — **Doc Version `2.4`**, thay bản 19/08 (bản cũ **giữ nguyên làm lịch sử**, không xoá).
+- **Lần đầu công bố `skills.yml`** — danh mục tra cứu **128 skill** theo triệu chứng, mỗi mục đủ **8 trường** mà bộ luật quy định.
+- **Vấn đề gốc được vá:** bộ luật bắt buộc *"tra danh mục skill trước khi chọn skill"*, nhưng **danh mục đó không hề tồn tại**. Cổng kiểm tham chiếu không phát hiện được vì điều luật viết dưới dạng **sơ đồ luồng**, không phải một đường dẫn file. Hệ quả: toàn bộ thư viện skill nằm ngoài tầm với của bộ luật.
+- **Hai cổng kiểm tra:** thêm cổng mới canh danh mục skill (4 điều kiện chặn, **đã kiểm ngược 4/4 đạt**); vá cổng kiểm tham chiếu để kiểm cả **tham chiếu dạng khái niệm** (**kiểm ngược 3/3 đạt**).
+- **Chất lượng thư viện:** khai báo đầu file hỏng **19 → 0**; số skill đọc được đầy đủ tên + mô tả: **106/128 → 128/128**; 2 skill do dự án tự viết trước đây nằm ngoài vòng bảo vệ nay **đã được đưa vào quản lý phiên bản**.
+- **Bốn skill được bổ sung/nâng cấp:** quy trình sao lưu bắt buộc trước khi đổi cấu trúc dữ liệu · cổng lọc nội dung trước khi công bố · quy trình rà toàn vẹn sau sự cố mất tệp · vòng thực thi có cổng 6 bước.
+- **An toàn dữ liệu:** hoàn tất khu trú dữ liệu cá nhân trong 2 file — cổng quét **2 vi phạm → 0** (**kiểm ngược 3/3 đạt**, cổng vẫn bắt đúng dữ liệu thật).
+- Toàn bộ nội dung công bố đã qua cổng quét thông tin nhạy cảm **2 chế độ** + cổng quét dữ liệu cá nhân → **0 vi phạm**.
+
+---
+
 ### 📜 19/08/2026 — Công bố snapshot tài liệu quản trị + rà an toàn thông tin · CHỈ TÀI LIỆU, KHÔNG đổi số phiên bản
 
 - **Công bố snapshot governance:** thư mục [`LUAT-QUAN-TRI-20260819/`](LUAT-QUAN-TRI-20260819/) — 1 bản replica bộ luật (`CLAUDE.md`, sha256 `05a8ff93`, parity **5/5 OK**), chuẩn giao diện (`UI-STANDARD.md`), registry nguồn UI, mẫu bảng nghiệm thu, và **bản CÔNG KHAI (đã che vị trí)** của trạng thái rà thông tin nhạy cảm.

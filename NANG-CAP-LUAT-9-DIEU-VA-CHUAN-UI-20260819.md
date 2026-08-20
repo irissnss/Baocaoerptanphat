@@ -425,7 +425,7 @@ Nhánh `gov/2026-08-18-rules-ui-standard-upgrade` có **4 commit sạch**, mọi
        (Lưu ý: một phiên khác đã ghi mục #81/#82 vào sổ trong lúc lượt này chạy — xem trường 9.)
 
 5. PUSH BÁO CÁO CÔNG KHAI
-   [x] ĐÃ PUSH — kho Baocaoerptanphat · commit <ĐIỀN SAU KHI PUSH>
+   [x] ĐÃ PUSH — kho Baocaoerptanphat · commit 28cb47c
        · file NANG-CAP-LUAT-9-DIEU-VA-CHUAN-UI-20260819.md
    Cổng công-bố-an-toàn: bản công khai KHÔNG nêu file:dòng của bí mật (git history còn giá trị,
    chưa viết lại) · KHÔNG nêu địa chỉ máy chủ · KHÔNG nêu giá trị nào.
