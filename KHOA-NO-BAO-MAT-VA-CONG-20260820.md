@@ -245,7 +245,7 @@ Ghi bằng **quyền mặc định** của `GOV-SESSION-DECISION-001` §F1b mụ
    Ghi bằng quyền mặc định GOV-SESSION-DECISION-001 §F1b mục 3.
 
 5. PUSH BÁO CÁO CÔNG KHAI
-   [x] ĐÃ PUSH — kho Baocaoerptanphat · commit <ĐIỀN SAU KHI PUSH>
+   [x] ĐÃ PUSH — kho Baocaoerptanphat · commit 968f7ea
        · file KHOA-NO-BAO-MAT-VA-CONG-20260820.md
    Không nêu giá trị nhạy cảm, không nêu địa chỉ máy chủ.
 
