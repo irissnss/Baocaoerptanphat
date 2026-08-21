@@ -12,7 +12,7 @@
 |---|---|---|---|---|---|
 | **Nhân viên** | 17 dòng (16 sau gộp trùng người) | **16** | 0 | **0** | vào = ra + bỏ qua ✓ |
 | **Khách hàng** | 1.692 | **1.692** | 0 | **0** | ✓ |
-| ├ Liên hệ khách hàng | — | **3.324** | — | 0 | ✓ |
+| ├ Liên hệ khách hàng | 1.692 (từ hồ sơ KH) + 1.644 (từ danh sách liên hệ) | **1.896** | 1.443 trùng đã gộp | 0 | ✓ (xem mục 6) |
 | ├ Địa chỉ khách hàng | — | **2.009** | — | 0 | ✓ |
 | **Nhà cung cấp** | 109 | **109** | 0 | **0** | ✓ |
 | ├ Địa chỉ NCC | — | **109** | — | 0 | ✓ |
@@ -50,5 +50,20 @@ Cách nhận diện: **2 tầng** — đối chiếu tên tỉnh/thành **mới 
 ## 5) Trạng thái
 
 ✅ Hoàn tất trên **máy phát triển**. ⏳ **Chờ Owner duyệt kết quả** → sau đó mới lên kế hoạch đưa lên máy vận hành (bước riêng).
+
+---
+
+## 6) 📌 ĐÍNH CHÍNH (cùng ngày 21/08/2026) — số liên hệ khách hàng
+
+**Phát hiện khi đối chiếu:** hệ thống cũ lưu **người liên hệ chính ở hai nơi** (trong hồ sơ khách hàng *và* trong danh sách liên hệ riêng). Lần chạy đầu cộng cả hai nguồn nên **nhân đôi 1.443 dòng** (báo cáo trước ghi 3.324 — con số đó **đã sai**).
+
+**Đã xử lý (theo quyết định Owner):**
+1. **Gộp thông tin trước khi xóa** — bù các trường mà bản giữ còn trống (1 email, 2 ghi chú) → **không mất thông tin nào**.
+2. **Sao lưu bảng liên hệ** trước khi xóa (có điểm quay lui).
+3. Xóa **1.443 dòng nhân bản** → còn **1.896 liên hệ** (1.695 chính + **201 liên hệ phụ thật**).
+4. **Kiểm chứng:** 0 nhóm trùng · **100% khách hàng (1.695/1.695) đều có liên hệ** · 0 dòng mất tên.
+5. **Vá công cụ nạp** để lần chạy sau (kể cả trên máy vận hành) **không lặp lại lỗi**; đã kiểm trên bản sao: **0 dòng dư**.
+
+**Số đúng:** Liên hệ khách hàng = **1.896**. Các số còn lại trong báo cáo **không đổi**.
 
 > 21/08/2026 · Agent IDE. Không chứa dữ liệu thật/PII/mật khẩu.
