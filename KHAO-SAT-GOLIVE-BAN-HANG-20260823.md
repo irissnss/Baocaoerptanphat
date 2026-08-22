@@ -48,7 +48,7 @@ và số dòng** — không có suy đoán.
 
 ---
 
-## 4. Bảng kê: 15 điểm chặn
+## 4. Bảng kê điểm chặn (vòng đầu — 15 điểm)
 
 | Nhóm | Số điểm | Ví dụ tiêu biểu |
 |---|---|---|
@@ -61,6 +61,29 @@ và số dòng** — không có suy đoán.
 Ngoài ra: **13 điểm “nên có”** (số đếm trên nhãn lọc sai, ngày hiển thị sai chuẩn, khoá-sau-duyệt
 chỉ phủ 3/10 đường ghi, danh sách báo giá không lọc theo phạm vi, một nút không nối hàm nhưng vẫn
 báo thành công…) và **4 điểm “sau cũng được”**.
+
+---
+
+## 4b. BỔ SUNG SAU VÒNG RÀ SÓT — tổng điểm chặn **15 → 27**
+
+Hai tác nhân rà soát độc lập chạy sau vòng đọc mã (một đóng vai người soát khắt khe, một đóng vai
+nhân viên kinh doanh mới vào làm) tìm thêm **24 phát hiện**, nhiều điểm **nặng hơn** vòng đầu:
+
+| Nhóm | Phát hiện bổ sung |
+|---|---|
+| **Phá dữ liệu chạy ngầm** | Mở trang báo giá là hệ thống **tự động chuyển sang “hết hạn”** mọi báo giá quá 15 ngày **của cả công ty** — chạy ngay khi mở trang và lặp mỗi 60 phút, **không hỏi, không báo**, và “hết hạn” là trạng thái **không quay lại được**. Một nhân viên mở trang là báo giá của đồng nghiệp chết hàng loạt |
+| **Mất dữ liệu khi lưu** | Người **không được xem giá vốn** mở báo giá ra rồi bấm Lưu ⇒ **giá vốn bị xoá về 0** trên cơ sở dữ liệu, không cảnh báo. Nguyên nhân: hệ thống che giá trị khi đọc, nhưng khi lưu lại ghi đúng giá trị đã che |
+| **Tài liệu gửi khách** | Bản in báo giá in **mã nội bộ tự bịa** thay cho tên khách; **thiếu** thông tin bên bán, địa chỉ khách, dòng thuế, điều kiện thanh toán, chỗ ký; ngược lại **in cả nhãn trạng thái nội bộ**, và **in được cả bản nháp / bản bị từ chối** |
+| **Con số không nhất quán** | Thuế 10% chỉ là **con số bịa trên màn hình** — cơ sở dữ liệu **không có cột thuế**, bản in **không có dòng thuế** ⇒ **ba con số khác nhau cho cùng một báo giá**. Không có bất kỳ cơ chế chiết khấu nào |
+| **Quy trình hai người không chạy** | **Không có nút “Gửi duyệt”** (hàm viết đủ nhưng không nối vào nút nào); **không ai được thông báo** khi cần duyệt hay khi đã duyệt; màn hình **không tự cập nhật** khi người khác duyệt xong |
+| **Người dùng bị kẹt** | Nhân viên kinh doanh bấm “Duyệt” thì **nhận lỗi kỹ thuật tiếng Anh** mà hộp tạo đơn **vẫn bật lên**; nút “Huỷ” **một cú bấm là chết vĩnh viễn, không hỏi lại**; danh sách hiện tên khách của đồng nghiệp thành **dãy số vô nghĩa kèm số tiền hợp đồng của họ** |
+| **Không truy được trách nhiệm** | **Không có dấu vết kiểm toán** cho chính cổng duyệt giá — không có bảng lịch sử trạng thái, không có lý do huỷ, dấu người sửa bị lần sửa sau **ghi đè** |
+| **Tiền đi đường khác** | Nút “Đánh dấu giao hàng” **chỉ đổi một chữ** — không trừ kho, không sinh phiếu. Và mối nối đơn hàng ↔ phiếu giao hàng là **chuỗi gõ tay không ràng buộc** (ô số đơn hàng là ô nhập tự do, gợi ý còn **sai định dạng**). **Đây là lời giải thật** cho việc số tiền đã thanh toán trên đơn không bao giờ đổi: tiền chưa bao giờ chảy qua đơn hàng, nó chảy qua phiếu giao hàng |
+
+**Ba nguyên nhân gốc:**
+1. **Ma trận phân quyền chưa được cấu hình** ⇒ chỉ quản trị dùng được.
+2. **Nhiều cổng và thao tác được viết ra nhưng không nối vào đâu** ⇒ đọc mã tưởng có, chạy thật thì không.
+3. **Số tiền và định danh không đi qua một đường duy nhất** ⇒ mỗi nơi một con số.
 
 ---
 
