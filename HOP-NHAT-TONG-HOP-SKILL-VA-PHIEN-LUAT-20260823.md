@@ -246,7 +246,7 @@ Notion có kỹ năng **KN21 "🎨 Thiết kế Giao diện và Hệ thống Thi
    Ghi bằng quyền mặc định GOV-SESSION-DECISION-001 §F1b mục 3.
 
 5. PUSH BÁO CÁO CÔNG KHAI
-   [x] ĐÃ PUSH — kho Baocaoerptanphat · commit <ĐIỀN SAU KHI PUSH>
+   [x] ĐÃ PUSH — kho Baocaoerptanphat · commit 3dae5c2 (bản đầu HỎNG do lỗi shell) → **sửa ở commit 94f74ba**
        · file HOP-NHAT-TONG-HOP-SKILL-VA-PHIEN-LUAT-20260823.md
    Công-bố-an-toàn: KHÔNG nêu tên file/thư mục/cột của dữ liệu khách hàng trong bản
    công khai, KHÔNG nêu giá trị nào, KHÔNG nêu mã commit chứa dữ liệu nhạy cảm.
