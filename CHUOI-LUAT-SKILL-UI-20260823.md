@@ -293,7 +293,7 @@ Sửa dòng căn cứ `4/4 → 3/4` (giữ nguyên văn dòng cũ ở §21) · g
    [x] ĐÃ GHI — mục #131
 
 5. PUSH BÁO CÁO CÔNG KHAI
-   [x] ĐÃ PUSH — kho Baocaoerptanphat · commit STAMP_COMMIT · file CHUOI-LUAT-SKILL-UI-20260823.md
+   [x] ĐÃ PUSH — kho Baocaoerptanphat · commit 6efb984 · file CHUOI-LUAT-SKILL-UI-20260823.md
 
 6. CÒN SÓT / CHƯA LÀM
    - V1..V6 CHUA LAM — cho Owner duyet (phien nay chi-doc theo dung cau hoi)
