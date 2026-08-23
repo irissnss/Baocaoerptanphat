@@ -12,7 +12,7 @@
 |-----------|----------|
 | **Tên dự án** | ERP Tân Phát (Tân Phát Packaging) |
 | **Sơ đồ số phiên bản** | `V{aa}.{bb}.{xxx}` (Owner chốt 11/08/2026) — ví dụ `V1.00.337`; mỗi đợt phát hành `xxx +1`, `xxx→999` thì `bb +1`, `bb→99` thì `aa +1`. Thay sơ đồ cũ `V0.XXX`. |
-| **Phiên bản mã nguồn** | `V1.00.344` ✅ (đã phát hành) |
+| **Phiên bản mã nguồn** | `V1.00.354` ✅ (đã phát hành 23/08/2026) |
 | **Phiên bản đang chạy thật** | `V1.00.344` ✅ **ĐÃ TRIỂN KHAI 17/08/2026** — Trang Giao Hàng: sửa 4 điểm giao diện (lề sát mép · nhãn thống kê hàng riêng · gộp tìm-lọc + bảng vào 1 khung · form nhập có đầu màu + chia mục); có sao lưu CSDL trước, KHÔNG đổi cấu trúc dữ liệu, 99 bảng khớp, đăng nhập 200. *(V1.00.338–343 cùng ngày — nghiệp vụ + giao diện Kho/Giao Hàng.)* |
 | **Mốc phiên bản hiện tại** | V1.00.344 (local = GitHub = máy vận hành, cùng một số) |
 | **Ngày bắt đầu** | 18/01/2026 |
@@ -50,6 +50,8 @@
 - **📋 Planned:** 1 module (M9)
 
 > 📂 Xem chi tiết tiến độ từng module tại [MODULE-PROGRESS.md](MODULE-PROGRESS.md)
+>
+> ✅ **ĐÃ PHÁT HÀNH V1.00.353 + V1.00.354 lên hệ thống vận hành (23/08/2026).** Hệ thống vận hành nay chạy **V1.00.354** (mã `8cf0352`), trước đó là V1.00.352. **V1.00.353** — go-live chuỗi bán hàng 4 đợt: nạp ma trận phân quyền · vá **6 lỗ hổng chặn go-live** · hoàn thiện đơn hàng (ngày giao · địa chỉ giao lấy đúng danh bạ khách · công nợ thôi tính đơn nháp) · thêm **ma trận tick quyền hành động**. **V1.00.354** — **quyền sửa biểu mẫu nay chỉ quản trị và tổng giám đốc**, cấp bằng **ô tick** chứ không viết cứng vai trò trong mã: đổi người giữ quyền chỉ cần bỏ tick/tick lại, không phải sửa mã và phát hành lại. Trước đó ai có quyền nhóm Hệ Thống là sửa được mẫu in — mà nhóm đó còn chứa cả phân quyền. **Số đo:** 16 bộ kiểm thử · **675 điểm kiểm · 0 trượt** · **0 thay đổi cấu trúc dữ liệu** (101 bảng trước = 101 bảng sau) · diễn tập trên bản sao dữ liệu vận hành lấy mới · **kiểm khói sau phát hành 12/12 đạt, 0 lỗi máy chủ**. Dữ liệu thử: đã dọn sạch cả hai nơi; bản sao dùng diễn tập đã xoá. Chi tiết: [PHAT-HANH-V1.00.353-VA-354-20260823.md](PHAT-HANH-V1.00.353-VA-354-20260823.md).
 >
 > 🚀 **Chuỗi bán hàng — thi công go-live 4 đợt A·B·C·D (23/08/2026). CHƯA phát hành, đang chờ chủ dự án mở cổng nghiệm thu.** **Đợt A:** nạp ma trận phân quyền lên hệ thống vận hành (chỉ thêm/cập nhật, **không xoá dòng nào**), đo qua tầng phân quyền thật — **22/22 đạt**. **Đợt B:** vá **6 lỗ hổng CHẶN go-live** — vượt cửa duyệt giá · lộ giá vốn ở 3 màn · duyệt được báo giá 0đ · nuốt lỗi im lặng · quyền gắn cứng theo mã vai trò · **cho đặt lại trùng mật khẩu cũ** (lỗ hổng này do **chính chủ dự án phát hiện khi dùng thật**). **Đợt C:** hoàn thiện đơn hàng — ngày giao tự chọn · địa chỉ giao lấy từ danh bạ đúng khách (chọn nhầm khách khác thì **từ chối thẳng**) · sửa/xoá được đơn nháp, đơn đã xác nhận thì khoá · công nợ **thôi tính đơn còn nháp**. **Đợt D:** thêm **ma trận tick quyền hành động** vào màn quản trị bảo mật — trước đây chỉ tick được quyền vào khu vực, nên quyền mới sinh ra là **cấm vĩnh viễn** không có chỗ bật. Nay tick theo **vai trò × 15 quyền**, gom theo 6 tầng (Vào·Xem·Thêm·Sửa·Duyệt·Nhạy cảm), **ô chưa tick = CẤM**, tick là có hiệu lực ngay, và **đổi tên chức danh bao nhiêu lần quyền vẫn y hệt**. Tổng: **17 bộ kiểm thử · 666 điểm kiểm · 0 trượt** · **0 thay đổi cấu trúc dữ liệu**. Đã **kiểm ngược 8 lỗi cắm vào** — lần nào cũng báo đỏ đúng chỗ (không phải xanh giả). Chi tiết: [THI-CONG-GOLIVE-BAN-HANG-DOT-A-D-20260823.md](THI-CONG-GOLIVE-BAN-HANG-DOT-A-D-20260823.md).
 >
