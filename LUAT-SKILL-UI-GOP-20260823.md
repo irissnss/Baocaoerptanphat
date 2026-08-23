@@ -204,7 +204,7 @@ Kết quả tại mốc `c0e0b8f`: **toàn bộ XANH**.
    [x] ĐÃ GHI — mục #132 (va muc #131 phien truoc)
 
 5. PUSH BÁO CÁO CÔNG KHAI
-   [x] ĐÃ PUSH — kho Baocaoerptanphat · commit STAMP_COMMIT · file LUAT-SKILL-UI-GOP-20260823.md
+   [x] ĐÃ PUSH — kho Baocaoerptanphat · commit c27dd63 · file LUAT-SKILL-UI-GOP-20260823.md
    [x] Kho ma rieng tu: 1f5e379 · 30e077c · c0e0b8f — da push main
 
 6. CÒN SÓT / CHƯA LÀM
