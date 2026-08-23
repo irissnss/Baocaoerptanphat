@@ -234,7 +234,8 @@ Dấu thời gian 11:38 / 11:49 / 11:52 — đây là **ĐỢT D (ma trận tick
 
 **5. PUSH BÁO CÁO CÔNG KHAI**
 
-- ✅ **ĐÃ PUSH** — kho `Baocaoerptanphat` · nhánh `main` · file `UI-DOC-CHOT-CHUAN-20260823.md` · commit `<điền ở lượt đẩy thứ hai>`.
+- ✅ **ĐÃ PUSH** — kho `Baocaoerptanphat` · nhánh `main` · file `UI-DOC-CHOT-CHUAN-20260823.md` · commit **`ae9eb13e106c0a93333fe52360453e51af24e0e6`** (`ae9eb13`).
+- *(Bản này là lượt đẩy thứ hai, chỉ điền mã commit thật vào trường 5 — nội dung báo cáo không đổi.)*
 - **Commit trong kho mã (docs-only):** `f3fa88b919f90b5f244a2bfda514635ce5ace557` (chính) và `f1f07de8834be55b63973e8f1b80e574cead0dc3` (vá bảo toàn §10). Cả hai đã push, `local = origin/main`.
 
 **6. CÒN SÓT / CHƯA LÀM**
