@@ -543,7 +543,8 @@ FAILURE:     DEGRADE_TO_PROVISIONAL
 - ⛔ **Cần ghi ngay ở phiên sau** (đã soạn sẵn nội dung): (a) Owner chốt 06:15 23/08 về nguyên tắc "chuẩn chỉnh trước"; (b) kết quả phân xử hai chuỗi bằng chứng §A; (c) 9 câu hỏi Q1–Q9 và 3 điểm chặn C1–C3.
 
 **5. PUSH BÁO CÁO CÔNG KHAI**
-- **ĐÃ PUSH** — kho `Baocaoerptanphat` · file `UI-AUDIT-TONG-LUC-20260823.md` · commit `<điền sau khi push>`.
+- **ĐÃ PUSH** — kho `Baocaoerptanphat` · nhánh `main` · file `UI-AUDIT-TONG-LUC-20260823.md` · commit **`0437aa515b5da2a593baab01b3ccb83c02e1d0bb`** (`0437aa5`).
+- *(Bản này là lượt đẩy thứ hai, chỉ điền mã commit thật vào trường 5 — nội dung audit không đổi.)*
 
 **6. CÒN SÓT / CHƯA LÀM**
 - Chưa đọc toàn văn 2 file client lớn nhất: `m3/bao-gia/bao-gia-client.tsx` (~3.400 dòng) và `m3/tinh-gia-admin/tinh-gia-admin-client.tsx` (~4.689 dòng) — nợ cũ `DEBT-035`, có thể còn nhánh UI giả chưa lộ.
