@@ -12,7 +12,7 @@
 |-----------|----------|
 | **Tên dự án** | ERP Tân Phát (Tân Phát Packaging) |
 | **Sơ đồ số phiên bản** | `V{aa}.{bb}.{xxx}` (Owner chốt 11/08/2026) — ví dụ `V1.00.337`; mỗi đợt phát hành `xxx +1`, `xxx→999` thì `bb +1`, `bb→99` thì `aa +1`. Thay sơ đồ cũ `V0.XXX`. |
-| **Phiên bản mã nguồn** | `V1.00.354` ✅ (đã phát hành 23/08/2026) |
+| **Phiên bản mã nguồn** | `V1.00.355` ✅ (đã phát hành 23/08/2026) |
 | **Phiên bản đang chạy thật** | `V1.00.344` ✅ **ĐÃ TRIỂN KHAI 17/08/2026** — Trang Giao Hàng: sửa 4 điểm giao diện (lề sát mép · nhãn thống kê hàng riêng · gộp tìm-lọc + bảng vào 1 khung · form nhập có đầu màu + chia mục); có sao lưu CSDL trước, KHÔNG đổi cấu trúc dữ liệu, 99 bảng khớp, đăng nhập 200. *(V1.00.338–343 cùng ngày — nghiệp vụ + giao diện Kho/Giao Hàng.)* |
 | **Mốc phiên bản hiện tại** | V1.00.344 (local = GitHub = máy vận hành, cùng một số) |
 | **Ngày bắt đầu** | 18/01/2026 |
@@ -50,6 +50,8 @@
 - **📋 Planned:** 1 module (M9)
 
 > 📂 Xem chi tiết tiến độ từng module tại [MODULE-PROGRESS.md](MODULE-PROGRESS.md)
+>
+> ✅ **ĐÃ PHÁT HÀNH V1.00.355 — tách Biểu Mẫu khỏi nhóm Hệ Thống (23/08/2026).** Đợt trước đã cho tick quyền *sửa biểu mẫu* cho tổng giám đốc, nhưng đo lại thì **chưa dùng được**: màn biểu mẫu vẫn nằm trong nhóm Hệ Thống nên tổng giám đốc **có tick mà vẫn bị chặn ngay ở cửa**. Nay tách hẳn: **mục riêng ngang hàng trên thanh điều hướng**, khoá quyền riêng và **bất biến** (đổi tên vai trò hay nhãn menu không ảnh hưởng quyền), địa chỉ cũ tự chuyển hướng. **Nhóm Hệ Thống nay chỉ còn vai trò quản trị.** Dọn **10 dòng mẫu trùng** — không xoá dòng nào, mỗi loại chứng từ còn **đúng 1 mẫu đang dùng**. **Số đo:** 17 bộ kiểm thử · **697 điểm kiểm · 0 trượt** · **kiểm khói sau phát hành 15/15, 0 lỗi máy chủ** · **0 thay đổi cấu trúc dữ liệu**. ⚠️ **Cần Chủ dự án xử lý:** vai trò *Nhân viên* trước chỉ có đúng quyền nhóm Hệ Thống, nay thu hồi thì còn 0 menu — **2 tài khoản mất lối vào**, khắc phục bằng tick menu (không cần sửa mã). 🛑 **Mẫu Đơn Hàng: DỪNG** — file mẫu Chủ dự án nói đã đặt trong thư mục gốc **không có trong máy** (đã tìm theo tên, theo nội dung, các thư mục cạnh: 0 kết quả). Không tự bịa mẫu chứng từ. Chi tiết: [PHAT-HANH-V1.00.355-TACH-BIEU-MAU-KHOI-HE-THONG-20260823.md](PHAT-HANH-V1.00.355-TACH-BIEU-MAU-KHOI-HE-THONG-20260823.md).
 >
 > ✅ **ĐÃ PHÁT HÀNH V1.00.353 + V1.00.354 lên hệ thống vận hành (23/08/2026).** Hệ thống vận hành nay chạy **V1.00.354** (mã `8cf0352`), trước đó là V1.00.352. **V1.00.353** — go-live chuỗi bán hàng 4 đợt: nạp ma trận phân quyền · vá **6 lỗ hổng chặn go-live** · hoàn thiện đơn hàng (ngày giao · địa chỉ giao lấy đúng danh bạ khách · công nợ thôi tính đơn nháp) · thêm **ma trận tick quyền hành động**. **V1.00.354** — **quyền sửa biểu mẫu nay chỉ quản trị và tổng giám đốc**, cấp bằng **ô tick** chứ không viết cứng vai trò trong mã: đổi người giữ quyền chỉ cần bỏ tick/tick lại, không phải sửa mã và phát hành lại. Trước đó ai có quyền nhóm Hệ Thống là sửa được mẫu in — mà nhóm đó còn chứa cả phân quyền. **Số đo:** 16 bộ kiểm thử · **675 điểm kiểm · 0 trượt** · **0 thay đổi cấu trúc dữ liệu** (101 bảng trước = 101 bảng sau) · diễn tập trên bản sao dữ liệu vận hành lấy mới · **kiểm khói sau phát hành 12/12 đạt, 0 lỗi máy chủ**. Dữ liệu thử: đã dọn sạch cả hai nơi; bản sao dùng diễn tập đã xoá. Chi tiết: [PHAT-HANH-V1.00.353-VA-354-20260823.md](PHAT-HANH-V1.00.353-VA-354-20260823.md).
 >
