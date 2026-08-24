@@ -336,9 +336,9 @@ Mỗi checkpoint độc lập, revert được riêng. Sau mỗi lần revert ph
        Kem: muc #132 cua phien nay cap lai thanh #140. DEBT-097 ghi ca hai.
 
 5. PUSH BÁO CÁO CÔNG KHAI
-   [x] ĐÃ PUSH — kho `irissnss/Baocaoerptanphat` · file `PHA-B-HOAN-TAT-20260823.md`
+   [x] ĐÃ PUSH — kho `irissnss/Baocaoerptanphat` · commit `acfd850`
+       · file `PHA-B-HOAN-TAT-20260823.md`
        Công bố trong Pha C ngày 24/08/2026, sau khi qua PUBLIC_REPORT_SAFETY_GATE.
-       Mã commit công bố ghi ở `GOVERNANCE-LOG.md` cùng ngày.
    [ ] CHƯA PUSH
 
 6. CÒN SÓT / CHƯA LÀM
