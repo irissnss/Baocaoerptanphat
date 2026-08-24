@@ -2,7 +2,34 @@
 
 > Lịch sử thay đổi governance rules, skills, architecture decisions, và system audit.
 >
-> **Cập nhật:** 24/08/2026 — **PHA C**: khoá **điều kiện gọi Context7** (trước đó mục công cụ chỉ có 4 dòng, không điều kiện gọi/cấm gọi, không chính sách dữ liệu) + vá **mã trùng `DEBT-097`** + dựng **cổng chống trùng mã** cho hai sổ + công bố báo cáo **Pha B**. (Trước đó: 18/08 kế hoạch import PLAN-ONLY.)
+> **Cập nhật:** 24/08/2026 — **PHA C2**: vá mục **`#53`** trùng số trong Sổ Yêu Cầu Owner · **nối cổng chống trùng mã** vào chuỗi kiểm tự động + hook trước khi ghi mã · đóng đúng khoản nợ · **đính chính mốc commit của Pha B**. (Cùng ngày, trước đó: Pha C khoá điều kiện gọi Context7.)
+
+---
+
+## 24/08/2026 — PHA C2: VÁ MỤC #53 · NỐI CỔNG CHỐNG TRÙNG · ĐÍNH CHÍNH MỐC COMMIT PHA B
+
+**Bối cảnh:** Pha C dựng xong cổng chống trùng mã nhưng **cố ý chưa nối** vào chuỗi tự động, vì sổ Yêu Cầu Owner còn một mục trùng chưa được quyết. Đợt này xử lý nốt.
+
+**Đã làm:**
+
+- **Tiếp quản phần việc của một phiên đã ngưng.** Một mục sổ (ngày 24/08) còn nằm ngoài lịch sử mã. Đã thẩm định (mã duy nhất · dãy số liên tục · không dữ liệu cấm · đủ trường bắt buộc) rồi **bảo toàn bằng một mốc riêng**, không trộn vào việc khác.
+- **Vá mục `#53`.** Hai việc khác nhau cùng mang số 53 từ 16/08. Xác định ai lấy số trước bằng **chuỗi thời gian dựng hoàn toàn từ tệp đã lưu ở cả hai kho** — không dựa vào thứ tự dòng trong một lần lưu (hai dòng vào chung một lần nên thứ tự dòng *không* nói lên thứ tự cấp số). Kết quả: mục **kiểm tra nạp luật giữ số 53**; mục **thêm trường chống bẫy nén phiên** nhận **số kế tiếp còn trống**, tính lại từ sổ. Nội dung · ngày · người thực hiện **giữ nguyên**, chỉ đổi số, kèm dòng ghi rõ lý do. **Không thay thế hàng loạt.** Báo cáo công khai đang trỏ tới mục giữ số 53 nên **không phải sửa dòng nào**.
+- **Nối cổng chống trùng** vào chuỗi kiểm tự động (**15 → 16 cổng**) và hook chạy trước mỗi lần ghi mã (**3 → 4 cổng**), kèm bộ kiểm **chống gỡ âm thầm**.
+- **Kiểm ngược 5 → 7 kịch bản**, và hai kịch bản mới **bắt được lỗi thật**: bộ kiểm đang đếm cả dòng bảng nằm trong **khối mã ví dụ**, khiến một ví dụ minh hoạ bị tính thành lần cấp mã thứ hai. **Đã vá ở bộ kiểm, không vá ở dữ liệu thử.** Sau khi vá, số mục đọc được trên sổ thật không đổi ⇒ không làm rơi mục nào.
+- **Đóng đúng khoản nợ** — xác định theo **nội dung**, không theo mã. Hai khoản mô tả đúng lỗi này đã đóng kèm bằng chứng; hai khoản mang mã gần giống nhưng **nói về việc khác thì giữ nguyên**.
+- **Đính chính mốc commit của Pha B** dựa trên quan hệ cha–con thật trong lịch sử mã. Bản đầu ghi mốc hoàn tất là một commit **cha** của mốc thật, và đặt tiêu đề *"5 commit"* nhưng liệt kê **6 dòng**. Nay tách rõ: **5 mốc công việc**, cộng một commit ghi sổ và một commit chứa chính báo cáo; đồng thời phân biệt **mốc kỹ thuật · lượt công bố · lượt đóng dấu**. Nội dung mô tả từng commit **giữ nguyên**, không viết lại lịch sử, không ép ghi đè.
+- **Nói lại cho chính xác** phần chú thích bản chụp luật: các tài liệu gốc trong bản chụp **không sửa một dòng nào**; riêng tệp mục lục được **bổ sung khối cảnh báo lịch sử**. Bản đầu nói gọn *"giữ nguyên vẹn, không sửa"* là **tự mâu thuẫn** với chính khối cảnh báo vừa thêm.
+- **Cập nhật phần đầu README** về phiên bản đang chạy thật, sau khi đối chiếu **ba nguồn độc lập đều khớp**. Phần đầu còn dừng ở mốc 17/08 trong khi thân README và báo cáo phát hành đều đã nêu mốc mới hơn. Các khối cũ **giữ lại làm lịch sử**.
+
+**Kiểm thử:** 14 cổng chạy riêng đều đạt · kiểm ngược bộ kiểm 7/7 · chuỗi tổng 16 cổng đạt · chính sách phiên bản 37/37 · hook chạy thật ở cả ba lượt ghi mã.
+
+**Ghi nhận một nợ mới:** registry số phát hành nội bộ **lỗi thời** — còn ghi mốc cũ, thiếu bốn đợt gần nhất, trong khi ba nguồn độc lập đều cho số mới hơn. **Không tự sửa** vì ngoài phạm vi đợt này; cần một lượt cập nhật riêng kèm mốc triển khai từng đợt.
+
+**Cố ý KHÔNG làm:** sửa mã nghiệp vụ · sửa tệp kỹ năng · sửa 5 tệp luật · chạm bản đồ phụ thuộc · kết nối thêm công cụ · gọi công cụ tra tài liệu ngoài (việc này là quản trị nội bộ — tệp trong máy và lịch sử mã mới là nguồn đúng) · viết lại lịch sử mã · ép ghi đè.
+
+**Đồng bộ:** kho mã ✅ · kho báo cáo ✅ · Notion ⏳ **chưa — chờ bàn giao**, Agent IDE không được sửa Notion.
+
+**Chi tiết:** [PHA-C-DONG-SO-CONTEXT7-TRIGGER-CHONG-TRUNG-MA-20260824.md](PHA-C-DONG-SO-CONTEXT7-TRIGGER-CHONG-TRUNG-MA-20260824.md)
 
 ---
 
@@ -30,7 +57,9 @@
 
 ---
 
-## 18/08/2026 — KẾ HOẠCH IMPORT (PLAN-ONLY, đã nâng lên v2): đối chiếu DB AppSheet cũ ↔ schema ERP để lập kế hoạch nạp 3 danh mục nền (Nhân viên → Khách hàng → Nhà cung cấp); v2 bổ sung cơ chế sinh mã tự động, cấp mật khẩu tạm bắt buộc đổi, đa địa chỉ + tự nhận diện tỉnh, và các quy tắc an toàn dữ liệu. **Chưa nạp dữ liệu — chờ Owner duyệt v2.** (Trước đó: tài liệu tham chiếu 32 sheet; V1.00.350 tồn kho vật tư.)
+> 🔧 *Sửa định dạng 24/08/2026: dòng dưới đây vốn là câu tóm tắt ở đầu tệp (mốc cập nhật 18/08). Lượt sửa trước vô tình biến nó thành một tiêu đề mục. Nay trả về đúng dạng ghi chú, **giữ nguyên văn**, không xoá chữ nào.*
+>
+> **Mốc cập nhật 18/08/2026 — KẾ HOẠCH IMPORT (PLAN-ONLY, đã nâng lên v2):** đối chiếu DB AppSheet cũ ↔ schema ERP để lập kế hoạch nạp 3 danh mục nền (Nhân viên → Khách hàng → Nhà cung cấp); v2 bổ sung cơ chế sinh mã tự động, cấp mật khẩu tạm bắt buộc đổi, đa địa chỉ + tự nhận diện tỉnh, và các quy tắc an toàn dữ liệu. **Chưa nạp dữ liệu — chờ Owner duyệt v2.** (Trước đó: tài liệu tham chiếu 32 sheet; V1.00.350 tồn kho vật tư.)
 
 ---
 

@@ -1,7 +1,9 @@
 # PHA B — HOÀN TẤT · Vá gốc registry kỹ năng, tách trục hiệu lực nội dung
 
 > **Ngày:** 23/08/2026 · **Owner duyệt:** 22:44 (Pha B) + các quyết định tiếp nối
-> **Actor:** Agent IDE (Claude Code) · **BASE_SHA:** `7752cc5` → **HEAD:** `280529f` (đã push, remote khớp)
+> **Actor:** Agent IDE (Claude Code) · **BASE_SHA:** `7752cc5` → **TECHNICAL_FINAL:** `b7179a3` (đã push, remote khớp)
+>
+> 🔧 *Đính chính 24/08/2026 (Pha C2): dòng này ban đầu ghi `HEAD: 280529f` — đó là HEAD lúc soạn báo cáo, không phải mốc hoàn tất. Xem mục 14.*
 > **Phạm vi:** LUẬT + KỸ NĂNG + CÔNG CỤ. **0 dòng `src/`. 0 file `SKILL.md` bị sửa. 0 file bị xoá.**
 
 ---
@@ -58,7 +60,9 @@ Soát đủ **15/15** điều kiện dừng mục 4 → **không điều kiện 
 
 `.governance/registry/{skills.yml, tools.yml, ui-skill-verdict.json, tech-debt.md, skill-content-status.yml}` · `scripts/tests/{skills-registry-build, skills-registry-gate, ui-skill-conflict-gate, registry-history-filter, quality-gate-contract, skill-content-status-gate}.mjs` · `scripts/{check-governance-sync.ts, pre-commit-hook.sh}` · `.cursor/skills/{dependency-relationship-scan, speckit-erp-ssot-adapter, root-directory-verification, database-ops, versioning-change-history}/SKILL.md` · **heading của cả 128 `SKILL.md`** · `.cursor/rules/graphify.mdc` · `.cursor/mcp.json` · `graphify-out/GRAPH_REPORT.md` · `.specify/` *(chỉ đếm, không mở để sửa)* · 5 file quản trị · `package.json` · `docs/OWNER-REQUEST-LEDGER.md` · `docs/BAO-CAO-CHOT-AI-TOOLING-GOVERNANCE-2026-07-30.md`
 
-## 6. FILES CHANGED — 5 commit
+## 6. FILES CHANGED — 5 mốc công việc
+
+> 🔧 **Đính chính 24/08/2026 (Pha C2).** Bản đầu đặt tiêu đề *"5 commit"* nhưng liệt kê **6 dòng** — `280529f` bị xếp lẫn vào bảng mốc công việc. Đã tách đúng: bảng dưới là **5 mốc công việc**, hai commit còn lại của dải liệt kê riêng ở dưới. Nội dung mô tả từng commit **giữ nguyên**, không sửa.
 
 | Commit | Nội dung |
 |---|---|
@@ -67,7 +71,15 @@ Soát đủ **15/15** điều kiện dừng mục 4 → **không điều kiện 
 | `9d2c294` | **content_status** — tách trục hiệu lực nội dung, 128/128 entry |
 | `c8e3c7c` | **công cụ** — Spec Kit `DORMANT` · Graphify `SAFE_BUT_STALE` · MCP `NOT_CONNECTED` · điều kiện độ mới |
 | `fb9eccc` | **luật** — `GOV-SKILL-CONTENT-STATUS-001` vào 5 file, Doc `2.6 → 2.7` |
-| `280529f` | Sổ Owner #139 + vá 2 mã mục trùng + `DEBT-097` |
+
+**Hai commit còn lại trong dải `7752cc5..b7179a3` — KHÔNG phải mốc công việc:**
+
+| Commit | Vai trò |
+|---|---|
+| `280529f` | **Ghi sổ** — Sổ Owner #139 + vá 2 mã mục trùng + `DEBT-097`. Là **cha trực tiếp** của `b7179a3`. |
+| `b7179a3` | **Chính báo cáo này** — `TECHNICAL_FINAL_SHA` của Pha B |
+
+*Đo lại 24/08/2026:* `git log --ancestry-path 7752cc5..b7179a3` → **7 commit** = 5 mốc + ghi sổ + báo cáo.
 
 ## 7. FILES EXPLICITLY NOT CHANGED
 
@@ -192,17 +204,23 @@ Ghi `status: NOT_CONNECTED` + `che_do: BLOCKED_FROM_AUTO_CONNECT`. **Không có 
 
 ## 14. GIT COMMITS + XÁC MINH REMOTE
 
+> 🔧 **Đính chính 24/08/2026 (Pha C2).** Bản đầu ghi `HEAD: 280529f`. Đó là HEAD **tại lúc soạn báo cáo** — một báo cáo không thể chứa mã commit của chính nó. `TECHNICAL_FINAL_SHA` thật của Pha B là **`b7179a3`**, tức commit *chứa* báo cáo này. Đo lại bằng `git merge-base --is-ancestor 280529f b7179a3` → `280529f` là **cha trực tiếp** của `b7179a3`.
+
 ```
-local  HEAD       : 280529f
-remote origin/main: 280529f
-  ✅ KHỚP — CODE_PUSHED xác minh trên remote, không dùng commit local làm bằng chứng
+BASE_SHA             : 7752cc5   (HEAD lúc bắt đầu Pha B)
+TECHNICAL_FINAL_SHA  : b7179a3   (mốc hoàn tất Pha B — đã push, remote khớp)
+  ├─ HEAD lúc soạn báo cáo : 280529f  (cha trực tiếp của b7179a3)
+  └─ dải 7752cc5..b7179a3  : 7 commit = 5 mốc + ghi sổ + báo cáo
+
+PUBLICATION_COMMIT   : acfd850   (kho báo cáo — lượt công bố bản công khai)
+REPORT_STAMP_COMMIT  : ddee6b3   (kho báo cáo — đóng dấu mã commit vào trường 5)
 ```
-Không force push. Không rebase. Không pull.
+Không force push. Không rebase. Không pull. Không viết lại lịch sử.
 
 ## 15. ROLLBACK
 
 ```
-git revert --no-edit 280529f    # sổ Owner + DEBT-097
+git revert --no-edit 280529f    # ghi sổ Owner + DEBT-097 (KHÔNG phải một trong 5 mốc)
 git revert --no-edit fb9eccc    # luật GOV-SKILL-CONTENT-STATUS-001 (5 file)
 git revert --no-edit c8e3c7c    # trạng thái công cụ + graphify.mdc
 git revert --no-edit 9d2c294    # content_status
@@ -215,7 +233,7 @@ Mỗi checkpoint độc lập, revert được riêng. Sau mỗi lần revert ph
 
 | Hành động | Layer | Ai làm | Bằng chứng |
 |---|---|---|---|
-| `MODIFIED_LOCAL` | mã cổng + registry + luật | Agent IDE | 6 commit, remote khớp |
+| `MODIFIED_LOCAL` | mã cổng + registry + luật | Agent IDE | 5 mốc công việc (dải 7 commit), remote khớp |
 | `VERIFIED` | 13 cổng + 26 ca kiểm ngược | Agent IDE | RUNTIME_PROVEN |
 | `OBSERVED` | Graphify stale · MCP rỗng · Spec Kit nguyên vẹn | Agent IDE | CODE_PROVEN |
 | `OWNER_APPROVED` | phương án (b) · phương án A có giới hạn · Spec Kit DORMANT · giữ quyết định 30/07 | Owner | Sổ #139 |
@@ -227,7 +245,7 @@ Mỗi checkpoint độc lập, revert được riêng. Sau mỗi lần revert ph
 | Lớp | Đụng? | Bằng chứng |
 |---|---|---|
 | Luật (5 file) | ✅ thêm §G7.15, parity `8a03b7e3` | 1 mã duy nhất |
-| Registry (T3) | ✅ `skills.yml` · `tools.yml` · `skill-content-status.yml` · `tech-debt.md` | 6 commit |
+| Registry (T3) | ✅ `skills.yml` · `tools.yml` · `skill-content-status.yml` · `tech-debt.md` | 5 mốc công việc |
 | Rule công cụ | ✅ `graphify.mdc` — thêm điều kiện độ mới | `alwaysApply` vẫn `false` |
 | Cổng/mã kiểm | ✅ 1 sửa + 3 mới | 13/13 PASS |
 | **Nguồn kỹ năng** | ❌ **KHÔNG** | `git diff -- .cursor/skills/` → 0 |
@@ -320,7 +338,7 @@ Mỗi checkpoint độc lập, revert được riêng. Sau mỗi lần revert ph
    KHÔNG XOÁ / KHÔNG ĐỔI TÊN file nao
 
 3. BẰNG CHỨNG
-   git rev-parse HEAD == git rev-parse origin/main -> 280529f -> CODE_PUSHED
+   git rev-parse HEAD == git rev-parse origin/main -> b7179a3 -> CODE_PUSHED
    npm run test:gov-gates -> XANH toan bo (13/13) -> RUNTIME_PROVEN
    3 cong moi: 8/8 · 10/10 · 8 DK ; kiem nguoc 26 ca -> RUNTIME_PROVEN
    diff BASELINE<->CANDIDATE tung luot = dung phan duoc duyet -> FILE_PROVEN

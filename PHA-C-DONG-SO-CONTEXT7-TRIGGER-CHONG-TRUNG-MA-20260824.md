@@ -14,10 +14,14 @@ Phiên này làm bốn việc, **không đụng một dòng mã nghiệp vụ n�
 |---|---|---|
 | 1 | Kiểm lại toàn bộ Pha B bằng bằng chứng thật | ✅ Đạt |
 | 2 | Khoá **điều kiện gọi Context7** (trước đây không có) | ✅ Xong + cổng tự động 15 điều kiện |
-| 3 | Vá **mã trùng `DEBT-097`** + dựng cổng chống trùng mã cho hai sổ | ✅ Xong (còn 1 việc chờ chủ dự án) |
+| 3 | Vá **mã trùng `DEBT-097`** + dựng cổng chống trùng mã cho hai sổ | ✅ Xong |
 | 4 | Công bố báo cáo Pha B + Pha C | ✅ Bản này |
+| 5 | **Xử lý mục `#53` trùng trong Sổ Yêu Cầu Owner** | ✅ Xong — bổ sung ngày 24/08 (Pha C2) |
+| 6 | **Nối cổng chống trùng vào chuỗi kiểm tự động + pre-commit** | ✅ Xong — bổ sung ngày 24/08 |
+| 7 | **Đính chính mốc commit của Pha B** | ✅ Xong — bổ sung ngày 24/08 |
 
-**Còn đúng MỘT việc chờ chủ dự án quyết** — mục `#53` trong Sổ Yêu Cầu Owner bị hai việc dùng chung. Chi tiết ở mục 6.
+> 📌 **Bổ sung 24/08/2026 (Pha C2).** Bản đầu của báo cáo này còn treo một việc chờ chủ dự án (mục `#53`).
+> Việc đó **đã xử lý xong**; các mục 3, 6, 8, 9 bên dưới đã cập nhật theo trạng thái cuối.
 
 ---
 
@@ -92,8 +96,10 @@ Trùng mã làm **hỏng truy vết**: một tham chiếu "#53" không còn xác
 
 | Sổ | Mã trùng | Tình trạng |
 |---|---|---|
-| Sổ nợ kỹ thuật | `DEBT-097` | ✅ **Đã vá** |
-| Sổ Yêu Cầu Owner | `#53` | ⏳ **Chờ chủ dự án** — xem mục 6 |
+| Sổ nợ kỹ thuật | `DEBT-097` | ✅ **Đã vá** (23:xx 24/08 — mục ghi sau nhận hậu tố `-B`) |
+| Sổ Yêu Cầu Owner | `#53` | ✅ **Đã vá** (Pha C2 24/08 — xem mục 6) |
+
+Sau khi vá, sổ Yêu Cầu Owner có **142 mục / 142 mã duy nhất**, dãy `1→142` liên tục, không khoảng trống. Sổ nợ có **107 mục**, không mã nào trùng.
 
 ### Đã vá `DEBT-097`
 
@@ -110,9 +116,20 @@ Hệ quả: một bộ kiểm viết ẩu sẽ coi `DEBT-030-B` là **lần xu�
 
 Cổng cũng chỉ đọc **dòng định nghĩa mục**, bỏ qua mọi lần **nhắc lại trong văn mô tả**, và không nhầm ô ngày tháng ở bảng tóm tắt.
 
-**Kiểm ngược 5/5 đạt** — cố tình làm sai thì cổng đỏ đúng chỗ, khôi phục thì xanh lại.
+**Kiểm ngược 7/7 đạt** — cố tình làm sai thì cổng đỏ đúng chỗ, khôi phục thì xanh lại. Bảy kịch bản: trùng mã ở sổ Owner · trùng mã ở sổ nợ · hậu tố `-B` hợp lệ không báo trùng giả · khôi phục bản sạch · mã sai định dạng · **nhắc lại mã trong văn mô tả không bị tính là cấp mã** · **ngày tháng và khối mã ví dụ không bị hiểu là mã mục**.
 
-> **Cổng này CHƯA nối vào chuỗi kiểm tự động — cố ý.** Nó hiện còn báo đỏ đúng **một** lỗi: mục `#53` chưa vá. Nối vào lúc này sẽ **chặn mọi lần ghi mã**. Sẽ nối ngay sau khi `#53` được quyết.
+> 🔎 **Hai kịch bản cuối bắt được lỗi thật khi thêm vào (24/08).** Parser đang đếm cả dòng bảng **nằm trong khối mã ví dụ** — một ví dụ minh hoạ `| 9 | … |` bị tính thành lần cấp mã thứ hai của `#9`. Đã vá **ở parser**, không vá ở fixture. Sau khi vá, số mục đọc được trên sổ thật **không đổi** (142 và 107) ⇒ vá không làm rơi mục nào.
+
+### ✅ Đã nối vào chuỗi kiểm tự động (24/08 — Pha C2)
+
+| Nơi nối | Trạng thái |
+|---|---|
+| `package.json` — khai lệnh chạy | ✅ |
+| Chuỗi kiểm quản trị tổng | ✅ — nâng **15 → 16** cổng |
+| Hook chạy trước mỗi lần ghi mã | ✅ — nâng **3 → 4** cổng |
+| Bộ kiểm chống-gỡ-âm-thầm | ✅ — gỡ khai báo thì bộ kiểm **đỏ đúng chỗ**, khôi phục thì xanh |
+
+**Kiểm ngược mức chuỗi tổng:** gieo một mã trùng thật vào sổ → chuỗi tổng **đỏ**, chỉ đúng dòng vừa gieo; khôi phục → **xanh**.
 
 ---
 
@@ -154,9 +171,9 @@ Toàn bộ khẳng định của Pha B được **chạy lại bằng lệnh th�
 
 ---
 
-## 6. ⏳ ĐANG CHỜ CHỦ DỰ ÁN — đúng một việc
+## 6. ✅ ĐÃ XỬ LÝ — mục `#53` trùng số
 
-Mục **`#53`** trong Sổ Yêu Cầu Owner đang bị **hai việc khác nhau** dùng chung:
+Mục **`#53`** trong Sổ Yêu Cầu Owner từng bị **hai việc khác nhau** dùng chung:
 
 - **Bản A** — thêm trường chống bẫy nén phiên vào khối khép phiên
 - **Bản B** — đợt kiểm tra "agent đang nạp tệp luật nào"
@@ -174,12 +191,23 @@ Mục **`#53`** trong Sổ Yêu Cầu Owner đang bị **hai việc khác nhau**
 
 Điều này **trùng khớp** với hướng chủ dự án đã nêu: giữ mục ghi trước, và đó **cũng chính là** mục đang được báo cáo công khai trỏ tới. **Không có mâu thuẫn.**
 
-**Cần chủ dự án gật một câu** để:
-- Bản B giữ `#53`
-- Bản A nhận số kế tiếp còn trống
-- Cập nhật tham chiếu nội bộ *(đều nằm trong kho riêng, **không đụng** báo cáo công khai nào)*
-- Nối cổng chống trùng mã vào chuỗi kiểm tự động
-- Đóng nợ `DEBT-097`
+### Đã làm (24/08/2026 — Pha C2)
+
+| Việc | Kết quả |
+|---|---|
+| Bản B (probe) giữ `#53` | ✅ — còn **đúng một** định nghĩa |
+| Bản A (trường 11) cấp lại | ✅ → **`#142`**, số kế tiếp còn trống, **tính lại từ sổ** sau khi tiếp quản mục `#141` |
+| Nội dung · ngày · người thực hiện của bản A | ✅ **giữ nguyên**, chỉ đổi số, kèm dòng ghi rõ `#53 → #142` và lý do |
+| Tham chiếu ngữ nghĩa của bản A | ✅ cập nhật **đúng 1 chỗ** — báo cáo nội bộ về trường 11 |
+| Báo cáo công khai trỏ tới bản B | ✅ **KHÔNG đụng dòng nào** — `#53` trong đó vẫn đúng mục |
+| Cổng chống trùng | ✅ đã nối vào chuỗi tự động + hook trước khi ghi mã |
+| Khoản nợ | ✅ đóng **`DEBT-018`** và **`DEBT-097-B`** *(hai khoản cùng mô tả lỗi này)* |
+
+> ⚠️ **Nói rõ mã nợ đã đóng.** Khoản nợ mô tả lỗi `#53` hiện mang mã **`DEBT-097-B`**, không phải `DEBT-097` — vì chính mã `DEBT-097` cũng từng bị cấp trùng và mục ghi sau đã nhận hậu tố `-B`. `DEBT-097` (mã gốc) nói về việc khác và **vẫn giữ nguyên**.
+>
+> **`DEBT-082` KHÔNG đóng trong đợt này** — nó nói về trùng mã trong *sổ nợ* (`DEBT-030/031/032`), là việc khác. Giữ nguyên trạng thái.
+
+**Không dùng thay-thế-hàng-loạt chuỗi `#53`.** Chỉ đổi đúng dòng định nghĩa của bản A và đúng một tham chiếu ngữ nghĩa. Mọi chỗ khác nhắc `#53` đều là **mô tả chính sự việc trùng** hoặc **báo cáo lịch sử** — giữ nguyên văn.
 
 ---
 
@@ -203,14 +231,20 @@ Mục **`#53`** trong Sổ Yêu Cầu Owner đang bị **hai việc khác nhau**
 | **Cấu hình Context7** | ✅ **ĐẠT** — đủ điều kiện gọi, điều kiện cấm, ràng buộc phiên bản, chính sách dữ liệu, chống chỉ dẫn lẫn trong dữ liệu, cổng 15/15 |
 | **Chạy thử Context7** | ✅ **ĐẠT** — đã thử thật, đối chiếu với máy, không gửi dữ liệu nội bộ |
 | **Trùng mã sổ nợ** | ✅ **ĐÃ VÁ** |
-| **Trùng mã sổ Owner** | ⏳ **CHỜ CHỦ DỰ ÁN** |
-| **PHA C** | ✅ **ĐẠT — trừ một việc chờ quyết**, đã nêu rõ ở mục 6 |
+| **Trùng mã sổ Owner** | ✅ **ĐÃ VÁ** — bản B giữ `#53`, bản A → `#142` |
+| **Cổng chống trùng đã nối** | ✅ **ĐẠT** — chuỗi tự động 16 cổng · hook 4 cổng · kiểm ngược 7/7 |
+| **Mốc commit Pha B** | ✅ **ĐÃ ĐÍNH CHÍNH** — dựa trên quan hệ cha-con thật trong lịch sử mã |
+| **PHA C** | ✅ **MÃ NGUỒN + BÁO CÁO HOÀN TẤT** · phần Notion **chưa tới lượt** (mục 7) |
+
+> Không ghi *"toàn hệ thống đã đồng bộ"*: phần Notion thuộc trợ lý Notion và **chưa** làm. Đúng trạng thái là **mã nguồn và báo cáo đã xong, Notion còn chờ bàn giao**.
 
 ---
 
-## 9. Việc kế tiếp — đúng MỘT việc
+## 9. Việc kế tiếp
 
-> Chủ dự án xác nhận hướng xử lý mục **`#53`** (mục 6). Ngay sau đó: vá mục, nối cổng chống trùng vào chuỗi kiểm tự động, đóng nợ `DEBT-097`.
+> **Bàn giao cho trợ lý Notion** để đồng bộ tài liệu bên đó. Agent IDE **không** được sửa Notion, nên phần này không tự đóng được.
+
+Ngoài ra, một phát hiện được ghi thành nợ, **không xử lý trong đợt này**: registry số phát hành nội bộ còn ghi mốc cũ (thiếu bốn đợt gần nhất), trong khi ba nguồn độc lập đều cho số mới hơn. Cần một lượt cập nhật riêng kèm mốc triển khai từng đợt.
 
 ---
 

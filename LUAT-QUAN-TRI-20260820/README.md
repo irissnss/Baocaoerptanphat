@@ -11,8 +11,13 @@
 > Danh mục thật đã đổi sau bản chụp: mọi mục nay mang thêm trường **hiệu lực nội dung**,
 > và các lệnh không chạy được đã bị loại khỏi trường điều kiện kiểm.
 >
-> Bản chụp này **giữ nguyên vẹn, không sửa** — theo `GOV-EDIT-PRESERVE-001`.
-> Nó là **bằng chứng lịch sử**, không phải chuẩn thi hành hiện hành.
+> **Phạm vi của lần thêm cảnh báo này — nói cho chính xác:**
+> · Các **tài liệu quản trị gốc** trong thư mục chụp (`CLAUDE.md`, `skills.yml`, và mọi tệp khác)
+>   **giữ nguyên vẹn, không sửa một dòng nào** — theo `GOV-EDIT-PRESERVE-001`.
+> · Riêng **tệp `README.md` mục lục này** được **bổ sung khối cảnh báo lịch sử ngày 24/08/2026**.
+>   Đây là **chú thích nguồn gốc**, không phải viết lại bản chụp.
+>
+> Bản chụp là **bằng chứng lịch sử**, không phải chuẩn thi hành hiện hành.
 
 > ⚠️ **BẢN CHỤP MỘT THỜI ĐIỂM (20/08/2026) — HÃY KIỂM CÒN HẠN HAY KHÔNG.**
 > Đây là mục lục bản công bố, **chỉ tồn tại ở bản công bố** (không có bản gốc tương ứng trong kho riêng tư để đối chiếu mã băm).

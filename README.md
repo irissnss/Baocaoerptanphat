@@ -13,11 +13,11 @@
 | **Tên dự án** | ERP Tân Phát (Tân Phát Packaging) |
 | **Sơ đồ số phiên bản** | `V{aa}.{bb}.{xxx}` (Owner chốt 11/08/2026) — ví dụ `V1.00.337`; mỗi đợt phát hành `xxx +1`, `xxx→999` thì `bb +1`, `bb→99` thì `aa +1`. Thay sơ đồ cũ `V0.XXX`. |
 | **Phiên bản mã nguồn** | `V1.00.355` ✅ (đã phát hành 23/08/2026) |
-| **Phiên bản đang chạy thật** | `V1.00.344` ✅ **ĐÃ TRIỂN KHAI 17/08/2026** — Trang Giao Hàng: sửa 4 điểm giao diện (lề sát mép · nhãn thống kê hàng riêng · gộp tìm-lọc + bảng vào 1 khung · form nhập có đầu màu + chia mục); có sao lưu CSDL trước, KHÔNG đổi cấu trúc dữ liệu, 99 bảng khớp, đăng nhập 200. *(V1.00.338–343 cùng ngày — nghiệp vụ + giao diện Kho/Giao Hàng.)* |
-| **Mốc phiên bản hiện tại** | V1.00.344 (local = GitHub = máy vận hành, cùng một số) |
+| **Phiên bản đang chạy thật** | `V1.00.355` ✅ **ĐÃ TRIỂN KHAI 23/08/2026** · commit `0e73a7c` · nhánh `main` — tách Biểu Mẫu khỏi nhóm Hệ Thống. Chi tiết: [PHAT-HANH-V1.00.355-TACH-BIEU-MAU-KHOI-HE-THONG-20260823.md](PHAT-HANH-V1.00.355-TACH-BIEU-MAU-KHOI-HE-THONG-20260823.md).<br>*(Trước đó — giữ làm lịch sử: V1.00.344 triển khai 17/08/2026, Trang Giao Hàng sửa 4 điểm giao diện, có sao lưu CSDL trước, KHÔNG đổi cấu trúc dữ liệu, 99 bảng khớp, đăng nhập 200; V1.00.338–343 cùng ngày.)* |
+| **Mốc phiên bản hiện tại** | V1.00.355 (mã nguồn = máy vận hành, cùng một số) |
 | **Ngày bắt đầu** | 18/01/2026 |
-| **Phát hành lên vận hành thật** | 17/08/2026 — **V1.00.341** (Giao Hàng: full bề ngang) · V1.00.340 (không gian + xem nhanh) · V1.00.339 (giao diện + sửa lỗi) · V1.00.338 (nghiệp vụ Kho M5) · 11/08 — V1.00.337 |
-| **Cập nhật báo cáo này** | 17/08/2026 |
+| **Phát hành lên vận hành thật** | 23/08/2026 — **V1.00.355** (tách Biểu Mẫu) · V1.00.353 + V1.00.354 · 22/08 — V1.00.351 + V1.00.352 · 17/08 — V1.00.338–344 · 11/08 — V1.00.337 |
+| **Cập nhật báo cáo này** | 24/08/2026 |
 | **Nguồn trạng thái (chuẩn)** | registry trong repo private (`.governance/registry/`) — bảng công khai này đồng bộ theo đó |
 | **Tech Stack** | Next.js 16.1.6 · React 19.2.4 · Tailwind 4.2.1 · TypeScript 5.9.3 · MariaDB 10.11 (**cả máy vận hành lẫn máy phát triển**, đồng bộ từ 09/08/2026) |
 | **Architecture** | Server Actions + Server Components + SSE |
