@@ -2,7 +2,35 @@
 
 > Lịch sử thay đổi governance rules, skills, architecture decisions, và system audit.
 >
-> **Cập nhật:** 18/08/2026 — **KẾ HOẠCH IMPORT (PLAN-ONLY, đã nâng lên v2)**: đối chiếu DB AppSheet cũ ↔ schema ERP để lập kế hoạch nạp 3 danh mục nền (Nhân viên → Khách hàng → Nhà cung cấp); v2 bổ sung cơ chế sinh mã tự động, cấp mật khẩu tạm bắt buộc đổi, đa địa chỉ + tự nhận diện tỉnh, và các quy tắc an toàn dữ liệu. **Chưa nạp dữ liệu — chờ Owner duyệt v2.** (Trước đó: tài liệu tham chiếu 32 sheet; V1.00.350 tồn kho vật tư.)
+> **Cập nhật:** 24/08/2026 — **PHA C**: khoá **điều kiện gọi Context7** (trước đó mục công cụ chỉ có 4 dòng, không điều kiện gọi/cấm gọi, không chính sách dữ liệu) + vá **mã trùng `DEBT-097`** + dựng **cổng chống trùng mã** cho hai sổ + công bố báo cáo **Pha B**. (Trước đó: 18/08 kế hoạch import PLAN-ONLY.)
+
+---
+
+## 24/08/2026 — PHA C: ĐIỀU KIỆN GỌI CONTEXT7 · CHỐNG TRÙNG MÃ SỔ · ĐÓNG SỔ PHA B
+
+**Bối cảnh:** nối tiếp Pha B. Bộ luật bắt *đọc sổ công cụ trước khi gọi bất kỳ công cụ nào*, nhưng mục `context7` trong sổ đó chỉ có **4 dòng** — không có điều kiện được gọi, không có điều kiện cấm gọi, không có chính sách dữ liệu ra ngoài, không có ràng buộc phiên bản. Một dòng trạng thái **đọc như đã kiểm soát** nhưng **giá trị thi hành bằng 0**.
+
+**Đã làm:**
+- **Context7 (4 → 31 trường, không xoá trường cũ):** 6 điều kiện GỌI (phải đủ cả sáu) · 12 điều kiện CẤM GỌI (trúng một là không gọi) · ràng buộc phiên bản · chính sách dữ liệu *chỉ thông tin công khai của thư viện* · chống **chỉ dẫn lẫn trong dữ liệu** trả về · ranh giới quyền (lượt tra là chỉ đọc, không tự cấp quyền sửa mã/commit/triển khai) · thứ tự dự phòng đặt **mã nguồn thật trước** Context7.
+- **Tách trục "sẵn sàng" khỏi "chế độ dùng":** đo **riêng 4 bề mặt**, cấm suy từ bề mặt này sang bề mặt kia. Cùng loại lỗi đã vá cho phần kỹ năng ở Pha B.
+- **Đã chạy thử thật một lần có kiểm soát** trên một thư viện công khai đang dùng trong dự án: chỉ gửi tên thư viện + số phiên bản + tên hàm công khai; đối chiếu lại với định nghĩa kiểu cài trên máy → **khớp**; **không** phát sinh sửa mã.
+- **Vá mã trùng `DEBT-097`** theo đúng tiền lệ sẵn có trong sổ (việc ghi trước giữ mã, việc cấp trùng sau nhận hậu tố `-B`, cả hai dòng ghi con trỏ sang nhau).
+- **Cổng chống trùng mã** cho cả hai sổ, hiểu **hai quy ước cấp lại khác nhau** (số kế tiếp ở sổ Owner · hậu tố `-B` ở sổ nợ) nên không báo trùng giả trên bản đã vá đúng. **Kiểm ngược 5/5.**
+- **Kiểm lại toàn bộ Pha B** bằng lệnh thật: 0 tệp mã nghiệp vụ bị đụng · 0 tệp kỹ năng bị đụng · 128/128 kỹ năng có nhãn hiệu lực · 5 tệp luật giống hệt từng byte · 0 lệnh "ma" · phiên bản **không tăng** (đúng chính sách).
+
+**Cổng tự động:** chuỗi kiểm quản trị nâng lên **15 cổng** (thêm cổng Context7, kiểm ngược 4/4).
+
+**Còn chờ chủ dự án — đúng một việc:** Sổ Yêu Cầu Owner có mục **`#53` bị hai việc dùng chung**. Đã dựng được chuỗi thời gian xác định bản nào lấy số trước (hoàn toàn từ tệp đã lưu ở hai kho). Cổng chống trùng **cố ý chưa nối** vào chuỗi kiểm tự động vì nối lúc này sẽ chặn mọi lần ghi mã.
+
+**Cố ý KHÔNG làm:** sửa mã nghiệp vụ · sửa nội dung tệp kỹ năng · soát 127 kỹ năng *chưa soát* · làm mới bản đồ phụ thuộc · kết nối thêm công cụ · thêm khoá · sửa 5 tệp luật · sửa báo cáo lịch sử đã công bố · **đụng Sổ Yêu Cầu Owner** (có phiên khác đang ghi vào sổ này).
+
+**Đồng bộ:** kho mã ✅ · kho báo cáo ✅ · Notion ⏳ chưa (thuộc phần việc của trợ lý Notion). **Không** tuyên bố toàn hệ thống đã đồng bộ khi phần Notion còn mở.
+
+**Chi tiết:** [PHA-C-DONG-SO-CONTEXT7-TRIGGER-CHONG-TRUNG-MA-20260824.md](PHA-C-DONG-SO-CONTEXT7-TRIGGER-CHONG-TRUNG-MA-20260824.md) · [PHA-B-HOAN-TAT-20260823.md](PHA-B-HOAN-TAT-20260823.md)
+
+---
+
+## 18/08/2026 — KẾ HOẠCH IMPORT (PLAN-ONLY, đã nâng lên v2): đối chiếu DB AppSheet cũ ↔ schema ERP để lập kế hoạch nạp 3 danh mục nền (Nhân viên → Khách hàng → Nhà cung cấp); v2 bổ sung cơ chế sinh mã tự động, cấp mật khẩu tạm bắt buộc đổi, đa địa chỉ + tự nhận diện tỉnh, và các quy tắc an toàn dữ liệu. **Chưa nạp dữ liệu — chờ Owner duyệt v2.** (Trước đó: tài liệu tham chiếu 32 sheet; V1.00.350 tồn kho vật tư.)
 
 ---
 

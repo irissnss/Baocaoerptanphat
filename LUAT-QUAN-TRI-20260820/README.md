@@ -1,5 +1,19 @@
 # 📜 SNAPSHOT TÀI LIỆU QUẢN TRỊ (GOVERNANCE) — 20/08/2026
 
+> 🕰️ **BẢN CHỤP LỊCH SỬ — DOC 2.4. ĐÃ CÓ BẢN MỚI HƠN.**
+>
+> Bộ luật trong kho riêng tư đã được mở rộng lên **Doc 2.7** trong **Pha B ngày 23/08/2026**
+> (thêm luật tách trục *sức khoẻ cấu trúc* khỏi *hiệu lực nội dung* cho kỹ năng).
+> Xem [`PHA-B-HOAN-TAT-20260823.md`](../PHA-B-HOAN-TAT-20260823.md) và
+> [`PHA-C-DONG-SO-CONTEXT7-TRIGGER-CHONG-TRUNG-MA-20260824.md`](../PHA-C-DONG-SO-CONTEXT7-TRIGGER-CHONG-TRUNG-MA-20260824.md).
+>
+> ⚠️ **KHÔNG dùng `skills.yml` trong bản chụp này làm danh mục kỹ năng đang chạy.**
+> Danh mục thật đã đổi sau bản chụp: mọi mục nay mang thêm trường **hiệu lực nội dung**,
+> và các lệnh không chạy được đã bị loại khỏi trường điều kiện kiểm.
+>
+> Bản chụp này **giữ nguyên vẹn, không sửa** — theo `GOV-EDIT-PRESERVE-001`.
+> Nó là **bằng chứng lịch sử**, không phải chuẩn thi hành hiện hành.
+
 > ⚠️ **BẢN CHỤP MỘT THỜI ĐIỂM (20/08/2026) — HÃY KIỂM CÒN HẠN HAY KHÔNG.**
 > Đây là mục lục bản công bố, **chỉ tồn tại ở bản công bố** (không có bản gốc tương ứng trong kho riêng tư để đối chiếu mã băm).
 > **Cách kiểm:** đối chiếu ngày chụp với bản công bố mới nhất trong kho báo cáo; có bản mới hơn → bản này đã **LỖI THỜI**.
