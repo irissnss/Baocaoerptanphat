@@ -2,7 +2,36 @@
 
 > Lịch sử thay đổi governance rules, skills, architecture decisions, và system audit.
 >
-> **Cập nhật:** 24/08/2026 — **PHA C2**: vá mục **`#53`** trùng số trong Sổ Yêu Cầu Owner · **nối cổng chống trùng mã** vào chuỗi kiểm tự động + hook trước khi ghi mã · đóng đúng khoản nợ · **đính chính mốc commit của Pha B**. (Cùng ngày, trước đó: Pha C khoá điều kiện gọi Context7.)
+> **Cập nhật:** 24/08/2026 — **PHA C3**: audit sự thật hiện hành, xử lý cuốn chiếu — đồng bộ sổ số phát hành theo **ba lớp bằng chứng** · đóng khoản nợ về sổ đó · hoà giải **99 ↔ 101 bảng** · nêu đúng mức tự động hoá tồn kho **M5 theo từng nhánh** · phân định bốn con số **14/16/4/7**. **Còn 3 việc thiếu bằng chứng + bàn giao Notion.** (Cùng ngày, trước đó: Pha C2, Pha C.)
+
+---
+
+## 24/08/2026 — PHA C3: AUDIT SỰ THẬT HIỆN HÀNH · XỬ LÝ CUỐN CHIẾU
+
+**Bối cảnh:** sau Pha C2, tài liệu còn vài chỗ **nói hai điều khác nhau về cùng một sự việc**. Đợt này rà từng chỗ theo ba mức: có bằng chứng thì sửa ngay; đang đúng thì để nguyên và ghi rõ vì sao; **thiếu bằng chứng thì không đoán**, ghi rõ thiếu gì và cần phép đo nào.
+
+**Kết quả 23 mục:** 13 đang đúng · **7 đã sửa** · 1 hai nguồn nói khác nhau · **2 còn thiếu bằng chứng**.
+
+**Bảy mục đã sửa:**
+- **Sổ số phát hành nội bộ** dừng ở V1.00.351 → bổ sung đủ **V1.00.352→355**, mỗi đợt có mã phát hành + mốc giờ + mã đã lên máy vận hành. Tách **ba lớp bằng chứng**: *số trong mã nguồn* · *có hồ sơ phát hành* · *đã lên máy vận hành* — và **nói rõ giới hạn** của lớp thứ ba (dựa hồ sơ triển khai, không phải phép đo trực tiếp).
+- **Đóng khoản nợ** về sổ đó, đúng điều kiện đã ghi khi mở nợ.
+- **README nêu hai phiên bản như hiện hành** → chỉ còn một; mốc go-live cũ gắn nhãn **lịch sử**, không xoá.
+- **"99 bảng"** → **101 bảng**, kèm giải thích: **lệch thời điểm**, không phải đếm sai. Giữa hai mốc có thêm **2 bảng**; chứng minh cả hai là **bảng thật** chứ không phải khung nhìn bằng chính câu lệnh tạo bảng trong mã.
+- **M5 "còn thiếu tự động hoá tồn kho"** → nêu **từng nhánh**. Câu cũ **sai với 3 trong 5 nhánh**: giao hàng, phiếu nhập, phiếu xuất **đều đã tự động** (có chặn xuất vượt tồn và tự sinh bút toán đảo khi huỷ); chỉ *kiểm kê* mới một phần và *mua hàng → công nợ* còn thủ công. Xác định bằng cách liệt kê **mọi** nơi ghi sổ kho rồi truy ngược người gọi.
+- **Danh sách việc treo của Pha B** → thêm bảng đối chiếu trạng thái hôm nay, giữ nguyên bảng cũ làm bằng chứng lịch sử.
+- **Bốn con số 14/16/4/7** → tách rõ mỗi số đo cái gì.
+
+**Một mục hai nguồn nói khác nhau — hệ quản trị CSDL.** Tài liệu nền bên ngoài ghi máy phát triển dùng một hệ, tài liệu trong kho ghi **cả hai máy dùng chung một hệ từ 09/08/2026**. Đo được: tài liệu nền phản ánh trạng thái **trước 09/08**; trong kho có quyết định ghi ngày đổi. ⇒ **tài liệu nền lỗi thời**, KHÔNG phải mã chạy sai chính sách. **Không sửa cấu hình.**
+
+**Hai mục còn thiếu bằng chứng:** hệ quản trị CSDL *đang chạy thật* (cả máy phát triển lẫn máy vận hành) và **tách bảng với khung nhìn**. Cả hai cần một phép đo mà phiên quản trị **không được phép** chạy. Mỗi mục có ghi **cách đóng cụ thể**.
+
+**Kiểm thử:** chuỗi kiểm tổng **16 cổng** đạt · kiểm ngược cổng chống trùng **7/7** · chính sách phiên bản **37/37** · hook chạy thật ở **cả bốn** lượt ghi mã.
+
+**Cố ý KHÔNG làm:** sửa mã nghiệp vụ · tệp kỹ năng · cơ sở dữ liệu · máy vận hành · số phiên bản · năm tệp luật · cấu hình CSDL · Notion. Không gọi công cụ tra tài liệu ngoài (audit quản trị nội bộ thuộc điều kiện **cấm gọi**). Không viết lại lịch sử.
+
+**Trạng thái:** **HOÀN TẤT MỘT PHẦN** · **chưa sẵn sàng bàn giao Notion** (3 việc trên ảnh hưởng trực tiếp nội dung sẽ bàn giao).
+
+**Chi tiết:** [PHA-C3-AUDIT-TRANG-THAI-HIEN-HANH-20260824.md](PHA-C3-AUDIT-TRANG-THAI-HIEN-HANH-20260824.md)
 
 ---
 
@@ -21,7 +50,18 @@
 - **Nói lại cho chính xác** phần chú thích bản chụp luật: các tài liệu gốc trong bản chụp **không sửa một dòng nào**; riêng tệp mục lục được **bổ sung khối cảnh báo lịch sử**. Bản đầu nói gọn *"giữ nguyên vẹn, không sửa"* là **tự mâu thuẫn** với chính khối cảnh báo vừa thêm.
 - **Cập nhật phần đầu README** về phiên bản đang chạy thật, sau khi đối chiếu **ba nguồn độc lập đều khớp**. Phần đầu còn dừng ở mốc 17/08 trong khi thân README và báo cáo phát hành đều đã nêu mốc mới hơn. Các khối cũ **giữ lại làm lịch sử**.
 
-**Kiểm thử:** 14 cổng chạy riêng đều đạt · kiểm ngược bộ kiểm 7/7 · chuỗi tổng 16 cổng đạt · chính sách phiên bản 37/37 · hook chạy thật ở cả ba lượt ghi mã.
+**Kiểm thử — bốn con số dưới đây ĐO BỐN THỨ KHÁC NHAU, không cùng mẫu số:**
+
+| Con số | Đo cái gì | Ghi chú |
+|---:|---|---|
+| **16** | số **cổng trong chuỗi kiểm tổng** | chạy bằng một lệnh; đây là con số "bao nhiêu cổng" đúng nghĩa |
+| **4** | số cổng chạy **trước mỗi lần ghi mã** | là **tập con** của 16 — chọn loại nhanh và chặn rủi ro không đảo ngược được |
+| **7** | số **kịch bản kiểm ngược** *bên trong* cổng chống trùng mã | là **bài kiểm thử**, KHÔNG phải cổng |
+| **37** | số phép kiểm bên trong bộ **chính sách phiên bản** | cũng là bài kiểm thử, không phải cổng |
+
+*(Bản đầu của mục này ghi "14 cổng chạy riêng" — đó chỉ là số cổng được chạy lẻ trong lượt kiểm tay, **không phải một tập hợp có định nghĩa**. Đã bỏ cách diễn đạt đó vì dễ bị đọc thành một mẫu số thứ năm.)*
+
+Hook chạy thật ở cả ba lượt ghi mã.
 
 **Ghi nhận một nợ mới:** registry số phát hành nội bộ **lỗi thời** — còn ghi mốc cũ, thiếu bốn đợt gần nhất, trong khi ba nguồn độc lập đều cho số mới hơn. **Không tự sửa** vì ngoài phạm vi đợt này; cần một lượt cập nhật riêng kèm mốc triển khai từng đợt.
 

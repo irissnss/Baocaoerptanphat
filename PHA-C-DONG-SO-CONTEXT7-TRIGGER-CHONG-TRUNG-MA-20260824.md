@@ -13,7 +13,7 @@ Phiên này làm bốn việc, **không đụng một dòng mã nghiệp vụ n�
 | # | Việc | Kết quả |
 |---|---|---|
 | 1 | Kiểm lại toàn bộ Pha B bằng bằng chứng thật | ✅ Đạt |
-| 2 | Khoá **điều kiện gọi Context7** (trước đây không có) | ✅ Xong + cổng tự động 15 điều kiện |
+| 2 | Khoá **điều kiện gọi Context7** (trước đây không có) | ✅ Xong + **một** cổng tự động, cổng đó kiểm **15 điều kiện** *(15 điều kiện bên trong một cổng — không phải 15 cổng)* |
 | 3 | Vá **mã trùng `DEBT-097`** + dựng cổng chống trùng mã cho hai sổ | ✅ Xong |
 | 4 | Công bố báo cáo Pha B + Pha C | ✅ Bản này |
 | 5 | **Xử lý mục `#53` trùng trong Sổ Yêu Cầu Owner** | ✅ Xong — bổ sung ngày 24/08 (Pha C2) |
@@ -167,7 +167,7 @@ Toàn bộ khẳng định của Pha B được **chạy lại bằng lệnh th�
 | Nâng gói / thêm khoá Context7 | Không cần, và sẽ phát sinh khoá phải cất đúng chỗ |
 | Sửa 5 tệp luật | Pha C không đụng |
 | Sửa **báo cáo lịch sử đã công bố** | Giữ nguyên vẹn lịch sử |
-| **Sổ Yêu Cầu Owner** | **Có phiên khác đang ghi vào sổ này** — tránh giẫm chân |
+| **Sổ Yêu Cầu Owner** | 🕰️ *Đúng tại thời điểm Pha C:* có phiên khác đang ghi vào sổ này — tránh giẫm chân.<br>**Đã hết hiệu lực:** chủ dự án xác nhận phiên đó **đã ngưng hẳn**; Pha C2 tiếp quản, thẩm định rồi **bảo toàn phần còn sót bằng một mốc riêng** trước khi làm tiếp. |
 
 ---
 

@@ -272,6 +272,22 @@ Mỗi checkpoint độc lập, revert được riêng. Sau mỗi lần revert ph
 
 ## 20. OPEN ITEMS
 
+> 🕰️ **ĐÂY LÀ DANH SÁCH TẠI THỜI ĐIỂM ĐÓNG PHA B (23/08/2026) — GIỮ NGUYÊN LÀM BẰNG CHỨNG LỊCH SỬ.**
+> Bảng dưới **không** phản ánh trạng thái hôm nay. Cập nhật tới **24/08/2026**:
+>
+> | Mục | Trạng thái hiện tại | Xử lý ở đâu |
+> |---|---|---|
+> | 1 · câu `npm run migrate:*` | **GIỮ NGUYÊN có chủ đích** — là mẫu chỉ họ lệnh, không phải lệnh chạy được | Pha C |
+> | 2 · mục `#53` trùng | ✅ **ĐÃ XỬ LÝ** — mục *probe Cursor* giữ `#53`, mục *trường 11* cấp lại thành `#142` | Pha C2 |
+> | 3 · cơ chế chống va chạm cấp mã cho **cả hai sổ** | ✅ **ĐÃ CÓ** — cổng chống trùng mã, nối vào chuỗi kiểm tự động **và** hook trước khi ghi mã | Pha C2 |
+> | 4 · `previous_result` | ⏸️ **HOÃN CÓ CHỦ ĐÍCH** — là trạng thái phái sinh, không do bản vá gây ra | — |
+> | 5 · `CA6` | ⏸️ còn treo — vẫn **không** dùng làm bằng chứng | — |
+> | 6 · bàn giao Notion | ⏳ **CHƯA** — Agent IDE không được sửa Notion | chờ trợ lý Notion |
+> | 7 · 127 kỹ năng `UNREVIEWED` | ⏸️ còn treo — **không** tự gán "còn hiệu lực" cho cái nào | phiên vòng đời kỹ năng |
+>
+> Hai khoản nợ mang mã `DEBT-018` và `DEBT-097-B` (khoản mô tả lỗi `#53`) **đã đóng** ở Pha C2.
+> Chi tiết: [PHA-C-DONG-SO-CONTEXT7-TRIGGER-CHONG-TRUNG-MA-20260824.md](PHA-C-DONG-SO-CONTEXT7-TRIGGER-CHONG-TRUNG-MA-20260824.md) · [PHA-C3-AUDIT-TRANG-THAI-HIEN-HANH-20260824.md](PHA-C3-AUDIT-TRANG-THAI-HIEN-HANH-20260824.md)
+
 | # | Việc | Chờ ai |
 |---|---|---|
 | 1 | Câu `npm run migrate:*` giữ nguyên trong nguồn kèm cảnh báo. Owner có muốn làm rõ câu đó ở lượt khác? *(sửa `.cursor/skills` **ngoài phạm vi** Pha B)* | **Owner** |
