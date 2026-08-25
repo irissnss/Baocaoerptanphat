@@ -43,7 +43,7 @@ THIET_KE | don_hang_item  | gia_von | can_view=0, mask=1
 
 ### CEO Role Config:
 ```
-user_role_mapping: lienntk@intanphat.com → CEO
+user_role_mapping: <EMAIL-NHAN-SU-DA-CHE> → CEO
 dm_vai_tro: CEO → la_admin=1
 security-store.ts:343: isAdmin = roles.some(r => r.la_admin === 1) → TRUE for CEO
 ```
@@ -55,7 +55,7 @@ security-store.ts:343: isAdmin = roles.some(r => r.la_admin === 1) → TRUE for 
 ### KẾT LUẬN: Code logic ĐÚNG — CEO **PHẢI** xem được giá vốn
 
 **Logic chain:**
-1. CEO login → `resolveSessionEmail()` → `lienntk@intanphat.com`
+1. CEO login → `resolveSessionEmail()` → `<EMAIL-NHAN-SU-DA-CHE>`
 2. `getSecurityContext()` → roles=[CEO] → `la_admin=1` → `isAdmin=true`
 3. `canViewField()` → `ctx.isAdmin=true` → **return true (bypass all checks)**
 4. `maskSensitiveFields()` → **không mask gì** → `gia_von` giữ nguyên

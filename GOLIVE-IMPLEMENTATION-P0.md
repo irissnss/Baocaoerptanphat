@@ -25,29 +25,34 @@
 
 ## Test Users Đề Xuất (14 users)
 
+> ⚠️ **ĐÃ CHE DỮ LIỆU CÁ NHÂN 25/08/2026** — cột *Họ tên* và *Email* của 14 dòng dưới đây đã được che theo `OD-07`
+> (báo cáo công khai **cấm** email và dữ liệu định danh người thật). Cơ cấu vẫn tra được: **10 SALE + 4 THIET_KE**.
+> Bản đầy đủ nằm ở kho riêng tư. Plan: `PL-ERP-SINGLE-TRACK-RECOVERY-20260825` Pha 2.
+
+
 ### 10 SALE Users
 
 | # | Họ tên | Email | Role | Phòng ban |
 |---|--------|-------|------|-----------|
-| S1 | Nguyễn Văn Minh | minh.nv@intanphat.com | SALE | Kinh Doanh |
-| S2 | Trần Thị Hương | huong.tt@intanphat.com | SALE | Kinh Doanh |
-| S3 | Lê Hoàng Nam | nam.lh@intanphat.com | SALE | Kinh Doanh |
-| S4 | Phạm Thanh Tùng | tung.pt@intanphat.com | SALE | Kinh Doanh |
-| S5 | Võ Thị Mai | mai.vt@intanphat.com | SALE | Kinh Doanh |
-| S6 | Đặng Quốc Bảo | bao.dq@intanphat.com | SALE | Kinh Doanh |
-| S7 | Hoàng Minh Tuấn | tuan.hm@intanphat.com | SALE | Kinh Doanh |
-| S8 | Bùi Thị Lan | lan.bt@intanphat.com | SALE | Kinh Doanh |
-| S9 | Ngô Đức Thắng | thang.nd@intanphat.com | SALE | Kinh Doanh |
-| S10 | Lý Thanh Hà | ha.lt@intanphat.com | SALE | Kinh Doanh |
+| S1 | *(họ tên — đã che)* | *(email — đã che)* | SALE | Kinh Doanh |
+| S2 | *(họ tên — đã che)* | *(email — đã che)* | SALE | Kinh Doanh |
+| S3 | *(họ tên — đã che)* | *(email — đã che)* | SALE | Kinh Doanh |
+| S4 | *(họ tên — đã che)* | *(email — đã che)* | SALE | Kinh Doanh |
+| S5 | *(họ tên — đã che)* | *(email — đã che)* | SALE | Kinh Doanh |
+| S6 | *(họ tên — đã che)* | *(email — đã che)* | SALE | Kinh Doanh |
+| S7 | *(họ tên — đã che)* | *(email — đã che)* | SALE | Kinh Doanh |
+| S8 | *(họ tên — đã che)* | *(email — đã che)* | SALE | Kinh Doanh |
+| S9 | *(họ tên — đã che)* | *(email — đã che)* | SALE | Kinh Doanh |
+| S10 | *(họ tên — đã che)* | *(email — đã che)* | SALE | Kinh Doanh |
 
 ### 4 THIET_KE Users
 
 | # | Họ tên | Email | Role | Phòng ban |
 |---|--------|-------|------|-----------|
-| T1 | Phan Văn Đức | duc.pv@intanphat.com | THIET_KE | Thiết Kế |
-| T2 | Nguyễn Thị Ngọc | ngoc.nt@intanphat.com | THIET_KE | Thiết Kế |
-| T3 | Trương Minh Khôi | khoi.tm@intanphat.com | THIET_KE | Thiết Kế |
-| T4 | Lê Thị Phương | phuong.lt@intanphat.com | THIET_KE | Thiết Kế |
+| T1 | *(họ tên — đã che)* | *(email — đã che)* | THIET_KE | Thiết Kế |
+| T2 | *(họ tên — đã che)* | *(email — đã che)* | THIET_KE | Thiết Kế |
+| T3 | *(họ tên — đã che)* | *(email — đã che)* | THIET_KE | Thiết Kế |
+| T4 | *(họ tên — đã che)* | *(email — đã che)* | THIET_KE | Thiết Kế |
 
 > **Mật khẩu mặc định:** `TanPhat@2026` (bắt buộc đổi lần đầu)
 > Đây là test data, có thể sửa/xóa/edit tùy ý.

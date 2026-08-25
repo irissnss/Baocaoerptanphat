@@ -65,7 +65,7 @@
 -- R1: Disable account
 UPDATE user_account SET trang_thai = 'inactive' WHERE id = 18;
 -- R3: Remove role mapping
-DELETE FROM user_role_mapping WHERE user_email = 'lienntk@intanphat.com' AND ma_vai_tro = 'CEO';
+DELETE FROM user_role_mapping WHERE user_email = '<EMAIL-NHAN-SU-DA-CHE>' AND ma_vai_tro = 'CEO';
 -- R5 (only if Owner approves): Hard delete
 -- DELETE FROM user_account WHERE id = 18;
 ```

@@ -78,7 +78,7 @@
 | **Category** | Security / User Management |
 | **Scope** | Batch 1 real user creation + bug fix |
 
-- [User] CEO `lienntk@intanphat.com` created (Batch 1 of Real User Pilot)
+- [User] CEO `<EMAIL-NHAN-SU-DA-CHE>` created (Batch 1 of Real User Pilot)
 - [Fix] `maskSensitiveFields` — resolved session email correctly (was defaulting to null)
 - [Fix] CEO role `la_admin=1` in `dm_vai_tro` — `gia_von` now visible to CEO
 - [Report] `REAL-USER-PILOT-V0227-BATCH1-CEO.md` created
@@ -1192,7 +1192,7 @@
 | **Category** | M5 Kho Hàng |
 | **Scope** | Bug fix |
 
-- [DevOps] `scripts/deploy-vps-via-git.ps1`: sua buoc doi chieu header domain/origin de khong crash khi output rong va tu fallback `127.0.1.1:3000` -> `127.0.0.1:3000`.
+- [DevOps] `scripts/deploy-vps-via-git.ps1`: sua buoc doi chieu header domain/origin de khong crash khi output rong va tu fallback `<IP-MAY-CHU>:3000` -> `127.0.0.1:3000`.
 - [Ops] Sau khi runtime standalone + PM2 online, script deploy khong con fail gia o buoc verify cuoi.
 
 ---

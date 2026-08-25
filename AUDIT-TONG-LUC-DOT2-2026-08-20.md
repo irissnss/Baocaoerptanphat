@@ -47,7 +47,7 @@
 | Mục | Nội dung |
 |---|---|
 | Đường vào | SSH bằng khoá có sẵn trong `.env.deploy` (`VPS_KEY`, đã tồn tại trên máy) → mở đường hầm cục bộ `13307 → 127.0.0.1:3306` trên máy chủ |
-| Vì sao dùng đường hầm | Cổng 3306 của máy vận hành **đã đóng ra ngoài**. Đường hầm cho phép dùng thư viện `mysql2` ⇒ **mật khẩu không xuất hiện trên dòng lệnh** (tránh đúng lỗi `DEBT-017`) |
+| Vì sao dùng đường hầm | Cổng *(cổng — đã che)* của máy vận hành **đã đóng ra ngoài**. Đường hầm cho phép dùng thư viện `mysql2` ⇒ **mật khẩu không xuất hiện trên dòng lệnh** (tránh đúng lỗi `DEBT-017`) |
 | Tài khoản | Tài khoản ứng dụng sẵn có trong `.env.deploy`. **KHÔNG tạo user mới, KHÔNG cấp quyền, KHÔNG đổi gì** |
 | Lệnh đã chạy | Chỉ `SELECT`, `SHOW CREATE TABLE`, `SHOW GRANTS`, truy vấn `information_schema`. **0 lệnh ghi** |
 | Dọn dẹp | Đường hầm **đã đóng** (xác nhận cổng 13307 không còn mở, 0 tiến trình `ssh` còn lại); file cấu hình tạm chứa bí mật **đã xoá** |

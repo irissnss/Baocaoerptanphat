@@ -159,7 +159,7 @@ NT-TEST-001    12000000.00     1200000.00   13200000.00     23000000.00   0.00  
 **AFTER (da_ky):**
 ```
 ma_nghiem_thu  trang_thai  nguoi_ky              ngay_ky
-NT-TEST-001    da_ky       test@intanphat.com    2026-07-06 00:41:44
+NT-TEST-001    da_ky       <EMAIL-NHAN-SU-DA-CHE>    2026-07-06 00:41:44
 ```
 
 - `nguoi_ky` set ✅

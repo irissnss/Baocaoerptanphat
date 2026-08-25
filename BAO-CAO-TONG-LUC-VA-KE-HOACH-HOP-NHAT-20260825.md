@@ -35,7 +35,7 @@
 
 - Hai kho **sạch tuyệt đối**, không mất commit nào.
 - **16/16 cổng quản trị PASS**, `EXIT=0` — trước và sau mọi lần ghi.
-- **Môi trường local ĐANG CHẠY** *(đo 15:05: CSDL cổng `3308` UP · app `3000` UP)* ⇒ **không có điểm chặn kỹ thuật** cho việc code.
+- **Môi trường local ĐANG CHẠY** *(đo 15:05: CSDL cổng *(cổng — đã che)* UP · app `3000` UP)* ⇒ **không có điểm chặn kỹ thuật** cho việc code.
 - Cổng quét dữ liệu cá nhân **đã hết mù** từ 23/08 — báo cáo nói *"chưa vá"* là đo nhầm chỗ.
 - Ba phiên hành xử **đúng luật** trong tình huống khó: một phiên tự dừng không commit · một phiên tự khai lỗi ghi trùng · một phiên tự đính chính ngữ cảnh cũ.
 
@@ -84,7 +84,7 @@
 | `CODE_CURRENT` | **V1.00.355** | `src/lib/version.ts` |
 | `DEPLOYMENT_RECORDED` | **V1.00.355** | hồ sơ phát hành trong registry |
 | `RUNTIME_OBSERVED` *(máy vận hành)* | ⛔ **UNVERIFIED** | chưa được cấp kênh đo |
-| `LOCAL_RUNTIME_OBSERVED` | ✅ **UP** *(đo 15:05)* | CSDL `3308` UP · app `3000` UP |
+| `LOCAL_RUNTIME_OBSERVED` | ✅ **UP** *(đo 15:05)* | CSDL *(cổng — đã che)* UP · app `3000` UP |
 
 > ⚠️ **Đính chính registry:** dòng cũ ghi local `BLOCKED_SAFE_START` *(đo sáng nay)*. Phép đo 15:05 cho **UP**. Đã ghi khối đo mới, **giữ nguyên văn dòng cũ** theo `GOV-EDIT-PRESERVE-001`. **Local nay `POLICY_MATCH`; máy vận hành vẫn `UNVERIFIED` ⇒ phán quyết toàn cục CHƯA kết luận được.**
 
@@ -174,7 +174,7 @@ Trong các ô bị nuốt có `decision_state` và **`notion_sync_state`** — *
 
 ## IV.4 🟢 Registry ghi local "DOWN", đo lại là "UP"
 
-Registry *(ghi sáng 25/08)* ghi `LOCAL_RUNTIME_OBSERVED = ⛔ BLOCKED_SAFE_START`. Đo lại **15:05 cùng ngày**: CSDL `3308` UP · app `3000` UP.
+Registry *(ghi sáng 25/08)* ghi `LOCAL_RUNTIME_OBSERVED = ⛔ BLOCKED_SAFE_START`. Đo lại **15:05 cùng ngày**: CSDL *(cổng — đã che)* UP · app `3000` UP.
 
 ⇒ **Môi trường local KHÔNG còn là điểm chặn.** Đã ghi khối đo mới, **giữ nguyên văn dòng cũ**.
 
