@@ -2,7 +2,36 @@
 
 > Lịch sử thay đổi governance rules, skills, architecture decisions, và system audit.
 >
-> **Cập nhật:** 25/08/2026 — **PHA C3.1**: ghi sổ **chín quyết định nền** của chủ dự án (Notion là sổ gốc · chính sách **MariaDB 10.11 LTS** cả hai môi trường · **101 bảng** · định nghĩa *"đang chạy thật"*) · **đo read-only** · sửa các kết luận **vượt quá bằng chứng** · đóng gói bàn giao Notion. **Runtime CSDL/phiên bản: chưa đo được — còn mở.** (Trước đó: Pha C3, Pha C2, Pha C.)
+> **Cập nhật:** 25/08/2026 — **NÂNG LUẬT `2.7 → 2.8`**: thêm luật **bàn giao quyết định về Notion** — sổ yêu cầu chủ dự án là **kênh vận chuyển**, **mỗi chỉ thị một mục**, trường trạng thái đồng bộ nay **có bảng giá trị**, và **bắt buộc có gói bàn giao**. Kèm **ghi bù 3 chỉ thị bị bỏ sót**. *(Cùng ngày, trước đó: Pha C3.1.)*
+>
+> **Trước đó:** 25/08/2026 — **PHA C3.1**: ghi sổ **chín quyết định nền** của chủ dự án (Notion là sổ gốc · chính sách **MariaDB 10.11 LTS** cả hai môi trường · **101 bảng** · định nghĩa *"đang chạy thật"*) · **đo read-only** · sửa các kết luận **vượt quá bằng chứng** · đóng gói bàn giao Notion. **Runtime CSDL/phiên bản: chưa đo được — còn mở.** (Trước đó: Pha C3, Pha C2, Pha C.)
+
+---
+
+## 25/08/2026 — NÂNG LUẬT 2.7 → 2.8: BÀN GIAO QUYẾT ĐỊNH VỀ NOTION
+
+**Chủ dự án nêu vấn đề:** đôi lúc **code đi trước tài liệu** vì trao đổi trực tiếp liên tục cho liền mạch. Điều đó **hợp lệ** theo luật sẵn có. Nhưng việc **ghi nhận các xác nhận và chia sẻ của chủ dự án** phải được chuẩn hoá, để trợ lý Notion **không bỡ ngỡ và không phản bác** khi nhận bàn giao.
+
+**Ba khe hở đo được:**
+
+| # | Khe hở | Hậu quả |
+|---|---|---|
+| 1 | Trường **trạng thái đồng bộ Notion** bị luật **bắt buộc phải ghi**, nhưng **không có bảng giá trị ở bất kỳ đâu** — bộ luật định nghĩa 5 trục trạng thái, **không trục nào là nó** | mỗi phiên **tự chế** giá trị ⇒ đúng thứ làm bên nhận bỡ ngỡ |
+| 2 | Phiên có **nhiều chỉ thị nối nhau** thì không luật nào bắt **mỗi chỉ thị một mục** | đo được **3 trong 5 chỉ thị** của chuỗi vừa rồi **bị bỏ sót** |
+| 3 | **Không** luật nào bắt tạo **gói bàn giao** có cấu trúc | code đi trước tài liệu là hợp lệ, nhưng trợ lý Notion **không có gì để nhận** |
+
+**Luật mới — năm điều:**
+1. **Sổ là kênh vận chuyển**, **không** phải nguồn sự thật cạnh tranh với Notion. Cấm viện dẫn sổ để bác nội dung Notion.
+2. **Mỗi chỉ thị riêng biệt = một mục sổ**, kể cả khi cùng ngày cùng chủ đề. **Quyết định hoãn cũng là quyết định** — phải ghi.
+3. Trường trạng thái đồng bộ **chỉ nhận năm giá trị**; riêng *"đã đồng bộ"* **chỉ** được ghi khi trợ lý Notion **đã xác nhận** — bên viết mã **không tự ghi**.
+4. **Gói bàn giao bắt buộc** khi kết thúc phần việc có quyết định mới, và **phải có mục "điều chưa chứng minh được"** — để bên nhận **không nhận nhầm** thành sự thật hiện hành.
+5. **Ghi bù phải giữ mốc thật** của sự việc. Cấm sửa mốc cho khớp ngày ghi.
+
+**Đã ghi bù 3 chỉ thị bị bỏ sót**, mỗi mục ghi **cả ngày ghi bù lẫn mốc thật**, kèm nguyên văn lời chủ dự án — trong đó có lần chủ dự án **từ chối duyệt mù** và yêu cầu trình bằng chứng đầy đủ.
+
+**Kiểm chứng:** năm tệp luật **giống hệt nhau từng byte** · số điều khoản **tăng, không giảm** (399 ≥ 386, và **từng tệp** đều không giảm) · mọi tham chiếu bắt buộc **đều tồn tại thật** (57/57) · chuỗi kiểm tổng **16 cổng** đạt · kiểm ngược **7/7** · chính sách phiên bản **37/37** · sổ **147 mục, không trùng mã**.
+
+**Không xoá điều nào.** Hai luật sẵn có về sổ **giữ nguyên** — luật mới **bổ sung**, không thay thế. Thay đổi vùng cấm **bằng 0**.
 
 ---
 
