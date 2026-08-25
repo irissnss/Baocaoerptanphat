@@ -8,6 +8,48 @@
 
 ---
 
+## 25/08/2026 — RÀ SOÁT ĐẨY BÁO CÁO: TÌM RA CỔNG TỰ KIỂM CÓ ĐIỂM MÙ
+
+**Chủ dự án hỏi:** *"Đã push báo cáo hết chưa? Kiểm tra lại toàn bộ một lần nữa xem còn gì không để push một lần luôn."*
+
+Rà lại toàn bộ thì kho báo cáo công khai **đã đủ**. Nhưng bên kho mã còn **ba việc chưa đẩy**, và việc thứ hai là một lỗi đáng nói.
+
+| Việc | Số tròn | Tình trạng |
+|---|---|---|
+| Cổng tự kiểm trạng thái đồng bộ Notion nằm trong máy nhưng **chưa được đưa vào kho** | 1 tệp + 1 dòng lệnh | ✅ đã đưa vào |
+| **Cổng đó có điểm mù — tự báo "đạt" trong khi có vi phạm thật** | đọc sót **9 trên 19** giá trị | ✅ đã vá |
+| Một mục sổ ghi trạng thái **ngoài bảng giá trị cho phép** | 1 mục | ✅ đã sửa nhãn |
+
+### Điểm mù đó là gì
+
+Luật mới (bản 2.8) quy định trường *trạng thái đồng bộ Notion* chỉ nhận **năm giá trị**. Cổng tự kiểm được viết để canh điều đó.
+
+Nhưng cổng chỉ nhận ra **một cách viết**. Sổ thực tế đang dùng **ba cách viết** — có dấu bằng, có in đậm. Hai cách còn lại **vô hình** với cổng.
+
+**Đo được:** cổng báo *"10 giá trị đều hợp lệ — đạt"*. Sự thật là **19 giá trị**, và **một trong chín giá trị bị bỏ qua là vi phạm thật**.
+
+Đây đúng loại lỗi mà một luật cũ của dự án đã cấm: **khai là "tự động kiểm" nhưng không đọc hết đầu vào thật**. Cổng xanh mà việc vẫn sai — nguy hiểm hơn không có cổng, vì nó tạo cảm giác an toàn giả.
+
+Sau khi vá: cổng đọc **19 trên 19** giá trị và **bắt đúng** vi phạm.
+
+### Một chi tiết nhỏ nhưng đáng nhớ
+
+Khi sửa mục sổ sai, quy tắc của dự án bắt **giữ nguyên văn giá trị cũ** để không mất lịch sử. Chép nguyên cụm cũ vào dòng ghi chú thì **cổng lại đọc dòng lịch sử thành một khai báo thứ hai** và báo đỏ tiếp.
+
+Cách xử lý: vẫn ghi rõ giá trị cũ là gì, nhưng **không chép lại cả cụm khai báo**. Giữ được lịch sử mà không tạo dữ liệu giả cho máy đọc.
+
+### Ngoài ra
+
+Trong lúc rà, **hai phiên làm việc cùng ghi vào sổ yêu cầu một lúc**, có thời điểm sinh ra **bốn mã mục bị cấp trùng**. Phiên kia tự xử lý xong trong ít phút. Không can thiệp chồng lên, chỉ ghi nhận: đây là rủi ro thật khi nhiều phiên cùng mở một sổ — kho đã có sẵn cổng canh mã trùng nên bắt được ngay.
+
+### Kết quả kiểm
+
+Toàn bộ cổng quản trị **đạt**, gồm: năm tệp luật **giống hệt nhau từng byte** · cổng đếm điều khoản · cổng danh mục kỹ năng (**128** mục) · cổng bảo mật · cổng dữ liệu cá nhân · cổng mã mục trùng (**151** mục, không trùng) · cổng phiên bản (**37** phép kiểm).
+
+**Không đụng tới:** năm tệp luật · mã nguồn · cấu trúc cơ sở dữ liệu · máy vận hành · số phiên bản.
+
+---
+
 ## 25/08/2026 — NÂNG LUẬT 2.7 → 2.8: BÀN GIAO QUYẾT ĐỊNH VỀ NOTION
 
 **Chủ dự án nêu vấn đề:** đôi lúc **code đi trước tài liệu** vì trao đổi trực tiếp liên tục cho liền mạch. Điều đó **hợp lệ** theo luật sẵn có. Nhưng việc **ghi nhận các xác nhận và chia sẻ của chủ dự án** phải được chuẩn hoá, để trợ lý Notion **không bỡ ngỡ và không phản bác** khi nhận bàn giao.
