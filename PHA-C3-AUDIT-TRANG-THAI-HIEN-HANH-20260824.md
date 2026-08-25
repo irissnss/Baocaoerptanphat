@@ -15,6 +15,8 @@ Sau Pha C2, tài liệu của dự án còn một số chỗ **nói hai điều 
 
 **Kết quả: 23 mục.** 13 mục đang đúng · **7 mục đã sửa** · 1 mục hai nguồn nói khác nhau · **2 mục còn thiếu bằng chứng**.
 
+> 📋 **Bảng đầy đủ 23 mục** (mã mục · bằng chứng · phán quyết · commit) nằm trong **báo cáo nội bộ** `PHA-C3-CURRENT-STATE-AUDIT-20260824.md` của kho mã. Bản công khai này nêu **phần kết luận**; bản nội bộ giữ **ma trận truy vết từng mục**.
+
 ---
 
 ## 2. Bảy mục đã sửa
@@ -67,14 +69,18 @@ Một số nằm trong mã **không tự chứng minh** nó đang chạy trên m
 
 Cách xác định: liệt kê **mọi** nơi trong mã ghi vào sổ kho, rồi truy ngược xem **ai gọi** chúng. Ra **6 điểm tự động** + **1 điểm nhập tay**.
 
-| Nhánh | Trạng thái | Ghi chú |
+> 🔧 **Đính chính nhãn 25/08/2026 (Pha C3.1).** Bảng dưới ban đầu ghi thẳng *"đã tự động"*. Theo quy ước chủ dự án chốt 25/08, phải **tách mức bằng chứng**: có mã + có kiểm thử + **có hồ sơ triển khai** là một mức; **đo trực tiếp trên máy đang chạy** là mức cao hơn. Lượt rà soát này **chưa đo** mức cao hơn đó, nên cột trạng thái ghi đúng mức đang có.
+
+| Nhánh | Mức bằng chứng đang có | Ghi chú |
 |---|---|---|
-| Giao hàng (thành phẩm) | ✅ **Đã tự động** | tự trừ tồn khi giao, **tự hoàn lại** khi huỷ |
-| Phiếu nhập vật tư | ✅ **Đã tự động** | tự ghi sổ kho, **không cộng hai lần** |
-| Phiếu xuất vật tư | ✅ **Đã tự động** | tự ghi sổ, **chặn xuất vượt tồn**, huỷ thì tự sinh bút toán đảo |
-| Nhập sổ kho thủ công | ✅ có màn riêng | dành cho trường hợp nhập tay |
+| Giao hàng (thành phẩm) | **Có mã · có kiểm thử · có hồ sơ triển khai** | tự trừ tồn khi giao, **tự hoàn lại** khi huỷ |
+| Phiếu nhập vật tư | **Có mã · có kiểm thử · có hồ sơ triển khai** | tự ghi sổ kho, **không cộng hai lần** |
+| Phiếu xuất vật tư | **Có mã · có kiểm thử · có hồ sơ triển khai** | tự ghi sổ, **chặn xuất vượt tồn**, huỷ thì tự sinh bút toán đảo |
+| Nhập sổ kho thủ công | **Có mã** — có màn riêng | dành cho trường hợp nhập tay |
 | **Kiểm kê** | ⚠️ **Một phần** | ghi nhận chênh lệch + số phiếu điều chỉnh, nhưng **chưa tự** ghi sổ kho — phải lập phiếu điều chỉnh riêng |
 | **Mua hàng → công nợ** | ❌ **Còn thủ công** | chưa tự sinh công nợ |
+
+⏳ **Chưa chạy kiểm thử vận hành thật cho ba nhánh đầu.** Muốn lên mức *"đã xác minh khi chạy thật"* phải tạo chứng từ thật và làm đổi tồn kho — việc đó **cần một lượt được duyệt riêng**, không gộp vào lượt rà soát tài liệu này.
 
 ⇒ Câu cũ *"còn thiếu tự động hoá tồn kho"* **sai với 3 trong 5 nhánh nghiệp vụ**. Đã thay bằng mô tả theo từng nhánh.
 
@@ -103,9 +109,19 @@ Cách xác định: liệt kê **mọi** nơi trong mã ghi vào sổ kho, rồi
 | Máy phát triển — **đang chạy thật** | ❓ **chưa đo được** |
 | Máy vận hành — **đang chạy thật** | ❓ **chưa đo được** — phiên quản trị không được nối |
 
-**Kết luận:** tài liệu nền bên ngoài đang phản ánh trạng thái **trước 09/08/2026**; trong kho có **quyết định ghi ngày 09/08** đổi máy phát triển sang cùng hệ với máy vận hành. Đây là **tài liệu nền lỗi thời**, **không phải** mã chạy sai chính sách.
+> 🔧 **ĐÍNH CHÍNH 25/08/2026 (Pha C3.1) — kết luận cũ ở đây đã vượt quá bằng chứng.**
+> Bản đầu viết *"tài liệu nền lỗi thời vì trong kho có quyết định ghi ngày 09/08 mới hơn"*. Nói vậy là **sai thứ bậc nguồn**: một ghi chú trong kho **không tự nó** thay được một tài liệu nền đã chuẩn hoá. Trình tự đúng là:
+>
+> | Mốc | Việc |
+> |---|---|
+> | trước 09/08/2026 | chính sách cũ: máy phát triển dùng một hệ, máy vận hành dùng hệ khác |
+> | 09/08/2026 | trong kho có ghi chú đổi máy phát triển sang cùng hệ — **là ghi nhận kỹ thuật**, chưa phải chính sách đã chuẩn hoá |
+> | **25/08/2026** | **chủ dự án chốt chính sách:** cả hai môi trường đều **MariaDB 10.11 LTS** ← **đây mới là căn cứ** |
+> | sau đó | tài liệu nền **chờ cập nhật** theo quyết định 25/08 — đã đưa vào gói bàn giao |
+>
+> ⇒ Không phải "tài liệu nền lỗi thời nên bỏ qua", mà là **chính sách đã được chốt mới và đang chờ đồng bộ**.
 
-**Không sửa cấu hình trong đợt này.** README của kho báo cáo đang ghi đúng theo quyết định 09/08 nên **giữ nguyên**.
+**Không sửa cấu hình trong đợt này.** Đo lại 25/08: cấu hình máy phát triển **đúng là MariaDB** (dịch vụ đặt ở cổng riêng, nhãn MariaDB; cổng cũ chỉ còn là đường lui) — **khớp chính sách**. Nhưng **dịch vụ đang tắt** nên **chưa đo được** hệ đang chạy thật; máy vận hành thì lượt này **không được cấp** kênh đọc.
 
 ---
 
@@ -134,4 +150,5 @@ Cách xác định: liệt kê **mọi** nơi trong mã ghi vào sổ kho, rồi
 
 ---
 
-*Báo cáo công khai — đã qua cổng an toàn: không chứa mã nguồn, dữ liệu thật, thông tin cá nhân, khoá, đường dẫn máy, hay định danh máy chủ.*
+*Báo cáo công khai — đã qua cổng an toàn. **Không chứa:** mã nguồn đầy đủ · bản kết xuất cấu trúc CSDL · khoá/mật khẩu/chuỗi kết nối · nội dung tệp cấu hình môi trường · dữ liệu cá nhân · dữ liệu nghiệp vụ (khách hàng, giá, công nợ, doanh thu) · địa chỉ máy/cổng/đường dẫn máy · bản sao lưu · định danh hạ tầng nhạy cảm.*
+*Được phép nêu **định danh kỹ thuật** khi cần truy vết: tên bảng · tên cột · tên màn hình/đường dẫn ứng dụng · tên cổng kiểm · số phiên bản · số lượng · mã commit rút gọn.*

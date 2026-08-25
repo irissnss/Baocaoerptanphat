@@ -2,7 +2,46 @@
 
 > Lịch sử thay đổi governance rules, skills, architecture decisions, và system audit.
 >
-> **Cập nhật:** 24/08/2026 — **PHA C3**: audit sự thật hiện hành, xử lý cuốn chiếu — đồng bộ sổ số phát hành theo **ba lớp bằng chứng** · đóng khoản nợ về sổ đó · hoà giải **99 ↔ 101 bảng** · nêu đúng mức tự động hoá tồn kho **M5 theo từng nhánh** · phân định bốn con số **14/16/4/7**. **Còn 3 việc thiếu bằng chứng + bàn giao Notion.** (Cùng ngày, trước đó: Pha C2, Pha C.)
+> **Cập nhật:** 25/08/2026 — **PHA C3.1**: ghi sổ **chín quyết định nền** của chủ dự án (Notion là sổ gốc · chính sách **MariaDB 10.11 LTS** cả hai môi trường · **101 bảng** · định nghĩa *"đang chạy thật"*) · **đo read-only** · sửa các kết luận **vượt quá bằng chứng** · đóng gói bàn giao Notion. **Runtime CSDL/phiên bản: chưa đo được — còn mở.** (Trước đó: Pha C3, Pha C2, Pha C.)
+
+---
+
+## 25/08/2026 — PHA C3.1: ĐÓNG CHUẨN NGUỒN SỰ THẬT · CHÍNH SÁCH CSDL · BÀN GIAO NOTION
+
+**Bối cảnh:** chủ dự án chốt một loạt quyết định nền ngày 25/08. Lượt này ghi sổ, **đo lại** những gì đo được, sửa các kết luận **vượt quá bằng chứng** ở lượt trước, và đóng gói phần kỹ thuật cho trợ lý Notion.
+
+**Nguyên tắc xuyên suốt:** *có chính sách* ≠ *đang chạy như vậy*; *có hồ sơ triển khai* ≠ *đã đo thấy*.
+
+**Đã ghi sổ — mục `#144`**, trạng thái **chờ đồng bộ sang Notion**: Notion là **sổ gốc chuẩn** · quyết định chốt ngay trong lúc làm là bằng chứng hợp lệ nhưng **phải chuyển về Notion** (sổ là *kênh vận chuyển*, không phải nguồn cạnh tranh) · **chính sách CSDL MariaDB 10.11 LTS cho cả hai môi trường** · **101 bảng** · **"đang chạy thật" chỉ được nói khi chính lượt đó đã đo** · chuỗi khép code/fix · ranh giới công khai · điều kiện Notion được chỉ đạo thẳng vào bảng/cột · **bảo tồn lịch sử**.
+
+**Đo read-only (không mutation nào):**
+- **Cấu hình** máy phát triển: ✅ **đúng là MariaDB**, ở cổng riêng — cổng cũ chỉ còn là **đường lui**.
+- **Đang chạy thật** máy phát triển: ⛔ **không đo được** — dịch vụ **đang tắt**, và không chứng minh được việc bật lên sẽ không tự khởi tạo/di trú ⇒ **không bật**.
+- **Đang chạy thật** máy vận hành: ⛔ **không đo được** — lượt này **không được cấp** kênh đọc. Tệp cấu hình triển khai có tồn tại và đã bị git bỏ qua, **không mở**.
+- ⇒ **Chưa kết luận được** khớp hay lệch chính sách. **Không** chuyển đổi, **không** sửa cấu hình.
+
+**Sửa các kết luận vượt quá bằng chứng:**
+- Bỏ câu *"tài liệu nền lỗi thời vì ghi chú trong kho 09/08 mới hơn"* — **sai thứ bậc nguồn**. Trình tự đúng: chính sách cũ → ghi nhận kỹ thuật 09/08 → **chủ dự án chốt chính sách 25/08** → tài liệu nền **chờ cập nhật**.
+- M5: đổi từ *"đã tự động"* sang **mức bằng chứng** — *có mã · có kiểm thử · có hồ sơ triển khai*, **chưa đo khi chạy thật**.
+- Phiên bản: tách **có hồ sơ triển khai** khỏi **đã đo thấy đang chạy**.
+- Bảng Kiến Trúc trong README từng **tự mâu thuẫn** với bảng Tech Stack (một bên ghi máy phát triển dùng hệ cũ) — đã thống nhất theo chính sách, khối lịch sử **giữ nguyên**.
+- Khối *"chuỗi bán hàng CHƯA phát hành"* và khối *M5 ngày 25/07* đã gắn nhãn **đã được thay thế**, giữ nguyên văn.
+
+**Đính chính công trạng:** lỗi bộ kiểm đếm nhầm dòng trong khối mã ví dụ — **phát hiện và vá đều thuộc Pha C2** (xác định bằng lịch sử mã; tệp bộ kiểm **không** nằm trong phần thay đổi của Pha C3). Tài liệu đã ghi đúng từ đầu; chỉ **lời tường thuật** cuối Pha C3 là gộp nhầm.
+
+**Kiểm thử:** chuỗi kiểm tổng **16 cổng** đạt · kiểm ngược **7/7** · chính sách phiên bản **37/37** · hook chạy thật ở **cả hai** lượt ghi mã · thay đổi vùng cấm **bằng 0** trên mọi mục.
+
+**Không đụng:** mã ứng dụng · số phiên bản · tệp kỹ năng · năm tệp luật · cấu hình CSDL · cơ sở dữ liệu · máy vận hành · Notion. Phiên này **không có** kết nối Notion nên **không** tuyên bố đã đọc Notion.
+
+**Trạng thái:** **HOÀN TẤT** phần quản trị/tài liệu · **xác minh runtime CÒN MỞ** · **sẵn sàng bàn giao Notion: CÓ**, nhưng chỉ phần chính sách và ánh xạ **đã chứng minh** — phần *đang chạy thật* **không** bàn giao như sự thật hiện hành.
+
+**Chi tiết:** [PHA-C3-1-DONG-CHUAN-NGUON-SU-THAT-20260825.md](PHA-C3-1-DONG-CHUAN-NGUON-SU-THAT-20260825.md)
+
+---
+
+> 🔧 *Sửa định dạng 25/08/2026: dòng dưới vốn là câu tóm tắt ở đầu tệp (mốc 24/08). Lượt sửa trước vô tình biến nó thành một tiêu đề mục. Trả về đúng dạng ghi chú, **giữ nguyên văn**.*
+>
+> **Mốc cập nhật 24/08/2026 — PHA C3:** đồng bộ sổ số phát hành theo **ba lớp bằng chứng** · đóng khoản nợ về sổ đó · hoà giải **99 ↔ 101 bảng** · nêu đúng mức tự động hoá tồn kho **M5 theo từng nhánh** · phân định bốn con số **14/16/4/7**. **Còn 3 việc thiếu bằng chứng + bàn giao Notion.** (Cùng ngày, trước đó: Pha C2, Pha C.)
 
 ---
 
@@ -540,7 +579,7 @@ Báo cáo đầy đủ + chữ ký: `PROBE-CURSOR-NAP-LUAT-VA-THIEU-THONG-TIN-20
 | 4 | Title Auto Case | TẤT CẢ UI text dùng SSOT functions |
 | 5 | Search Normalization | Tất cả search/filter hỗ trợ không dấu |
 | 6 | Architecture Lock | Server Actions + Server Components + SSE |
-| 7 | DB SSOT | MySQL là nguồn duy nhất, no mock |
+| 7 | DB SSOT | 🕰️ *(ghi tại thời điểm đó)* MySQL là nguồn duy nhất, no mock — **phần "nguồn duy nhất, no mock" vẫn còn hiệu lực**; riêng **tên hệ quản trị** nay là **MariaDB 10.11 LTS** theo chính sách chủ dự án chốt 25/08/2026 |
 
 ---
 
@@ -583,7 +622,7 @@ Báo cáo đầy đủ + chữ ký: `PROBE-CURSOR-NAP-LUAT-VA-THIEU-THONG-TIN-20
 | SSE (Server-Sent Events) | Cho real-time features | V0.05+ | 🔒 LOCKED |
 | Metronic Demo 1 | UI backbone mặc định | V0.197+ | 🔒 LOCKED |
 | Next.js 16 + React 19 | Framework chính | V0.153+ | 🔒 LOCKED |
-| MySQL | DB engine | V0.00 | 🔒 LOCKED |
+| ~~MySQL~~ → **MariaDB 10.11 LTS** | DB engine | V0.00 → **cập nhật 25/08/2026** | 🕰️ **HISTORICAL — ĐÃ ĐƯỢC THAY** |
 | Tailwind 4 | CSS framework | V0.05+ | 🔒 LOCKED |
 | No mock data | DB SSOT duy nhất, mock disabled V0.18 | V0.18+ | 🔒 LOCKED |
 | 5-way governance sync | 5 files phải identical | V0.16+ | 🔒 LOCKED |
