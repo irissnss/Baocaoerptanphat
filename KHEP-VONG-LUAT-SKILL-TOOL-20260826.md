@@ -239,3 +239,81 @@ Owner chọn hướng cho `DEBT-119`: **(a)** gộp vào năm bản kèm điều
 
 *Báo cáo này an toàn công khai: chỉ nêu tên tệp, tên bảng, số đếm và mã commit — không có
 mã nguồn, không có bí mật, không có dữ liệu cá nhân, không có thông tin hạ tầng.*
+
+---
+
+```
+════════════ BÁO CÁO KẾT THÚC ════════════
+1. ĐÃ LÀM
+   - Vá DEBT-105: cổng secret-scan/pii-scan nay đọc bản trong CHỈ MỤC khi tệp đang staged
+   - Vá DEBT-106: chuỗi test:gov-gates nay gọi cổng đọc ĐẦU RA THẬT, không còn chế độ tự kiểm
+   - Vá DEBT-107 bổ sung: miễn trừ nay có PHẠM VI (ALL/BULK), bịt lỗ "miễn trừ = không quét nữa"
+   - Rà 5 bản sao luật: đồng nhất tuyệt đối, cùng mã băm, cùng commit
+   - Rà nguồn luật cạnh tranh: phát hiện 1 tệp tự áp ngoài vòng quản → ghi DEBT-119
+   - Rà 6 công cụ: gọi thật Context7, đối chiếu phiên bản thật trong node_modules
+   - Rà 128 kỹ năng: cách ly còn nguyên (127 chưa soát + 1 ngủ đông, 0 đang dùng)
+
+2. PHẠM VI
+   ĐỤNG    : scripts/tests/lib/tracked-files.mjs · scripts/tests/pii-scan-gate.test.mjs ·
+             scripts/tests/secret-scan-gate.test.mjs · scripts/tests/completion-report-gate.test.mjs ·
+             package.json (chuỗi test:gov-gates) · .governance/registry/tech-debt.md · docs/reports/
+   KHÔNG ĐỤNG: src/ (mã ứng dụng) · cơ sở dữ liệu · triển khai · số phiên bản ·
+             mã tính giá (ĐÓNG BĂNG có chủ đích) · Notion (chỉ đọc, cấm ghi)
+
+3. BẰNG CHỨNG
+   npm run test:gov-gates → mã thoát 0 → RUNTIME_PROVEN
+   Kiểm ngược DEBT-105 (2 cổng × 2 chiều) → 4/4 đạt → RUNTIME_PROVEN
+   Kiểm ngược DEBT-106 song song bản cũ/bản vá trên cùng đầu ra sai → 0 vs 1 → RUNTIME_PROVEN
+   Kiểm ngược DEBT-107 phạm vi miễn trừ → 2/2 đạt → RUNTIME_PROVEN
+   sha256sum trên 5 bản sao luật → 5/5 trùng d100fae2cb03172d → FILE_PROVEN
+   Gọi thật Context7 resolve-library-id → trả kết quả → RUNTIME_PROVEN
+
+4. GHI SỔ YÊU CẦU OWNER
+   [x] CHƯA — lý do: pha này KHÔNG phát sinh quyết định Owner mới. Owner chỉ hỏi tiến độ
+       ("xong chưa lâu vậy em?"), không phải chỉ thị/quyết định/sửa hướng.
+       Theo GOV-NOTION-HANDOFF-001 §F1c mục 2, chỉ chỉ thị mới cần một mục sổ.
+       Hai việc CHỜ OWNER QUYẾT (DEBT-116 · DEBT-119) đã nằm trong sổ nợ kỹ thuật.
+
+5. PUSH BÁO CÁO CÔNG KHAI
+   [x] ĐÃ PUSH — kho Baocaoerptanphat · commit 165c821 · file KHEP-VONG-LUAT-SKILL-TOOL-20260826.md
+       Kho riêng: commit 912563d (vá cổng) + f323f27 (DEBT-119 + báo cáo)
+
+6. CÒN SÓT / CHƯA LÀM
+   - DEBT-116 quét HỌ TÊN THẬT — 5 tệp còn dính. CHỜ OWNER quyết hướng (rủi ro báo nhầm cao)
+   - DEBT-119 nguồn luật tự áp ngoài vòng quản — CHỜ OWNER chọn (a) hay (b)
+   - Hạng mục tính giá — ĐÓNG BĂNG có chủ đích theo kế hoạch con PL-ERP-TINH-GIA-20260825
+
+7. ĐANG CHỜ OWNER
+   - DEBT-119 → cần Owner CHỌN HƯỚNG: (a) gộp nội dung vào 5 bản kèm điều kiện kích hoạt,
+     rồi hạ tệp đó xuống không-tự-áp; hay (b) mở rộng cổng parity quản luôn nhóm tự áp.
+     Chặn: chưa chọn thì không thể khép kiến trúc luật.
+   - DEBT-116 → cần Owner quyết hướng quét họ tên. Chặn: 5 tệp vẫn còn họ tên thật trên kho.
+
+8. BƯỚC KẾ TIẾP — ĐÚNG MỘT VIỆC
+   Owner chọn (a) hoặc (b) cho DEBT-119; Agent thi hành ngay trong phiên kế tiếp.
+
+9. CHƯA XÁC MINH ĐƯỢC
+   - Năm công cụ ngoài Context7 (Graphify · Graphify dạng máy chủ · Spec Kit ·
+     WebApp Testing · Superpowers) — mới ở mức khai báo trong sổ, chưa gọi thật.
+     Vì sao: bốn cái đang ở trạng thái ngủ đông/chưa nối/chưa cài/khoá — gọi thật sẽ là
+     hành vi kích hoạt, vượt phạm vi phiên rà soát.
+     Ai xác minh được: Agent IDE, trong phiên có Owner duyệt việc kích hoạt từng công cụ.
+
+10. TRẠNG THÁI CHUNG
+   [x] PROVISIONAL — thiếu: hướng Owner cho DEBT-116 và DEBT-119.
+       Điều kiện lên PASS: Owner chọn hướng cho cả hai, Agent thi hành và kiểm ngược.
+
+11. NÉN PHIÊN & ĐỌC LẠI THAM CHIẾU
+   Phiên có bị nén ngữ cảnh không: CÓ
+   Tài liệu tham chiếu ĐÃ ĐỌC LẠI sau nén (đọc từ đĩa, không dùng trí nhớ trước nén):
+     - scripts/tests/lib/tracked-files.mjs (toàn phần, 182 dòng)
+     - scripts/tests/completion-report-gate.test.mjs (vùng điều phối + vùng ALLOW)
+     - scripts/tests/pii-scan-gate.test.mjs (vùng ALLOW + vùng quét nội dung)
+     - .governance/registry/tech-debt.md (các dòng DEBT-105/106/107/116)
+     - .governance/registry/tools.yml (6 khối công cụ)
+     - .governance/registry/skills.yml (đếm trạng thái)
+     - package.json (chuỗi test:gov-gates)
+     - docs/WORKSPACE-MAP.md (định vị kho báo cáo công khai — KHÔNG gán cứng đường dẫn)
+   Không kết luận nào trong báo cáo này dựa vào trí nhớ từ trước nén.
+═══════════════════════════════════════════
+```
