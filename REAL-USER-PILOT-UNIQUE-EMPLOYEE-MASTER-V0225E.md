@@ -10,15 +10,15 @@
 
 | # | Candidate | Role | Login Status | Email Status | Next Action |
 |---|-----------|------|--------------|--------------|-------------|
-| E01 | Nguyễn Thị Bạch Kim | KE_TOAN | ⚠️ Needs confirm | Dept email unclear | Confirm accounting email type |
-| E02 | Nguyễn Thị Kim Liên | CEO | ✅ Ready | Company email ✅ | Ready — verify/apply in V0.226 |
-| E03 | Nguyễn Thị Hoài Phương | THIET_KE | ⛔ Blocked | Shared (Group A) | Provide unique email |
-| E04 | Nguyễn Thị Như Ngọc | THIET_KE | ⛔ Blocked | Shared (Group B) | Provide unique email |
-| E05 | Lê Thụy Ngọc Hân | SALES | ⚠️ Needs dedupe | KD email ✅ | Confirm 1 person |
-| E06 | Trần Minh Tân | ADMIN/DEV | ✅ Existing user | tan***@intanphat.com | Existing user — reuse, do not create duplicate |
-| E07 | Nguyễn Công Trận | USER | ⛔ Blocked | Shared (Group B) | Provide unique email |
+| E01 | «NV-01» | KE_TOAN | ⚠️ Needs confirm | Dept email unclear | Confirm accounting email type |
+| E02 | «NV-02» | CEO | ✅ Ready | Company email ✅ | Ready — verify/apply in V0.226 |
+| E03 | «NV-03» | THIET_KE | ⛔ Blocked | Shared (Group A) | Provide unique email |
+| E04 | «NV-04» | THIET_KE | ⛔ Blocked | Shared (Group B) | Provide unique email |
+| E05 | «NV-05» | SALES | ⚠️ Needs dedupe | KD email ✅ | Confirm 1 person |
+| E06 | «NV-06» | ADMIN/DEV | ✅ Existing user | tan***@intanphat.com | Existing user — reuse, do not create duplicate |
+| E07 | «NV-07» | USER | ⛔ Blocked | Shared (Group B) | Provide unique email |
 | E08 | Phong | THIET_KE | ⛔ Blocked | Shared + incomplete | Full name + unique email |
-| E09 | Phạm Thị Phong Nhã | SALES | ✅ Ready | Unique email ✅ | Ready — verify/apply in V0.226 |
+| E09 | «NV-08» | SALES | ✅ Ready | Unique email ✅ | Ready — verify/apply in V0.226 |
 | E10 | Trương Tiến Cường | THIET_KE | ⛔ Blocked | Shared (Group A) | Provide unique email |
 
 ---

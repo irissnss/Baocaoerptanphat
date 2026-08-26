@@ -175,7 +175,7 @@
 | **Category** | Auth/Security + UX |
 | **Scope** | Logic / UI |
 
-- [Identity] Trần Minh Tân corrected: tan***@intanphat.com (existing admin, NOT duplicate)
+- [Identity] «NV-06» corrected: tan***@intanphat.com (existing admin, NOT duplicate)
 - [Identity] Admin login verified in login form default
 - [UX] Menu renamed: "Bảo Mật Ứng Dụng" → "Phân Quyền & Bảo Mật" (5 files)
 - [UX] Description updated: reflects permission + security scope
@@ -190,7 +190,7 @@
 | **Scope** | Data / Logic |
 
 - [Identity] 13 source rows normalized → 10 unique employee candidates
-- [Identity] 3 rows dedupe-merged (Lê Thụy Ngọc Hân KD1/KD3 aliases)
+- [Identity] 3 rows dedupe-merged («NV-05» KD1/KD3 aliases)
 - [Security] 5 shared email groups detected. 2 groups (5 people) BLOCKED for user login
 - [Security] 1 candidate BLOCKED_INCOMPLETE_NAME (missing full name)
 - [Schema] Audit: `hr_employee_nhanvien.user_id` nullable → employee CAN exist without user login

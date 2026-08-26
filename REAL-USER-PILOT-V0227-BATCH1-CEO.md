@@ -1,7 +1,7 @@
 # 📋 V0.227 Batch 1 — CEO Apply Report
 
 > **Ngày:** 05/07/2026
-> **Batch:** 1 — CEO (Nguyễn Thị Kim Liên)
+> **Batch:** 1 — CEO («NV-02»)
 > **Status:** ✅ APPLIED — Awaiting Smoke Test
 
 ---

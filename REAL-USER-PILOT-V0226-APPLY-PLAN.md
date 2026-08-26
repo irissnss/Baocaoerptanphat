@@ -26,7 +26,7 @@
 
 | # | Candidate | Role | Email (masked) | Action |
 |---|-----------|------|---------------|--------|
-| E06 | Trần Minh Tân | ADMIN/DEV | tan***@intanphat.com | **VERIFY-ONLY** — read + report |
+| E06 | «NV-06» | ADMIN/DEV | tan***@intanphat.com | **VERIFY-ONLY** — read + report |
 
 **Quy trình:** SELECT verify account → verify role mapping → report → PASS/FAIL.
 **Nếu FAIL:** DỪNG toàn bộ. Báo Owner.
@@ -45,7 +45,7 @@
 
 | # | Candidate | Role | Email (masked) | Action |
 |---|-----------|------|---------------|--------|
-| E02 | Nguyễn Thị Kim Liên | CEO | li***@intanphat.com | Create user + assign CEO role |
+| E02 | «NV-02» | CEO | li***@intanphat.com | Create user + assign CEO role |
 
 **Quy trình:**
 1. DRY_RUN → log output → verify
@@ -59,7 +59,7 @@
 
 | # | Candidate | Role | Email (masked) | Action |
 |---|-----------|------|---------------|--------|
-| E09 | Phạm Thị Phong Nhã | SALES | nh***@... (unique) | Create user + assign SALES role |
+| E09 | «NV-08» | SALES | nh***@... (unique) | Create user + assign SALES role |
 
 **Quy trình:** Tương tự Batch 1. Smoke test Sales.
 
@@ -69,7 +69,7 @@
 
 | # | Candidate | Role | Blocker |
 |---|-----------|------|---------|
-| E01 | Nguyễn Thị Bạch Kim | KE_TOAN | Accounting email type chưa confirm |
+| E01 | «NV-01» | KE_TOAN | Accounting email type chưa confirm |
 
 ---
 
@@ -77,7 +77,7 @@
 
 | # | Candidate | Role | Blocker |
 |---|-----------|------|---------|
-| E05 | Lê Thụy Ngọc Hân | SALES | KD aliases chưa confirm = 1 person |
+| E05 | «NV-05» | SALES | KD aliases chưa confirm = 1 person |
 
 ---
 
@@ -85,9 +85,9 @@
 
 | # | Candidate | Role | Required |
 |---|-----------|------|----------|
-| E03 | Nguyễn Thị Hoài Phương | THIET_KE | Unique email |
-| E04 | Nguyễn Thị Như Ngọc | THIET_KE | Unique email |
-| E07 | Nguyễn Công Trận | USER | Unique email |
+| E03 | «NV-03» | THIET_KE | Unique email |
+| E04 | «NV-04» | THIET_KE | Unique email |
+| E07 | «NV-07» | USER | Unique email |
 | E08 | Phong | THIET_KE | Full name + unique email |
 | E10 | Trương Tiến Cường | THIET_KE | Unique email |
 

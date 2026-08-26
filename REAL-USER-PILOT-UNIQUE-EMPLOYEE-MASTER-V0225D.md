@@ -10,15 +10,15 @@
 
 | # | Candidate | Source Rows | Proposed Role | Login Status | Email Status | Permission Packs | Action Taken | Blocking Reason | Next Owner Action |
 |---|-----------|-------------|---------------|--------------|--------------|------------------|--------------|-----------------|-------------------|
-| E01 | Nguyễn Thị Bạch Kim | 1 | KE_TOAN | ⚠️ Needs confirm | Dept email unclear | CONG_NO, THU_CHI, GIAO_HANG | Employee prep only | Email type unclear | Confirm if personal login |
-| E02 | Nguyễn Thị Kim Liên | 2 | CEO | ✅ Ready | Company email ✅ | CEO_MONITOR, CEO_APPROVAL | Ready for creation | — | Fill email to proceed |
-| E03 | Nguyễn Thị Hoài Phương | 3 | THIET_KE | ⛔ Blocked | Shared (Group A) | LSX_DRAFT, PDI_DRAFT | Employee only | Shared email 3 people | Provide unique email |
-| E04 | Nguyễn Thị Như Ngọc | 4 | THIET_KE | ⛔ Blocked | Shared (Group B) | LSX_DRAFT, PDI_DRAFT | Employee only | Shared email 3 people | Provide unique email |
-| E05 | Lê Thụy Ngọc Hân | 5,9,10,11 | SALES | ⚠️ Needs dedupe | KD email ✅ | SALES_OWN_CUSTOMERS | Employee prep | Dedupe KD1/KD3 | Confirm 1 person |
-| E06 | Trần Minh Tân | 6 | ADMIN/DEV | ✅ Existing user | tan***@intanphat.com | Full bypass | **Verify + reuse** | — | None (verified) |
-| E07 | Nguyễn Công Trận | 7 | USER | ⛔ Blocked | Shared (Group B) | — | Employee only | Shared email | Provide unique email |
+| E01 | «NV-01» | 1 | KE_TOAN | ⚠️ Needs confirm | Dept email unclear | CONG_NO, THU_CHI, GIAO_HANG | Employee prep only | Email type unclear | Confirm if personal login |
+| E02 | «NV-02» | 2 | CEO | ✅ Ready | Company email ✅ | CEO_MONITOR, CEO_APPROVAL | Ready for creation | — | Fill email to proceed |
+| E03 | «NV-03» | 3 | THIET_KE | ⛔ Blocked | Shared (Group A) | LSX_DRAFT, PDI_DRAFT | Employee only | Shared email 3 people | Provide unique email |
+| E04 | «NV-04» | 4 | THIET_KE | ⛔ Blocked | Shared (Group B) | LSX_DRAFT, PDI_DRAFT | Employee only | Shared email 3 people | Provide unique email |
+| E05 | «NV-05» | 5,9,10,11 | SALES | ⚠️ Needs dedupe | KD email ✅ | SALES_OWN_CUSTOMERS | Employee prep | Dedupe KD1/KD3 | Confirm 1 person |
+| E06 | «NV-06» | 6 | ADMIN/DEV | ✅ Existing user | tan***@intanphat.com | Full bypass | **Verify + reuse** | — | None (verified) |
+| E07 | «NV-07» | 7 | USER | ⛔ Blocked | Shared (Group B) | — | Employee only | Shared email | Provide unique email |
 | E08 | Phong | 8 | THIET_KE | ⛔ Blocked | Shared + incomplete | LSX_DRAFT, PDI_DRAFT | None | Name + email | Full name + email |
-| E09 | Phạm Thị Phong Nhã | 12 | SALES | ✅ Ready | Unique email ✅ | SALES_OWN_CUSTOMERS | Ready for creation | — | Fill email to proceed |
+| E09 | «NV-08» | 12 | SALES | ✅ Ready | Unique email ✅ | SALES_OWN_CUSTOMERS | Ready for creation | — | Fill email to proceed |
 | E10 | Trương Tiến Cường | 13 | THIET_KE | ⛔ Blocked | Shared (Group A) | LSX_DRAFT, PDI_DRAFT | Employee only | Shared email | Provide unique email |
 
 ---
@@ -111,7 +111,7 @@
 | 2 | KD1/KD3 = same person? | ⬜ |
 | 3 | "Phong" full name? | ⬜ |
 | 4 | 5 blocked candidates — unique emails? | ⬜ |
-| 5 | Nguyễn Công Trận role? | ⬜ |
+| 5 | «NV-07» role? | ⬜ |
 | 6 | KE_TOAN needs SALE_ADMIN pack? | ⬜ |
 
 ---
