@@ -313,10 +313,12 @@ vì chính Owner đã khoá *«không được để hệ thống còn 0 ngườ
    [x] ĐÃ GHI — mục #183
 
 5. PUSH BÁO CÁO CÔNG KHAI
-   [x] ĐÃ PUSH — kho irissnss/erptanphat · commit f50a99c · nhánh main
-       f1bc271..f50a99c · 13 tệp · +1089 / -23
-       file: docs/reports/M0-MENU-SECURITY-CONTINUE-20260827.md
-             docs/reports/WIREFRAME-DA-SUA-M0-20260827.md
+   [x] ĐÃ PUSH — kho báo cáo công khai irissnss/Baocaoerptanphat
+       commit 7803e63 · nhánh main
+       file: M0-MENU-SECURITY-CONTINUE-20260827.md
+             WIREFRAME-DA-SUA-M0-20260827.md
+       (Mã nguồn ở kho irissnss/erptanphat commit f50a99c, f1bc271..f50a99c,
+        13 tệp, +1089 / -23 — kho khác, không phải kho báo cáo.)
 
 6. CÒN SÓT / CHƯA LÀM
    - Ba màn con M3 chưa che giá vốn; chưa chặn gửi trường giá vốn ra máy khách
