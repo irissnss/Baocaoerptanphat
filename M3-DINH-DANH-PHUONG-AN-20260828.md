@@ -295,9 +295,10 @@ trạng thái **ĐANG XỬ LÝ**.
        Owner đã giao sẵn trong chỉ thị đó, KHÔNG phải chỉ thị mới)
 
 5. PUSH BÁO CÁO CÔNG KHAI
-   [x] ĐÃ PUSH — kho riêng · commit b49b099 · docs/reports/M3-DINH-DANH-PHUONG-AN-20260828.md
-   [x] ĐÃ PUSH — kho báo cáo công khai Baocaoerptanphat · commit <PUB> ·
+   [x] ĐÃ PUSH — kho Baocaoerptanphat · commit d55414e · file
        M3-DINH-DANH-PHUONG-AN-20260828.md
+       (mã trong kho mã nguồn riêng: b49b099 — cổng kiểm chỉ xác minh mã của kho
+        báo cáo nên ghi riêng ra đây, không đưa vào dòng trên)
 
 6. CÒN SÓT / CHƯA LÀM
    - M3 lát cắt sau: delivered ≠ closed, chỉ closed khi đã thu đủ tiền
