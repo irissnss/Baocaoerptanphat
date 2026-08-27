@@ -303,7 +303,12 @@ trên máy thật vì không tạo thêm tài khoản).
    [x] ĐÃ GHI — mục #186 (GO CONVERGENCE RELEASE + kết quả)
 
 5. PUSH BÁO CÁO CÔNG KHAI
-   [x] ĐÃ PUSH — xem dòng cuối báo cáo
+   [x] ĐÃ PUSH — kho báo cáo công khai irissnss/Baocaoerptanphat
+       commit 328476b · nhánh main
+       file: M0-CONVERGENCE-RELEASE-LIVE-20260827.md
+             M0-CONVERGENCE-INVENTORY-20260827.md
+       (Mã nguồn: kho irissnss/erptanphat commit 9c741f7 — cũng là mã đã
+        triển khai lên máy vận hành.)
 
 6. CÒN SÓT / CHƯA LÀM
    - Đường 403 CSRF chưa kiểm lại trên máy vận hành (cần phiên hợp lệ)
