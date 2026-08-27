@@ -473,12 +473,14 @@ Owner cho vai trò riêng đều cần biết chủ sở hữu.
        "pm2 not found", node_modules còn nguyên 388 gói, không tệp mã nào bị sửa.
 
 9. COMMIT/PUSH/DEPLOY
-   private SHA    : 6d8f1d8 (main, đã đẩy)
+   private SHA    : 6d8f1d8 = nội dung mã đã triển khai; commit chứa CHÍNH
+                    báo cáo này là lượt đẩy kế tiếp trên main (xem mục cuối)
    app version    : V1.00.357
    deployed SHA   : 6d8f1d8 (nội dung mã đang chạy trên máy vận hành)
    artifact       : e73812151f8a2f627136604578da2bbe
    VPS Git HEAD   : 826817b (cũ — bản kê tự khai điều này)
-   public report  : xem dòng cuối
+   public report  : kho Baocaoerptanphat · commit 7699432 · tệp
+                    M0-HYGIENE-TO-M3-20260827.md + DECISION-PACK-M0-D3-...md
    rollback anchor: CSDL /root/backup-erp-20260827T165620Z.sql.gz ·
                     thư mục chạy /root/standalone-run-backup-20260827T165620Z ·
                     mã V1.00.356 = 9c741f7
