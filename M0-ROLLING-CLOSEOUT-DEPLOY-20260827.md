@@ -316,7 +316,13 @@ lệch dữ liệu máy vận hành (3 vai trò · 28 menu · ~100 dòng quyền
    [x] ĐÃ GHI — mục #185 (Owner phản đối quy trình, NGUYÊN VĂN hai lượt)
 
 5. PUSH BÁO CÁO CÔNG KHAI
-   [x] ĐÃ PUSH — xem dòng cuối báo cáo
+   [x] ĐÃ PUSH — kho báo cáo công khai irissnss/Baocaoerptanphat
+       commit deb01ee · nhánh main
+       file: M0-ROLLING-CLOSEOUT-DEPLOY-20260827.md
+             DEBT-128-GOI-DI-TRU-20260827.md
+             WIREFRAME-CUOI-M0-20260827.md
+       (Mã nguồn ở kho irissnss/erptanphat commit 45807fb; bản phát hành
+        chưa triển khai nằm ở nhánh release/m0-closeout-20260827 · a8f3283.)
 
 6. CÒN SÓT / CHƯA LÀM
    - CHƯA triển khai bản phát hành (lý do ở mục 2 của báo cáo)
