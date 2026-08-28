@@ -417,7 +417,16 @@ Owner chọn A/B từ bản cũ.
 
 ## 13. BÁO CÁO CÔNG KHAI
 
-<!-- MUC13 -->
+| | |
+|---|---|
+| Tệp | `M3-SLICE2-COHERENT-RELEASE-20260828.md` |
+| Kho báo cáo công khai | `Baocaoerptanphat` · commit **`fe6c27d`** |
+| Tệp raw | **HTTP 200** · 28.341 byte |
+| Kho mã nguồn riêng | `b261c39` (báo cáo + sổ) · `98c4e95` (bộ kiểm) · `ce6dadf` (**mã đã triển khai**) |
+
+Đã chạy cổng an toàn trước khi đẩy công khai: `secret-scan` · `pii-scan` ·
+`script-parse` · `ledger-dup-id` — tất cả **PASS**. Báo cáo **không** chứa mật khẩu,
+khoá, chi tiết SSH nhạy cảm, bản kết xuất dữ liệu, dữ liệu cá nhân hay đường dẫn bí mật.
 
 ---
 
@@ -474,7 +483,10 @@ Owner chọn A/B từ bản cũ.
    [x] ĐÃ GHI — mục #188
 
 5. PUSH BÁO CÁO CÔNG KHAI
-   <!-- MUC5 -->
+   [x] ĐÃ PUSH — kho Baocaoerptanphat · commit fe6c27d · tệp
+       M3-SLICE2-COHERENT-RELEASE-20260828.md · raw HTTP 200
+       (mã kho mã nguồn riêng ghi riêng ở mục 13 — cổng kiểm chỉ xác minh mã
+        của kho báo cáo)
 
 6. CÒN SÓT / CHƯA LÀM
    - DEBT-133 công nợ từ phiếu giao hàng (cần Owner duyệt DDL)
