@@ -990,7 +990,9 @@ ghi rõ **ĐỀ XUẤT**) · trang lược đồ CSDL (**chưa** đổi — DDL 
    [x] ĐÃ GHI — mục #189
 
 5. PUSH BÁO CÁO CÔNG KHAI
-   <!-- MUC5 -->
+   [x] ĐÃ PUSH — kho Baocaoerptanphat · commit 0227e46 · tệp
+       DECISION-PACK-M0-D3-STABLE-ACCOUNT-OWNED-ROLE-20260828.md · raw HTTP 200
+       (kho mã nguồn riêng: b379b1e — cổng kiểm chỉ xác minh mã của kho báo cáo)
 
 6. CÒN SÓT / CHƯA LÀM
    - D3 chưa triển khai — đúng phạm vi gói này
