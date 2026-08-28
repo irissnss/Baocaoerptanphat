@@ -308,10 +308,11 @@ sự cố.
    [x] ĐÃ GHI — mục #190 (quyết định + kết quả) và #191 (ba việc cố ý không làm)
 
 5. PUSH BÁO CÁO CÔNG KHAI
-   [x] ĐÃ PUSH — kho erptanphat · commit 0060d615da856521887de6276b88fbfb33e86a0b
-       (đây là commit CHA của chính báo cáo này — một trường không thể trích
-        dẫn mã commit chứa chính nó; commit của báo cáo nằm ngay sau nó trên
-        nhánh main)
+   [x] ĐÃ PUSH — kho BÁO CÁO CÔNG KHAI `Baocaoerptanphat` · commit 6a0068e2f3445ee6119271704b63bd4b015b69ea
+       file M0-D3-VAI-TRO-RIENG-DINH-DANH-ON-DINH-20260828.md
+       Kho MÃ NGUỒN `erptanphat`: commit 0060d615da856521887de6276b88fbfb33e86a0b
+       là commit cuối của phần mã; bản sao báo cáo trong kho mã nằm ở commit
+       ngay sau đó (một trường không thể trích dẫn mã commit chứa chính nó).
 
 6. CÒN SÓT / CHƯA LÀM
    - DEBT-138: thư mục scripts/ chưa có cổng kiểm KIỂU (đã đo: 120 lỗi có sẵn)
