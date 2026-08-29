@@ -296,6 +296,76 @@ kho quyền song song · trigger CSDL · viết cứng vai trò theo tên ngư�
 
 ---
 
+## 11b. LƯỢT HAI — OWNER XEM RỒI HỎI BỐN VIỆC (`V1.00.362`)
+
+Owner mở `V1.00.361` trên **cả hai môi trường**, chụp ảnh, **khoanh đỏ ba thẻ thống kê**
+ở đầu màn, và hỏi bốn câu. **Owner đúng cả bốn.**
+
+### 11b.1 "Deploy full chưa? Sao không nhất quán local và VPS?"
+
+**Deploy đã đủ.** Đo lại hai môi trường:
+
+| | Máy phát triển | Máy vận hành |
+|---|---|---|
+| Phiên bản | `V1.00.361` | `V1.00.361` ✓ |
+| **Vai trò** | **9** | **9** ✓ |
+| Kho dữ liệu | `…_dev` | kho thật |
+| Tài khoản | 15 (mã 1–65) | 9 (mã 1–9) |
+| Dòng quyền màn hình | 163 | 148 |
+
+Khác nhau là **DỮ LIỆU**, không phải mã nguồn. Chênh **đúng 15 dòng** ở **6 vai trò**:
+
+| Vai trò | Máy phát triển | Máy vận hành | Chênh |
+|---|---|---|---|
+| CEO | 47 | 43 | 4 |
+| TP_SAN_XUAT | 14 | 11 | 3 |
+| TP_THIET_KE | 10 | 7 | 3 |
+| TP_KINH_DOANH | 11 | 8 | 3 |
+| HR | 5 | 4 | 1 |
+| SALES | 11 | 10 | 1 |
+| ADMIN · KE_TOAN · USER | 51 · 13 · 1 | 51 · 13 · 1 | **khớp** |
+
+⇒ Dữ liệu thử tích luỹ trên máy phát triển. **Không ảnh hưởng máy vận hành**, nhưng
+là rủi ro thật cho việc kiểm thử ⇒ ghi **`DEBT-141`**.
+
+### 11b.2 Ba thẻ Owner khoanh đỏ — em BỎ SÓT
+
+Lượt trước dọn thuật ngữ kỹ thuật ở **phần dưới** màn mà **để sót ba thẻ trên cùng**
+(*Vai trò hệ thống* · *Quyền menu đã cấp*). **Dọn nửa vời còn khó hiểu hơn không dọn.**
+Và chính ba con số đó khác nhau giữa hai môi trường, nên đặt ở chỗ trang trọng nhất
+màn khiến người xem tưởng hệ thống chưa đồng bộ.
+
+**Nay:** dời vào khu **Quản Lý Nâng Cao** kèm câu giải thích tại sao lệch;
+thay bằng **dải ba bước dẫn việc** + nút mở trang hướng dẫn.
+
+### 11b.3 Trang hướng dẫn `/m0/security/huong-dan`
+
+Owner: *"lâu lâu mới dùng menu này nhưng nó là menu cực kỳ quan trọng"*.
+
+| Phần | Nội dung |
+|---|---|
+| Một điều cần nhớ | quyền là **tổng** các vai trò — kèm ví dụ thật |
+| Ba tình huống | **22 bước đánh số**, mỗi bước ghi rõ bấm gì và thấy gì |
+| **Bảng tra** | *"muốn gì thì dùng cách nào"* + cột **"có làm mất quyền không"** — đúng câu Owner hỏi về sửa quyền người cũ |
+| Hoàn tác | cách làm + **ba lý do** khi không hoàn tác được |
+| Hệ thống tự chặn | bốn việc Owner **không cần nhớ** |
+| Hai thắc mắc | vì sao quản trị hiện *"Toàn quyền"* · vì sao số liệu hai môi trường khác nhau |
+| Khi nào gọi kỹ thuật | bốn tình huống |
+
+**Bằng chứng:** `test:ux-huong-dan` **21/21** trên máy phát triển **và 21/21 trên máy vận hành**
+(vào được từ màn chính · đủ ba tình huống · bước đánh số · nói rõ việc làm mất quyền ·
+0 mã kỹ thuật · không tràn ở 3 khổ màn · người không quyền bị đẩy sang `/403`).
+`test:ux-cong` **32/32** trên cả hai, không vỡ.
+
+### 11b.4 Hai lỗi của chính bài kiểm — không phải lỗi trang
+
+| Lỗi | Nguyên nhân |
+|---|---|
+| Bảng tra báo "không tìm thấy" | tiêu đề bảng dùng `uppercase` của CSS, nên `innerText` trả về **chữ HOA**; so khớp phân biệt hoa-thường nên trượt dù nội dung có thật |
+| Chữ "TICK" bị bắt là mã kỹ thuật | phép dò mã kỹ thuật bắt mọi cụm chữ hoa ≥ 4 ký tự. Đổi thành chữ thường — đọc cũng mượt hơn |
+
+---
+
 ## 12. KHỐI BÁO CÁO KẾT THÚC (`GOV-COMPLETION-REPORT-001`)
 
 ```
