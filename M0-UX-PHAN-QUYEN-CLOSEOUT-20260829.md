@@ -339,7 +339,7 @@ kho quyền song song · trigger CSDL · viết cứng vai trò theo tên ngư�
    [x] ĐÃ GHI — mục #192 (chỉ thị + kết quả) và #193 (bốn điều tự khai)
 
 5. PUSH BÁO CÁO CÔNG KHAI
-   [x] ĐÃ PUSH — kho BÁO CÁO CÔNG KHAI `Baocaoerptanphat`
+   [x] ĐÃ PUSH — kho BÁO CÁO CÔNG KHAI `Baocaoerptanphat` · commit e7b163ef666f05ad4fe39497458568df01456c5d
        file M0-UX-PHAN-QUYEN-CLOSEOUT-20260829.md
        Kho MÃ NGUỒN: commit 7fda41c690e7a768c43486347d72fe9b4096541e là commit
        cuối của phần mã; bản sao báo cáo nằm ở commit ngay sau đó (một trường
