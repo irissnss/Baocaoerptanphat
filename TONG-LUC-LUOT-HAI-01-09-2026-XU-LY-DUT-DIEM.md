@@ -244,9 +244,10 @@ tại đầy đủ nhưng chưa được nối** vào đường tính giá.
 
 ## 5. CHƯA CHỨNG MINH ĐƯỢC — BẮT BUỘC NÊU
 
-1. **Nhóm cổng trình duyệt chưa có con số thật.** Lượt chạy cho 4/16 đạt, nhưng đã
-   chứng minh phần lớn là **hỏng giả do dây chuyền**. Bước dọn phòng vệ đã có; lượt
-   đo lại **đang chạy** khi viết báo cáo này. Ghi `DEBT-168`.
+1. ~~Nhóm cổng trình duyệt chưa có con số thật.~~ ✅ **ĐÃ ĐO XONG** — bổ sung sau
+   khi viết mục này, xem **mục 9** bên dưới. Con số thật: **2 đạt / 10 hỏng**, và
+   lỗi dây chuyền **chỉ giải thích được 2 trong 12 ca**. Ba cổng đã vá; **8 cổng
+   còn lại** cần quyết định, ghi rõ ở mục 9.
 2. **Hai cổng chắc chắn LỖI THỜI** — `test:anh-phan-quyen` và `test:anh-thanh-ben`
    chờ phần tử `nav ol li button`, tức thanh **«Năm bước»** của màn phân quyền, đã
    **gỡ từ 29/08**. Chúng kiểm một giao diện **không còn tồn tại** và đã hỏng liên
@@ -399,3 +400,60 @@ số dòng) là loại được phép theo `GOV-PUBLIC-SAFE-001` §J1.*
    Không kết thúc bằng trí nhớ từ trước nén.
 ═══════════════════════════════════════════
 ```
+
+---
+
+## 9. BỔ SUNG SAU KHI ĐO XONG NHÓM TRÌNH DUYỆT — `DEBT-168`
+
+Viết thêm sau khi lượt đo nền hoàn tất (commit `4c51611`).
+
+**Con số thật, đo trên cơ sở dữ liệu sạch** (dọn phòng vệ trước **mỗi** cổng, để
+tách lỗi thật khỏi lỗi dây chuyền): **2 đạt / 10 hỏng**.
+
+⇒ Lỗi dây chuyền **chỉ giải thích được 2 trong 12 ca**. Con số ban đầu «12 hỏng»
+gần đúng, **nhưng vì lý do khác hẳn** — và nếu không đo lại thì đã đi sửa nhầm
+hướng.
+
+### 9.1 Nguyên nhân chung — không phải 10 lỗi riêng lẻ
+
+Gần hết số đó **kiểm giao diện CŨ của màn phân quyền**. Màn này bị làm lại **hai
+lần trong bốn ngày**: 29/08 (năm bước → ba pha) và 01/09 (ba pha → hai cột + xác
+nhận hai bước). Các cổng vẫn bám hình dạng cũ.
+
+### 9.2 Ba loại hỏng khác nhau — đã vá cả ba
+
+| Loại | Ca cụ thể | Vì sao nguy hiểm |
+|---|---|---|
+| **(a) Bám số phiên bản viết cứng** | `d3-khoi-van-hanh` đòi `V1.00.361`, máy vận hành chạy `V1.00.366` | **Cổng đỏ mà không có gì hỏng cả.** Hỏng theo **thời gian**, không theo **mã** — không ai đụng vào mà cổng vẫn đỏ. Đây chính là một lý do khiến 80 cổng thành mồ côi: đỏ vô cớ thì người ta gỡ khỏi bộ gộp rồi quên luôn |
+| **(b) Bám nhãn chữ chính xác** | `ux-huong-dan` báo *«màn phân quyền MẤT lối vào trang hướng dẫn»* | **SAI SỰ THẬT** — lối vào vẫn còn, chỉ đổi nhãn và đổi chỗ ngày 31/08. Báo động giả **nguy hiểm hơn cả bỏ sót**: nó khiến người đọc tưởng có lỗi mới và đi sửa thứ không hỏng |
+| **(c) Bám hình dạng bố cục** | Cùng cổng đó đòi **dải ba bước**, đã gỡ có chủ đích 31/08, thay bằng một dòng gọn | Cổng canh **hình dạng** thay vì canh **điều cần canh** |
+
+**Vá gốc cho loại (a):** thêm **điều kiện thứ ba** vào `test:cong-mo-coi` — quét
+**110 tệp bài kiểm**, **cấm viết cứng số phiên bản** ngoài chú thích. Miễn trừ duy
+nhất là `version-policy.test.mjs` (dựng dự án giả để kiểm chính sách đánh số — số ở
+đó là **dữ liệu đầu vào**, không phải kỳ vọng về hệ thống), **có ghi lý do**.
+Kiểm ngược: thả `V1.00.999` vào một tệp → cổng **đỏ**, chỉ đúng tệp và dòng; gỡ ra
+→ **3/3**.
+
+**Nguyên tắc chung cho (b) và (c):** cổng phải canh **ĐIỀU CẦN CANH**, không canh
+**HÌNH DẠNG CỤ THỂ**. Canh «có đường tới trang hướng dẫn không» thay vì «nhãn có
+đúng bốn chữ đó không». Canh «màn có nói trình tự làm việc không» thay vì «có đúng
+cái dải ba ô đó không».
+**Bám chữ và bám hình dạng là cách chắc chắn nhất để cổng hỏng ở lần đổi giao diện
+kế tiếp.** `test:ux-huong-dan` nay **21/21**.
+
+### 9.3 Còn lại — 8 cổng, CẦN QUYẾT ĐỊNH
+
+`anh-chuyen-trang-thai` · `anh-ma-tran-quyen` · `anh-phan-quyen` · `anh-thanh-ben` ·
+`d3-anh` · `khoi-van-hanh` · `mobile-bar` · `ux-cong`.
+
+**Hai cổng chắc chắn LỖI THỜI:** `anh-phan-quyen` và `anh-thanh-ben` chờ phần tử
+`nav ol li button` — thanh **«Năm bước»**, đã gỡ từ 29/08.
+
+⚠️ **Agent KHÔNG tự xoá cổng kiểm — xoá cổng là giảm mức canh.** Hai hướng, cần
+Owner hoặc phiên sau quyết:
+- **(a)** viết lại chúng cho giao diện mới, hoặc
+- **(b)** gắn nhãn SUPERSEDED và nêu rõ cổng thay thế — ứng viên:
+  `test:xac-nhan-hai-buoc` (**22/22**) và `test:doi-chieu-khuon`, cả hai đều đo màn
+  phân quyền **mới** và cả hai đều **ĐẠT**.
+
