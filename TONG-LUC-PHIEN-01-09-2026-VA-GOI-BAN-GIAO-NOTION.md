@@ -364,6 +364,11 @@ loại được phép theo `GOV-PUBLIC-SAFE-001` §J1.*
              8 nợ đang chờ Owner quyết
 
 3. BẰNG CHỨNG
+   Kho mã irissnss/erptanphat (riêng tư), nhánh main — đã đẩy 01/09/2026,
+   4f826c9..56d5bc9, KHÔNG force-push:
+     92d16e4 — bốn nợ chặn go-live (DEBT-147/149/150/151)
+     75716c5 — làm lại màn phân quyền a/b/c (DEBT-145, DEBT-162)
+     56d5bc9 — nắn hình dạng hai sổ + 2 cổng mới (DEBT-103, DEBT-165)
    npm run test:xac-nhan-hai-buoc → 18/18, dòng quyền 148→148 ở mọi
      bước; kiểm ngược 148→149 → DB_PROVEN + UI_PROVEN
    npm run test:hinh-dang-so → 6/6; kiểm ngược đỏ/xanh → FILE_PROVEN
@@ -382,15 +387,12 @@ loại được phép theo `GOV-PUBLIC-SAFE-001` §J1.*
    bàn giao Notion 2 lần.
 
 5. PUSH BÁO CÁO CÔNG KHAI
-   [x] ĐÃ PUSH — kho MÃ NGUỒN irissnss/erptanphat (riêng tư), nhánh main:
-       92d16e4 — bốn nợ chặn go-live (DEBT-147/149/150/151)
-       75716c5 — làm lại màn phân quyền a/b/c (DEBT-145, DEBT-162)
-       56d5bc9 — nắn hình dạng hai sổ + 2 cổng mới (DEBT-103, DEBT-165)
-       Đẩy lúc 01/09/2026: 4f826c9..56d5bc9  main -> main
-   [x] ĐÃ PUSH — kho BÁO CÁO CÔNG KHAI irissnss/Baocaoerptanphat, nhánh main:
+   [x] ĐÃ PUSH — kho Baocaoerptanphat · nhánh main · commit e8aa43e ·
        file TONG-LUC-PHIEN-01-09-2026-VA-GOI-BAN-GIAO-NOTION.md
-       (mã commit của chính tệp này nằm trong lịch sử kho báo cáo —
-        không tự trích vào đây được vì tệp được ghi TRƯỚC khi commit)
+   (e8aa43e là bản đầu; chính dòng ghi mã này được bổ sung ở commit ngay
+    sau đó — mã commit chỉ tồn tại SAU khi commit, không tự trích trước được.
+    Mã commit của KHO MÃ NGUỒN nằm ở trường 3, không để lẫn vào đây: trường
+    này chỉ nói về kho báo cáo công khai.)
    KHÔNG force-push, KHÔNG viết lại lịch sử.
 
 6. CÒN SÓT / CHƯA LÀM
