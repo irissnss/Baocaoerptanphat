@@ -194,7 +194,24 @@ liệu**. Phát hiện bằng cách đếm lại, không phải bằng may mắn
 
 Owner: *«gom tổng hợp tồn đọng cấm để nợ phình lớn mất kiểm soát»*.
 
-**Tổng: 37 nợ còn mở** (từ 45 đầu phiên, đóng 8 trong phiên).
+> ⚠️ **SỬA SỐ 01/09/2026, ngay sau khi đẩy bản đầu.** Bản đầu ghi **«37 nợ còn mở»** —
+> **SAI**. Con số đó lấy từ một lượt đếm giữa chừng, chưa cộng các nợ đóng sau đó và
+> chưa trừ đúng. Đếm lại trên sổ thật:
+>
+> | | Số |
+> |---|---|
+> | Tổng dòng nợ trong sổ | **85** |
+> | Còn mở / đang xử lý | **42** |
+> | Đã xử lý | **36** |
+> | Hoãn có chủ đích · không còn hợp lệ · tạm bỏ | **7** |
+>
+> Đóng trong phiên này: **9 nợ** — `DEBT-147` · `149` · `150` · `151` · `145` · `162` ·
+> `103` · `165` · `166`. Sinh mới: `DEBT-164` (còn mở) · `165` · `166` (đã đóng ngay).
+>
+> Ghi lại chỗ sai này thay vì lặng lẽ sửa — chính Owner vừa nhắc *«cấm rơi rớt»*, và
+> một con số tồn đọng sai là đúng thứ làm mất kiểm soát.
+
+**Tổng: 42 nợ còn mở** — 8 chờ Owner quyết, **34** Agent làm được.
 Chia hai nhóm theo **ai xử lý được**:
 
 ### 4.1 🔴 CHỜ OWNER QUYẾT — 8 nợ, Agent KHÔNG tự làm
@@ -210,7 +227,7 @@ Chia hai nhóm theo **ai xử lý được**:
 | `DEBT-163` | **Đặt tên trong CSDL không nhất quán** — nhóm A, C, D, E | Duyệt đề xuất (mục 5 dưới) |
 | `DEBT-069` · `DEBT-082` | Hai nợ quản trị cũ | Xác nhận để đóng |
 
-### 4.2 🟠 AGENT LÀM ĐƯỢC — 29 nợ, xếp theo mức chặn
+### 4.2 🟠 AGENT LÀM ĐƯỢC — 34 nợ, xếp theo mức chặn
 
 **Nhóm chặn go-live (4):**
 
@@ -260,10 +277,11 @@ hiện hành**:
 
 1. **Màn phân quyền chưa được Owner nghiệm thu.** Đây là lượt làm lại **thứ NĂM**; bốn
    lượt trước Owner bác. Agent **không tự tuyên bố màn đã đạt**.
-2. **Cổng `test:xac-nhan-hai-buoc` mới chỉ đo ma trận QUYỀN MÀN.** Ma trận **chuyển
-   trạng thái** (67 dòng — gồm duyệt báo giá · huỷ đơn · duyệt thu chi) mới chỉ được
-   kiểm ở mức **đọc mã nguồn**, chưa có lượt bấm thật. Ghi `DEBT-166`.
-   **Đừng đọc 18/18 thành «đã phủ cả hai».**
+2. ~~**Cổng `test:xac-nhan-hai-buoc` mới chỉ đo ma trận QUYỀN MÀN.**~~
+   ✅ **ĐÃ GIẢI cùng ngày.** Đã thêm nhánh đo thứ hai cho ma trận **chuyển trạng thái**
+   (`role_action_permission`, 67 dòng — duyệt báo giá · huỷ đơn · duyệt thu chi):
+   tick → **67 → 67**, bỏ thay đổi → vẫn **67**. Cổng nay **22/22**, không còn ma trận
+   nào chỉ được kiểm bằng đọc mã nguồn. `DEBT-166` **đã đóng**. Commit `1a33712`.
 3. **Mọi thay đổi trong phiên này CHƯA TRIỂN KHAI lên máy vận hành.** Máy vận hành vẫn
    chạy `V1.00.366`. Ba commit `92d16e4` · `75716c5` · `56d5bc9` mới nằm ở kho.
    Triển khai cần cổng duyệt của Owner theo `GOV-DEPLOY-SCHEMA-COMPAT-001` §G7.16.
@@ -304,7 +322,7 @@ hiện hành**:
 | Cổng | Kết quả |
 |---|---|
 | `test:gov-gates` (bộ gộp quản trị) | **37/37 PASS** |
-| `test:xac-nhan-hai-buoc` 🆕 | **18/18 PASS** |
+| `test:xac-nhan-hai-buoc` 🆕 | **22/22 PASS** — phủ CẢ HAI ma trận |
 | `test:hinh-dang-so` 🆕 | **6/6 PASS** |
 | `test:cau-noi-quyen` 🆕 | **1/1 PASS** — quét 507 tệp |
 | `test:don-hang-hoan-thien` | **31/31 PASS** (+7 điều kiện mới) |
@@ -369,8 +387,10 @@ loại được phép theo `GOV-PUBLIC-SAFE-001` §J1.*
      92d16e4 — bốn nợ chặn go-live (DEBT-147/149/150/151)
      75716c5 — làm lại màn phân quyền a/b/c (DEBT-145, DEBT-162)
      56d5bc9 — nắn hình dạng hai sổ + 2 cổng mới (DEBT-103, DEBT-165)
-   npm run test:xac-nhan-hai-buoc → 18/18, dòng quyền 148→148 ở mọi
-     bước; kiểm ngược 148→149 → DB_PROVEN + UI_PROVEN
+   npm run test:xac-nhan-hai-buoc → 22/22.
+     Ma trận QUYỀN MÀN: dòng quyền 148→148 ở mọi bước; kiểm ngược 148→149
+     Ma trận CHUYỂN TRẠNG THÁI: 67→67, bỏ thay đổi vẫn 67
+     → DB_PROVEN + UI_PROVEN
    npm run test:hinh-dang-so → 6/6; kiểm ngược đỏ/xanh → FILE_PROVEN
    npm run test:cau-noi-quyen → 1/1, quét 507 tệp; kiểm ngược → CODE_PROVEN
    npm run test:don-hang-hoan-thien → 31/31; kiểm ngược 30/1 → CODE_PROVEN
@@ -397,7 +417,6 @@ loại được phép theo `GOV-PUBLIC-SAFE-001` §J1.*
 
 6. CÒN SÓT / CHƯA LÀM
    - 37 nợ còn mở, liệt kê đủ ở mục 4 của báo cáo này
-   - DEBT-166: cổng mới chưa đo ma trận CHUYỂN TRẠNG THÁI (67 dòng)
    - DEBT-164: sửa đơn nháp chưa sửa được địa chỉ giao — cố ý để lại
    - Chưa triển khai lên máy vận hành
    - 6 đơn trùng trên máy vận hành chưa xoá — chờ Owner duyệt
@@ -420,15 +439,14 @@ loại được phép theo `GOV-PUBLIC-SAFE-001` §J1.*
 9. CHƯA XÁC MINH ĐƯỢC
    - Màn phân quyền đã «đủ trực quan» chưa — chỉ Owner xác minh được.
      Đây là lượt làm lại thứ NĂM.
-   - Ma trận chuyển trạng thái đã xác nhận hai bước đúng chưa trên
-     trình duyệt thật — mới kiểm ở mức đọc mã nguồn (DEBT-166).
    - Trang Notion nào cần sửa — Agent IDE không có quyền đọc Notion
      (GOV-ACTOR-BOUNDARY-001 §A2). Agent Notion xác định.
 
 10. TRẠNG THÁI CHUNG
    [x] PROVISIONAL — thiếu: Owner nghiệm thu màn phân quyền và
        đo ma trận chuyển trạng thái trên trình duyệt thật.
-       Điều kiện lên PASS: Owner xác nhận màn đạt + đóng DEBT-166.
+       Điều kiện lên PASS: Owner xác nhận màn phân quyền đạt.
+       (DEBT-166 đã đóng cùng ngày — cổng nay 22/22, phủ cả hai ma trận.)
 
 11. NÉN PHIÊN & ĐỌC LẠI THAM CHIẾU
    Phiên có bị nén ngữ cảnh không: CÓ
