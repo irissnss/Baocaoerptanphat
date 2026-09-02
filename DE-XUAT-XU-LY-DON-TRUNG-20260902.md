@@ -1,5 +1,21 @@
 # BẢN ĐỀ XUẤT — XỬ LÝ 6 ĐƠN HÀNG TRÙNG TRÊN MÁY VẬN HÀNH
 
+> ## ⛔ VĂN BẢN NÀY ĐÃ ĐƯỢC THAY THẾ — 02/09/2026
+>
+> **Owner chốt một hướng KHÁC và TỐT HƠN:** *«từ báo giá ra tới đơn hàng thì em xóa những vấn đề
+> sau báo giá là được mà em… nó sẽ không còn cái ngọn chỉ còn gốc là mã báo giá thôi em»* (sổ #218).
+>
+> **CẮT NGỌN, GIỮ GỐC** — thay cho ba phương án bên dưới. Cách này làm rủi ro lớn nhất mà văn bản
+> này nêu ra (mấy báo giá mang tên nghe như thật) **bằng 0**, vì báo giá được giữ nguyên hết.
+>
+> **ĐÃ THI HÀNH XONG**, xem `docs/BAO-CAO-DON-DU-LIEU-TEST-20260902.md`.
+>
+> Giữ nguyên văn bản này làm lịch sử theo `GOV-EDIT-PRESERVE-001` — nó ghi lại phép đo đã phát hiện
+> hai đơn có lệnh sản xuất thật, và đó là phát hiện vẫn còn giá trị.
+
+---
+
+
 > **Anh giao ngày 02/09/2026:** *«Em lập bản đề xuất, anh duyệt rồi mới xoá»*.
 > **Trạng thái:** ⏸️ **CHỜ ANH DUYỆT — em CHƯA đụng gì vào dữ liệu.**
 > Số liệu đo **trực tiếp trên máy vận hành** lúc lập bản này, không lấy lại số cũ.
