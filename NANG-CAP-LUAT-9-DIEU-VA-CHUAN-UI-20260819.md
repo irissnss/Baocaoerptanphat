@@ -2,7 +2,7 @@
 
 > **Loại:** MUTATION LỚN (governance + chuẩn UI + bảo mật + cổng kiểm) · **Ngày:** 18–19/08/2026
 > **Actor:** Agent IDE · **Lớp được phép:** Local / Code / Git · **Đã thi hành:** Master Prompt **v2** (v1 VOID)
-> **Nhánh:** `gov/2026-08-18-rules-ui-standard-upgrade` · **Gốc:** `23f20f0` · **HEAD:** `ba7727d`
+> **Nhánh:** `gov/2026-08-18-rules-ui-standard-upgrade` · **Gốc:** `<mã-nguồn-riêng>` · **HEAD:** `<mã-nguồn-riêng>`
 > **Căn cứ:** đề xuất Owner duyệt 18/08/2026 "CHỈ THÊM, KHÔNG XOÁ" + quyết định Q2/Q3/Q4 (Q1 chưa trả lời)
 > **KHÔNG deploy · KHÔNG đổi schema/DB · KHÔNG ghi Notion · KHÔNG đẩy kho mã riêng tư**
 
@@ -10,7 +10,7 @@
 
 ## 0) TÓM TẮT — 4 ĐIỀU QUAN TRỌNG NHẤT
 
-1. **9 luật mới đã nạp INLINE vào cả 5 file quản trị** (§G7), schema đầy đủ, parity byte-identical `05a8ff93`. Cổng đếm: **334 → 383** điều khoản, không điều nào mất.
+1. **9 luật mới đã nạp INLINE vào cả 5 file quản trị** (§G7), schema đầy đủ, parity byte-identical `<mã-nguồn-riêng>`. Cổng đếm: **334 → 383** điều khoản, không điều nào mất.
 2. **Đặc tả pill đã vá HẾT 4 vị trí trong MỘT lượt.** Quét toàn file tìm ra **vị trí thứ 4 nằm ở §16** (đề bài chỉ biết 3). Tất cả dòng cũ giữ nguyên văn ở mục Lịch sử — kiểm máy: **9/9 dòng bị thay đều còn**.
 3. **Thông tin nhạy cảm: đầu vào nêu 3 script → thực tế 12 vị trí / 11 file.** Gấp **4 lần**. Trong đó có một file `.sql` mà cổng bản đầu **bỏ qua toàn bộ theo đuôi file**, và một báo cáo **tự tuyên bố "0 credential thật"** nhưng chính dòng đó trích credential làm ví dụ.
 4. **Kiểm ngược cứu cả hai cổng.** Cổng quét bí mật bản đầu **bỏ lọt 4/4** dạng thực tế → đã vá → nay bắt 4/4. Cổng báo cáo kết thúc bản đầu chỉ chạy 3 chuỗi mẫu viết cứng → nay đọc đầu ra thật, kiểm hai chiều PASS/FAIL. **Nếu không kiểm ngược thì cả hai vẫn báo PASS trong khi rỗng.**
@@ -21,7 +21,7 @@
 
 | Mục tiêu | Đường dẫn thật | Bằng chứng định vị |
 |---|---|---|
-| 5 file quản trị | `.cursorrules` · `.antigravityrules` · `AGENTS.md` · `CLAUDE.md` · `GEMINI.md` | `sha256sum` × 5 → **1 hash duy nhất** `6aec8539…` trước sửa; 1492 dòng mỗi file |
+| 5 file quản trị | `.cursorrules` · `.antigravityrules` · `AGENTS.md` · `CLAUDE.md` · `GEMINI.md` | `sha256sum` × 5 → **1 hash duy nhất** `<mã-nguồn-riêng>…` trước sửa; 1492 dòng mỗi file |
 | **SSOT chuẩn giao diện (Q2)** | **`docs/UI-STANDARD.md`** | (a) dòng 6 khai "Rút TỪ CODE THẬT"; (b) **5/5 file mã nó trỏ tới TỒN TẠI THẬT**; (c) brand `#f97316` khớp `src/app/globals.css:55,282,319,342` |
 | Vị trí đặc tả pill | `docs/UI-STANDARD.md` §1(41) §6(95) §15(166,170) **§16(173)** | `grep -n -i "pill"` + `grep -n "rounded-full"` toàn file → **5 vị trí nói về pill header, 4 sai** |
 | Cổng báo cáo giả | `scripts/tests/completion-report-gate.test.mjs` | Không có `process.argv`; 3 chuỗi mẫu viết cứng tại dòng **80 · 109 · 135** |
@@ -241,8 +241,8 @@ Một tài liệu triển khai (vị trí chính xác ở bản nội bộ): ban
 
 | Mốc | SHA-256 (5 file giống hệt) | Số dòng |
 |---|---|---|
-| Trước (`23f20f0`) | `6aec8539fd7d8dce7dfd0fdb894c8a001659e36e0f4fa0bdbbd7bad92389ecd7` | 1492 |
-| Sau (`ba7727d`) | `05a8ff93eb961aa6c8aa09bd1a11948e4d888c0837e3936a1e39e1114599d062` | 1797 |
+| Trước (`<mã-nguồn-riêng>`) | `6aec8539fd7d8dce7dfd0fdb894c8a001659e36e0f4fa0bdbbd7bad92389ecd7` | 1492 |
+| Sau (`<mã-nguồn-riêng>`) | `05a8ff93eb961aa6c8aa09bd1a11948e4d888c0837e3936a1e39e1114599d062` | 1797 |
 
 `npm run check:governance` → **5/5 OK** (byte-identical 61987 byte mỗi file · nhóm an toàn inline 6 dấu × 5 file · 5 file tham chiếu tồn tại · archive bảo toàn).
 
@@ -288,7 +288,7 @@ Một tài liệu triển khai (vị trí chính xác ở bản nội bộ): ban
 
 | Mã | Nội dung | Kết quả |
 |---|---|---|
-| **T1** | Parity `sha256` × 5 giống nhau, sau Step 5 và ở trạng thái cuối | ✅ **PASS** — 1 hash `05a8ff93` |
+| **T1** | Parity `sha256` × 5 giống nhau, sau Step 5 và ở trạng thái cuối | ✅ **PASS** — 1 hash `<mã-nguồn-riêng>` |
 | **T2** | Cổng đếm: **cả hai** điều kiện | ✅ **PASS** — 383 ≥ 334; 0 điều rời gốc |
 | **T3** | Mọi tham chiếu bắt buộc tồn tại (kể cả file mẫu; Metronic đã hạ nhãn) | ✅ **PASS** — 27 đạt / 0 hỏng |
 | **T4** | `grep` đặc tả pill cũ → 0 ngoài mục Lịch sử | ✅ **PASS** — 0/0/0/0 |
@@ -303,11 +303,11 @@ Một tài liệu triển khai (vị trí chính xác ở bản nội bộ): ban
 
 | Hành động | Lớp | Ai làm | Bằng chứng |
 |---|---|---|---|
-| `MODIFIED_LOCAL` | 5 file quản trị (§G7, §V, §W, §G5) | Agent IDE | commit `ac94990`, `ba7727d` · sha256 `05a8ff93` |
-| `MODIFIED_LOCAL` | `docs/UI-STANDARD.md` §17–§21 | Agent IDE | commit `aebab14` |
-| `MODIFIED_LOCAL` | registry + procedures (4 file mới, 2 cập nhật) | Agent IDE | `aebab14`, `ba7727d` |
-| `MODIFIED_LOCAL` | 3 cổng mới + 1 cổng sửa + `package.json` | Agent IDE | `ba7727d` |
-| `MODIFIED_LOCAL` | Gỡ bí mật 11 file | Agent IDE | `ba7727d` |
+| `MODIFIED_LOCAL` | 5 file quản trị (§G7, §V, §W, §G5) | Agent IDE | commit `<mã-nguồn-riêng>`, `<mã-nguồn-riêng>` · sha256 `<mã-nguồn-riêng>` |
+| `MODIFIED_LOCAL` | `docs/UI-STANDARD.md` §17–§21 | Agent IDE | commit `<mã-nguồn-riêng>` |
+| `MODIFIED_LOCAL` | registry + procedures (4 file mới, 2 cập nhật) | Agent IDE | `<mã-nguồn-riêng>`, `<mã-nguồn-riêng>` |
+| `MODIFIED_LOCAL` | 3 cổng mới + 1 cổng sửa + `package.json` | Agent IDE | `<mã-nguồn-riêng>` |
+| `MODIFIED_LOCAL` | Gỡ bí mật 11 file | Agent IDE | `<mã-nguồn-riêng>` |
 | `VERIFIED` | parity · đếm điều khoản · tham chiếu · quét bí mật (2 chế độ) · cổng báo cáo 2 chiều · tsc · build | Agent IDE | đầu ra lệnh ở §7, §8 |
 | `OBSERVED` | Metronic protocol không tồn tại · `.claude/` không có kỹ năng · `.sql` bị cổng bỏ qua · giá trị A trên remote từ 03/03/2026 | Agent IDE | §1, §6 |
 | `OWNER_APPROVED` | 9 luật · Q2 · Q3 · Q4 | Owner 18/08/2026 | STATUS trong từng luật |
@@ -319,7 +319,7 @@ Một tài liệu triển khai (vị trí chính xác ở bản nội bộ): ban
 
 | Lớp | Đã đổi? | Bằng chứng | Ghi chú |
 |---|---|---|---|
-| **Luật (5 file)** | ✅ CÓ | sha256 `05a8ff93`, parity 5/5 | +9 luật INLINE, không xoá điều nào |
+| **Luật (5 file)** | ✅ CÓ | sha256 `<mã-nguồn-riêng>`, parity 5/5 | +9 luật INLINE, không xoá điều nào |
 | **Chuẩn UI (SSOT)** | ✅ CÓ | `docs/UI-STANDARD.md` §0–§21 | +4 mục D4, +§20 gộp, vá 4 vị trí pill |
 | **Registry / Archive** | ✅ CÓ | 4 file mới, 2 cập nhật | archive **chỉ thêm** banner nhãn |
 | **Mã nguồn (`src/`)** | ❌ KHÔNG | `git diff --stat` không có `src/` | Không đụng logic ứng dụng |
@@ -399,7 +399,7 @@ Nhánh `gov/2026-08-18-rules-ui-standard-upgrade` có **4 commit sạch**, mọi
              · git history? KHÔNG viết lại (hoãn chờ Q1) · kho mã riêng tư? CHƯA đẩy
 
 3. BẰNG CHỨNG
-   sha256sum x5 -> 1 hash 05a8ff93 (trước: 6aec8539)                        -> FILE_PROVEN
+   sha256sum x5 -> 1 hash <mã-nguồn-riêng> (trước: <mã-nguồn-riêng>)                        -> FILE_PROVEN
    npm run check:governance -> 5/5 OK, 61987 byte mỗi file                  -> RUNTIME_PROVEN
    npm run test:clause-count -> 334 -> 383; ĐK1 PASS, ĐK2 PASS, parity PASS -> RUNTIME_PROVEN
    npm run test:ref-exists-gate -> 27 đạt / 0 hỏng                          -> RUNTIME_PROVEN
@@ -425,7 +425,7 @@ Nhánh `gov/2026-08-18-rules-ui-standard-upgrade` có **4 commit sạch**, mọi
        (Lưu ý: một phiên khác đã ghi mục #81/#82 vào sổ trong lúc lượt này chạy — xem trường 9.)
 
 5. PUSH BÁO CÁO CÔNG KHAI
-   [x] ĐÃ PUSH — kho Baocaoerptanphat · commit 28cb47c
+   [x] ĐÃ PUSH — kho Baocaoerptanphat · commit <mã-nguồn-riêng>
        · file NANG-CAP-LUAT-9-DIEU-VA-CHUAN-UI-20260819.md
    Cổng công-bố-an-toàn: bản công khai KHÔNG nêu file:dòng của bí mật (git history còn giá trị,
    chưa viết lại) · KHÔNG nêu địa chỉ máy chủ · KHÔNG nêu giá trị nào.
@@ -458,7 +458,7 @@ Nhánh `gov/2026-08-18-rules-ui-standard-upgrade` có **4 commit sạch**, mọi
    - Kho origin công khai hay riêng tư — lệnh git local không cho biết. Ai: Owner.
    - Giá trị A/B/C có bị ai khai thác chưa — không có log truy cập. Ai: Owner (nhà cung cấp VPS/GitHub).
    - Nội dung 3 nguồn chuẩn UI ngoài repo (Notion) — ngoài lớp được phép. Ai: Owner / Agent Notion.
-   - Một phiên khác commit 6f02ca2 (18/08 23:46) lên CÙNG nhánh này giữa lúc lượt này chạy
+   - Một phiên khác commit <mã-nguồn-riêng> (18/08 23:46) lên CÙNG nhánh này giữa lúc lượt này chạy
      (chỉ đụng OWNER-REQUEST-LEDGER.md + PLAN-IMPORT-APPSHEET). Đã kiểm: không đụng file nào
      của lượt này, parity 5 file vẫn nguyên. Nhưng vì sao có 2 phiên ghi cùng nhánh thì
      tôi KHÔNG xác minh được. Ai: Owner.

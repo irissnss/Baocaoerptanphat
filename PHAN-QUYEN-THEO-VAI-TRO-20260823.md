@@ -1,7 +1,7 @@
 # PHÂN QUYỀN THEO VAI TRÒ — KHÔNG THEO CHỨC DANH
 
 **Ngày:** 23/08/2026 · **Loại:** đợt **DỮ LIỆU + KIỂM THỬ** (không phát hành phiên bản mới)
-**Mã ghi nhận (commit):** `c5e9133` · hệ thống vận hành vẫn ở **V1.00.352**
+**Mã ghi nhận (commit):** `<mã-nguồn-riêng>` · hệ thống vận hành vẫn ở **V1.00.352**
 
 > Bản tin public-safe: chỉ nêu số lượng, mã kỹ thuật và tên vai trò. Không có thông tin đăng nhập,
 > không có giá trị nhạy cảm.
@@ -80,7 +80,7 @@ tầng quyết định quyền, mạnh hơn việc bấm giao diện và không 
 ## 5. Dọn dữ liệu theo xác nhận của Chủ sở hữu
 
 - **3 khách hàng thử nghiệm** → trả về **không có người phụ trách**. Đối chiếu hai chiều mã ↔ định danh
-  trước khi ghi; sau khi ghi: tổng số khách **không đổi**, **1.692 khách còn lại vẫn nguyên**.
+  trước khi ghi; sau khi ghi: tổng số khách **không đổi**, **gần như toàn bộ khách còn lại vẫn nguyên**.
 - **7 hồ sơ nhân sự chưa có tài khoản đăng nhập** → **tạm để vậy** theo quyết định của Chủ sở hữu,
   không tạo tài khoản. Hồ sơ vẫn đầy đủ, chỉ là chưa đăng nhập được.
 - **Mật khẩu quản trị** → Chủ sở hữu **đã tự đổi** qua màn hình mới. Khoản nợ này **đóng**.
@@ -117,5 +117,5 @@ Chủ sở hữu chỉ đạo **dồn lực cho chức năng chính để đưa 
 | Chuông thông báo theo từng người | Nút chuông đang **tĩnh** — chấm đỏ luôn hiện, bấm không ra gì |
 | Chế độ sáng/tối + dọn bộ biểu tượng | Gộp làm một lượt |
 
-Ngoài ra còn một khoản đang mở: **1.692 khách hàng đang gán tạm cho một người phụ trách** — chờ phân
+Ngoài ra còn một khoản đang mở: **gần như toàn bộ khách hàng đang gán tạm cho một người phụ trách** — chờ phân
 bổ cho đội kinh doanh trong quá trình vận hành.

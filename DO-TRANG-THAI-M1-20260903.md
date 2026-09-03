@@ -17,9 +17,9 @@ Việc của M1 bây giờ **không phải viết thêm màn**, mà là **lấp 
 
 | Màn | Dữ liệu thật trên máy vận hành |
 |---|---|
-| **Khách hàng** | **1.695** khách · **2.012** địa chỉ · **1.896** người liên hệ |
-| **Nhân sự** | **46** người · 24 vị trí · 8 phòng ban |
-| Địa chỉ hành chính VN | **3.356** |
+| **Khách hàng** | **hàng nghìn** khách · **hàng nghìn** địa chỉ · **hàng nghìn** người liên hệ |
+| **Nhân sự** | **46** người · vài chục vị trí · một số phòng ban |
+| Địa chỉ hành chính VN | **hàng nghìn** |
 | Nhà cung cấp | **110** |
 | Công đoạn sản xuất | **85** · bảng giá công đoạn **10** |
 | Nhóm danh mục dùng chung | **116** |
@@ -73,7 +73,7 @@ Nó có sẵn thứ em định soạn lại từ đầu:
 
 ## 5. BA CHỖ TRỐNG THẬT SỰ CÒN LẠI
 
-### 🔴 (1) 37 trong 46 người chưa có tài khoản đăng nhập
+### 🔴 (1) đa số trong vài chục người chưa có tài khoản đăng nhập
 
 | | Số |
 |---|---|
@@ -82,13 +82,13 @@ Nó có sẵn thứ em định soạn lại từ đầu:
 | **Có tài khoản đăng nhập được** | **9** |
 | **Chưa có** | **37** |
 
-**Đây là chỗ chặn lớn nhất.** Màn phân quyền anh vừa nghiệm thu xong sẽ **không có ai để phân quyền** nếu 37 người kia chưa có tài khoản.
+**Đây là chỗ chặn lớn nhất.** Màn phân quyền anh vừa nghiệm thu xong sẽ **không có ai để phân quyền** nếu đa số người kia chưa có tài khoản.
 
 Và đây đúng là **câu hỏi Q1** treo từ 14/06: *"Số lượng nhân viên cần tạo tài khoản? Danh sách tên + email?"*
 
 ### 🟠 (2) Danh mục sản phẩm chỉ có 5 dòng
 
-**1.695 khách hàng** nhưng chỉ **5 sản phẩm**. Với xưởng in bao bì thì con số này thấp bất thường — có thể sản phẩm đang được gõ tay vào từng báo giá thay vì chọn từ danh mục.
+**hàng nghìn khách hàng** nhưng chỉ **5 sản phẩm**. Với xưởng in bao bì thì con số này thấp bất thường — có thể sản phẩm đang được gõ tay vào từng báo giá thay vì chọn từ danh mục.
 
 Nếu đúng vậy thì mỗi báo giá phải gõ lại, và không thống kê được bán gì chạy nhất.
 
@@ -103,7 +103,7 @@ Nếu đúng vậy thì mỗi báo giá phải gõ lại, và không thống kê
 
 | | Số |
 |---|---|
-| Khách **đã có người phụ trách** | **1.692 / 1.695** |
+| Khách **đã có người phụ trách** | **gần như toàn bộ / hàng nghìn** |
 | Chưa có | **3** — đúng ba khách thử anh đã chốt để trống từ 23/08 |
 
 **Không có khách nào mồ côi.** Đây là nền tốt để giao cho kinh doanh dùng.
@@ -127,9 +127,9 @@ Kế hoạch cũ để lại đúng bốn câu, chưa ai trả lời:
 
 | # | Câu hỏi | Vì sao cần |
 |---|---|---|
-| **Q1** | **Trong 46 người, ai cần tài khoản đăng nhập?** Kinh doanh · thiết kế · kế toán · kho · sản xuất? | Quyết định tạo bao nhiêu tài khoản |
+| **Q1** | **Trong vài chục người, ai cần tài khoản đăng nhập?** Kinh doanh · thiết kế · kế toán · kho · sản xuất? | Quyết định tạo bao nhiêu tài khoản |
 | **Q2** | **Thiết kế được làm gì?** Chỉ xem, hay tạo/sửa được? | Quyết định ô tick quyền cho vai trò Thiết Kế |
-| **Q3** | **Email nhân viên dùng loại nào?** Email công ty hay email cá nhân? | 42 người đã có email — cần biết dùng được không |
+| **Q3** | **Email nhân viên dùng loại nào?** Email công ty hay email cá nhân? | đa số đã có email — cần biết dùng được không |
 | **Q4** | **Danh mục sản phẩm 5 dòng là đủ hay thiếu?** | Quyết định có phải nạp thêm không |
 
 > ⚠️ Em **không tự trả lời** bốn câu này — chúng là quyết định nghiệp vụ, chỉ anh biết. Nhưng em **không hỏi lại** chuyện ô tick quyền: cái đó là **cấu hình**, anh đã chốt ở mục #208 là em tự áp theo hướng anh nêu.
@@ -142,7 +142,7 @@ Kế hoạch cũ để lại đúng bốn câu, chưa ai trả lời:
 |---|---|
 | 9 bài kiểm T1–T9 hiện đạt bao nhiêu | Chưa chạy — cần tài khoản thử cho từng vai trò |
 | Danh mục 5 sản phẩm là đủ hay thiếu | Cần người biết xưởng in xác nhận |
-| 37 người chưa có tài khoản có **cần** tài khoản không | Có thể một số người không dùng máy tính |
+| đa số người chưa có tài khoản có **cần** tài khoản không | Có thể một số người không dùng máy tính |
 
 ---
 

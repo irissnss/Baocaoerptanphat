@@ -1,8 +1,8 @@
 # KHOÁ NỢ GẤP — BẢO MẬT & CỔNG TRƯỚC COMMIT
 
 > **Loại:** KHOÁ NỢ + TOOLING · **Ngày:** 20/08/2026 · **Owner:** TanPhatERP
-> **Actor:** Agent IDE · **Nhánh:** `gov/2026-08-18-rules-ui-standard-upgrade` · **Gốc phiên:** `d7c953b` · **HEAD:** `1fc8ff7`
-> **Doc Version:** giữ nguyên **2.5** · **Parity 5 file:** `84f979a6…` **KHÔNG ĐỔI** (không đụng luật)
+> **Actor:** Agent IDE · **Nhánh:** `gov/2026-08-18-rules-ui-standard-upgrade` · **Gốc phiên:** `<mã-nguồn-riêng>` · **HEAD:** `<mã-nguồn-riêng>`
+> **Doc Version:** giữ nguyên **2.5** · **Parity 5 file:** `<mã-nguồn-riêng>…` **KHÔNG ĐỔI** (không đụng luật)
 > **Căn cứ:** Owner chốt 4/4 lúc 21:59 20/08 — *"ok 4 quyết định theo khuyến nghị anh chốt"*
 
 ---
@@ -22,7 +22,7 @@
 
 | Đề bài | Thực tế đo được | Tôi làm gì |
 |---|---|---|
-| Thêm 2 file vào allowlist cổng `pii-scan` | Phiên **R7** (`ad6fc11`, 19:41 20/08) đã **đổi hẳn 72 địa chỉ** sang `@example.invalid` — RFC 6761, tên miền không ai sở hữu được. `DEBT-013` **đã ĐÃ XỬ LÝ** | **KHÔNG thêm allowlist** |
+| Thêm 2 file vào allowlist cổng `pii-scan` | Phiên **R7** (`<mã-nguồn-riêng>`, 19:41 20/08) đã **đổi hẳn 72 địa chỉ** sang `@example.invalid` — RFC 6761, tên miền không ai sở hữu được. `DEBT-013` **đã ĐÃ XỬ LÝ** | **KHÔNG thêm allowlist** |
 
 **Bằng chứng xác minh (đếm lại từ đầu):**
 
@@ -144,7 +144,7 @@ Rà 11 dòng khai `AUTO`: **10 dòng có cổng thật**. Một dòng không:
 |---|---|
 | Nhánh | `gov/2026-08-18-rules-ui-standard-upgrade` |
 | Commit chưa đẩy trước khi push | **4** |
-| Kết quả | `9c6dd27..1fc8ff7` → `origin` · **EXIT=0** |
+| Kết quả | `<mã-nguồn-riêng>..<mã-nguồn-riêng>` → `origin` · **EXIT=0** |
 | Force-push / viết lại history | **KHÔNG** |
 
 ---
@@ -158,7 +158,7 @@ Rà 11 dòng khai `AUTO`: **10 dòng có cổng thật**. Một dòng không:
 | **#90** | Q-EMAIL | `DEBT-013` — xác minh đã đóng đúng cách, không thêm allowlist |
 | **#91** | Q-KEY | `DEBT-005` — đối chứng bằng bằng chứng, 0 file hoạt động dùng khoá |
 | **#92** | Q-HOOK | `DEBT-031` **ĐÃ XỬ LÝ** — nối cổng, kiểm ngược 3/3 |
-| **#93** | Q-PUSH | Đã đẩy `9c6dd27..1fc8ff7` |
+| **#93** | Q-PUSH | Đã đẩy `<mã-nguồn-riêng>..<mã-nguồn-riêng>` |
 
 Ghi bằng **quyền mặc định** của `GOV-SESSION-DECISION-001` §F1b mục 3 — không hỏi lại Owner câu nào.
 
@@ -177,7 +177,7 @@ Ghi bằng **quyền mặc định** của `GOV-SESSION-DECISION-001` §F1b mụ
 
 | # | Cổng | Kết quả | Số đo |
 |---|---|---|---|
-| **T1** | Parity 5 file | ✅ **PASS** | `84f979a6…` **KHÔNG ĐỔI** → chứng minh không đụng luật |
+| **T1** | Parity 5 file | ✅ **PASS** | `<mã-nguồn-riêng>…` **KHÔNG ĐỔI** → chứng minh không đụng luật |
 | **T2** | `clause-count` | ✅ **PASS** | **388**, không đổi; ĐK1a ✅ ĐK1b ✅ ĐK2 ✅ parity ✅ |
 | **T3** | `ref-exists` | ✅ **PASS** | 53 đạt / **0 hỏng** |
 | **T4** | `skills-registry` | ✅ **PASS** | 4/4 điều kiện |
@@ -207,7 +207,7 @@ Ghi bằng **quyền mặc định** của `GOV-SESSION-DECISION-001` §F1b mụ
      (nơi ĐƯỢC GIT THEO DÕI), cài bằng hooks:install, hooks:verify xác nhận trùng khớp.
      THÊM chứ không thay — logic version.ts giữ nguyên. Kiểm ngược 3/3 ca đạt.
      DEBT-031 → ĐÃ XỬ LÝ.
-   - N4 (Q-PUSH): đẩy kho mã riêng tư 9c6dd27..1fc8ff7 (4 commit), EXIT=0,
+   - N4 (Q-PUSH): đẩy kho mã riêng tư <mã-nguồn-riêng>..<mã-nguồn-riêng> (4 commit), EXIT=0,
      không force-push, không viết lại history.
    - N5: ghi Sổ Yêu Cầu Owner mục #90–#93; cập nhật sổ nợ; rà 11 dòng khai AUTO
      → phát hiện DEBT-032 (§G7.3 khai AUTO nhưng không có cổng đếm trường).
@@ -219,13 +219,13 @@ Ghi bằng **quyền mặc định** của `GOV-SESSION-DECISION-001` §F1b mụ
              scripts/tests/pii-scan-gate.test.mjs (chỉ thông báo) ·
              docs/OWNER-REQUEST-LEDGER.md (#90–#93) ·
              .governance/registry/tech-debt.md (DEBT-031 đóng, DEBT-032 mới)
-   KHÔNG ĐỤNG: 5 file luật? KHÔNG (parity 84f979a6 không đổi) · src/? KHÔNG ·
+   KHÔNG ĐỤNG: 5 file luật? KHÔNG (parity <mã-nguồn-riêng> không đổi) · src/? KHÔNG ·
              DB/schema? KHÔNG · deploy? KHÔNG · SSOT nội dung? KHÔNG · Notion? KHÔNG ·
              nạp dữ liệu? KHÔNG · nội dung 2 file email? KHÔNG · git history? KHÔNG ·
              force-push? KHÔNG
 
 3. BẰNG CHỨNG
-   sha256sum CLAUDE.md → 84f979a6 (bằng mốc đầu phiên)              → FILE_PROVEN
+   sha256sum CLAUDE.md → <mã-nguồn-riêng> (bằng mốc đầu phiên)              → FILE_PROVEN
    đếm email 2 file → 16 và 56, tên miền THẬT = 0/0                 → FILE_PROVEN
    test:pii-scan → 0 vi phạm; gieo email tên miền thật → FAIL ×16   → RUNTIME_PROVEN
    quét 5 giá trị khoá trên cây làm việc → 0 file HOẠT ĐỘNG         → FILE_PROVEN
@@ -234,7 +234,7 @@ Ghi bằng **quyền mặc định** của `GOV-SESSION-DECISION-001` §F1b mụ
    hook ca 2: commit tài liệu sạch → 2 cổng PASS, commit qua        → RUNTIME_PROVEN
    hook ca 3: version.ts sai bậc → cổng PASS rồi logic cũ chặn      → RUNTIME_PROVEN
    đo thời gian: secret-scan 1630ms + pii-scan 910ms ≈ 2,5s         → RUNTIME_PROVEN
-   git push → 9c6dd27..1fc8ff7, EXIT=0                             → RUNTIME_PROVEN
+   git push → <mã-nguồn-riêng>..<mã-nguồn-riêng>, EXIT=0                             → RUNTIME_PROVEN
    grep -rl "lần_lặp|bác_vì" scripts/ → 0                          → CODE_PROVEN
    grep "^ENFORCEMENT:" → 16 dòng, 11 khai AUTO, 1 khai "trước commit" → FILE_PROVEN
    T2–T6 → PASS (388 · 53/0 · skills 4/4 · secret 0/0 · pii 0)      → RUNTIME_PROVEN
@@ -245,7 +245,7 @@ Ghi bằng **quyền mặc định** của `GOV-SESSION-DECISION-001` §F1b mụ
    Ghi bằng quyền mặc định GOV-SESSION-DECISION-001 §F1b mục 3.
 
 5. PUSH BÁO CÁO CÔNG KHAI
-   [x] ĐÃ PUSH — kho Baocaoerptanphat · commit 968f7ea
+   [x] ĐÃ PUSH — kho Baocaoerptanphat · commit <mã-nguồn-riêng>
        · file KHOA-NO-BAO-MAT-VA-CONG-20260820.md
    Không nêu giá trị nhạy cảm, không nêu địa chỉ máy chủ.
 
@@ -286,7 +286,7 @@ Ghi bằng **quyền mặc định** của `GOV-SESSION-DECISION-001` §F1b mụ
    Phiên có bị nén ngữ cảnh không: KHÔNG.
    Dù không nén, mọi tham chiếu đều ĐỌC TRỰC TIẾP TỪ ĐĨA trong phiên này:
      · scripts/tests/pii-scan-gate.test.mjs — đọc phần lọc + ALLOW trước khi sửa;
-       đọc commit ad6fc11 để hiểu phiên R7 đã làm gì
+       đọc commit <mã-nguồn-riêng> để hiểu phiên R7 đã làm gì
      · scripts/pre-commit-hook.sh + .git/hooks/pre-commit + scripts/install-hooks.mjs
        — đọc toàn phần trước khi nối cổng
      · .governance/registry/tech-debt.md — đọc DEBT-005/013/016/021/031 đầy đủ

@@ -4,8 +4,8 @@
 > đi kèm mà không ai biết. Mỗi nhóm phải trả lời đủ: đụng tệp nào · đổi hành vi gì · có đụng cơ sở
 > dữ liệu không · có cần di trú không · bài kiểm nào canh · hoàn tác thế nào · **có vào đợt này không**.
 >
-> **Ngày lập:** 02/09/2026 · **Máy vận hành đang chạy:** `V1.00.366` (`ef0e195`)
-> **Bản ứng viên:** `5e1200d` · **Chênh lệch: 17 commit · 63 tệp**
+> **Ngày lập:** 02/09/2026 · **Máy vận hành đang chạy:** `V1.00.366` (`<mã-nguồn-riêng>`)
+> **Bản ứng viên:** `<mã-nguồn-riêng>` · **Chênh lệch: 17 commit · 63 tệp**
 
 ---
 
@@ -80,7 +80,7 @@ yêu cầu, nhưng nó **đổi thói quen thao tác**, nên phải để anh **
 
 | Tình huống | Cách xử lý | Mất gì |
 |---|---|---|
-| Bản mới lỗi, cần quay về ngay | Đưa mã về `ef0e195`, dựng lại, khởi động lại dịch vụ | **Không mất dữ liệu nào** — vì đợt này **không đụng cấu trúc CSDL** |
+| Bản mới lỗi, cần quay về ngay | Đưa mã về `<mã-nguồn-riêng>`, dựng lại, khởi động lại dịch vụ | **Không mất dữ liệu nào** — vì đợt này **không đụng cấu trúc CSDL** |
 | Chỉ một nhóm hỏng | Không tách được — 14 tệp đi cùng một bản dựng | Phải quay về trọn bản |
 | Dữ liệu bị ghi sai bởi màn phân quyền mới | Bảng quyền có **gói thay đổi** và nút hoàn tác trong màn | — |
 
@@ -107,11 +107,11 @@ yêu cầu, nhưng nó **đổi thói quen thao tác**, nên phải để anh **
 
 | Khẳng định | Lớp | Lệnh kiểm lại |
 |---|---|---|
-| 0 di trú · 0 câu DDL | `CODE_PROVEN` | `git diff --name-only ef0e195..HEAD -- migrations/` |
-| 0 đổi thư viện | `CODE_PROVEN` | `git diff ef0e195..HEAD -- package-lock.json` |
+| 0 di trú · 0 câu DDL | `CODE_PROVEN` | `git diff --name-only <mã-nguồn-riêng>..HEAD -- migrations/` |
+| 0 đổi thư viện | `CODE_PROVEN` | `git diff <mã-nguồn-riêng>..HEAD -- package-lock.json` |
 | Engine tính giá **không bị đụng** | `CODE_PROVEN` | Đã lọc bỏ chú thích khỏi diff `tinh-gia-manual-client.tsx`: chỉ còn gom `useEffect`, `any`→`unknown`, đổi dấu nháy. **Không dòng nào sửa phép tính** |
 | Máy vận hành đang là `V1.00.366` | `RUNTIME_PROVEN` | Kiểm khói phần trước |
-| 14 tệp vào bản dựng | `CODE_PROVEN` | `git diff --stat ef0e195..HEAD -- src/` |
+| 14 tệp vào bản dựng | `CODE_PROVEN` | `git diff --stat <mã-nguồn-riêng>..HEAD -- src/` |
 
 ---
 

@@ -170,8 +170,8 @@ chạy lại bộ kiểm ra 17/17.
 
 | Việc | Commit | Ngày |
 |---|---|---|
-| Bắt buộc `ngayGiaoDuKien` vào `createDonHangFromBaoGia` | `ffe01ce` | **23/08** |
-| Lần sửa cuối của bài kiểm h3 | `062c845` | **21/08** |
+| Bắt buộc `ngayGiaoDuKien` vào `createDonHangFromBaoGia` | `<mã-nguồn-riêng>` | **23/08** |
+| Lần sửa cuối của bài kiểm h3 | `<mã-nguồn-riêng>` | **21/08** |
 
 Bài kiểm viết **trước** khi hợp đồng đổi, và **không lần chạy nào chạm tới nó** trong 5
 ngày. Lý do: `test:h3-bao-gia-don-gate` **không nằm trong bộ cổng gộp nào**.
@@ -211,7 +211,7 @@ Ghi nợ `DEBT-131`. Số liệu đo cụ thể ở §5.
 
 **Còn một cổng đỏ KHÔNG đóng được lượt này — `test:audit-cols`.** Cổng chờ
 `ngay_sua = 67 · nguoi_sua = 64` bảng, máy phát triển đo ra **69 · 66**. Mốc đó vào kho ở
-commit `d56e726` ngày **09/08** — 19 ngày và nhiều bản di trú trước.
+commit `<mã-nguồn-riêng>` ngày **09/08** — 19 ngày và nhiều bản di trú trước.
 
 **KHÔNG sửa con số cho khớp.** Làm vậy chính là *sửa hệ thống để số đo khớp báo cáo* —
 điều Owner cấm thẳng ở §I; và `GOV-CONVENTION-BASELINE-002` bắt **soi chéo cả hai bên
@@ -295,9 +295,9 @@ trạng thái **ĐANG XỬ LÝ**.
        Owner đã giao sẵn trong chỉ thị đó, KHÔNG phải chỉ thị mới)
 
 5. PUSH BÁO CÁO CÔNG KHAI
-   [x] ĐÃ PUSH — kho Baocaoerptanphat · commit d55414e · file
+   [x] ĐÃ PUSH — kho Baocaoerptanphat · commit <mã-nguồn-riêng> · file
        M3-DINH-DANH-PHUONG-AN-20260828.md
-       (mã trong kho mã nguồn riêng: b49b099 — cổng kiểm chỉ xác minh mã của kho
+       (mã trong kho mã nguồn riêng: <mã-nguồn-riêng> — cổng kiểm chỉ xác minh mã của kho
         báo cáo nên ghi riêng ra đây, không đưa vào dòng trên)
 
 6. CÒN SÓT / CHƯA LÀM

@@ -307,17 +307,17 @@ vì chính Owner đã khoá *«không được để hệ thống còn 0 ngườ
    npm run test:pii-scan           → PASS (0 vi phạm)         → FILE_PROVEN
    npm run check:governance        → 5 tệp luật đồng bộ       → FILE_PROVEN
    truy vấn role_menu_permission   → sửa gần nhất 23/08, 0 dòng đổi trong 60 phút → DB_PROVEN
-   cây phụ git ở HEAD f1bc271 sạch → ma-tran-quyen-hd vẫn 56/58 → CODE_PROVEN
+   cây phụ git ở HEAD <mã-nguồn-riêng> sạch → ma-tran-quyen-hd vẫn 56/58 → CODE_PROVEN
 
 4. GHI SỔ YÊU CẦU OWNER
    [x] ĐÃ GHI — mục #183
 
 5. PUSH BÁO CÁO CÔNG KHAI
    [x] ĐÃ PUSH — kho báo cáo công khai irissnss/Baocaoerptanphat
-       commit 7803e63 · nhánh main
+       commit <mã-nguồn-riêng> · nhánh main
        file: M0-MENU-SECURITY-CONTINUE-20260827.md
              WIREFRAME-DA-SUA-M0-20260827.md
-       (Mã nguồn ở kho irissnss/erptanphat commit f50a99c, f1bc271..f50a99c,
+       (Mã nguồn ở kho irissnss/erptanphat commit <mã-nguồn-riêng>, <mã-nguồn-riêng>..<mã-nguồn-riêng>,
         13 tệp, +1089 / -23 — kho khác, không phải kho báo cáo.)
 
 6. CÒN SÓT / CHƯA LÀM

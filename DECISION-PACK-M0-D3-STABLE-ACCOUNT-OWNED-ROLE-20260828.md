@@ -72,21 +72,21 @@ Gói này thay bằng **`chu_so_huu_user_id INT(11)`** → `user_account.id`.
 | Thành phần | Đo được | Nhãn |
 |---|---|---|
 | Gốc kho | `D:/Viber Coding Webapp/TanPhat ERP` | CODE_PROVEN |
-| Nhánh · HEAD | `main` · `4af6062` | CODE_PROVEN |
-| Remote `main` | `4af6062` — trùng local | CODE_PROVEN |
+| Nhánh · HEAD | `main` · `<mã-nguồn-riêng>` | CODE_PROVEN |
+| Remote `main` | `<mã-nguồn-riêng>` — trùng local | CODE_PROVEN |
 | Cây làm việc | **0 thay đổi · 0 tệp chưa theo dõi** | CODE_PROVEN |
-| Kho báo cáo | `91bc68d` · 0 thay đổi | CODE_PROVEN |
+| Kho báo cáo | `<mã-nguồn-riêng>` · 0 thay đổi | CODE_PROVEN |
 | Phiên bản mã nguồn | `V1.00.359` | CODE_PROVEN |
-| **Nội dung đã triển khai** | `ce6dadf` · `V1.00.359` | REPORT_PROVEN |
-| VPS Git metadata HEAD | `826817b` | REPORT_PROVEN |
+| **Nội dung đã triển khai** | `<mã-nguồn-riêng>` · `V1.00.359` | REPORT_PROVEN |
+| VPS Git metadata HEAD | `<mã-nguồn-riêng>` | REPORT_PROVEN |
 | MariaDB vận hành | **`10.11.10-MariaDB-log`** | DB_PROVEN |
 | Số bảng | 101 | DB_PROVEN |
 
-> ⚠️ **Lệch so với mốc nêu trong chỉ thị, đã truy nguyên nhân.** Chỉ thị ghi `local/main = 98c4e95`.
-> Đo được `4af6062`. Giữa `ce6dadf` (nội dung đã triển khai) và `HEAD` có **3 commit**, và
-> `git diff --name-only ce6dadf..HEAD -- src/ migrations/ package.json` cho **0 tệp**.
-> Ba commit đó gồm: một commit **chỉ sửa bộ kiểm** (`98c4e95`) và hai commit **chỉ sửa tài liệu**
-> (`b261c39`, `4af6062` — báo cáo M3 + sổ Owner + sổ nợ, viết SAU khi chỉ thị được soạn).
+> ⚠️ **Lệch so với mốc nêu trong chỉ thị, đã truy nguyên nhân.** Chỉ thị ghi `local/main = <mã-nguồn-riêng>`.
+> Đo được `<mã-nguồn-riêng>`. Giữa `<mã-nguồn-riêng>` (nội dung đã triển khai) và `HEAD` có **3 commit**, và
+> `git diff --name-only <mã-nguồn-riêng>..HEAD -- src/ migrations/ package.json` cho **0 tệp**.
+> Ba commit đó gồm: một commit **chỉ sửa bộ kiểm** (`<mã-nguồn-riêng>`) và hai commit **chỉ sửa tài liệu**
+> (`<mã-nguồn-riêng>`, `<mã-nguồn-riêng>` — báo cáo M3 + sổ Owner + sổ nợ, viết SAU khi chỉ thị được soạn).
 >
 > **Nhãn hội tụ chính xác:**
 > `RUNTIME_RELEASE_CONVERGED_WITH_TEST_AND_DOC_ONLY_REPO_DELTA + METADATA_DIFF`
@@ -990,9 +990,9 @@ ghi rõ **ĐỀ XUẤT**) · trang lược đồ CSDL (**chưa** đổi — DDL 
    [x] ĐÃ GHI — mục #189
 
 5. PUSH BÁO CÁO CÔNG KHAI
-   [x] ĐÃ PUSH — kho Baocaoerptanphat · commit 0227e46 · tệp
+   [x] ĐÃ PUSH — kho Baocaoerptanphat · commit <mã-nguồn-riêng> · tệp
        DECISION-PACK-M0-D3-STABLE-ACCOUNT-OWNED-ROLE-20260828.md · raw HTTP 200
-       (kho mã nguồn riêng: b379b1e — cổng kiểm chỉ xác minh mã của kho báo cáo)
+       (kho mã nguồn riêng: <mã-nguồn-riêng> — cổng kiểm chỉ xác minh mã của kho báo cáo)
 
 6. CÒN SÓT / CHƯA LÀM
    - D3 chưa triển khai — đúng phạm vi gói này

@@ -1,7 +1,7 @@
 # ĐỢT 5 — QUYỀN CHUYỂN TRẠNG THÁI THEO TỪNG BƯỚC
 
-> **Ngày:** 23/08/2026 · **Kho mã:** commit `7752cc5` · **Trạng thái:** ✅ XONG TRÊN MÁY PHÁT TRIỂN — **CHƯA đưa lên máy vận hành**
-> **Máy vận hành hiện tại:** V1.00.355 (`0e73a7c`) — **không đụng tới trong đợt này**
+> **Ngày:** 23/08/2026 · **Kho mã:** commit `<mã-nguồn-riêng>` · **Trạng thái:** ✅ XONG TRÊN MÁY PHÁT TRIỂN — **CHƯA đưa lên máy vận hành**
+> **Máy vận hành hiện tại:** V1.00.355 (`<mã-nguồn-riêng>`) — **không đụng tới trong đợt này**
 > **Đây là lượt thứ 5** trong loạt 6 đợt mở rộng ma trận phân quyền (Owner khoá 23/08/2026 20:30)
 
 ---

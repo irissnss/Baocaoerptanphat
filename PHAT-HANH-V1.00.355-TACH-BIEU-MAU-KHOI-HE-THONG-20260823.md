@@ -1,8 +1,8 @@
 # ✅ ĐÃ PHÁT HÀNH V1.00.355 — TÁCH BIỂU MẪU KHỎI NHÓM HỆ THỐNG
 
 **Ngày:** 23/08/2026 · **Loại:** PHÁT HÀNH LÊN HỆ THỐNG VẬN HÀNH
-**Hệ thống vận hành hiện chạy:** **`V1.00.355`** · commit **`0e73a7c`** · nhánh `main`
-**Trước đợt này:** `V1.00.354` · commit `8cf0352`
+**Hệ thống vận hành hiện chạy:** **`V1.00.355`** · commit **`<mã-nguồn-riêng>`** · nhánh `main`
+**Trước đợt này:** `V1.00.354` · commit `<mã-nguồn-riêng>`
 
 > Bản tin public-safe: chỉ nêu số lượng, mã kỹ thuật, tên bảng/màn hình. Không có thông tin đăng nhập,
 > không có dữ liệu khách hàng, không có số tiền thật.
@@ -126,7 +126,7 @@ phần khung đã sẵn sàng: danh mục mẫu, khoá phát hành, bảng lịc
 ## 7. NẾU CẦN QUAY LUI
 
 Không đổi cấu trúc dữ liệu (101 bảng trước = 101 bảng sau) ⇒ quay lui **chỉ cần đưa lại mã nguồn bản cũ**,
-**không phải hoàn tác dữ liệu**. Mốc quay về: `8cf0352` (V1.00.354).
+**không phải hoàn tác dữ liệu**. Mốc quay về: `<mã-nguồn-riêng>` (V1.00.354).
 Riêng phần quyền: hoàn tác bằng **tick lại trong ma trận** — thuần dữ liệu, không cần phát hành.
 Đã có bản sao lưu mới lấy ngay trước khi phát hành, kèm mã kiểm tra toàn vẹn.
 

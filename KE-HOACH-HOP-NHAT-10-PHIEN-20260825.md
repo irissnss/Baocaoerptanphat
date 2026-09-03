@@ -14,13 +14,13 @@
 
 | Câu hỏi | Sự thật đo được lúc 14:45 ngày 25/08 |
 |---|---|
-| Đã push hết chưa? | **RỒI, cả hai kho.** Kho mã `a7db8a7` · kho công khai `ea5f7ec` · cả hai `0 ahead / 0 behind` · cây làm việc sạch |
+| Đã push hết chưa? | **RỒI, cả hai kho.** Kho mã `<mã-nguồn-riêng>` · kho công khai `<mã-nguồn-riêng>` · cả hai `0 ahead / 0 behind` · cây làm việc sạch |
 | Tương tác trực tiếp đã thành bảng chưa? | **RỒI.** Sổ Yêu Cầu Owner — **152 mục** (nay 153), không trùng mã, cổng `test:ledger-dup-id` PASS 5/5 |
-| Có cần thêm luật vào bộ 5 tệp quản trị? | **KHÔNG.** §F1b (20/08) + §F1c (25/08) đã phủ đúng. Doc `2.8`, 5 tệp byte-identical (`d100fae2`), 16/16 cổng PASS |
+| Có cần thêm luật vào bộ 5 tệp quản trị? | **KHÔNG.** §F1b (20/08) + §F1c (25/08) đã phủ đúng. Doc `2.8`, 5 tệp byte-identical (`<mã-nguồn-riêng>`), 16/16 cổng PASS |
 
 **Vấn đề thật KHÔNG nằm ở luật, mà ở ĐIỀU PHỐI:**
 
-10 phiên chạy song song. Lúc 14:10–14:14 cùng một câu hỏi được gửi cho 9 phiên. Trong 30 phút sau đó kho mã đi qua **4 mốc** (`d9e823a` → `27fda56` → `93605dd` → `a7db8a7`), kho công khai đi qua **6 mốc**. Kết quả: **mỗi phiên trả lời đúng phần của mình, không phiên nào đúng cho toàn cục.** Không phiên nào báo sai.
+10 phiên chạy song song. Lúc 14:10–14:14 cùng một câu hỏi được gửi cho 9 phiên. Trong 30 phút sau đó kho mã đi qua **4 mốc** (`<mã-nguồn-riêng>` → `<mã-nguồn-riêng>` → `<mã-nguồn-riêng>` → `<mã-nguồn-riêng>`), kho công khai đi qua **6 mốc**. Kết quả: **mỗi phiên trả lời đúng phần của mình, không phiên nào đúng cho toàn cục.** Không phiên nào báo sai.
 
 ---
 
@@ -49,7 +49,7 @@ Nguồn: đọc trực tiếp tệp nhật ký phiên.
 
 ### 2.1 Gói `#152` chứa một tiền đề đã lỗi thời — `DEBT-104`
 
-Nhóm A bước 1 đề xuất *"vá cổng `pii-scan` trước — thêm cờ `-z`"*. **Việc này đã hoàn tất 23/08/2026 lúc 14:36**, commit `1f5e379`.
+Nhóm A bước 1 đề xuất *"vá cổng `pii-scan` trước — thêm cờ `-z`"*. **Việc này đã hoàn tất 23/08/2026 lúc 14:36**, commit `<mã-nguồn-riêng>`.
 
 Nguyên nhân đo sai: phiên đó đếm chuỗi `-z` **trong tệp cổng** và ra `0`. Nhưng bản vá đã được rút ra tệp dùng chung `scripts/tests/lib/tracked-files.mjs`, nơi **4 cổng** cùng gọi: `pii-scan` · `secret-scan` · `path-audit` · `script-parse`.
 
@@ -63,11 +63,11 @@ Nguyên nhân đo sai: phiên đó đếm chuỗi `-z` **trong tệp cổng** v�
 
 | Phiên báo | HEAD kho mã | HEAD kho công khai |
 |---|---|---|
-| `ccc761` · `44ea19` | `d9e823a` | `f222599` / `e842f53` |
-| `07f81b` | `27fda56` + `93605dd` | `671e401` |
-| `cdc70c` | `a7db8a7` | `1188dcb` |
-| `5d184f` | (không đụng) | `ea5f7ec` |
-| **Chốt 14:45** | **`a7db8a7`** | **`ea5f7ec`** |
+| `ccc761` · `44ea19` | `<mã-nguồn-riêng>` | `<mã-nguồn-riêng>` / `<mã-nguồn-riêng>` |
+| `07f81b` | `<mã-nguồn-riêng>` + `<mã-nguồn-riêng>` | `<mã-nguồn-riêng>` |
+| `cdc70c` | `<mã-nguồn-riêng>` | `<mã-nguồn-riêng>` |
+| `5d184f` | (không đụng) | `<mã-nguồn-riêng>` |
+| **Chốt 14:45** | **`<mã-nguồn-riêng>`** | **`<mã-nguồn-riêng>`** |
 
 ### 2.3 Sổ Owner vỡ cột bảng — `DEBT-103`
 
@@ -121,11 +121,11 @@ Trong các ô bị nuốt có `decision_state` và **`notion_sync_state`** — �
 
 | Hạng mục | Giá trị chốt |
 |---|---|
-| Kho mã | `a7db8a7` · sạch · `0/0` |
-| Kho công khai | `ea5f7ec` · sạch · `0/0` · 91 tệp |
+| Kho mã | `<mã-nguồn-riêng>` · sạch · `0/0` |
+| Kho công khai | `<mã-nguồn-riêng>` · sạch · `0/0` · 91 tệp |
 | Sổ Yêu Cầu Owner | 152 mục · mã kế tiếp `#153` |
 | Sổ nợ kỹ thuật | 108 mục · mã kế tiếp `DEBT-103` |
-| 5 tệp luật | byte-identical `d100fae2` · Doc `2.8` |
+| 5 tệp luật | byte-identical `<mã-nguồn-riêng>` · Doc `2.8` |
 | Cổng quản trị | **16/16 PASS · EXIT=0** |
 | Phiên bản | `V1.00.355` |
 | Điều khoản luật | 399 *(mốc cổng đang 386 — cần đóng lại)* |

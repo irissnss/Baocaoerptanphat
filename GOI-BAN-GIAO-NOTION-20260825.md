@@ -21,7 +21,7 @@
 | Triển khai | **NOT_DEPLOYED** — chưa lên máy vận hành |
 | Bằng chứng runtime máy vận hành | ⛔ **UNVERIFIED** — phiên này không được cấp kênh đo |
 
-**Mốc mã nguồn:** kho riêng `f25c5b9` · kho công khai `fe3cdea`
+**Mốc mã nguồn:** kho riêng `<mã-nguồn-riêng>` · kho công khai `<mã-nguồn-riêng>`
 **Bộ kiểm toàn phiên:** `test:gov-gates` **18/18** · `test:m1-rbac` **111/0** · `test:kho-trai` **56/0** · `test:ledger-allocator` **20/20** · `tsc --noEmit` **EXIT=0**
 
 ---
@@ -37,7 +37,7 @@
 | 5 | Ánh xạ bảng/cột/route | Không đụng bảng nào — thao tác ở tầng kho mã |
 | 6 | Nơi đọc/ghi | `.governance/registry/pii-known-tracked.md` · `.gitignore` |
 | 7 | Chuyển trạng thái | Không có |
-| 8 | Mã nguồn / mốc | `c385416` · `5ba3299` |
+| 8 | Mã nguồn / mốc | `<mã-nguồn-riêng>` · `<mã-nguồn-riêng>` |
 | 9 | Bằng chứng kiểm thử | `test:pii-scan` **PASS 0 vi phạm** · `test:secret-scan` **PASS** · kiểm ngược cổng PII **3/3 đạt** |
 | 10 | Bằng chứng triển khai | **NOT_DEPLOYED** |
 | 11 | Bằng chứng runtime | Không áp dụng |
@@ -59,7 +59,7 @@
 | 5 | Ánh xạ bảng/cột/route | Không áp dụng — quy tắc làm việc |
 | 6 | Nơi đọc/ghi | `docs/reports/` · `docs/PLAN-TINH-GIA.md` §7 |
 | 7 | Chuyển trạng thái | Không có |
-| 8 | Mã nguồn / mốc | `e853ba6` (ghi sổ `#155`) · `f25c5b9` (nguyên tắc vào Plan) |
+| 8 | Mã nguồn / mốc | `<mã-nguồn-riêng>` (ghi sổ `#155`) · `<mã-nguồn-riêng>` (nguyên tắc vào Plan) |
 | 9 | Bằng chứng kiểm thử | Không áp dụng |
 | 10 | Bằng chứng triển khai | **NOT_DEPLOYED** |
 | 11 | Bằng chứng runtime | Không áp dụng |
@@ -103,7 +103,7 @@
 | 5 | Ánh xạ bảng/cột/route | Không nêu — thuộc lớp thông tin rủi ro |
 | 6 | Nơi đọc/ghi | Sổ nợ kỹ thuật |
 | 7 | Chuyển trạng thái | Nợ: `ĐANG XỬ LÝ` → `ĐÃ XỬ LÝ` |
-| 8 | Mã nguồn / mốc | `5ba3299` |
+| 8 | Mã nguồn / mốc | `<mã-nguồn-riêng>` |
 | 9 | Bằng chứng kiểm thử | Không áp dụng |
 | 10 | Bằng chứng triển khai | Không áp dụng |
 | 11 | Bằng chứng runtime | Không áp dụng |
@@ -125,7 +125,7 @@
 | 5 | Ánh xạ bảng/cột/route | Không đụng bảng — tài liệu trong kho mã |
 | 6 | Nơi đọc/ghi | 10 tệp tài liệu · `.governance/registry/pii-known-tracked.md` |
 | 7 | Chuyển trạng thái | Nợ biểu mẫu: `MỞ` → `KHÔNG CÒN HỢP LỆ` |
-| 8 | Mã nguồn / mốc | `5ba3299` |
+| 8 | Mã nguồn / mốc | `<mã-nguồn-riêng>` |
 | 9 | Bằng chứng kiểm thử | `test:pii-scan` **PASS** |
 | 10 | Bằng chứng triển khai | **NOT_DEPLOYED** |
 | 11 | Bằng chứng runtime | Không áp dụng |
@@ -147,7 +147,7 @@
 | 5 | **Ánh xạ bảng/cột** | `dm_nhom_universal` danh mục `nhom_san_pham` — **40 nhóm, 2 tầng**; **tầng L1 chính là kiểu dáng**. `dm_blueprint.nhom_san_pham_id` · `dm_blueprint.blueprint_json` khoá `formula_flat_size` + `constants` |
 | 6 | Nơi đọc/ghi | Màn tính giá thủ công · 2 tệp vẽ hình · đường ghi `bao_gia_option.gia_von` / `thanh_tien` |
 | 7 | Chuyển trạng thái | Không có |
-| 8 | Mã nguồn / mốc | **`8f14dee`** (một nguồn) · **`aea01ca`** (danh sách mở) · V1.00.355 |
+| 8 | Mã nguồn / mốc | **`<mã-nguồn-riêng>`** (một nguồn) · **`<mã-nguồn-riêng>`** (danh sách mở) · V1.00.355 |
 | 9 | Bằng chứng kiểm thử | `test:kho-trai` **56 đạt / 0 hỏng**. **Kiểm ngược:** đảo trục → **9 hỏng**; khôi phục → **0 hỏng**. Chứng minh **bằng máy** rằng hai công thức cũ **cùng cấu trúc**: đặt phụ cấp của công thức B thì ra **đúng** công thức B |
 | 10 | Bằng chứng triển khai | **NOT_DEPLOYED** |
 | 11 | Bằng chứng runtime | Máy phát triển. Máy vận hành **UNVERIFIED** |
@@ -169,7 +169,7 @@
 | 5 | **Ánh xạ bảng/cột** | `phieu_dieu_in` có `may_in` *(lớn/nhỏ)* · `so_mat` · `so_mau` · `kieu_in` · `loai_bai` · `so_kem` · `khuon_id` · `so_khuon` — nhưng bảng **chỉ 2 dòng** và **không nối vào đường tính giá**. **Không có bảng danh mục máy in**, **không có bảng giá theo máy** |
 | 6 | Nơi đọc/ghi | Hiện chưa có nơi nào tính theo ba khái niệm này |
 | 7 | Chuyển trạng thái | Không có |
-| 8 | Mã nguồn / mốc | `a4d27f0` (ghi sổ) — **không có mã thi hành** |
+| 8 | Mã nguồn / mốc | `<mã-nguồn-riêng>` (ghi sổ) — **không có mã thi hành** |
 | 9 | Bằng chứng kiểm thử | Chưa có |
 | 10 | Bằng chứng triển khai | **NOT_DEPLOYED** |
 | 11 | Bằng chứng runtime | Chưa có |
@@ -191,7 +191,7 @@
 | 5 | Ánh xạ bảng/cột/route | Không áp dụng |
 | 6 | Nơi đọc/ghi | `docs/PLAN-TINH-GIA.md` · `docs/PLAN-OF-RECORD.md` §2b |
 | 7 | Chuyển trạng thái | Chặng: `—` → `T0` |
-| 8 | Mã nguồn / mốc | **`f25c5b9`** |
+| 8 | Mã nguồn / mốc | **`<mã-nguồn-riêng>`** |
 | 9 | Bằng chứng kiểm thử | `test:gov-gates` **18/18 PASS** |
 | 10 | Bằng chứng triển khai | **NOT_DEPLOYED** |
 | 11 | Bằng chứng runtime | Không áp dụng |
@@ -213,7 +213,7 @@
 | 5 | Ánh xạ bảng/cột/route | Chưa audit. Liên quan: `dm_vai_tro` (9 vai trò) · `role_action_permission` · `role_menu_permission` · `user_role_mapping` · màn phân quyền hiện tại |
 | 6 | Nơi đọc/ghi | Chưa audit |
 | 7 | Chuyển trạng thái | Chưa audit |
-| 8 | Mã nguồn / mốc | `a4d27f0` (ghi sổ) — **không có mã thi hành** |
+| 8 | Mã nguồn / mốc | `<mã-nguồn-riêng>` (ghi sổ) — **không có mã thi hành** |
 | 9 | Bằng chứng kiểm thử | Chưa có |
 | 10 | Bằng chứng triển khai | **NOT_DEPLOYED** |
 | 11 | Bằng chứng runtime | Chưa có |

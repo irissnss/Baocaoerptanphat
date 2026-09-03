@@ -1,8 +1,8 @@
 # PHÁT HÀNH V1.00.351 — ẨN HỒ SƠ ĐÃ NGHỈ VIỆC KHỎI DANH SÁCH LÀM VIỆC
 
 **Ngày:** 22/08/2026 · **Loại:** phát hành production, **chỉ mã nguồn — KHÔNG đổi cấu trúc dữ liệu**
-**Mã phát hành (commit):** `9b201e5684388afa55433c20b99efa340816a3ec`
-**Bản trước:** V1.00.350 — `e00d4b549a59ac0abf64824b72ba7a1f974dcb1b`
+**Mã phát hành (commit):** `<mã-nguồn-riêng>`
+**Bản trước:** V1.00.350 — `<mã-nguồn-riêng>`
 
 > Bản tin public-safe: chỉ nêu **định danh kỹ thuật và SỐ LƯỢNG**. Không có dữ liệu cá nhân,
 > không giá trị tiền, không thông tin đăng nhập, không cấu hình máy chủ.

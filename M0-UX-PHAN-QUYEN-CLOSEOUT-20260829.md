@@ -409,9 +409,9 @@ Owner: *"lâu lâu mới dùng menu này nhưng nó là menu cực kỳ quan tr�
    [x] ĐÃ GHI — mục #192 (chỉ thị + kết quả) và #193 (bốn điều tự khai)
 
 5. PUSH BÁO CÁO CÔNG KHAI
-   [x] ĐÃ PUSH — kho BÁO CÁO CÔNG KHAI `Baocaoerptanphat` · commit e7b163ef666f05ad4fe39497458568df01456c5d
+   [x] ĐÃ PUSH — kho BÁO CÁO CÔNG KHAI `Baocaoerptanphat` · commit <mã-nguồn-riêng>
        file M0-UX-PHAN-QUYEN-CLOSEOUT-20260829.md
-       Kho MÃ NGUỒN: commit 7fda41c690e7a768c43486347d72fe9b4096541e là commit
+       Kho MÃ NGUỒN: commit <mã-nguồn-riêng> là commit
        cuối của phần mã; bản sao báo cáo nằm ở commit ngay sau đó (một trường
        không thể trích dẫn mã commit chứa chính nó).
 

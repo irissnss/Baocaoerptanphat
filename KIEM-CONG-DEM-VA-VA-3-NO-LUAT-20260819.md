@@ -1,7 +1,7 @@
 # KIỂM CỔNG ĐẾM + VÁ 3 NỢ LUẬT — Doc Version 2.2 → 2.3
 
 > **Loại:** CHỈ XỬ LÝ LUẬT · **Ngày:** 19/08/2026 (phiên #2) · **Owner:** TanPhatERP
-> **Actor:** Agent IDE · **Nhánh:** `gov/2026-08-18-rules-ui-standard-upgrade` · **Gốc phiên:** `f4a2d75` · **HEAD:** `36730c6`
+> **Actor:** Agent IDE · **Nhánh:** `gov/2026-08-18-rules-ui-standard-upgrade` · **Gốc phiên:** `<mã-nguồn-riêng>` · **HEAD:** `<mã-nguồn-riêng>`
 > **KHÔNG:** deploy · DB/schema · `src/` · nội dung SSOT · Notion · đẩy kho mã riêng tư · nạp dữ liệu thật · gỡ PII
 > **Tách bạch phiên:** việc ngoài luật → ghi sổ nợ.
 
@@ -32,7 +32,7 @@ Tưởng là "✅ ĐỦ" vì có đếm section. Nhưng **cách so sánh** mới
 |---|---|---|
 | **1** | **Chỉ so TỔNG** → mọi "điểm dư" thành chỗ xoá tự do | Tổng hiện tại **391** vs mốc chuẩn **334** = **57 điểm dư** |
 | **2** | **Đếm LẦN NHẮC, không phải ĐỊNH NGHĨA** | `GOV-PII-HANDLING-001` xuất hiện **5 lần** (1 định nghĩa + 4 nhắc chéo). Xoá khối định nghĩa → còn 4 nhắc → số "mã duy nhất" **không đổi** |
-| **3** | **Mốc chuẩn cũ hơn 13 luật mới** | Mốc stamp từ `23f20f0` (18/08), `ruleList` có 26 mã, **không có** mã nào trong 13 luật mới → ĐK2 (con trỏ) không thể phát hiện chúng biến mất |
+| **3** | **Mốc chuẩn cũ hơn 13 luật mới** | Mốc stamp từ `<mã-nguồn-riêng>` (18/08), `ruleList` có 26 mã, **không có** mã nào trong 13 luật mới → ĐK2 (con trỏ) không thể phát hiện chúng biến mất |
 
 ### 1c — Kiểm ngược (trước khi vá)
 
@@ -71,7 +71,7 @@ Tưởng là "✅ ĐỦ" vì có đếm section. Nhưng **cách so sánh** mới
 |---|---|
 | 1 | Thêm **ĐK 1b — TỪNG FILE không giảm** (định nghĩa · lần nhắc · heading), song song với ĐK 1a (tổng) |
 | 2 | `RULE_DEF_RE = /^(?:RULE_ID:\s+\|\*\*Rule ID:\*\*\s+`?)(GOV-…)/gm` → đếm **nơi định nghĩa**. **Giữ thêm** thước cũ (lần nhắc) vì nó bảo vệ file chỉ *liệt kê* mã (bảng phân xử legacy: xoá bớt hàng → định nghĩa không đổi nhưng nhắc giảm → vẫn bị bắt) |
-| 3 | Dựng lại mốc chuẩn từ `23f20f0` **bằng đúng thước mới** (so cùng một thước), rồi `--accept` về trạng thái hiện tại. Mốc cũ giữ trong `history` |
+| 3 | Dựng lại mốc chuẩn từ `<mã-nguồn-riêng>` **bằng đúng thước mới** (so cùng một thước), rồi `--accept` về trạng thái hiện tại. Mốc cũ giữ trong `history` |
 
 **⚠️ Một sai lầm giữa chừng, ghi lại cho trung thực:** lần đầu tôi đổi thước đếm nhưng vẫn so với mốc đo bằng **thước cũ** → cổng báo FAIL giả (ARCHIVE `13→6`, legacy `15→0`) trong khi **không có gì bị xoá**. Đó là so khập khiễng, không phải mất nội dung. Đã dựng lại mốc cùng thước rồi mới so.
 
@@ -97,7 +97,7 @@ Thêm vào `GOV-EDIT-PRESERVE-001` §G7.0 dòng `EVIDENCE`, kèm lý do vì sao 
 **Hai vấn đề phát sinh, đã xử lý:**
 
 1. **Hash tự tham chiếu.** Bản đầu tôi ghi mã băm của *chính file snapshot* — nhưng thêm dòng cảnh báo làm đổi mã đó, người đọc không bao giờ kiểm khớp được. → Đổi sang ghi **mã băm BẢN GỐC trong kho riêng tư**, và nói rõ cách kiểm là hash **bản gốc**, không phải file này.
-2. **Snapshot đang công bố LUẬT CŨ.** `CLAUDE.md` trong bản công bố là **Doc Version 2.1** (`05a8ff93`) trong khi bản sống đã là **2.3**. Nếu chỉ dán cảnh báo mà không làm mới, ta sẽ công bố luật cũ kèm mã băm của luật mới — **gây hiểu nhầm là còn hạn**. → Đã **làm mới snapshot lên 2.3** rồi mới ghi mã.
+2. **Snapshot đang công bố LUẬT CŨ.** `CLAUDE.md` trong bản công bố là **Doc Version 2.1** (`<mã-nguồn-riêng>`) trong khi bản sống đã là **2.3**. Nếu chỉ dán cảnh báo mà không làm mới, ta sẽ công bố luật cũ kèm mã băm của luật mới — **gây hiểu nhầm là còn hạn**. → Đã **làm mới snapshot lên 2.3** rồi mới ghi mã.
 
 **Đối chiếu nội dung sau khi làm mới** (bỏ qua kiểu xuống dòng + khối cảnh báo):
 
@@ -138,7 +138,7 @@ Sửa **2 vị trí cùng chủ đề trong một lượt** (`GOV-EDIT-PRESERVE-
 
 | # | Cổng | Kết quả | Số đo |
 |---|---|---|---|
-| **T1** | Parity 5 file | ✅ **PASS** | 1 hash `ad2a510b`, 81771 byte mỗi file |
+| **T1** | Parity 5 file | ✅ **PASS** | 1 hash `<mã-nguồn-riêng>`, 81771 byte mỗi file |
 | **T2** | Cổng đếm L0 | ✅ **PASS** | 386 ≥ 386 · ĐK1a ✅ ĐK1b ✅ ĐK2 ✅ parity ✅ |
 | **T3** | Cổng phụ chuẩn (mới) | ✅ **PASS** | 22 mục · 35 heading; ĐK A ✅ ĐK B ✅ |
 | **T4** | `ref-exists` (L6) | ✅ **PASS** | 42 đạt / 0 hỏng / 5 trích dẫn ca hỏng |
@@ -178,11 +178,11 @@ Sửa **2 vị trí cùng chủ đề trong một lượt** (`GOV-EDIT-PRESERVE-
              scripts/tests/clause-count-gate.test.mjs · standard-clause-count-gate.test.mjs (mới) ·
              package.json · 6 file snapshot trong LUAT-QUAN-TRI-20260819/ (kho báo cáo)
    KHÔNG ĐỤNG: src/? KHÔNG · DB/schema? KHÔNG · deploy? KHÔNG · nội dung SSOT? KHÔNG
-             (chỉ sửa TẠM khi kiểm ngược rồi khôi phục, hash về đúng ff850b23) ·
+             (chỉ sửa TẠM khi kiểm ngược rồi khôi phục, hash về đúng <mã-nguồn-riêng>) ·
              Notion? KHÔNG · kho mã riêng tư? CHƯA đẩy · PII? KHÔNG gỡ (việc phiên bảo mật)
 
 3. BẰNG CHỨNG
-   sha256sum x5 → 1 hash ad2a510b, 81771 byte                        → FILE_PROVEN
+   sha256sum x5 → 1 hash <mã-nguồn-riêng>, 81771 byte                        → FILE_PROVEN
    check:governance → 5/5 OK                                         → RUNTIME_PROVEN
    KIỂM NGƯỢC TRƯỚC VÁ: xoá §1 SSOT → "390 >= 334 PASS" (cổng bỏ lọt) → RUNTIME_PROVEN
    KIỂM NGƯỢC TRƯỚC VÁ: xoá GOV-PII-HANDLING-001 → PASS (cổng bỏ lọt) → RUNTIME_PROVEN
@@ -199,7 +199,7 @@ Sửa **2 vị trí cùng chủ đề trong một lượt** (`GOV-EDIT-PRESERVE-
    rà 8 cổng → 8/8 đọc đầu vào thật                                  → CODE_PROVEN
    schema 13 luật → 13/13 × 14/14 trường                             → FILE_PROVEN
    đối chiếu 4 file snapshot ↔ bản gốc → khớp 100% số dòng nội dung  → FILE_PROVEN
-   khôi phục SSOT sau kiểm ngược → sha ff850b23 (đúng bản trước)     → FILE_PROVEN
+   khôi phục SSOT sau kiểm ngược → sha <mã-nguồn-riêng> (đúng bản trước)     → FILE_PROVEN
    ⚠️ CHƯA có UI_PROVEN / DB_PROVEN — phiên chỉ xử lý LUẬT, không đụng giao diện
       và không đụng CSDL nên không có gì để chụp ảnh hay truy vấn.
 
@@ -209,7 +209,7 @@ Sửa **2 vị trí cùng chủ đề trong một lượt** (`GOV-EDIT-PRESERVE-
        không tự mở rộng phạm vi. → DEBT-008 đã có sẵn trong sổ nợ (phiên thứ 3 liên tiếp).
 
 5. PUSH BÁO CÁO CÔNG KHAI
-   [x] ĐÃ PUSH — kho Baocaoerptanphat · commit 808757c
+   [x] ĐÃ PUSH — kho Baocaoerptanphat · commit <mã-nguồn-riêng>
        · file KIEM-CONG-DEM-VA-VA-3-NO-LUAT-20260819.md
    Kèm cập nhật 6 file trong LUAT-QUAN-TRI-20260819/ (cảnh báo lỗi thời + làm mới CLAUDE.md).
    Giữ kỷ luật: KHÔNG nêu đường dẫn chính xác file chứa PII, KHÔNG nêu giá trị nào.
@@ -269,7 +269,7 @@ Sửa **2 vị trí cùng chủ đề trong một lượt** (`GOV-EDIT-PRESERVE-
      · package.json (mục scripts) · 6 file trong LUAT-QUAN-TRI-20260819/
    KHÔNG đọc toàn phần docs/UI-STANDARD.md trong phiên này: phiên chỉ xử lý LUẬT,
    KHÔNG sửa nội dung SSOT (chỉ sửa TẠM để kiểm ngược rồi khôi phục nguyên trạng,
-   hash trở lại đúng ff850b23) → GOV-READ-STANDARD-001 không kích hoạt vì TRIGGER
+   hash trở lại đúng <mã-nguồn-riêng>) → GOV-READ-STANDARD-001 không kích hoạt vì TRIGGER
    của nó là "đụng giao diện", không phải "đụng file".
 ═══════════════════════════════════════════
 ```

@@ -12,13 +12,13 @@
 | Trường | Giá trị |
 |---|---|
 | Phiên bản ứng dụng | **`V1.00.367`** |
-| Mã nguồn đang chạy trên máy vận hành | **`39ed9eb687957b1a34e0b0a622ad9a42de7447b8`** |
-| `origin/main` hiện tại | `bc81d9538d5e26ff4782c9a54a760eb9d977bbbd` |
-| Dấu vân tay bản dựng | `8e345660e69fb00883703dedcd5703df` |
+| Mã nguồn đang chạy trên máy vận hành | **`<mã-nguồn-riêng — giữ ở sổ riêng>`** |
+| `origin/main` hiện tại | `<mã-nguồn-riêng — giữ ở sổ riêng>` |
+| Dấu vân tay bản dựng | ``<vân-tay-bản-dựng — giữ ở sổ riêng>`` |
 | Thời điểm dựng | 2026-09-02 23:17:54 (giờ máy chủ) |
 | Thời điểm triển khai | 2026-09-02T16:17:56Z |
-| Mốc quay về | `ef0e195` / `V1.00.366` |
-| Chênh lệch tổng | 24 commit · 71 tệp tính từ `ef0e195` |
+| Mốc quay về | `<mã-nguồn-riêng>` / `V1.00.366` |
+| Chênh lệch tổng | 24 commit · 71 tệp tính từ `<mã-nguồn-riêng>` |
 
 ---
 
@@ -28,7 +28,7 @@
 
 **KHÔNG** dùng nhãn "toàn kho khớp tuyệt đối". Lý do, nêu đủ:
 
-- **Mã chạy hội tụ tuyệt đối:** chênh lệch `39ed9eb..bc81d95` gồm đúng **1 commit**, đụng đúng **2 tệp** — sổ nợ kỹ thuật và một báo cáo. **0 tệp trong `src/`**, **0 thay đổi `package.json`**.
+- **Mã chạy hội tụ tuyệt đối:** chênh lệch `<mã-nguồn-riêng>..<mã-nguồn-riêng>` gồm đúng **1 commit**, đụng đúng **2 tệp** — sổ nợ kỹ thuật và một báo cáo. **0 tệp trong `src/`**, **0 thay đổi `package.json`**.
 - **Khác biệt còn lại thuần tài liệu:** máy vận hành không cần và không nên chạy lại chỉ để nhận hai tệp văn bản.
 
 ⇒ Người đọc Notion cần hiểu: **mã đang chạy = mã đã duyệt**; phần lệch là sổ sách, không phải hành vi hệ thống.

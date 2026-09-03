@@ -1,9 +1,9 @@
 # PHA B — HOÀN TẤT · Vá gốc registry kỹ năng, tách trục hiệu lực nội dung
 
 > **Ngày:** 23/08/2026 · **Owner duyệt:** 22:44 (Pha B) + các quyết định tiếp nối
-> **Actor:** Agent IDE (Claude Code) · **BASE_SHA:** `7752cc5` → **TECHNICAL_FINAL:** `b7179a3` (đã push, remote khớp)
+> **Actor:** Agent IDE (Claude Code) · **BASE_SHA:** `<mã-nguồn-riêng>` → **TECHNICAL_FINAL:** `<mã-nguồn-riêng>` (đã push, remote khớp)
 >
-> 🔧 *Đính chính 24/08/2026 (Pha C2): dòng này ban đầu ghi `HEAD: 280529f` — đó là HEAD lúc soạn báo cáo, không phải mốc hoàn tất. Xem mục 14.*
+> 🔧 *Đính chính 24/08/2026 (Pha C2): dòng này ban đầu ghi `HEAD: <mã-nguồn-riêng>` — đó là HEAD lúc soạn báo cáo, không phải mốc hoàn tất. Xem mục 14.*
 > **Phạm vi:** LUẬT + KỸ NĂNG + CÔNG CỤ. **0 dòng `src/`. 0 file `SKILL.md` bị sửa. 0 file bị xoá.**
 
 ---
@@ -32,7 +32,7 @@ Vá **gốc** của hai lỗi Pha A tìm ra, cộng **ba lỗi mới tự phát 
 
 | Phép đo | Đầu ra |
 |---|---|
-| Nhánh · HEAD lúc bắt đầu | `main` · `7752cc5` |
+| Nhánh · HEAD lúc bắt đầu | `main` · `<mã-nguồn-riêng>` |
 | So remote | `0/0` — không diverge |
 | Merge/rebase dang dở | Không (`.git/REBASE_HEAD` là rác từ **04/03/2026**, **không đụng tới**) |
 | File dirty | Đúng 2 báo cáo Pha A/B đã kiểm kê, không có file thứ ba |
@@ -42,12 +42,12 @@ Vá **gốc** của hai lỗi Pha A tìm ra, cộng **ba lỗi mới tự phát 
 
 ## 4. BẢNG TÁI XÁC MINH PHA A *(11/11 MATCH)*
 
-| Tiền đề | Pha A (`ab23005`) | HEAD (`7752cc5`) | Kết luận |
+| Tiền đề | Pha A (`<mã-nguồn-riêng>`) | HEAD (`<mã-nguồn-riêng>`) | Kết luận |
 |---|---|---|---|
-| `skills.yml` dòng · sha · entry | 4738 · `865eb629…` · 128 | **giống hệt** | ✅ |
+| `skills.yml` dòng · sha · entry | 4738 · `<mã-nguồn-riêng>…` · 128 | **giống hệt** | ✅ |
 | Dòng `:795` · `:3642` | có, sai | **nguyên văn** | ✅ |
-| `dependency-relationship-scan/SKILL.md` | 391 dòng | `f21d080e…` | ✅ |
-| `speckit-erp-ssot-adapter/SKILL.md` | sửa cuối `6aada70` | **vẫn `6aada70`** | ✅ không bị sửa sau Pha A |
+| `dependency-relationship-scan/SKILL.md` | 391 dòng | `<mã-nguồn-riêng>…` | ✅ |
+| `speckit-erp-ssot-adapter/SKILL.md` | sửa cuối `<mã-nguồn-riêng>` | **vẫn `<mã-nguồn-riêng>`** | ✅ không bị sửa sau Pha A |
 | `graphify.mdc:3` | `alwaysApply: false` | **y hệt** | ✅ |
 | Generator | 535 dòng · 1 lần `writeFileSync` | **y hệt** | ✅ |
 | Parity 5 file luật | 1 mã | **1 mã** | ✅ |
@@ -62,31 +62,31 @@ Soát đủ **15/15** điều kiện dừng mục 4 → **không điều kiện 
 
 ## 6. FILES CHANGED — 5 mốc công việc
 
-> 🔧 **Đính chính 24/08/2026 (Pha C2).** Bản đầu đặt tiêu đề *"5 commit"* nhưng liệt kê **6 dòng** — `280529f` bị xếp lẫn vào bảng mốc công việc. Đã tách đúng: bảng dưới là **5 mốc công việc**, hai commit còn lại của dải liệt kê riêng ở dưới. Nội dung mô tả từng commit **giữ nguyên**, không sửa.
+> 🔧 **Đính chính 24/08/2026 (Pha C2).** Bản đầu đặt tiêu đề *"5 commit"* nhưng liệt kê **6 dòng** — `<mã-nguồn-riêng>` bị xếp lẫn vào bảng mốc công việc. Đã tách đúng: bảng dưới là **5 mốc công việc**, hai commit còn lại của dải liệt kê riêng ở dưới. Nội dung mô tả từng commit **giữ nguyên**, không sửa.
 
 | Commit | Nội dung |
 |---|---|
-| `2f4e9b4` | **B2A** — bộ lọc mục lịch sử cho `trap_seen_before` + `quality_gate` |
-| `03dbe11` | **B2B** — hợp đồng `quality_gate` chỉ phát lệnh chạy được + cảnh báo có cấu trúc |
-| `9d2c294` | **content_status** — tách trục hiệu lực nội dung, 128/128 entry |
-| `c8e3c7c` | **công cụ** — Spec Kit `DORMANT` · Graphify `SAFE_BUT_STALE` · MCP `NOT_CONNECTED` · điều kiện độ mới |
-| `fb9eccc` | **luật** — `GOV-SKILL-CONTENT-STATUS-001` vào 5 file, Doc `2.6 → 2.7` |
+| `<mã-nguồn-riêng>` | **B2A** — bộ lọc mục lịch sử cho `trap_seen_before` + `quality_gate` |
+| `<mã-nguồn-riêng>` | **B2B** — hợp đồng `quality_gate` chỉ phát lệnh chạy được + cảnh báo có cấu trúc |
+| `<mã-nguồn-riêng>` | **content_status** — tách trục hiệu lực nội dung, 128/128 entry |
+| `<mã-nguồn-riêng>` | **công cụ** — Spec Kit `DORMANT` · Graphify `SAFE_BUT_STALE` · MCP `NOT_CONNECTED` · điều kiện độ mới |
+| `<mã-nguồn-riêng>` | **luật** — `GOV-SKILL-CONTENT-STATUS-001` vào 5 file, Doc `2.6 → 2.7` |
 
-**Hai commit còn lại trong dải `7752cc5..b7179a3` — KHÔNG phải mốc công việc:**
+**Hai commit còn lại trong dải `<mã-nguồn-riêng>..<mã-nguồn-riêng>` — KHÔNG phải mốc công việc:**
 
 | Commit | Vai trò |
 |---|---|
-| `280529f` | **Ghi sổ** — Sổ Owner #139 + vá 2 mã mục trùng + `DEBT-097`. Là **cha trực tiếp** của `b7179a3`. |
-| `b7179a3` | **Chính báo cáo này** — `TECHNICAL_FINAL_SHA` của Pha B |
+| `<mã-nguồn-riêng>` | **Ghi sổ** — Sổ Owner #139 + vá 2 mã mục trùng + `DEBT-097`. Là **cha trực tiếp** của `<mã-nguồn-riêng>`. |
+| `<mã-nguồn-riêng>` | **Chính báo cáo này** — `TECHNICAL_FINAL_SHA` của Pha B |
 
-*Đo lại 24/08/2026:* `git log --ancestry-path 7752cc5..b7179a3` → **7 commit** = 5 mốc + ghi sổ + báo cáo.
+*Đo lại 24/08/2026:* `git log --ancestry-path <mã-nguồn-riêng>..<mã-nguồn-riêng>` → **7 commit** = 5 mốc + ghi sổ + báo cáo.
 
 ## 7. FILES EXPLICITLY NOT CHANGED
 
 | File | Bằng chứng |
 |---|---|
-| **Mọi `.cursor/skills/**/SKILL.md`** | `git diff 7752cc5..HEAD -- .cursor/skills/` → **0 file** |
-| `speckit-erp-ssot-adapter/SKILL.md` | sửa cuối vẫn `6aada70` (20/08) |
+| **Mọi `.cursor/skills/**/SKILL.md`** | `git diff <mã-nguồn-riêng>..HEAD -- .cursor/skills/` → **0 file** |
+| `speckit-erp-ssot-adapter/SKILL.md` | sửa cuối vẫn `<mã-nguồn-riêng>` (20/08) |
 | Dòng 388 gây lỗi trong `dependency-relationship-scan` | **CÒN NGUYÊN** — cổng `CA3b` canh tự động |
 | Câu `npm run migrate:*` trong `database-ops` | **CÒN NGUYÊN** — cổng `CA-B2B-8c` canh |
 | `.specify/` | 18 file, `git status` → 0 thay đổi |
@@ -139,8 +139,8 @@ Override có chủ đích: **1**, ghi ở `.governance/registry/skill-content-st
 
 ```
 git log -1 -- .cursor/skills/speckit-erp-ssot-adapter/SKILL.md
-  → 6aada70 · 2026-08-20 19:18:27   (KHÔNG có commit nào của Pha B)
-git diff 7752cc5..HEAD -- .cursor/skills/   → 0 file
+  → <mã-nguồn-riêng> · 2026-08-20 19:18:27   (KHÔNG có commit nào của Pha B)
+git diff <mã-nguồn-riêng>..HEAD -- .cursor/skills/   → 0 file
 ```
 `health_label` vẫn **`HEALTHY`** — và **đúng**, vì nó đo **cấu trúc**. `content_status: DORMANT` nằm ngay dòng dưới. Hai trục cạnh nhau, không mâu thuẫn.
 
@@ -148,7 +148,7 @@ git diff 7752cc5..HEAD -- .cursor/skills/   → 0 file
 
 | Phép đo | Giá trị |
 |---|---|
-| Graph dựng từ | commit `9941d4bd` · `2026-07-30 15:44` |
+| Graph dựng từ | commit `<mã-nguồn-riêng>` · `2026-07-30 15:44` |
 | Lệch | **253 commit · 473 file** |
 | Refresh lần nào chưa? | **Chưa** — `mtime graph.json` = `2026-07-30 16:25` |
 
@@ -204,28 +204,28 @@ Ghi `status: NOT_CONNECTED` + `che_do: BLOCKED_FROM_AUTO_CONNECT`. **Không có 
 
 ## 14. GIT COMMITS + XÁC MINH REMOTE
 
-> 🔧 **Đính chính 24/08/2026 (Pha C2).** Bản đầu ghi `HEAD: 280529f`. Đó là HEAD **tại lúc soạn báo cáo** — một báo cáo không thể chứa mã commit của chính nó. `TECHNICAL_FINAL_SHA` thật của Pha B là **`b7179a3`**, tức commit *chứa* báo cáo này. Đo lại bằng `git merge-base --is-ancestor 280529f b7179a3` → `280529f` là **cha trực tiếp** của `b7179a3`.
+> 🔧 **Đính chính 24/08/2026 (Pha C2).** Bản đầu ghi `HEAD: <mã-nguồn-riêng>`. Đó là HEAD **tại lúc soạn báo cáo** — một báo cáo không thể chứa mã commit của chính nó. `TECHNICAL_FINAL_SHA` thật của Pha B là **`<mã-nguồn-riêng>`**, tức commit *chứa* báo cáo này. Đo lại bằng `git merge-base --is-ancestor <mã-nguồn-riêng> <mã-nguồn-riêng>` → `<mã-nguồn-riêng>` là **cha trực tiếp** của `<mã-nguồn-riêng>`.
 
 ```
-BASE_SHA             : 7752cc5   (HEAD lúc bắt đầu Pha B)
-TECHNICAL_FINAL_SHA  : b7179a3   (mốc hoàn tất Pha B — đã push, remote khớp)
-  ├─ HEAD lúc soạn báo cáo : 280529f  (cha trực tiếp của b7179a3)
-  └─ dải 7752cc5..b7179a3  : 7 commit = 5 mốc + ghi sổ + báo cáo
+BASE_SHA             : <mã-nguồn-riêng>   (HEAD lúc bắt đầu Pha B)
+TECHNICAL_FINAL_SHA  : <mã-nguồn-riêng>   (mốc hoàn tất Pha B — đã push, remote khớp)
+  ├─ HEAD lúc soạn báo cáo : <mã-nguồn-riêng>  (cha trực tiếp của <mã-nguồn-riêng>)
+  └─ dải <mã-nguồn-riêng>..<mã-nguồn-riêng>  : 7 commit = 5 mốc + ghi sổ + báo cáo
 
-PUBLICATION_COMMIT   : acfd850   (kho báo cáo — lượt công bố bản công khai)
-REPORT_STAMP_COMMIT  : ddee6b3   (kho báo cáo — đóng dấu mã commit vào trường 5)
+PUBLICATION_COMMIT   : <mã-nguồn-riêng>   (kho báo cáo — lượt công bố bản công khai)
+REPORT_STAMP_COMMIT  : <mã-nguồn-riêng>   (kho báo cáo — đóng dấu mã commit vào trường 5)
 ```
 Không force push. Không rebase. Không pull. Không viết lại lịch sử.
 
 ## 15. ROLLBACK
 
 ```
-git revert --no-edit 280529f    # ghi sổ Owner + DEBT-097 (KHÔNG phải một trong 5 mốc)
-git revert --no-edit fb9eccc    # luật GOV-SKILL-CONTENT-STATUS-001 (5 file)
-git revert --no-edit c8e3c7c    # trạng thái công cụ + graphify.mdc
-git revert --no-edit 9d2c294    # content_status
-git revert --no-edit 03dbe11    # hợp đồng quality_gate
-git revert --no-edit 2f4e9b4    # bộ lọc mục lịch sử
+git revert --no-edit <mã-nguồn-riêng>    # ghi sổ Owner + DEBT-097 (KHÔNG phải một trong 5 mốc)
+git revert --no-edit <mã-nguồn-riêng>    # luật GOV-SKILL-CONTENT-STATUS-001 (5 file)
+git revert --no-edit <mã-nguồn-riêng>    # trạng thái công cụ + graphify.mdc
+git revert --no-edit <mã-nguồn-riêng>    # content_status
+git revert --no-edit <mã-nguồn-riêng>    # hợp đồng quality_gate
+git revert --no-edit <mã-nguồn-riêng>    # bộ lọc mục lịch sử
 ```
 Mỗi checkpoint độc lập, revert được riêng. Sau mỗi lần revert phải chạy lại `node scripts/tests/skills-registry-build.mjs`.
 
@@ -244,7 +244,7 @@ Mỗi checkpoint độc lập, revert được riêng. Sau mỗi lần revert ph
 
 | Lớp | Đụng? | Bằng chứng |
 |---|---|---|
-| Luật (5 file) | ✅ thêm §G7.15, parity `8a03b7e3` | 1 mã duy nhất |
+| Luật (5 file) | ✅ thêm §G7.15, parity `<mã-nguồn-riêng>` | 1 mã duy nhất |
 | Registry (T3) | ✅ `skills.yml` · `tools.yml` · `skill-content-status.yml` · `tech-debt.md` | 5 mốc công việc |
 | Rule công cụ | ✅ `graphify.mdc` — thêm điều kiện độ mới | `alwaysApply` vẫn `false` |
 | Cổng/mã kiểm | ✅ 1 sửa + 3 mới | 13/13 PASS |
@@ -316,7 +316,7 @@ Mỗi checkpoint độc lập, revert được riêng. Sau mỗi lần revert ph
 | `skills.yml` chỉ có diff được duyệt | ✅ + **16 cặp `previous_result` đã map 16/16, chứng minh độc lập với patch** |
 | 128/128 entry có `content_status` hợp lệ | ✅ 127 UNREVIEWED · 1 DORMANT |
 | `dependency-relationship-scan` không còn lấy trap từ Changelog | ✅ `NONE_RECORDED` |
-| `speckit-erp-ssot-adapter/SKILL.md` không đổi | ✅ vẫn `6aada70` |
+| `speckit-erp-ssot-adapter/SKILL.md` không đổi | ✅ vẫn `<mã-nguồn-riêng>` |
 | Skill đó được registry đánh dấu DORMANT | ✅ |
 | Graph stale không còn được phép làm sự thật hiện hành | ✅ điều kiện tiên quyết trong `graphify.mdc` |
 | Spec Kit vẫn DORMANT và không bị sửa | ✅ 18 file, 0 thay đổi |
@@ -354,23 +354,23 @@ Mỗi checkpoint độc lập, revert được riêng. Sau mỗi lần revert ph
    KHÔNG XOÁ / KHÔNG ĐỔI TÊN file nao
 
 3. BẰNG CHỨNG
-   git rev-parse HEAD == git rev-parse origin/main -> b7179a3 -> CODE_PUSHED
+   git rev-parse HEAD == git rev-parse origin/main -> <mã-nguồn-riêng> -> CODE_PUSHED
    npm run test:gov-gates -> XANH toan bo (13/13) -> RUNTIME_PROVEN
    3 cong moi: 8/8 · 10/10 · 8 DK ; kiem nguoc 26 ca -> RUNTIME_PROVEN
    diff BASELINE<->CANDIDATE tung luot = dung phan duoc duyet -> FILE_PROVEN
    worktree KHOP TUYET DOI ban cach ly (0 dong khac) x3 luot -> FILE_PROVEN
-   git diff 7752cc5..HEAD -- .cursor/skills/ -> 0 file -> CODE_PROVEN
-   sha256 x5 file luat -> 1 ma 8a03b7e3 -> FILE_PROVEN
+   git diff <mã-nguồn-riêng>..HEAD -- .cursor/skills/ -> 0 file -> CODE_PROVEN
+   sha256 x5 file luat -> 1 ma <mã-nguồn-riêng> -> FILE_PROVEN
    16 cap previous_result map 16/16 ve tai lieu + commit cu the -> FILE_PROVEN
    .cursor/mcp.json = {"mcpServers":{}} ; grep graphify-mcp -> 0 -> FILE_PROVEN
-   graph built-from 9941d4bd vs HEAD -> 253 commit / 473 file -> CODE_PROVEN
+   graph built-from <mã-nguồn-riêng> vs HEAD -> 253 commit / 473 file -> CODE_PROVEN
 
 4. GHI SỔ YÊU CẦU OWNER
    [x] ĐÃ GHI — mục #139 (cap lai tu #137 vi #137 da bi phien khac dung)
        Kem: muc #132 cua phien nay cap lai thanh #140. DEBT-097 ghi ca hai.
 
 5. PUSH BÁO CÁO CÔNG KHAI
-   [x] ĐÃ PUSH — kho `irissnss/Baocaoerptanphat` · commit `acfd850`
+   [x] ĐÃ PUSH — kho `irissnss/Baocaoerptanphat` · commit `<mã-nguồn-riêng>`
        · file `PHA-B-HOAN-TAT-20260823.md`
        Công bố trong Pha C ngày 24/08/2026, sau khi qua PUBLIC_REPORT_SAFETY_GATE.
    [ ] CHƯA PUSH

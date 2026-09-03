@@ -3,7 +3,7 @@
 > **Loại:** AUDIT · CHỈ ĐỌC — không sửa file luật / mã / cấu hình.
 > **Actor:** Agent IDE · **Lớp được phép:** Local / Code / Git (READ ONLY).
 > **Ngày lập:** 18/08/2026 · **Nguồn bằng chứng:** git local · `docs/OWNER-REQUEST-LEDGER.md` · bản ghi phiên Claude Code · kho báo cáo công khai · 5 file quản trị · `.governance/`.
-> **Kiểm parity 5 file trước khi bắt đầu:** SHA-256 `6aec8539…89ecd7` — **5/5 KHỚP** → không kích hoạt điều kiện dừng.
+> **Kiểm parity 5 file trước khi bắt đầu:** SHA-256 `<mã-nguồn-riêng>…89ecd7` — **5/5 KHỚP** → không kích hoạt điều kiện dừng.
 
 ---
 
@@ -13,9 +13,9 @@ Ba dữ kiện được giao là điểm xuất phát, nhưng bằng chứng cho
 
 | Dữ kiện | Giao | Thực tế đo được | Bằng chứng |
 |---|---|---|---|
-| **DK-2** | Kho báo cáo công khai **KHÔNG CÓ** mục nào về phiên UI | **SAI.** Có **11 mục** (V1.00.339 → V1.00.349) | `Baocaoerptanphat/GOVERNANCE-LOG.md:89–199`; commit `d050cd3`, `cba7158`, `436c9fb`, `4d0c0c5`, `c9e5f1f`, `ca599f0`, `10b736d`, `e6a9df4`, `1c1a173`, `0681150`, `10bf5c0` |
+| **DK-2** | Kho báo cáo công khai **KHÔNG CÓ** mục nào về phiên UI | **SAI.** Có **11 mục** (V1.00.339 → V1.00.349) | `Baocaoerptanphat/GOVERNANCE-LOG.md:89–199`; commit `<mã-nguồn-riêng>`, `<mã-nguồn-riêng>`, `<mã-nguồn-riêng>`, `<mã-nguồn-riêng>`, `<mã-nguồn-riêng>`, `<mã-nguồn-riêng>`, `<mã-nguồn-riêng>`, `<mã-nguồn-riêng>`, `<mã-nguồn-riêng>`, `0681150`, `<mã-nguồn-riêng>` |
 | **DK-5** | Công cụ lái trình duyệt **CHƯA ĐƯỢC CÀI** | **SAI.** `playwright-core@^1.61.1` đã cài; script chụp ảnh trong `scripts/` chạy được, đã sinh 72 ảnh | `package.json:153`; `node_modules/playwright-core`; `docs/anh-kiem-thu/` (72 file) |
-| **DK-8** | 4–5 lượt làm lại | **THIẾU.** **12 gói việc UI** (OIL #65, #67–#77), **9 lượt Owner bác liên tiếp** trên riêng trang giao hàng | `docs/OWNER-REQUEST-LEDGER.md:247–279`; git `87cef7b`→`414a254` |
+| **DK-8** | 4–5 lượt làm lại | **THIẾU.** **12 gói việc UI** (OIL #65, #67–#77), **9 lượt Owner bác liên tiếp** trên riêng trang giao hàng | `docs/OWNER-REQUEST-LEDGER.md:247–279`; git `<mã-nguồn-riêng>`→`<mã-nguồn-riêng>` |
 
 **Điều DK-2 định nói vẫn đúng theo cách khác:** kho công khai có **11 bản tin "PHÁT HÀNH … PASS"**, nhưng **không có một dòng nào** nói đây là lượt thứ N của một vòng lặp đang hỏng. Dấu vết *thành công* được đẩy đủ; dấu vết *thất bại* thì không. Chi tiết ở §5.
 
@@ -81,13 +81,13 @@ Thêm nữa `:41` ghi `px-2 sm:px-3 py-0.5 sm:py-1 **font-medium**` còn `:95` g
 
 **Chuỗi nhân quả đã chứng minh được:**
 
-1. Bản 11/08 (`git show 66dbe34:docs/UI-STANDARD.md`, §6) ghi: "Badge / chip / **pill** / icon-circle | `rounded-full`".
+1. Bản 11/08 (`git show <mã-nguồn-riêng>:docs/UI-STANDARD.md`, §6) ghi: "Badge / chip / **pill** / icon-circle | `rounded-full`".
 2. Nhưng **trang mẫu chính thức** `/m1/khach-hang` dùng `rounded-md`: `src/app/m1/khach-hang/khach-hang-client.tsx:379`, `:383`, `:387` — `rounded-md px-2 sm:px-3 py-0.5 sm:py-1 font-medium`.
    → **Tài liệu SAI so với code mẫu ngay từ 11/08**, dù dòng `:6` tự tuyên bố "**Rút TỪ CODE THẬT (không bịa)**".
 3. V1.00.345 (17/08 21:02) áp đúng theo tài liệu → đổi pill giao hàng sang `rounded-full`. **Agent làm đúng luật, và vì thế làm sai.**
 4. Owner bác: "góc bo giống như hình dùm 1 tiêu chuẩn 1" (18/08 10:50).
-5. V1.00.347 (18/08 10:54) sửa mã + vá **duy nhất mục §1**. Nguyên văn commit `15d5fef`: *"Pill header khach hang dung rounded-md (khong phai rounded-full **nhu V345 lam sai**)"*.
-6. **Diff chỉ đụng 5 dòng** (`git show 15d5fef --stat` → `docs/UI-STANDARD.md | 5 +++--`). §6, §15 **không được sửa**.
+5. V1.00.347 (18/08 10:54) sửa mã + vá **duy nhất mục §1**. Nguyên văn commit `<mã-nguồn-riêng>`: *"Pill header khach hang dung rounded-md (khong phai rounded-full **nhu V345 lam sai**)"*.
+6. **Diff chỉ đụng 5 dòng** (`git show <mã-nguồn-riêng> --stat` → `docs/UI-STANDARD.md | 5 +++--`). §6, §15 **không được sửa**.
    → **Mâu thuẫn vẫn còn nguyên trong file, tính đến hôm nay.** Lượt sau đọc §6 hoặc §15 sẽ lặp lại đúng lỗi đó.
 
 ### 1.4 File bắt buộc đọc **KHÔNG TỒN TẠI**
@@ -222,25 +222,25 @@ Sổ Yêu Cầu Owner mục #78 ghi lại sự kiện này là: *"Owner đổi h
 
 ## 4. DÒNG THỜI GIAN + TÀI LIỆU TỪNG LƯỢT ĐÃ ĐỌC
 
-Nguồn: git local (giờ VN, +07) + `docs/OWNER-REQUEST-LEDGER.md` + bản ghi phiên `0f63d122….jsonl` (mốc UTC, đã quy đổi sang giờ VN).
+Nguồn: git local (giờ VN, +07) + `docs/OWNER-REQUEST-LEDGER.md` + bản ghi phiên `<mã-nguồn-riêng>….jsonl` (mốc UTC, đã quy đổi sang giờ VN).
 
 ### 4.1 Dòng thời gian
 
 | # OIL | Bản | Giờ VN | Owner bác vì | Đã sửa gì | Mở tài liệu chuẩn? |
 |---|---|---|---|---|---|
-| 65 | V1.00.338 `87cef7b` | 17/08 09:58 | *(gói trước)* | Title Case, màu trạng thái, chống double-submit | ❌ **KHÔNG** |
-| 67 | V1.00.339 `3c00167` | 17/08 13:17 | "chỉ sửa 4 điểm nhẹ, smoke chỉ kiểm trang tải" | Header icon-badge, 4 thẻ thống kê, hero panel; **sửa 1 lỗi treo thật** | GOLD 13:11 (45 dòng) |
-| 68 | V1.00.340 `cd0b54f` | 17/08 14:07 | Lãng phí diện tích; thiếu xem nhanh | Bỏ 4 thẻ → pill; drawer → panel in-grid | KH 14:54 (**12 dòng**) |
-| 69 | V1.00.341 `5ea73ae` | 17/08 14:59 | **"CHƯA TỐI ƯU KHÔNG GIAN LÀM VIỆC EM KHÔNG NHỚ YÊU CẦU NÀY CỦA ANH SAO EM?"** | Bỏ `mx-auto max-w-350` → full width | ❌ **KHÔNG** |
-| 70 | V1.00.342 `ef5c7cb` | 17/08 17:23 | "vẫn còn lớn thế ah em" (ảnh khoanh) | `px-6` → `px-3` | KH 17:12 (100 dòng) |
-| 71 | V1.00.343 `49c2b5e` | 17/08 20:04 | **"Em không thấy giao diện sơ sài ah… Em quá mau quên"** | Dựng lại panel: hero + thẻ mục màu | ❌ **KHÔNG** |
-| 72 | V1.00.344 `598c98c` | 17/08 20:29 | 4 điểm khoanh đỏ (lề/pill/toolbar/form) | Bỏ px trang; pill xuống hàng riêng; gộp 1 card; form header màu | ❌ **KHÔNG** |
+| 65 | V1.00.338 `<mã-nguồn-riêng>` | 17/08 09:58 | *(gói trước)* | Title Case, màu trạng thái, chống double-submit | ❌ **KHÔNG** |
+| 67 | V1.00.339 `<mã-nguồn-riêng>` | 17/08 13:17 | "chỉ sửa 4 điểm nhẹ, smoke chỉ kiểm trang tải" | Header icon-badge, 4 thẻ thống kê, hero panel; **sửa 1 lỗi treo thật** | GOLD 13:11 (45 dòng) |
+| 68 | V1.00.340 `<mã-nguồn-riêng>` | 17/08 14:07 | Lãng phí diện tích; thiếu xem nhanh | Bỏ 4 thẻ → pill; drawer → panel in-grid | KH 14:54 (**12 dòng**) |
+| 69 | V1.00.341 `<mã-nguồn-riêng>` | 17/08 14:59 | **"CHƯA TỐI ƯU KHÔNG GIAN LÀM VIỆC EM KHÔNG NHỚ YÊU CẦU NÀY CỦA ANH SAO EM?"** | Bỏ `mx-auto max-w-350` → full width | ❌ **KHÔNG** |
+| 70 | V1.00.342 `<mã-nguồn-riêng>` | 17/08 17:23 | "vẫn còn lớn thế ah em" (ảnh khoanh) | `px-6` → `px-3` | KH 17:12 (100 dòng) |
+| 71 | V1.00.343 `<mã-nguồn-riêng>` | 17/08 20:04 | **"Em không thấy giao diện sơ sài ah… Em quá mau quên"** | Dựng lại panel: hero + thẻ mục màu | ❌ **KHÔNG** |
+| 72 | V1.00.344 `<mã-nguồn-riêng>` | 17/08 20:29 | 4 điểm khoanh đỏ (lề/pill/toolbar/form) | Bỏ px trang; pill xuống hàng riêng; gộp 1 card; form header màu | ❌ **KHÔNG** |
 | 73 | V1.00.345 `4230148` | 17/08 21:02 | "Thiếu bo góc nhẹ ở tất cả các điểm" | Viết lại `UI-STANDARD.md` 16 mục; **pill → `rounded-full` (SAI)** | ✅ 20:51 — `offset 40, limit 73` |
 | — | — | **17/08 21:08** | — | ⚠️ **NÉN PHIÊN LẦN 5** | — |
-| 74 | V1.00.346 `666812c` | 18/08 09:38 | "bo góc này mà được ah?" | Thêm `rounded-tl-md`/`rounded-tr-md` | ✅ 21:10 — `limit 70` |
-| 75 | V1.00.347 `15d5fef` | 18/08 10:54 | **"góc bo giống như hình dùm 1 tiêu chuẩn 1"** | Pill về `rounded-md`; vá §1 của doc | ✅ 10:52 — `offset 36, **limit 10**` |
-| 76 | V1.00.348 `b9b6422` | 18/08 17:31 | *(Owner duyệt "ổn rồi đó" → quét 4 trang danh mục)* | Gradient 3 màu + bo góc `th` | ❌ **KHÔNG** |
-| 77 | V1.00.349 `414a254` | 18/08 17:45 | — | 4 trang chứng từ | ❌ **KHÔNG** |
+| 74 | V1.00.346 `<mã-nguồn-riêng>` | 18/08 09:38 | "bo góc này mà được ah?" | Thêm `rounded-tl-md`/`rounded-tr-md` | ✅ 21:10 — `limit 70` |
+| 75 | V1.00.347 `<mã-nguồn-riêng>` | 18/08 10:54 | **"góc bo giống như hình dùm 1 tiêu chuẩn 1"** | Pill về `rounded-md`; vá §1 của doc | ✅ 10:52 — `offset 36, **limit 10**` |
+| 76 | V1.00.348 `<mã-nguồn-riêng>` | 18/08 17:31 | *(Owner duyệt "ổn rồi đó" → quét 4 trang danh mục)* | Gradient 3 màu + bo góc `th` | ❌ **KHÔNG** |
+| 77 | V1.00.349 `<mã-nguồn-riêng>` | 18/08 17:45 | — | 4 trang chứng từ | ❌ **KHÔNG** |
 | 78 | — | 18/08 18:42 | **"7 chưa thấy điều gì thay đổi / chưa có 1 biến chuyển nào em?"** | — | — |
 | 78 | — | 18/08 18:45 | **"Bỏ qua đi mệt quá em làm sơ sài, cẩu thả"** → dừng UI | — | — |
 
@@ -248,7 +248,7 @@ Nguồn: git local (giờ VN, +07) + `docs/OWNER-REQUEST-LEDGER.md` + bản ghi 
 
 ### 4.2 Điểm nén — **đo trực tiếp, không suy đoán**
 
-Phiên `0f63d122-a5be-4f94-9adf-0c7806e17879.jsonl` — **một phiên duy nhất, 10/08 → 18/08, 11.919 dòng, 56 MB**. Đếm mốc nén:
+Phiên `<mã-nguồn-riêng>-a5be-4f94-9adf-<mã-nguồn-riêng>.jsonl` — **một phiên duy nhất, 10/08 → 18/08, 11.919 dòng, 56 MB**. Đếm mốc nén:
 
 ```
 grep -c '"subtype":"compact_boundary"'  →  5
@@ -345,7 +345,7 @@ Khối 11 trường được đặt INLINE có chủ đích, và `CLAUDE.md:592�
 
 ### 5.2 Luật khép phiên có được áp cho ca UI không
 
-**Có.** Ban hành `b1d0a0b` (16/08 19:13) + `a7beb66` (16/08 19:45, thêm trường 11); ca UI bắt đầu 17/08 09:58 → luật đã có hiệu lực trọn ca. Không phải "ban hành sau".
+**Có.** Ban hành `<mã-nguồn-riêng>` (16/08 19:13) + `<mã-nguồn-riêng>` (16/08 19:45, thêm trường 11); ca UI bắt đầu 17/08 09:58 → luật đã có hiệu lực trọn ca. Không phải "ban hành sau".
 
 ### 5.3 ⭐ Cổng kiểm khối báo cáo — **KIỂM CHÍNH NÓ, KHÔNG KIỂM VIỆC**
 
@@ -563,7 +563,7 @@ Chuỗi ảnh hưởng đã đo được:
 |---|---|---|---|---|
 | **1** | **Không có tiêu chí nghiệm thu, và không luật nào bắt phải chốt trước khi làm.** Nghiệm thu thực tế = `99 bảng · đăng nhập 200 · tsc 0 · build 0` — cả 5 đều PASS kể cả khi giao diện sai hoàn toàn | **(a) KHÔNG CÓ LUẬT** | §3.3, §3.4, §6.3; `grep "tiêu chí nghiệm thu"` → 0 | ⬛⬛⬛⬛⬛ |
 | **2** | **Chuẩn có tồn tại nhưng không bị bắt buộc đọc.** Con trỏ `CLAUDE.md:1486` không có `LEVEL`/`FAILURE`/`ENFORCEMENT`; "đụng UI" không định nghĩa được; "đọc" không phân biệt toàn phần với lỗ khoá | **(b) CÓ LUẬT, KHÔNG BẮN** | §4.3 (10/12 gói không mở), §7.2 (dòng 113–176 chưa từng đọc) | ⬛⬛⬛⬛⬛ |
-| **3** | **Nguồn chuẩn tự mâu thuẫn và sai so với code mẫu.** `:41` vs `:95/:166/:170`; bản 11/08 ghi pill=`rounded-full` trong khi trang mẫu dùng `rounded-md` → **làm đúng luật thành ra làm sai** | **(c) CÓ LUẬT, MƠ HỒ/SAI** | §1.3; commit `15d5fef` tự thú "V345 lam sai"; mâu thuẫn **vẫn còn** hôm nay | ⬛⬛⬛⬛ |
+| **3** | **Nguồn chuẩn tự mâu thuẫn và sai so với code mẫu.** `:41` vs `:95/:166/:170`; bản 11/08 ghi pill=`rounded-full` trong khi trang mẫu dùng `rounded-md` → **làm đúng luật thành ra làm sai** | **(c) CÓ LUẬT, MƠ HỒ/SAI** | §1.3; commit `<mã-nguồn-riêng>` tự thú "V345 lam sai"; mâu thuẫn **vẫn còn** hôm nay | ⬛⬛⬛⬛ |
 | **4** | **10 nguồn chuẩn, không bảng phân xử.** Bảng phân xử có nhưng chỉ phủ mã `GOV-*`; toàn bộ khối UI ngoài phạm vi. Một nguồn bắt buộc trỏ vào **file không tồn tại** | **(a) + (c)** | §1.1, §1.2, §1.4, §2, §8.2 | ⬛⬛⬛⬛ |
 | **5** | **Không đếm lượt lặp.** Sổ cấp mã mới cho từng lượt như 12 yêu cầu độc lập; không trường "bác lần thứ mấy"; không ngưỡng DỪNG | **(a) KHÔNG CÓ LUẬT** | §5.4; OIL #67–#77 | ⬛⬛⬛ |
 | **6** | **Cổng auto duy nhất kiểm chính nó.** `completion-report-gate` chỉ chạy trên 3 chuỗi mẫu viết cứng; `7/7 PASS` ở mọi phiên | **(c) CÓ LUẬT, KHÔNG KIỂM ĐƯỢC** | §5.3; `scripts/tests/completion-report-gate.test.mjs:79,118,145,172–190` | ⬛⬛⬛ |
@@ -644,10 +644,10 @@ Owner đã chốt 09/08 "chỉ dùng Cursor", nhưng ca này chạy trên Claude
 ```
 ════════════ BÁO CÁO KẾT THÚC ════════════
 1. ĐÃ LÀM
-   - Kiểm parity 5 file quản trị: SHA-256 6aec8539…89ecd7, 5/5 KHỚP (không kích hoạt điều kiện dừng).
+   - Kiểm parity 5 file quản trị: SHA-256 <mã-nguồn-riêng>…89ecd7, 5/5 KHỚP (không kích hoạt điều kiện dừng).
    - Định vị 10 nguồn chuẩn giao diện trong repo (đề bài nêu 5) + lập bảng hoà giải 19 hạng mục.
    - Chứng minh docs/UI-STANDARD.md TỰ MÂU THUẪN (:41 vs :95/:166/:170) và truy được chuỗi
-     nhân quả tới lượt Owner bác #75 (commit 15d5fef tự thú "V345 lam sai").
+     nhân quả tới lượt Owner bác #75 (commit <mã-nguồn-riêng> tự thú "V345 lam sai").
    - Chứng minh docs/METRONIC_UI_RESEARCH_PROTOCOL.md — file luật khai "bắt buộc đọc" — KHÔNG TỒN TẠI.
    - Chứng minh .claude/ chỉ có settings.local.json → 125 kỹ năng (≥11 kỹ năng UI) vô hình với Claude Code.
    - Dựng lại dòng thời gian 12 gói việc UI (OIL #65, #67–#77) + 9 lượt bác liên tiếp.
@@ -670,12 +670,12 @@ Owner đã chốt 09/08 "chỉ dùng Cursor", nhưng ca này chạy trên Claude
 
 3. BẰNG CHỨNG
    sha256sum .cursorrules .antigravityrules AGENTS.md CLAUDE.md GEMINI.md
-     → 5 hash giống hệt 6aec8539…89ecd7 → FILE_PROVEN
-   grep -c '"subtype":"compact_boundary"' 0f63d122….jsonl → 5 → FILE_PROVEN
+     → 5 hash giống hệt <mã-nguồn-riêng>…89ecd7 → FILE_PROVEN
+   grep -c '"subtype":"compact_boundary"' <mã-nguồn-riêng>….jsonl → 5 → FILE_PROVEN
    phân tích tool_use trong .jsonl → 12 lần mở tài liệu/trang mẫu, mọi lần có offset/limit → FILE_PROVEN
    grep -c -i "acceptance checklist" .jsonl → 0 ; "visual regression" → 0 → FILE_PROVEN
-   git show 15d5fef --stat → docs/UI-STANDARD.md | 5 +++-- (§6/§15 không được vá) → CODE_PROVEN
-   git show 66dbe34:docs/UI-STANDARD.md §6 → "pill … rounded-full" vs
+   git show <mã-nguồn-riêng> --stat → docs/UI-STANDARD.md | 5 +++-- (§6/§15 không được vá) → CODE_PROVEN
+   git show <mã-nguồn-riêng>:docs/UI-STANDARD.md §6 → "pill … rounded-full" vs
      src/app/m1/khach-hang/khach-hang-client.tsx:379 → "rounded-md" → CODE_PROVEN
    ls docs/METRONIC_UI_RESEARCH_PROTOCOL.md → No such file → FILE_PROVEN
    find .claude -type f → chỉ settings.local.json → FILE_PROVEN

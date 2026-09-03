@@ -2,7 +2,7 @@
 
 > **Loại:** ĐỌC — ĐỐI CHIẾU — LẬP KẾ HOẠCH (**PLAN-ONLY, không vá gì**)
 > **Ngày:** 23/08/2026 12:0x · **Owner:** TanPhatERP · **Actor:** Agent IDE (phiên "Luật Cho Dự Án TanPhat")
-> **HEAD:** `e430ee3` · nhánh `main` · parity 5 file luật `84f979a6…` (1 mã duy nhất)
+> **HEAD:** `<mã-nguồn-riêng>` · nhánh `main` · parity 5 file luật `<mã-nguồn-riêng>…` (1 mã duy nhất)
 > **Căn cứ:** Sổ Yêu Cầu Owner **mục #130** (23/08)
 
 ---
@@ -27,7 +27,7 @@
 |---|---|---|
 | Ngày | 20/08 | **23/08 12:09** |
 | Nhánh | `gov/2026-08-18-rules-ui-standard-upgrade` | **`main`** |
-| HEAD | `d7c953b` | **`e430ee3`** |
+| HEAD | `<mã-nguồn-riêng>` | **`<mã-nguồn-riêng>`** |
 | Mã nợ lớn nhất | DEBT-032 | **DEBT-090** |
 | Mục sổ Owner lớn nhất | #93 | **#129** |
 
@@ -71,7 +71,7 @@ Em viết cả hai cổng đó (18–20/08). Em **đã lường đúng rủi ro*
 
 ### Hậu quả đang tồn tại
 
-File `docs/<thư-mục-có-dấu-đã-che>/<tên-file-đã-che>.csv` — **1.232 dòng khách hàng**, 28 cột, gồm **số tài khoản ngân hàng · tên chủ tài khoản · ngân hàng · mã số thuế · số điện thoại · địa chỉ · giá trị đơn hàng** — **đang được git theo dõi và đã lên remote**. Em xác nhận lại bằng `git ls-files -z`: file **có** trong danh sách theo dõi.
+File `docs/<thư-mục-có-dấu-đã-che>/<tên-file-đã-che>.csv` — **hàng nghìn dòng khách hàng**, 28 cột, gồm **số tài khoản ngân hàng · tên chủ tài khoản · ngân hàng · mã số thuế · số điện thoại · địa chỉ · giá trị đơn hàng** — **đang được git theo dõi và đã lên remote**. Em xác nhận lại bằng `git ls-files -z`: file **có** trong danh sách theo dõi.
 
 ---
 
@@ -103,7 +103,7 @@ Trích nguyên trạng, kèm đối chiếu của em:
 
 | # | Câu hỏi | Đề xuất của phiên kia | Em đối chiếu thêm |
 |---|---|---|---|
-| **1** | File CSV 1.232 dòng khách hàng (số tài khoản ngân hàng) đang trong git, đã lên remote — xử lý sao? | Gỡ khỏi cây làm việc + `.gitignore` **ngay**. Viết lại lịch sử **không suy rộng** tiền lệ Q1/D3 — lần đó là bí mật nội bộ, lần này là **dữ liệu của khách hàng**. Cần Owner quyết riêng | **Em đồng ý và nhấn mạnh:** Q1 (19/08) chốt "kho riêng tư → không viết lại history" cho **credential nội bộ**. Dữ liệu khách hàng là **loại khác** — không được suy rộng quyết định cũ sang. Đây đúng là chỗ `GOV-SESSION-DECISION-001` §F1b mục 5 bắt phải tra sổ trước khi kết luận |
+| **1** | File CSV hàng nghìn dòng khách hàng (số tài khoản ngân hàng) đang trong git, đã lên remote — xử lý sao? | Gỡ khỏi cây làm việc + `.gitignore` **ngay**. Viết lại lịch sử **không suy rộng** tiền lệ Q1/D3 — lần đó là bí mật nội bộ, lần này là **dữ liệu của khách hàng**. Cần Owner quyết riêng | **Em đồng ý và nhấn mạnh:** Q1 (19/08) chốt "kho riêng tư → không viết lại history" cho **credential nội bộ**. Dữ liệu khách hàng là **loại khác** — không được suy rộng quyết định cũ sang. Đây đúng là chỗ `GOV-SESSION-DECISION-001` §F1b mục 5 bắt phải tra sổ trước khi kết luận |
 | **2** | Vá cổng `pii-scan` (thêm `-z`) — làm ngay hay chờ? | Làm ngay phiên sau. Sửa 1 dòng, nhưng **bắt buộc kèm kiểm ngược** | **Em bổ sung: phải vá 4 cổng, không phải 1** (§2). Và ca kiểm ngược **bắt buộc dùng tên file có dấu tiếng Việt** — nếu không sẽ lặp lại đúng lỗ hổng cũ |
 
 ---
@@ -214,7 +214,7 @@ Notion có kỹ năng **KN21 "🎨 Thiết kế Giao diện và Hệ thống Thi
    - TỰ KIỂM CHỨNG lỗi git ls-files thiếu -z → xác nhận đúng, VÀ mở rộng: 4 cổng bị
      ảnh hưởng chứ không phải 1 (pii-scan · secret-scan · path-audit · script-parse-gate),
      trong đó 2 cổng đầu đang gác pre-commit.
-   - Xác nhận file CSV 1.232 dòng khách hàng ĐANG được git theo dõi (git ls-files -z).
+   - Xác nhận file CSV hàng nghìn dòng khách hàng ĐANG được git theo dõi (git ls-files -z).
    - Nối được manh mối cuối của ca thất bại giao diện: KN21 trên Notion đã bắt buộc
      "Acceptance checklist" + "visual regression" từ trước — nhưng nằm ở thư viện mà
      bên thi hành không đọc được. Đóng U1/U2/U3 của bản tự soát 18/08.
@@ -224,7 +224,7 @@ Notion có kỹ năng **KN21 "🎨 Thiết kế Giao diện và Hệ thống Thi
 2. PHẠM VI
    ĐỤNG    : docs/OWNER-REQUEST-LEDGER.md (mục #130) ·
              docs/reports/HOP-NHAT-TONG-HOP-SKILL-VA-PHIEN-LUAT-20260823.md (mới)
-   KHÔNG ĐỤNG: 5 file luật? KHÔNG (parity 84f979a6 không đổi) · cổng kiểm? KHÔNG vá ·
+   KHÔNG ĐỤNG: 5 file luật? KHÔNG (parity <mã-nguồn-riêng> không đổi) · cổng kiểm? KHÔNG vá ·
              file CSV khách hàng? KHÔNG đụng · src/? KHÔNG · DB? KHÔNG · deploy? KHÔNG ·
              SSOT nội dung? KHÔNG · Notion? CHỈ ĐỌC · sổ nợ? KHÔNG sửa dòng nào
 
@@ -232,10 +232,10 @@ Notion có kỹ năng **KN21 "🎨 Thiết kế Giao diện và Hệ thống Thi
    git ls-files | grep csv → chuỗi trích dẫn kiểu C "docs/<thư-mục-có-dấu-đã-che>…"  → CODE_PROVEN
    git ls-files -z | tr → đường dẫn thật, file CSV CÓ trong danh sách theo dõi     → CODE_PROVEN
    grep 'execSync("git ls-files' scripts/tests/*.mjs → 4 cổng, không cổng nào có -z → CODE_PROVEN
-   git log/HEAD → e430ee3, nhánh main, ngày hệ thống 23/08/2026 12:09              → FILE_PROVEN
+   git log/HEAD → <mã-nguồn-riêng>, nhánh main, ngày hệ thống 23/08/2026 12:09              → FILE_PROVEN
    sổ nợ → 95 nợ, đóng 14, mở 81, mã lớn nhất DEBT-090                             → FILE_PROVEN
    sổ Owner → mục lớn nhất #129 trước khi ghi, nay #130                            → FILE_PROVEN
-   sha256sum CLAUDE.md → 84f979a6 (không đổi)                                      → FILE_PROVEN
+   sha256sum CLAUDE.md → <mã-nguồn-riêng> (không đổi)                                      → FILE_PROVEN
    Notion KN21 → Output có "Acceptance checklist", bước 6 có "visual regression"    → DOC_PROVEN
    skills.yml → 128 entry / 128 thư mục; Notion KN-V2.7 → 31 kỹ năng               → FILE_PROVEN
    ⚠️ CHƯA có UI_PROVEN / DB_PROVEN / RUNTIME_PROVEN — phiên PLAN-ONLY, không chạy
@@ -246,7 +246,7 @@ Notion có kỹ năng **KN21 "🎨 Thiết kế Giao diện và Hệ thống Thi
    Ghi bằng quyền mặc định GOV-SESSION-DECISION-001 §F1b mục 3.
 
 5. PUSH BÁO CÁO CÔNG KHAI
-   [x] ĐÃ PUSH — kho Baocaoerptanphat · commit 3dae5c2 (bản đầu HỎNG do lỗi shell) → **sửa ở commit 94f74ba**
+   [x] ĐÃ PUSH — kho Baocaoerptanphat · commit <mã-nguồn-riêng> (bản đầu HỎNG do lỗi shell) → **sửa ở commit <mã-nguồn-riêng>**
        · file HOP-NHAT-TONG-HOP-SKILL-VA-PHIEN-LUAT-20260823.md
    Công-bố-an-toàn: KHÔNG nêu tên file/thư mục/cột của dữ liệu khách hàng trong bản
    công khai, KHÔNG nêu giá trị nào, KHÔNG nêu mã commit chứa dữ liệu nhạy cảm.
@@ -265,7 +265,7 @@ Notion có kỹ năng **KN21 "🎨 Thiết kế Giao diện và Hệ thống Thi
       KHÔNG được phép sửa sổ nợ — đề nghị Owner cho ghi ở phiên xử lý.
 
 7. ĐANG CHỜ OWNER
-   - Câu 1 (GẤP): file CSV 1.232 dòng khách hàng — gỡ khỏi git? có viết lại history không?
+   - Câu 1 (GẤP): file CSV hàng nghìn dòng khách hàng — gỡ khỏi git? có viết lại history không?
      → Không suy rộng từ Q1: lần đó là bí mật nội bộ, lần này là dữ liệu khách hàng.
    - Câu 2 (GẤP): vá cổng — em bổ sung: phải vá 4 cổng, và ca kiểm ngược phải có dấu
      tiếng Việt.

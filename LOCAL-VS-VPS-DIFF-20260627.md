@@ -1,8 +1,8 @@
 # 📊 ERP Tân Phát — Báo Cáo Chênh Lệch Local vs VPS
 
 > **Ngày:** 27/06/2026
-> **Local:** V0.220 (commit `8c1d6a0`)
-> **VPS (ước tính):** V0.214 (commit `cda3653`)
+> **Local:** V0.220 (commit `<mã-nguồn-riêng>`)
+> **VPS (ước tính):** V0.214 (commit `<mã-nguồn-riêng>`)
 > **Chênh:** 6 versions, 40 files, +7.758 / -272 dòng
 > **Mục đích:** Xử lý local chuẩn chỉnh trước khi deploy VPS
 

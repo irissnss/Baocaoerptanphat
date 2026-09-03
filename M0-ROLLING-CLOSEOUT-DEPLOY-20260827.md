@@ -11,7 +11,7 @@
 Anh nói đúng, và em xác nhận bằng số đo: **vấn đề không nằm ở "local", mà ở chỗ máy vận hành
 đã rẽ sang một nhánh bên và chưa bao giờ được kéo về.**
 
-- Máy vận hành đứng ở `826817b` — **nhánh vá khẩn cấp** tách từ điểm cũ `0e73a7c`.
+- Máy vận hành đứng ở `<mã-nguồn-riêng>` — **nhánh vá khẩn cấp** tách từ điểm cũ `<mã-nguồn-riêng>`.
 - Nó **cách `main` 70 commit** (số cũ 53 đã lỗi thời — em ghi lại cho đúng).
 - Nhánh đó sinh ra ngày 27/08 theo đúng khoá của anh *«không kéo theo khoảng cách 53 commit»*
   khi chữa cháy lỗ API. **Lúc đó là quyết định đúng.** Nhưng hệ quả là từ đó mỗi lần đưa gì lên
@@ -37,11 +37,11 @@ ngang `main`, rồi từ đó mỗi lần triển khai chỉ còn *đẩy main �
 
 | Mốc | Mã |
 |---|---|
-| `main` đầu phiên | `83abc4b` |
-| `main` cuối phiên | `45807fb` |
+| `main` đầu phiên | `<mã-nguồn-riêng>` |
+| `main` cuối phiên | `<mã-nguồn-riêng>` |
 | Nhánh phát hành cách ly | `release/m0-closeout-20260827` |
-| **Bản phát hành cuối** | **`a8f3283`** (dựng từ neo `826817b`) |
-| Neo máy vận hành | `826817b` — **không đổi** |
+| **Bản phát hành cuối** | **`<mã-nguồn-riêng>`** (dựng từ neo `<mã-nguồn-riêng>`) |
+| Neo máy vận hành | `<mã-nguồn-riêng>` — **không đổi** |
 | **Đã triển khai** | **KHÔNG** — `NOT_DEPLOYED` |
 
 ---
@@ -50,7 +50,7 @@ ngang `main`, rồi từ đó mỗi lần triển khai chỉ còn *đẩy main �
 
 Anh đã cho GO. Em vẫn dừng, vì **ba lý do đủ nghiêm túc để không tự quyết**:
 
-1. **Nội dung bản phát hành đã đổi so với thứ anh duyệt.** Anh duyệt *«port f50a99c changes»*.
+1. **Nội dung bản phát hành đã đổi so với thứ anh duyệt.** Anh duyệt *«port <mã-nguồn-riêng> changes»*.
    Rà phụ thuộc cho thấy chỉ port được **một phần** — bản vá thanh bên phải để lại vì máy vận
    hành thiếu Đợt 1/2. Đó là thay đổi **bản chất**, không phải chi tiết.
 2. **Đường triển khai chuẩn của dự án chạy `migrate:*` trên máy vận hành.** Anh khoá *«Không DDL»*.
@@ -153,7 +153,7 @@ FAIL  8b. SALES KHÔNG xem được cột giá vốn nào
 
 Truy nguyên: danh mục cột nhạy cảm trên máy vận hành **chỉ có 2 cột**, `main` có **4**.
 
-| Máy vận hành (`826817b`) | `main` |
+| Máy vận hành (`<mã-nguồn-riêng>`) | `main` |
 |---|---|
 | `bao_gia_option.gia_von` | `bao_gia_option.gia_von` |
 | `don_hang_item.gia_von` | `don_hang_item.gia_von` |
@@ -176,13 +176,13 @@ Nó đã nằm trên `main` **từ lâu** nhưng **chưa bao giờ được tri�
 
 ## 7. BẢN PHÁT HÀNH ĐÃ DỰNG — NỘI DUNG CHÍNH XÁC
 
-Từ neo `826817b`, áp **đúng hai commit**, **không** chép cả tệp:
+Từ neo `<mã-nguồn-riêng>`, áp **đúng hai commit**, **không** chép cả tệp:
 
 ```
-a8f3283  release(m0): tach ban va thanh ben ra khoi ban phat hanh
-420cc55  fix(m0): DONG DEBT-124..127 + HA CAP DO DEBT-128
-77768f7  fix(m0): VA THANH BEN ... (phan thanh ben da duoc go o a8f3283)
-826817b  ← neo may van hanh
+<mã-nguồn-riêng>  release(m0): tach ban va thanh ben ra khoi ban phat hanh
+<mã-nguồn-riêng>  fix(m0): DONG DEBT-124..127 + HA CAP DO DEBT-128
+<mã-nguồn-riêng>  fix(m0): VA THANH BEN ... (phan thanh ben da duoc go o <mã-nguồn-riêng>)
+<mã-nguồn-riêng>  ← neo may van hanh
 ```
 
 **Sáu tệp đổi, 240 dòng thêm:**
@@ -288,7 +288,7 @@ lệch dữ liệu máy vận hành (3 vai trò · 28 menu · ~100 dòng quyền
    - Hạ cấp độ DEBT-128 sau thực nghiệm, lập gói di trú đủ 10 mục
    - Viết 3 cổng kiểm mới + 1 kịch bản chụp ảnh trình duyệt; kiểm ngược từng cái
    - Thêm [D1a2] cho cổng ma trận quyền TỰ KIỂM CHÍNH NÓ
-   - Dựng bản phát hành cách ly từ neo 826817b, tách phần không port được
+   - Dựng bản phát hành cách ly từ neo <mã-nguồn-riêng>, tách phần không port được
    - Viết wireframe cuối, NHẬN LẠI ý gom điều hướng của Owner
    - Ghi sổ Owner #184 và #185
 
@@ -317,12 +317,12 @@ lệch dữ liệu máy vận hành (3 vai trò · 28 menu · ~100 dòng quyền
 
 5. PUSH BÁO CÁO CÔNG KHAI
    [x] ĐÃ PUSH — kho báo cáo công khai irissnss/Baocaoerptanphat
-       commit deb01ee · nhánh main
+       commit <mã-nguồn-riêng> · nhánh main
        file: M0-ROLLING-CLOSEOUT-DEPLOY-20260827.md
              DEBT-128-GOI-DI-TRU-20260827.md
              WIREFRAME-CUOI-M0-20260827.md
-       (Mã nguồn ở kho irissnss/erptanphat commit 45807fb; bản phát hành
-        chưa triển khai nằm ở nhánh release/m0-closeout-20260827 · a8f3283.)
+       (Mã nguồn ở kho irissnss/erptanphat commit <mã-nguồn-riêng>; bản phát hành
+        chưa triển khai nằm ở nhánh release/m0-closeout-20260827 · <mã-nguồn-riêng>.)
 
 6. CÒN SÓT / CHƯA LÀM
    - CHƯA triển khai bản phát hành (lý do ở mục 2 của báo cáo)

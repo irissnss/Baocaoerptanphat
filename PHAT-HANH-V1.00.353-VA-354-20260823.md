@@ -1,8 +1,8 @@
 # ✅ ĐÃ PHÁT HÀNH — V1.00.353 và V1.00.354 (23/08/2026)
 
 **Ngày:** 23/08/2026 · **Loại:** **PHÁT HÀNH LÊN HỆ THỐNG VẬN HÀNH** — hai đợt liên tiếp
-**Hệ thống vận hành hiện chạy:** **`V1.00.354`** · mã commit **`8cf0352`** · nhánh `main`
-**Trước đợt này:** `V1.00.352` · commit `fb8d6ea`
+**Hệ thống vận hành hiện chạy:** **`V1.00.354`** · mã commit **`<mã-nguồn-riêng>`** · nhánh `main`
+**Trước đợt này:** `V1.00.352` · commit `<mã-nguồn-riêng>`
 
 > Bản tin public-safe: chỉ nêu số lượng, mã kỹ thuật, tên bảng/màn hình. Không có thông tin đăng nhập,
 > không có dữ liệu khách hàng, không có số tiền thật.
@@ -13,14 +13,14 @@
 
 | Mốc | Mã commit | Nội dung |
 |---|---|---|
-| Trước phát hành | `fb8d6ea` | V1.00.352 — bản đang chạy trước đó |
-| **Phát hành 1** | **`ba40f3b`** | **V1.00.353** — go-live chuỗi bán hàng (4 đợt A·B·C·D) + ngày về chuẩn `DD/MM/YYYY` |
-| **Phát hành 2** | **`8cf0352`** | **V1.00.354** — quyền sửa biểu mẫu chỉ quản trị + tổng giám đốc, cấp bằng ô tick |
-| Sau phát hành | `d50fcea` | bộ kiểm khói máy vận hành (bổ sung màn Biểu Mẫu) |
+| Trước phát hành | `<mã-nguồn-riêng>` | V1.00.352 — bản đang chạy trước đó |
+| **Phát hành 1** | **`<mã-nguồn-riêng>`** | **V1.00.353** — go-live chuỗi bán hàng (4 đợt A·B·C·D) + ngày về chuẩn `DD/MM/YYYY` |
+| **Phát hành 2** | **`<mã-nguồn-riêng>`** | **V1.00.354** — quyền sửa biểu mẫu chỉ quản trị + tổng giám đốc, cấp bằng ô tick |
+| Sau phát hành | `<mã-nguồn-riêng>` | bộ kiểm khói máy vận hành (bổ sung màn Biểu Mẫu) |
 
 **Báo cáo công khai trước đó của chuỗi này:**
-- `THI-CONG-GOLIVE-BAN-HANG-DOT-A-D-20260823.md` — commit `3ccee00`
-- `RA-BIEU-MAU-VA-TRANG-THAI-PHAT-HANH-20260823.md` — commit `e7b5254`
+- `THI-CONG-GOLIVE-BAN-HANG-DOT-A-D-20260823.md` — commit `<mã-nguồn-riêng>`
+- `RA-BIEU-MAU-VA-TRANG-THAI-PHAT-HANH-20260823.md` — commit `<mã-nguồn-riêng>`
 
 ---
 
@@ -30,9 +30,9 @@
 
 | Bước | Kết quả |
 |---|---|
-| Kho mã sạch, khớp bản trên GitHub | ✅ `ba40f3b` = `ba40f3b` |
+| Kho mã sạch, khớp bản trên GitHub | ✅ `<mã-nguồn-riêng>` = `<mã-nguồn-riêng>` |
 | Sao lưu **MỚI** (cấm dùng bản cũ) | ✅ lấy lúc **13:35** — 18 MB, **101 bảng**; đợt 2 lấy lại lúc **16:08** |
-| Kế hoạch quay lui viết **TRƯỚC** | ✅ commit `71b7482` |
+| Kế hoạch quay lui viết **TRƯỚC** | ✅ commit `<mã-nguồn-riêng>` |
 | Diễn tập trên **bản sao mới** của dữ liệu vận hành | ✅ 101 bảng khôi phục = 101 bảng nguồn · **12/12 bảng trọng yếu khớp tuyệt đối số dòng** |
 | Chạy kiểm thử trên dữ liệu hình dạng thật | ✅ **118 điểm kiểm, 0 trượt** |
 | Nghiệm thu 12 điểm | ✅ **12/12 đạt cả hai lớp** (truy vấn thật + ảnh thật) |
@@ -62,7 +62,7 @@ màn đó, và **không có dấu hiệu lỗi trong chữ người dùng nhìn 
 
 | Chỉ số | Trước | Sau |
 |---|---|---|
-| Mã commit | `fb8d6ea` | **`8cf0352`** |
+| Mã commit | `<mã-nguồn-riêng>` | **`<mã-nguồn-riêng>`** |
 | Phiên bản | 352 | **354** |
 | Số bảng dữ liệu | 101 | **101** — *không đổi, đúng như cam kết 0 thay đổi cấu trúc* |
 | Tiến trình ứng dụng | đang chạy | **đang chạy** |
@@ -172,7 +172,7 @@ trong đợt V1.00.353.
 
 Cả hai đợt **không đổi cấu trúc dữ liệu** (101 bảng trước = 101 bảng sau), nên quay lui **chỉ cần đưa lại
 mã nguồn bản cũ** — **không phải hoàn tác dữ liệu**. Thời gian dự kiến **5–10 phút**.
-Mốc quay về: `fb8d6ea` (V1.00.352) hoặc `ba40f3b` (V1.00.353).
+Mốc quay về: `<mã-nguồn-riêng>` (V1.00.352) hoặc `<mã-nguồn-riêng>` (V1.00.353).
 Sáu ngưỡng bắt buộc quay lui và bảy đường kiểm khói đã chốt sẵn từ trước khi phát hành.
 
 ---

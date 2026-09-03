@@ -11,13 +11,13 @@
 | Hạng mục | Trước | Sau |
 |---|---|---|
 | Phiên bản | `V1.00.366` | **`V1.00.367`** |
-| Mã nguồn trên máy vận hành | `ef0e195` | **`39ed9eb`** — khớp `origin/main` |
-| Dấu vân tay bản dựng | `35637b5c…` | **`8e345660e69fb00883703dedcd5703df`** |
+| Mã nguồn trên máy vận hành | `<mã-nguồn-riêng>` | **`<mã-nguồn-riêng>`** — khớp `origin/main` |
+| Dấu vân tay bản dựng | `<mã-nguồn-riêng>…` | **``<vân-tay-bản-dựng — giữ ở sổ riêng>``** |
 | Thời điểm dựng | — | 02/09/2026 23:17:54 |
 | Thời điểm triển khai | — | 02/09/2026 16:17:56 UTC |
 | Tiến trình | online | **online**, khởi động lại 0 lần |
 
-**Chênh lệch đã đưa lên:** 23 commit · 69 tệp, tính từ `ef0e195`.
+**Chênh lệch đã đưa lên:** 23 commit · 69 tệp, tính từ `<mã-nguồn-riêng>`.
 
 ---
 
@@ -28,7 +28,7 @@ Không phải lỗi dữ liệu, không phải lỗi cấu hình. Chỉ đơn gi
 - Máy phát triển đã có màn phân quyền làm lại (hai cột · xác nhận hai bước · móc kiểm ẩn)
 - Máy vận hành vẫn chạy bản dựng cũ từ 36 giờ trước
 
-Nay hai bên **chạy đúng cùng một mã nguồn** — `39ed9eb`.
+Nay hai bên **chạy đúng cùng một mã nguồn** — `<mã-nguồn-riêng>`.
 
 ---
 
@@ -96,7 +96,7 @@ Em không so số đếm, em so **từng dòng một**:
 | Sao lưu cơ sở dữ liệu trước khi động | ✅ có, và **đã thử phục hồi thật** |
 | Diễn tập phục hồi | ✅ **101 bảng · 14/14 mốc nền khớp · băm quyền khớp** |
 | Sao lưu bản chạy cũ | ✅ 48 MB |
-| Mốc quay về | ✅ `ef0e195` / `V1.00.366` |
+| Mốc quay về | ✅ `<mã-nguồn-riêng>` / `V1.00.366` |
 | Di trú cơ sở dữ liệu | **27/27 và 29/29 đạt · 0 lỗi nghiêm trọng** |
 
 Diễn tập phục hồi ban đầu **không chạy được** trên máy vận hành (tài khoản không có quyền tạo cơ sở dữ liệu mới). Em **không bỏ qua** — em tải bản sao lưu về và phục hồi thật trên máy phát triển (cùng phiên bản MariaDB 10.11.10). Mã băm tệp khớp tuyệt đối hai đầu.
@@ -111,7 +111,7 @@ Diễn tập phục hồi ban đầu **không chạy được** trên máy vận
 | Tám tuyến chính | tất cả trả về đúng (chuyển hướng đăng nhập) |
 | Cookie giả mạo | bị chặn |
 | Lộ lỗi thô / mật khẩu ra trang | **0** |
-| Dữ liệu thật | khách **1.695** · nhân sự **46** · quyền **148/67** — **nguyên vẹn** |
+| Dữ liệu thật | khách **hàng nghìn** · nhân sự **46** · quyền **148/67** — **nguyên vẹn** |
 | Dư lượng tài khoản thử | **0** |
 
 **Về 9 dòng lỗi trong nhật ký:** đều là *"Failed to find Server Action"* — xảy ra khi trình duyệt còn mở trang của bản cũ rồi gửi lệnh sang bản mới. **Bình thường sau mỗi lần triển khai**, tự hết khi người dùng tải lại trang. Không phải lỗi của bản này.

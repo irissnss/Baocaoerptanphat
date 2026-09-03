@@ -36,14 +36,14 @@ cả tầng `/api` đi qua vô điều kiện. Tầng API không có cổng chun
 
 | Mục | Giá trị |
 |---|---|
-| SHA đang chạy trước khi vá | `0e73a7c` |
+| SHA đang chạy trước khi vá | `<mã-nguồn-riêng>` |
 | Nhánh vá | `hotfix/api-session-gate` |
-| Gốc của nhánh vá | **`0e73a7c`** — đúng commit đang chạy |
-| Commit lớp 1 | `a4d5f52` |
-| **SHA đã triển khai** | **`826817b`** |
+| Gốc của nhánh vá | **`<mã-nguồn-riêng>`** — đúng commit đang chạy |
+| Commit lớp 1 | `<mã-nguồn-riêng>` |
+| **SHA đã triển khai** | **`<mã-nguồn-riêng>`** |
 | Số commit kéo theo | **0** — không lấy khoảng cách 53 commit |
 
-Xác minh trước khi ghép: tệp cổng chung tại `0e73a7c` **byte-identical** với bản trước khi vá
+Xác minh trước khi ghép: tệp cổng chung tại `<mã-nguồn-riêng>` **byte-identical** với bản trước khi vá
 (mã băm khớp) ⇒ bản vá áp sạch, không có xung đột ngầm.
 
 ---
@@ -138,8 +138,8 @@ Owner nêu. Đã sửa sang ngữ nghĩa đúng: *"được xem ít nhất một
 | Bắt đầu | **2026-08-27T07:06:53Z** |
 | Kết thúc | **2026-08-27T07:08:56Z** |
 | Thời lượng | ~2 phút |
-| SHA trước | `0e73a7c` |
-| **SHA sau** | **`826817b`** |
+| SHA trước | `<mã-nguồn-riêng>` |
+| **SHA sau** | **`<mã-nguồn-riêng>`** |
 | Cách làm | chuyển sang đúng SHA đã kiểm → cài phụ thuộc → build → kích hoạt → khởi động lại |
 | Di trú / gieo dữ liệu / đồng bộ menu | **KHÔNG chạy** |
 

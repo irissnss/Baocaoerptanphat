@@ -2,7 +2,7 @@
 
 > **Ngày:** 23/08/2026 · **Loại:** DOC-ONLY 100% — **0 dòng mã ứng dụng bị sửa**
 > **Actor:** Agent IDE · **Lớp:** `docs/` · `.governance/registry/` — chỉ tài liệu
-> **Căn cứ:** Owner duyệt **11:13 23/08/2026**, quyết định `D-C1` → `D-D2` (15 quyết định), sau audit tổng lực `UI-AUDIT-TONG-LUC-20260823.md` (commit `0437aa5`)
+> **Căn cứ:** Owner duyệt **11:13 23/08/2026**, quyết định `D-C1` → `D-D2` (15 quyết định), sau audit tổng lực `UI-AUDIT-TONG-LUC-20260823.md` (commit `<mã-nguồn-riêng>`)
 > **Bàn giao:** Owner đọc → TanPhatAI đối chiếu 2 tầng
 
 ---
@@ -12,8 +12,8 @@
 | Mục | Lúc bắt đầu (P0) | Lúc kết thúc |
 |---|---|---|
 | Nhánh | `main` | `main` |
-| HEAD | `ffe01ce` | `ffe01ce` → **`f3fa88b`** → **`f1f07de`** |
-| `git log -1 -- docs/UI-STANDARD.md` | `aebab14` · 18/08/2026 23:47:58 | `f1f07de` · 23/08/2026 |
+| HEAD | `<mã-nguồn-riêng>` | `<mã-nguồn-riêng>` → **`<mã-nguồn-riêng>`** → **`<mã-nguồn-riêng>`** |
+| `git log -1 -- docs/UI-STANDARD.md` | `<mã-nguồn-riêng>` · 18/08/2026 23:47:58 | `<mã-nguồn-riêng>` · 23/08/2026 |
 | `git status --porcelain` | `?? scripts/tam/` (1 file untracked, **0 file tracked bị sửa**) | có việc của **phiên khác** — xem §5 |
 | Số dòng `docs/UI-STANDARD.md` | 371 | **462** |
 | Thời điểm | 06:49 | 11:56 |
@@ -94,9 +94,9 @@ Bộ nghiệm thu tái dùng, **57 tiêu chí**, dùng trọn **57/57**. Năm d�
 
 Bản 19/08 báo *"đã vá xong"*, khảo sát sáng 23/08 đo *"chưa vá"*. **Cả hai đều nói thật, ở hai thời điểm khác nhau:**
 
-- Khảo sát sáng đo trên bản `docs/UI-STANDARD.md` **177 dòng** (`15d5fef`, 18/08 10:54) — bản **lỗi thời**.
-- Lượt vá `aebab14` (18/08 23:47) nằm trên **nhánh riêng** `gov/2026-08-18-rules-ui-standard-upgrade`, chỉ vào `main` ngày **22/08 lúc 11:45** qua commit hợp nhất `215d119`.
-- Bản trong `main` khi khảo sát chạy là **371 dòng**; `git diff aebab14 HEAD -- docs/UI-STANDARD.md` → **TRỐNG**.
+- Khảo sát sáng đo trên bản `docs/UI-STANDARD.md` **177 dòng** (`<mã-nguồn-riêng>`, 18/08 10:54) — bản **lỗi thời**.
+- Lượt vá `<mã-nguồn-riêng>` (18/08 23:47) nằm trên **nhánh riêng** `gov/2026-08-18-rules-ui-standard-upgrade`, chỉ vào `main` ngày **22/08 lúc 11:45** qua commit hợp nhất `<mã-nguồn-riêng>`.
+- Bản trong `main` khi khảo sát chạy là **371 dòng**; `git diff <mã-nguồn-riêng> HEAD -- docs/UI-STANDARD.md` → **TRỐNG**.
 
 ⇒ **Bài học đã đưa thành cổng `N0.1`:** trước khi kết luận một tài liệu còn thiếu / còn mâu thuẫn, **phải kiểm mốc kho** (`git log -1 -- <file>`); nếu ngày sửa cuối cũ hơn commit hợp nhất gần nhất thì phải tra `git log --all -- <file>`.
 
@@ -112,7 +112,7 @@ Lệnh Owner ghi "55 tiêu chí" **và** yêu cầu thêm cổng `N0.5` (`D-T4`)
 
 ### 3.2 `DEBT-085` — `mx-auto` vi phạm thật chỉ **3 file**, không phải "23 chỗ / 16 file"
 
-Báo cáo audit ghi *"23 chỗ / 16 file"* — đó là **`grep "mx-auto"` thô**. Phân loại thủ công **23/23 dòng** tại commit `ffe01ce`:
+Báo cáo audit ghi *"23 chỗ / 16 file"* — đó là **`grep "mx-auto"` thô**. Phân loại thủ công **23/23 dòng** tại commit `<mã-nguồn-riêng>`:
 
 | Loại | Số | Ví dụ |
 |---|---|---|
@@ -123,7 +123,7 @@ Nếu dùng số 23, phiên sau sẽ đi "sửa" 20 chỗ vốn đúng. Đã ghi
 
 ### 3.3 Thiếu sót `GOV-EDIT-PRESERVE-001`, đã tự bắt và vá
 
-Sau commit `f3fa88b`, bước tự kiểm phát hiện **tiêu đề §10 cũ** (`## 10) PANEL CHI TIẾT (in-grid, KHÔNG drawer overlay)`) và **dòng `- Grid:`** bị thay mà **chưa lưu nguyên văn** xuống §21 — vi phạm yêu cầu 1 của luật. Đã vá bằng commit `f1f07de`: thêm 2 hàng §21, mỗi hàng kèm lý do + mã quyết định + nguyên văn dòng cũ. **Kiểm lại: 11/11 dòng bị thay đều có nguyên văn trong §21.**
+Sau commit `<mã-nguồn-riêng>`, bước tự kiểm phát hiện **tiêu đề §10 cũ** (`## 10) PANEL CHI TIẾT (in-grid, KHÔNG drawer overlay)`) và **dòng `- Grid:`** bị thay mà **chưa lưu nguyên văn** xuống §21 — vi phạm yêu cầu 1 của luật. Đã vá bằng commit `<mã-nguồn-riêng>`: thêm 2 hàng §21, mỗi hàng kèm lý do + mã quyết định + nguyên văn dòng cũ. **Kiểm lại: 11/11 dòng bị thay đều có nguyên văn trong §21.**
 
 ---
 
@@ -166,7 +166,7 @@ Dấu thời gian 11:38 / 11:49 / 11:52 — đây là **ĐỢT D (ma trận tick
 
 1. **Không chạm một file nào của họ.** Dùng `git add` **từng đường dẫn cụ thể** cho đúng 5 file tài liệu, **không dùng `git add -A`**. Kiểm sau khi stage: `git diff --cached --name-only | grep -E "^src/|^package.json|^scripts/|^migrations/"` → **0 kết quả**.
 2. **`.governance/acceptance/` KHÔNG được stage** — thư mục này nằm ngoài lớp được phép của tôi (`docs/` · `.governance/registry/` · `docs/reports/`), và là việc của họ.
-3. **Một chồng lấn không tránh được, khai rõ:** họ cũng ghi vào `.governance/registry/tech-debt.md` (thêm `DEBT-089`, `DEBT-090`). Git đóng gói theo **trạng thái file**, không theo tác giả ⇒ commit `f3fa88b` của tôi **có mang theo 2 dòng nợ đó**. Đã kiểm `git diff --numstat` → **9 thêm / 0 xoá**, **không dòng nào bị mất**.
+3. **Một chồng lấn không tránh được, khai rõ:** họ cũng ghi vào `.governance/registry/tech-debt.md` (thêm `DEBT-089`, `DEBT-090`). Git đóng gói theo **trạng thái file**, không theo tác giả ⇒ commit `<mã-nguồn-riêng>` của tôi **có mang theo 2 dòng nợ đó**. Đã kiểm `git diff --numstat` → **9 thêm / 0 xoá**, **không dòng nào bị mất**.
 4. **`DEBT-089` do họ ghi là về chính việc của tôi** — họ ghi lúc `UI-STANDARD.md` §0 đã trỏ tới `docs/UI-ACCEPTANCE-CHECKLIST.md` mà file **chưa tồn tại** (khoảnh khắc giữa lúc tôi sửa SSOT và lúc tôi tạo checklist). **File nay đã tồn tại** ⇒ `DEBT-089` **đã được giải quyết ngay trong lượt này**. Tôi **không sửa dòng nợ của phiên khác** — trình Owner để họ hoặc Owner đóng.
 
 **Rủi ro còn lại cần Owner biết:** hai phiên cùng ghi vào một sổ nợ và cùng cấp mã tăng dần **không có cơ chế khoá** — đây đúng là cơ chế đã sinh ra 5 mã trùng (`DEBT-030/031/032/066/067`, `DEBT-082`). Lần này may mắn không trùng (tôi 083–088, họ 089–090), nhưng **là may, không phải do cơ chế**.
@@ -188,12 +188,12 @@ Dấu thời gian 11:38 / 11:49 / 11:52 — đây là **ĐỢT D (ma trận tick
 
 | Kiểm | Kết quả |
 |---|---|
-| 5 file governance **không đổi** | ✅ hash trước = sau = `3e5d3d282fdd3bb796627e5c622e3ad4c380fad8` (cả 5 file, 1 hash duy nhất) |
+| 5 file governance **không đổi** | ✅ hash trước = sau = `<mã-nguồn-riêng>` (cả 5 file, 1 hash duy nhất) |
 | File đã chạm **100% trong `docs/` hoặc `.governance/registry/`** | ✅ đúng 5 file |
 | **0 file `src/`** trong commit | ✅ `git diff --cached --name-only \| grep "^src/"` → 0 |
 | 13 chuỗi quyết định mới tồn tại trong SSOT | ✅ `D-Q1(c)` `D-Q2(b)` `D-Q3(b)` `D-Q7` `D-Q8(a)` `D-Q9(a)` `D-T1` `D-T2` `D-T3` `20.7-B` `20.7-C` `OPEN-N2` `M9 slate→gray` — đều ≥1 |
 | Tham chiếu bắt buộc tồn tại thật (`GOV-REF-EXISTS-001`) | ✅ `docs/UI-ACCEPTANCE-CHECKLIST.md` đã tồn tại, tên khớp dòng trỏ ở §0 |
-| Bảo toàn nội dung (`GOV-EDIT-PRESERVE-001`) | ✅ **11/11** dòng bị thay đều có nguyên văn trong §21 *(sau khi vá bằng `f1f07de` — xem §3.3)* |
+| Bảo toàn nội dung (`GOV-EDIT-PRESERVE-001`) | ✅ **11/11** dòng bị thay đều có nguyên văn trong §21 *(sau khi vá bằng `<mã-nguồn-riêng>` — xem §3.3)* |
 | Đếm tiêu chí nghiệm thu | ✅ **57**, khớp số ghi trong file |
 | Pre-commit | ✅ **XANH** cả 2 lần: `test:secret-scan` PASS · `test:pii-scan` PASS · `test:script-parse` PASS |
 
@@ -210,7 +210,7 @@ Dấu thời gian 11:38 / 11:49 / 11:52 — đây là **ĐỢT D (ma trận tick
 - `.governance/registry/tech-debt.md`: thêm **DEBT-083 → 088**, cấp từ 083 (mã lớn nhất trước đó 082), **không đụng 5 mã đang trùng**.
 - `docs/OWNER-REQUEST-LEDGER.md`: thêm mục **#126 · #127 · #128**.
 - Tạo mới `docs/UI-ACCEPTANCE-CHECKLIST.md` — **57 tiêu chí**, dùng trọn 57/57.
-- **Tự phát hiện và sửa 3 sai số của chính mình**: số tiêu chí là 57 chứ không phải 55 · `DEBT-085` chỉ 3 file vi phạm chứ không phải 23 chỗ · thiếu lưu nguyên văn 2 dòng cũ của §10 (vá bằng commit riêng `f1f07de`).
+- **Tự phát hiện và sửa 3 sai số của chính mình**: số tiêu chí là 57 chứ không phải 55 · `DEBT-085` chỉ 3 file vi phạm chứ không phải 23 chỗ · thiếu lưu nguyên văn 2 dòng cũ của §10 (vá bằng commit riêng `<mã-nguồn-riêng>`).
 
 **2. PHẠM VI**
 
@@ -219,24 +219,24 @@ Dấu thời gian 11:38 / 11:49 / 11:52 — đây là **ĐỢT D (ma trận tick
 
 **3. BẰNG CHỨNG**
 
-- `git hash-object` × 5 file governance, trước và sau → **cùng `3e5d3d282fdd3bb796627e5c622e3ad4c380fad8`** → `FILE_PROVEN`.
+- `git hash-object` × 5 file governance, trước và sau → **cùng `<mã-nguồn-riêng>`** → `FILE_PROVEN`.
 - `git diff --cached --name-only` → đúng 5 file; `grep -E "^src/|^package.json|^scripts/|^migrations/"` → **0 kết quả** → `FILE_PROVEN`.
 - `git diff --numstat .governance/registry/tech-debt.md` → **9 thêm / 0 xoá** (6 của tôi + 3 của phiên khác, **không mất dòng nào**) → `FILE_PROVEN`.
-- `git grep -n "mx-auto" ffe01ce -- 'src/app/**client*.tsx'` → 23 dòng, **phân loại thủ công 23/23**: 3 vi phạm thật + 20 hợp lệ → `CODE_PROVEN`.
+- `git grep -n "mx-auto" <mã-nguồn-riêng> -- 'src/app/**client*.tsx'` → 23 dòng, **phân loại thủ công 23/23**: 3 vi phạm thật + 20 hợp lệ → `CODE_PROVEN`.
 - `grep -cE "^\| \*?\*?N[0-9]\.[0-9]" docs/UI-ACCEPTANCE-CHECKLIST.md` → **57** → `FILE_PROVEN`.
 - Pre-commit chạy thật 2 lần: `test:secret-scan` PASS · `test:pii-scan` PASS · `test:script-parse` PASS → `RUNTIME_PROVEN` cho phần cổng quản trị.
-- ⚠️ **KHÔNG có `UI_PROVEN`** — lượt này không chạm mã, không chạy ứng dụng, không chụp ảnh. Mọi số đo giao diện là **đọc mã**, tính đến commit `ffe01ce`.
+- ⚠️ **KHÔNG có `UI_PROVEN`** — lượt này không chạm mã, không chạy ứng dụng, không chụp ảnh. Mọi số đo giao diện là **đọc mã**, tính đến commit `<mã-nguồn-riêng>`.
 
 **4. GHI SỔ YÊU CẦU OWNER**
 
-- ✅ **ĐÃ GHI — mục #126 · #127 · #128** trong `docs/OWNER-REQUEST-LEDGER.md`, commit `f3fa88b`.
+- ✅ **ĐÃ GHI — mục #126 · #127 · #128** trong `docs/OWNER-REQUEST-LEDGER.md`, commit `<mã-nguồn-riêng>`.
 - *(Đây là khoản nợ của phiên audit sáng nay: lượt đó bị lệnh phiên cấm sửa file trong kho mã nên trường 4 phải ghi "CHƯA". Nay đã ghi đủ cả ba mục còn nợ.)*
 
 **5. PUSH BÁO CÁO CÔNG KHAI**
 
-- ✅ **ĐÃ PUSH** — kho `Baocaoerptanphat` · nhánh `main` · file `UI-DOC-CHOT-CHUAN-20260823.md` · commit **`ae9eb13e106c0a93333fe52360453e51af24e0e6`** (`ae9eb13`).
+- ✅ **ĐÃ PUSH** — kho `Baocaoerptanphat` · nhánh `main` · file `UI-DOC-CHOT-CHUAN-20260823.md` · commit **`<mã-nguồn-riêng>`** (`<mã-nguồn-riêng>`).
 - *(Bản này là lượt đẩy thứ hai, chỉ điền mã commit thật vào trường 5 — nội dung báo cáo không đổi.)*
-- **Commit trong kho mã (docs-only):** `f3fa88b919f90b5f244a2bfda514635ce5ace557` (chính) và `f1f07de8834be55b63973e8f1b80e574cead0dc3` (vá bảo toàn §10). Cả hai đã push, `local = origin/main`.
+- **Commit trong kho mã (docs-only):** `<mã-nguồn-riêng>` (chính) và `<mã-nguồn-riêng>` (vá bảo toàn §10). Cả hai đã push, `local = origin/main`.
 
 **6. CÒN SÓT / CHƯA LÀM**
 
@@ -278,6 +278,6 @@ Dấu thời gian 11:38 / 11:49 / 11:52 — đây là **ĐỢT D (ma trận tick
 - Phiên có bị nén ngữ cảnh không: **KHÔNG**.
 - **Nhưng kho đã dịch chuyển trong lúc làm** — một phiên khác sửa 5 file `src/` và ghi thêm 2 dòng vào cùng sổ nợ tôi đang ghi. Đã xử lý bằng `git add` từng đường dẫn và kiểm lại trạng thái trước khi commit (§5).
 - **Tài liệu tham chiếu đã đọc lại TỪ ĐĨA trong lượt này** (không dùng trí nhớ từ lượt audit trước): `docs/UI-STANDARD.md` (đọc lại từng đoạn §2 §5 §7 §8 §10 §11 §14 §18 §20.5 §20.7 §21 trước mỗi lần sửa) · `.governance/registry/ui-standard-sources.md` · `.governance/registry/tech-debt.md` · `docs/OWNER-REQUEST-LEDGER.md` · 7 file `SKILL.md` của các kỹ năng cần phân loại nhãn · `src/components/foundation/page-header.tsx` (chỉ đọc, để đối chứng `OPEN-N2` và M9).
-- **Cảnh báo cho phiên sau:** chạy lại **N0.1** trước khi dùng bất kỳ số liệu nào trong báo cáo này. Kho đang có việc dở của phiên khác; HEAD lúc tôi kết thúc là **`f1f07de`**.
+- **Cảnh báo cho phiên sau:** chạy lại **N0.1** trước khi dùng bất kỳ số liệu nào trong báo cáo này. Kho đang có việc dở của phiên khác; HEAD lúc tôi kết thúc là **`<mã-nguồn-riêng>`**.
 
 ═══════════════════════════════════════════

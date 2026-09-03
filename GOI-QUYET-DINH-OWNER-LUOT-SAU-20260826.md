@@ -168,7 +168,7 @@ Nói thẳng để anh biết trạng thái thật:
 | Đơn hàng — nguồn công nợ chuẩn để chốt *"đã thu đủ"* | ⏸️ CHƯA |
 | Nạp dữ liệu trong ứng dụng — 2 đường chưa có ngưỡng | ⏸️ CHƯA |
 | Bảng công thức đầy đủ cho **40 nhóm sản phẩm** | ⏸️ CHƯA |
-| Gán người phụ trách 1.692 khách — đo các tín hiệu | ⏸️ CHƯA |
+| Gán người phụ trách gần như toàn bộ khách — đo các tín hiệu | ⏸️ CHƯA |
 | Quyền Trưởng phòng Sản xuất | ⏸️ CHƯA |
 | Giao diện phân quyền · quản lý tài khoản | ⏸️ CHƯA |
 

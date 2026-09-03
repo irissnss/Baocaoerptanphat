@@ -14,14 +14,14 @@
 
 | Đo | Giá trị |
 |---|---|
-| HEAD kho riêng (đầu lượt) | `c000790` |
-| HEAD kho riêng (cuối lượt) | `d0de737` |
-| Commit đang chạy trên máy vận hành | `0e73a7c` |
+| HEAD kho riêng (đầu lượt) | `<mã-nguồn-riêng>` |
+| HEAD kho riêng (cuối lượt) | `<mã-nguồn-riêng>` |
+| Commit đang chạy trên máy vận hành | `<mã-nguồn-riêng>` |
 | Khoảng cách local ↔ vận hành | local đi trước **53 commit**, vận hành đi trước **0** |
 | Rẽ nhánh | **KHÔNG** — commit vận hành là **tổ tiên** của local |
 
-> ⚠️ **Một lệch với bản bàn giao, đã đo lại và báo:** bản bàn giao ghi *"single writer tại HEAD `63fd032`"*.
-> Đo thật đầu lượt là `c000790`. Nguyên nhân **không phải người ghi song song** mà là ba commit của chính
+> ⚠️ **Một lệch với bản bàn giao, đã đo lại và báo:** bản bàn giao ghi *"single writer tại HEAD `<mã-nguồn-riêng>`"*.
+> Đo thật đầu lượt là `<mã-nguồn-riêng>`. Nguyên nhân **không phải người ghi song song** mà là ba commit của chính
 > lượt trước đã đẩy HEAD lên. Hai lần đo cách nhau 25 giây cho kết quả **giống hệt**, cây làm việc sạch,
 > local = từ xa ⇒ **người ghi duy nhất: xác nhận**.
 
@@ -395,7 +395,7 @@ không có bí mật, không có họ tên người, không có địa chỉ th�
 
 5. PUSH BÁO CÁO CÔNG KHAI
    [x] ĐÃ PUSH — kho Baocaoerptanphat · file PHASE1-BATCH1-M0-RBAC-MENU-20260826.md
-       Kho riêng: 942a07f (bảo mật) · 643d60b (USER) · d0de737 (giá vốn) + commit này
+       Kho riêng: <mã-nguồn-riêng> (bảo mật) · <mã-nguồn-riêng> (USER) · <mã-nguồn-riêng> (giá vốn) + commit này
 
 6. CÒN SÓT / CHƯA LÀM
    - DEBT-120: ĐỔI MẬT KHẨU QUẢN TRỊ — cần Owner làm, hạn 27/08. Gỡ tệp CHƯA ĐỦ
@@ -437,6 +437,6 @@ không có bí mật, không có họ tên người, không có địa chỉ th�
      - .governance/registry/tech-debt.md · docs/OWNER-REQUEST-LEDGER.md
      - package.json (chuỗi cổng) · .env.deploy (chỉ tên khoá, KHÔNG đọc giá trị)
    Không kết luận nào dựa vào trí nhớ từ trước nén; hai commit được bàn giao
-   (31e2407 · c000790) đã đọc lại diff thật trước khi dùng.
+   (<mã-nguồn-riêng> · <mã-nguồn-riêng>) đã đọc lại diff thật trước khi dùng.
 ═══════════════════════════════════════════
 ```

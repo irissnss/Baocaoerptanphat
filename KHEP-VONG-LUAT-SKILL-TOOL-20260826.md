@@ -123,11 +123,11 @@ Kèm sửa một lỗi hiển thị lặp chữ trong dòng báo.
 
 | Bản | Mã băm (16 ký tự đầu) | Cỡ | Số dòng | Commit |
 |---|---|---|---|---|
-| `AGENTS.md` | `d100fae2cb03172d` | 117 864 B | 2 304 | `d9e823a` |
-| `CLAUDE.md` | `d100fae2cb03172d` | 117 864 B | 2 304 | `d9e823a` |
-| `.cursorrules` | `d100fae2cb03172d` | 117 864 B | 2 304 | `d9e823a` |
-| `.antigravityrules` | `d100fae2cb03172d` | 117 864 B | 2 304 | `d9e823a` |
-| `GEMINI.md` | `d100fae2cb03172d` | 117 864 B | 2 304 | `d9e823a` |
+| `AGENTS.md` | `<mã-nguồn-riêng>` | 117 864 B | 2 304 | `<mã-nguồn-riêng>` |
+| `CLAUDE.md` | `<mã-nguồn-riêng>` | 117 864 B | 2 304 | `<mã-nguồn-riêng>` |
+| `.cursorrules` | `<mã-nguồn-riêng>` | 117 864 B | 2 304 | `<mã-nguồn-riêng>` |
+| `.antigravityrules` | `<mã-nguồn-riêng>` | 117 864 B | 2 304 | `<mã-nguồn-riêng>` |
+| `GEMINI.md` | `<mã-nguồn-riêng>` | 117 864 B | 2 304 | `<mã-nguồn-riêng>` |
 
 **5/5 trùng khớp từng byte.** Cùng bản tài liệu `2.8`, cùng kết thúc dòng, cùng commit.
 Kiến trúc năm bản sao **còn nguyên**.
@@ -265,7 +265,7 @@ mã nguồn, không có bí mật, không có dữ liệu cá nhân, không có 
    Kiểm ngược DEBT-105 (2 cổng × 2 chiều) → 4/4 đạt → RUNTIME_PROVEN
    Kiểm ngược DEBT-106 song song bản cũ/bản vá trên cùng đầu ra sai → 0 vs 1 → RUNTIME_PROVEN
    Kiểm ngược DEBT-107 phạm vi miễn trừ → 2/2 đạt → RUNTIME_PROVEN
-   sha256sum trên 5 bản sao luật → 5/5 trùng d100fae2cb03172d → FILE_PROVEN
+   sha256sum trên 5 bản sao luật → 5/5 trùng <mã-nguồn-riêng> → FILE_PROVEN
    Gọi thật Context7 resolve-library-id → trả kết quả → RUNTIME_PROVEN
 
 4. GHI SỔ YÊU CẦU OWNER
@@ -275,8 +275,8 @@ mã nguồn, không có bí mật, không có dữ liệu cá nhân, không có 
        Hai việc CHỜ OWNER QUYẾT (DEBT-116 · DEBT-119) đã nằm trong sổ nợ kỹ thuật.
 
 5. PUSH BÁO CÁO CÔNG KHAI
-   [x] ĐÃ PUSH — kho Baocaoerptanphat · commit 165c821 · file KHEP-VONG-LUAT-SKILL-TOOL-20260826.md
-       Kho riêng: commit 912563d (vá cổng) + f323f27 (DEBT-119 + báo cáo)
+   [x] ĐÃ PUSH — kho Baocaoerptanphat · commit <mã-nguồn-riêng> · file KHEP-VONG-LUAT-SKILL-TOOL-20260826.md
+       Kho riêng: commit <mã-nguồn-riêng> (vá cổng) + <mã-nguồn-riêng> (DEBT-119 + báo cáo)
 
 6. CÒN SÓT / CHƯA LÀM
    - DEBT-116 quét HỌ TÊN THẬT — 5 tệp còn dính. CHỜ OWNER quyết hướng (rủi ro báo nhầm cao)

@@ -1,7 +1,7 @@
 # NẠP 3 DANH MỤC NỀN LÊN HỆ THỐNG VẬN HÀNH + KHỞI TẠO TÀI KHOẢN
 
 **Ngày:** 22/08/2026 · **Loại:** đợt **DỮ LIỆU** (không phát hành phiên bản mới; hệ thống vẫn V1.00.351)
-**Mã ghi nhận (commit):** `bb5a705` · đợt nạp dữ liệu: `e02da78`
+**Mã ghi nhận (commit):** `<mã-nguồn-riêng>` · đợt nạp dữ liệu: `<mã-nguồn-riêng>`
 
 > Bản tin public-safe: chỉ nêu **SỐ LƯỢNG** và định danh kỹ thuật. Không có tên người, số điện thoại,
 > địa chỉ, email, thông tin đăng nhập hay giá trị tiền.
@@ -13,11 +13,11 @@
 | Danh mục | Vào | Ra | Bỏ qua | Lỗi |
 |---|---|---|---|---|
 | Nhân viên | 16 | **16** | 0 | **0%** |
-| Khách hàng | 1.692 | **1.692** | 0 | **0%** |
+| Khách hàng | gần như toàn bộ | **gần như toàn bộ** | 0 | **0%** |
 | Nhà cung cấp | 109 | **109** | 0 | **0%** |
 
 **Số dư sau khi nạp:** nhân viên tổng **46** (16 hồ sơ thật = 14 đang làm + 2 đã nghỉ · 30 hồ sơ nháp cũ
-đã chuyển lưu trữ) · khách hàng tổng **1.695** · liên hệ khách hàng **1.896** · địa chỉ khách hàng **2.012** ·
+đã chuyển lưu trữ) · khách hàng tổng **hàng nghìn** · liên hệ khách hàng **hàng nghìn** · địa chỉ khách hàng **hàng nghìn** ·
 nhà cung cấp tổng **110** kèm **109** địa chỉ + **109** liên hệ.
 
 **Kiểm chứng sau nạp:** tỷ lệ nhận diện tỉnh/thành **98,16%** · không có khách hàng nào thuộc người đã nghỉ ·
@@ -53,7 +53,7 @@ riêng vị trí khoá theo (tên vị trí + tên phòng ban) vì tên vị tr�
 
 ## 3. Dry-run từng nói dối — đã sửa
 
-Bảng "chạy thử" trình cho Chủ sở hữu duyệt báo **3.336** liên hệ, trong khi đường ghi thật chỉ tạo **1.893**
+Bảng "chạy thử" trình cho Chủ sở hữu duyệt báo **hàng nghìn** liên hệ, trong khi đường ghi thật chỉ tạo **1.893**
 (vì đường ghi thật có bước gộp trùng mà nhánh chạy thử bỏ qua). Dry-run chính là **cổng duyệt**, nên sai số
 ở đó làm mất luôn giá trị của cổng. Đã tách phần gộp trùng thành một hàm dùng chung cho cả hai nhánh.
 
@@ -62,7 +62,7 @@ Bảng "chạy thử" trình cho Chủ sở hữu duyệt báo **3.336** liên h
 ## 4. Gán người phụ trách và khởi tạo tài khoản
 
 - **Người phụ trách khách hàng:** nguồn dữ liệu cũ **không có** trường này, nên toàn bộ khách nhập về đều
-  trống. Theo quyết định của Chủ sở hữu, **1.692** khách được gán tạm về một hồ sơ để không có khách "vô chủ";
+  trống. Theo quyết định của Chủ sở hữu, **gần như toàn bộ** khách được gán tạm về một hồ sơ để không có khách "vô chủ";
   đây là **gán tạm**, sẽ phân bổ lại cho đội kinh doanh sau. Có sao lưu bảng trước khi gán; sau khi gán:
   **0 khách còn trống · 0 khoá ngoại mồ côi · tổng số khách không đổi**.
 - **Nhà cung cấp:** bảng nhà cung cấp **không có** cột người phụ trách. Theo thiết kế đã khoá, **không tự
@@ -95,6 +95,6 @@ việc**; một hồ sơ **đã nghỉ việc bị lọc ra đúng** như bản 
 | Đổi mật khẩu tài khoản quản trị | Ứng dụng **đã có** màn đổi mật khẩu → Chủ sở hữu tự đổi. Chưa ghi hoàn tất vì việc đổi chưa xảy ra |
 | Bảng phân vai trò | **Lệch** giữa con số nêu ra và dữ liệu đang chạy (tổng số lượt gán thì khớp). Chủ sở hữu sẽ chỉ đích danh; hệ thống **giữ nguyên**, không tự sửa |
 | 7 hồ sơ chưa có tài khoản | Chờ cấp email riêng |
-| 1.692 khách gán tạm một người | Chờ phân bổ cho đội kinh doanh |
+| gần như toàn bộ khách gán tạm một người | Chờ phân bổ cho đội kinh doanh |
 | Nhà cung cấp chưa có cột phụ trách | Chờ quyết định có mở đợt đổi lược đồ hay không |
 | Kiểm kiểu chưa phủ thư mục kịch bản | Cổng mới chỉ bắt lỗi cú pháp, chưa bắt lỗi kiểu |

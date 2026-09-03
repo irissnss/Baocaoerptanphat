@@ -14,9 +14,9 @@
 
 | Câu hỏi | Trả lời | Bằng chứng |
 |---|---|---|
-| Đã push hết chưa? | **RỒI — cả hai kho, không còn gì** | Kho mã `3292bb0` · kho công khai `c648762` · cả hai `0 ahead / 0 behind` · cây làm việc sạch |
+| Đã push hết chưa? | **RỒI — cả hai kho, không còn gì** | Kho mã `<mã-nguồn-riêng>` · kho công khai `<mã-nguồn-riêng>` · cả hai `0 ahead / 0 behind` · cây làm việc sạch |
 | Tương tác trực tiếp đã thành bảng chưa? | **RỒI — 154 mục, không trùng mã** | `test:ledger-dup-id` PASS 5/5 · mã kế tiếp an toàn `#155` |
-| Có cần thêm luật vào bộ 5 tệp quản trị? | **KHÔNG — luật đã đủ và đúng** | §F1b (20/08) + §F1c (25/08) phủ đúng · Doc `2.8` · 5 tệp byte-identical `d100fae2` · **16/16 cổng PASS** |
+| Có cần thêm luật vào bộ 5 tệp quản trị? | **KHÔNG — luật đã đủ và đúng** | §F1b (20/08) + §F1c (25/08) phủ đúng · Doc `2.8` · 5 tệp byte-identical `<mã-nguồn-riêng>` · **16/16 cổng PASS** |
 
 ## I.2 Kết luận cốt lõi — một câu
 
@@ -47,8 +47,8 @@
 
 | Kho | HEAD | Chưa push | Chưa kéo về | Cây làm việc |
 |---|---|---:|---:|---|
-| Kho mã *(riêng tư)* | `3292bb0` | **0** | **0** | sạch |
-| Kho báo cáo *(công khai)* | `c648762` | **0** | **0** | sạch · **91 tệp** |
+| Kho mã *(riêng tư)* | `<mã-nguồn-riêng>` | **0** | **0** | sạch |
+| Kho báo cáo *(công khai)* | `<mã-nguồn-riêng>` | **0** | **0** | sạch · **91 tệp** |
 
 **Nhánh:** `main` + 3 nhánh cũ — **cả 3 có `0` commit lệch `main` và `0` tệp khác biệt** ⇒ xoá an toàn.
 
@@ -58,7 +58,7 @@
 |---|---|
 | Doc version | **2.8** |
 | 5 tệp replica | `CLAUDE.md` · `AGENTS.md` · `GEMINI.md` · `.cursorrules` · `.antigravityrules` |
-| Parity SHA-256 | **`d100fae2cb03172d…` × 5/5 — byte-identical** |
+| Parity SHA-256 | **`<mã-nguồn-riêng>…` × 5/5 — byte-identical** |
 | Điều khoản | **399** *(38 mã luật + 361 heading)* · **mốc cổng đang 386** ⇒ cần đóng lại |
 | 4 luật mới chưa đóng mốc | `GOV-NOTION-HANDOFF-001` · `GOV-SECRET-LOCATION-001` · `GOV-SESSION-DECISION-001` · `GOV-SKILL-CONTENT-STATUS-001` |
 
@@ -129,7 +129,7 @@ Chín phiên nhận **cùng một tin nhắn** lúc **14:10–14:14**.
 
 **Nhóm A · bước 1** đề xuất *"vá cổng quét dữ liệu cá nhân trước — thêm cờ `-z`"*.
 
-**Sự thật:** đã hoàn tất **23/08/2026 lúc 14:36**, commit `1f5e379`.
+**Sự thật:** đã hoàn tất **23/08/2026 lúc 14:36**, commit `<mã-nguồn-riêng>`.
 
 **Vì sao đo sai:** phiên đó đếm chuỗi `-z` **trong tệp cổng** → ra `0`. Nhưng bản vá đã được **rút ra tệp dùng chung** `scripts/tests/lib/tracked-files.mjs` (dòng 38), nơi **4 cổng** cùng gọi: `pii-scan` · `secret-scan` · `path-audit` · `script-parse`.
 
@@ -143,11 +143,11 @@ Chín phiên nhận **cùng một tin nhắn** lúc **14:10–14:14**.
 
 | Phiên báo | HEAD kho mã | HEAD kho công khai |
 |---|---|---|
-| `ccc761` · `44ea19` | `d9e823a` | `f222599` / `e842f53` |
-| `07f81b` | `27fda56` + `93605dd` | `671e401` |
-| `cdc70c` | `a7db8a7` | `1188dcb` |
-| `5d184f` | *(không đụng)* | `ea5f7ec` |
-| **Chốt 15:05** | **`3292bb0`** | **`c648762`** |
+| `ccc761` · `44ea19` | `<mã-nguồn-riêng>` | `<mã-nguồn-riêng>` / `<mã-nguồn-riêng>` |
+| `07f81b` | `<mã-nguồn-riêng>` + `<mã-nguồn-riêng>` | `<mã-nguồn-riêng>` |
+| `cdc70c` | `<mã-nguồn-riêng>` | `<mã-nguồn-riêng>` |
+| `5d184f` | *(không đụng)* | `<mã-nguồn-riêng>` |
+| **Chốt 15:05** | **`<mã-nguồn-riêng>`** | **`<mã-nguồn-riêng>`** |
 
 Trong **30 phút**, kho mã đi qua **4 mốc**, kho công khai đi qua **6 mốc**. Không phiên nào báo sai.
 
@@ -254,7 +254,7 @@ Registry *(ghi sáng 25/08)* ghi `LOCAL_RUNTIME_OBSERVED = ⛔ BLOCKED_SAFE_STAR
 | Nợ | Nội dung |
 |---|---|
 | `DEBT-069` | Đợt nạp production 22/08 chạy **khi ngưỡng tỉ lệ lỗi CHƯA được chốt** — §G7.12 ghi *"chưa chốt = BLOCK_ALL"*. Lỗi 0% là **may**, không phải cổng hoạt động |
-| `DEBT-060` | **1.692 khách hàng** đang gán tạm cho **một người** |
+| `DEBT-060` | **gần như toàn bộ khách hàng** đang gán tạm cho **một người** |
 | `DEBT-061` | Bảng nhà cung cấp **không có cột người phụ trách** |
 | `DEBT-036` · `DEBT-037` · `DEBT-077` | Hạn ghi *"trước khi nạp NCC"* nhưng NCC **đã nạp xong** ⇒ hạn vô nghĩa |
 
@@ -368,7 +368,7 @@ DEBT-016/076   DEBT-044       DEBT-039/029/038
 
 | # | Việc | Nợ | Ghi chú |
 |---|---|---|---|
-| ~~2.0~~ | ~~Vá cổng thêm `-z`~~ | `DEBT-067-B` | ❌ **GẠCH BỎ — đã xong 23/08 commit `1f5e379`** |
+| ~~2.0~~ | ~~Vá cổng thêm `-z`~~ | `DEBT-067-B` | ❌ **GẠCH BỎ — đã xong 23/08 commit `<mã-nguồn-riêng>`** |
 | **2.1** | **Gỡ tệp dữ liệu KH/NCC khỏi git** | `DEBT-066-B` | `git rm --cached` *(giữ tệp trên máy)* + `.gitignore` + **xác nhận bằng `git check-ignore -q`** |
 | **2.2** | **Mở kiểm nội dung 2 tệp nghi dữ liệu thật** | `DEBT-091` | Có PII ⇒ gỡ như 2.1. Không có ⇒ giữ + khai vào bản đồ thư mục |
 | **2.3** | **Quyết 3 tệp biểu mẫu còn lại** | `DEBT-091` | Đề xuất **GIỮ** + khai vào bản đồ thư mục |
@@ -398,7 +398,7 @@ Thứ tự **bắt buộc**: `DEBT-043` → `DEBT-042` → `DEBT-044`.
 | **4.1** | **`DEBT-039` làm TRƯỚC** — lệch độ rộng cột | có thể **cắt cụt dữ liệu khi ghi** |
 | **4.2** | **Hồi tố hợp thức hoá đợt nạp 22/08** — ghi ngoại lệ có lý do. **KHÔNG hoàn tác** *(lỗi 0%, dữ liệu đúng)* | `DEBT-069` |
 | **4.3** | **Chốt ngưỡng lỗi cho đợt sau** — đề xuất **2%** | `DEBT-069` |
-| **4.4** | **Phân bổ người phụ trách cho 1.692 khách hàng** — chỉ chủ dự án làm được | `DEBT-060` |
+| **4.4** | **Phân bổ người phụ trách cho gần như toàn bộ khách hàng** — chỉ chủ dự án làm được | `DEBT-060` |
 | **4.5** | **Thêm cột người phụ trách cho nhà cung cấp** — migration nhỏ, nullable | `DEBT-061` |
 | **4.6** | **Hạ hạn `DEBT-036/037`** xuống *"trước đợt nạp kế tiếp"* | `DEBT-077` |
 | **4.7** | **Gắn nhãn hiệu lực** cho hai lớp tài liệu chồng nhau | `DEBT-029` · `DEBT-038` |

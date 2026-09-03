@@ -79,7 +79,7 @@ Nếu thấy chữ ký **Agent IDE (Cursor) / Cursor Grok 4.6** trên báo cáo 
 | `CLAUDE.md` | `c009a4d7378dfa8f53ee45329e3c95a976054a4f165d1394eac1dd6f3185b431` | 1128 | Khớp 5 file |
 | `GEMINI.md` | `c009a4d7378dfa8f53ee45329e3c95a976054a4f165d1394eac1dd6f3185b431` | 1128 | Khớp 5 file |
 
-**`RULESET_PARITY = PASS`** — một mã băm duy nhất. Khớp sổ Owner mục #51 (`c009a4d7…`).
+**`RULESET_PARITY = PASS`** — một mã băm duy nhất. Khớp sổ Owner mục #51 (`<mã-nguồn-riêng>…`).
 
 ### Cách hiểu đúng (tránh nhầm)
 
@@ -166,7 +166,7 @@ Hai luật khép phiên (`GOV-COMPLETION-REPORT-001`, `GOV-DONE-DEFINITION-001`)
 ## Chữ ký đóng báo cáo
 
 **Agent IDE (Cursor)** · model **Cursor Grok 4.6** · 16/08/2026  
-Đã trả lời 2 câu probe theo luật đang chạy trên đĩa (parity PASS, sha256 `c009a4d7…`).
+Đã trả lời 2 câu probe theo luật đang chạy trên đĩa (parity PASS, sha256 `<mã-nguồn-riêng>…`).
 
 ---
 
@@ -174,9 +174,9 @@ Hai luật khép phiên (`GOV-COMPLETION-REPORT-001`, `GOV-DONE-DEFINITION-001`)
 
 1. **ĐÃ LÀM** — trả lời 2 câu probe; ghi sổ Owner #53; viết + đẩy báo cáo công khai kèm chữ ký Cursor.
 2. **PHẠM VI** — ĐỤNG: repo `Baocaoerptanphat` (file báo cáo, README, GOVERNANCE-LOG) + `docs/OWNER-REQUEST-LEDGER.md` (nội bộ, chưa commit). KHÔNG ĐỤNG: `src/`, CSDL, deploy, version, 5 file luật.
-3. **BẰNG CHỨNG** — `Get-FileHash` 5 file → cùng sha256 `c009a4d7…` → FILE_PROVEN / PARITY PASS. `git push` `5468ee8..8c28364` → origin/main.
+3. **BẰNG CHỨNG** — `Get-FileHash` 5 file → cùng sha256 `<mã-nguồn-riêng>…` → FILE_PROVEN / PARITY PASS. `git push` `<mã-nguồn-riêng>..<mã-nguồn-riêng>` → origin/main.
 4. **GHI SỔ** — ĐÃ GHI mục #53.
-5. **PUSH BÁO CÁO CÔNG KHAI** — ĐÃ PUSH — kho `irissnss/Baocaoerptanphat` · commit `8c28364f736555af464ae6902b57f19d6eb5111c` · file `PROBE-CURSOR-NAP-LUAT-VA-THIEU-THONG-TIN-20260816.md`.
+5. **PUSH BÁO CÁO CÔNG KHAI** — ĐÃ PUSH — kho `irissnss/Baocaoerptanphat` · commit `<mã-nguồn-riêng>` · file `PROBE-CURSOR-NAP-LUAT-VA-THIEU-THONG-TIN-20260816.md`.
 6. **CÒN SÓT** — sổ Owner #53 ở repo mã nguồn mới ghi local, chưa commit/push repo ERP (Owner chưa yêu cầu commit ERP).
 7. **ĐANG CHỜ OWNER** — không có câu hỏi chặn. Owner chỉ cần biết chữ ký Cursor trên báo cáo này.
 8. **BƯỚC KẾ** — Owner mở link GitHub report để xác nhận chữ ký Cursor.

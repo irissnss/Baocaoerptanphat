@@ -2,7 +2,7 @@
 
 > **Loại:** ĐO — ĐỐI CHIẾU — LẬP KẾ HOẠCH (**CHỈ ĐỌC, không sửa file mã/luật/SSOT nào**)
 > **Ngày:** 23/08/2026 ~13:00 · **Owner:** TanPhatERP · **Actor:** Agent IDE (phiên "Luật Cho Dự Án TanPhat")
-> **HEAD:** `960ba20` · nhánh `main` · parity 5 file luật `84f979a6…`
+> **HEAD:** `<mã-nguồn-riêng>` · nhánh `main` · parity 5 file luật `<mã-nguồn-riêng>…`
 > **Căn cứ:** Sổ Yêu Cầu Owner **mục #131** (23/08 12:30)
 > **Cách đo:** 15 tác nhân con đọc song song, chỉ-đọc · 2.536.084 token · 462 lượt gọi công cụ · 0 lỗi
 
@@ -277,7 +277,7 @@ Sửa dòng căn cứ `4/4 → 3/4` (giữ nguyên văn dòng cũ ở §21) · g
 
 2. PHẠM VI
    ĐỤNG      : docs/OWNER-REQUEST-LEDGER.md (muc #131) · bao cao nay
-   KHÔNG ĐỤNG: 5 file luat (parity 84f979a6 KHONG doi) · docs/UI-STANDARD.md
+   KHÔNG ĐỤNG: 5 file luat (parity <mã-nguồn-riêng> KHONG doi) · docs/UI-STANDARD.md
                · .cursor/skills (0 file) · src (0 file) · skills.yml
                · DB · deploy · cong kiem
 
@@ -293,7 +293,7 @@ Sửa dòng căn cứ `4/4 → 3/4` (giữ nguyên văn dòng cũ ở §21) · g
    [x] ĐÃ GHI — mục #131
 
 5. PUSH BÁO CÁO CÔNG KHAI
-   [x] ĐÃ PUSH — kho Baocaoerptanphat · commit 6efb984 · file CHUOI-LUAT-SKILL-UI-20260823.md
+   [x] ĐÃ PUSH — kho Baocaoerptanphat · commit <mã-nguồn-riêng> · file CHUOI-LUAT-SKILL-UI-20260823.md
 
 6. CÒN SÓT / CHƯA LÀM
    - V1..V6 CHUA LAM — cho Owner duyet (phien nay chi-doc theo dung cau hoi)

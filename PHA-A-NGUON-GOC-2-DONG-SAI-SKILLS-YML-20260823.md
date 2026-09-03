@@ -12,15 +12,15 @@
 |---|---|
 | Lệnh | `git rev-parse --abbrev-ref HEAD` · `git log -1` · `git log -1 --date=iso -- <file>` · `wc -l` · `grep -c ''` · `sha256sum` |
 | Nhánh | `main` |
-| HEAD | **`ab23005`** · `2026-08-23 21:45:49 +0700` · *"feat(ui): DOT 4 — ma tran quyen menu dang TAB + CAY…"* |
+| HEAD | **`<mã-nguồn-riêng>`** · `2026-08-23 21:45:49 +0700` · *"feat(ui): DOT 4 — ma tran quyen menu dang TAB + CAY…"* |
 | Cây làm việc | **16 file đang thay đổi** (do phiên khác — phiên này KHÔNG đụng) |
-| `skills.yml` sửa cuối | `30e077c` · `2026-08-23 14:56:58` |
+| `skills.yml` sửa cuối | `<mã-nguồn-riêng>` · `2026-08-23 14:56:58` |
 | `skills.yml` số dòng | `wc -l` = **4738** · `grep -c ''` = **4738** (khớp) |
-| `skills.yml` kích thước | 197.643 byte · `sha256` `865eb629bcfe9a2781bcfbe97375b48c…` |
+| `skills.yml` kích thước | 197.643 byte · `sha256` `<mã-nguồn-riêng>…` |
 | `skills.yml` trạng thái git | `git status --porcelain` → **0** (sạch, đúng bản đã commit) |
 
-> ✅ **HEAD hiện tại CHÍNH LÀ `ab23005`** — cùng mốc mà báo cáo audit đã đo. Không cần đo lại chéo.
-> ✅ `30e077c` là **tổ tiên** của HEAD (`git merge-base --is-ancestor` → CÓ).
+> ✅ **HEAD hiện tại CHÍNH LÀ `<mã-nguồn-riêng>`** — cùng mốc mà báo cáo audit đã đo. Không cần đo lại chéo.
+> ✅ `<mã-nguồn-riêng>` là **tổ tiên** của HEAD (`git merge-base --is-ancestor` → CÓ).
 
 **Xác nhận 2 dòng còn nguyên vị trí** — đo lại bằng `grep -n`, không tin số dòng chép lại:
 
@@ -48,7 +48,7 @@ grep -n "Graphify trước"   .governance/registry/skills.yml  → 3642
 
 Ba bằng chứng độc lập cùng chỉ một hướng:
 
-1. `git log -- skills.yml` → commit gần nhất **`30e077c`** (`23/08 14:56`) = chính commit V2.
+1. `git log -- skills.yml` → commit gần nhất **`<mã-nguồn-riêng>`** (`23/08 14:56`) = chính commit V2.
 2. Trong file: `meta.generated_at: "2026-08-23"` · `meta.generator: "scripts/tests/skills-registry-build.mjs"` (dòng 24–25).
 3. `mtime` file = `2026-08-23 14:51:57` — trước commit vài phút, khớp trình tự *sinh → commit*.
 
@@ -152,7 +152,7 @@ for (const l of lines) {
 > ✅ Báo cáo chốt 30/07 (`CHOT:133`) đã xếp dòng 379–382 là **HISTORICAL — giữ**.
 > 🔴 Cái sai là **script không tôn trọng nhãn HISTORICAL đó**.
 
-**Không phải gõ tay** — `git blame -L795,795` → `3b686646` (20/08), chính commit sinh registry lần đầu. Không có commit nào sửa tay dòng này về sau.
+**Không phải gõ tay** — `git blame -L795,795` → `<mã-nguồn-riêng>` (20/08), chính commit sinh registry lần đầu. Không có commit nào sửa tay dòng này về sau.
 
 ### A2.3 🔴 DÒNG 3642 — **SCRIPT SINH**, nhưng **LỖI NẰM Ở NỘI DUNG NGUỒN**
 
@@ -187,7 +187,7 @@ else health = "HEALTHY"
 >
 > ⇒ Đây **không phải lỗi giá trị**, mà là **lỗ hổng thiết kế registry**: thiếu một trục đo *"nội dung còn hiệu lực?"*. Đúng cùng loại vấn đề mà đợt V2 đã gặp và đã xử bằng cách **tách trục** (`ssot_verdict` giữ nguyên, thêm `ssot_chuoi_cam` cảnh báo riêng).
 
-**Không phải gõ tay** — `git blame -L3642,3642` → cũng `3b686646`.
+**Không phải gõ tay** — `git blame -L3642,3642` → cũng `<mã-nguồn-riêng>`.
 
 ### A2.4 Cụm lỗi có lan rộng không? — **KHÔNG, trong luật sống**
 
@@ -328,13 +328,13 @@ Quyết định *"KHÔNG sửa"* của Owner ngày 30/07 dựa trên **ba tiền
 | `git check-ignore -v .cursor/skills/speckit-erp-ssot-adapter/SKILL.md` | **KHÔNG bị chặn** |
 | `git ls-files -z .cursor/skills/speckit-erp-ssot-adapter` | **1 file — ĐANG BỊ THEO DÕI** |
 | `.gitignore` dòng 76–80 | Nội dung là `dm_dia_chi_vn.sql` · `docs/Lịch Sử Trò Chuyện/` · `docs/Tính Giá Offset/` — **không có dòng nào loại kỹ năng này** |
-| `git log --diff-filter=A -- <file>` | **`6aada70` · 2026-08-20 19:18** · *"R3/S9+S7: bao ve 2 skill tu viet…"* |
+| `git log --diff-filter=A -- <file>` | **`<mã-nguồn-riêng>` · 2026-08-20 19:18** · *"R3/S9+S7: bao ve 2 skill tu viet…"* |
 | Số commit trước 31/07 | **0** |
 
 > ### ⚖️ PHÁN ĐỊNH
 >
 > Ngày 30/07 tiền đề *"untracked, local-only"* **ĐÚNG** (0 commit trước 31/07).
-> Ngày 20/08, commit `6aada70` **đưa kỹ năng này vào Git** — **21 ngày SAU** quyết định.
+> Ngày 20/08, commit `<mã-nguồn-riêng>` **đưa kỹ năng này vào Git** — **21 ngày SAU** quyết định.
 >
 > ⇒ Quyết định *"KHÔNG sửa vì nó chỉ là tài sản local"* nay đứng trên **một tiền đề đã đổi**.
 > Kỹ năng này giờ **được git theo dõi**, **đã lên remote**, và **có mặt trong registry với nhãn `HEALTHY`** — tức là **mọi phiên tra registry đều thấy nó**.
@@ -353,7 +353,7 @@ Quyết định *"KHÔNG sửa"* của Owner ngày 30/07 dựa trên **ba tiền
 | **Vị trí** | `.governance/registry/skills.yml:795` — trường `trap_seen_before` của `dependency-relationship-scan` |
 | **Nội dung sai hiện tại** | `"Verify: graph.json tồn tại; rule graphify.mdc alwaysApply; AGENTS.md cấm API routes/fetch."` |
 | **Nội dung đúng theo bằng chứng** | Không có dòng bẫy nào **đang sống** trong file ⇒ giá trị đúng là **`NONE_RECORDED`** (chính giá trị mặc định của script, `:316`). Sự thật tại nguồn: `.cursor/rules/graphify.mdc:3` = `alwaysApply: false` |
-| **Nguồn gốc** | 🔴 **SCRIPT SINH** — `skills-registry-build.mjs:315-319`. **KHÔNG** phải gõ tay (`git blame` → `3b686646`, commit sinh registry) |
+| **Nguồn gốc** | 🔴 **SCRIPT SINH** — `skills-registry-build.mjs:315-319`. **KHÔNG** phải gõ tay (`git blame` → `<mã-nguồn-riêng>`, commit sinh registry) |
 | **Nguyên nhân gốc** | Script **không phân biệt mục**; dòng khớp DUY NHẤT trong 391 dòng nằm ở `## Changelog` › `### v1.1.0` — bản **đã bị v1.2.0 thay thế**. Một dòng LỊCH SỬ bị nâng thành cảnh báo ĐANG SỐNG |
 | **Tầng phải vá** | 🔴 **SCRIPT** — bắt buộc. Sửa `skills.yml` bằng tay là **vô nghĩa**: `:532` ghi đè toàn bộ ở lần chạy kế |
 | **Rủi ro nếu vá tầng này** | Đổi `TRAP_LINE` / thêm nhận biết mục sẽ **đổi giá trị `trap_seen_before` của nhiều entry khác**, không riêng entry này. **Bắt buộc so trước/sau toàn bộ 128 entry** và khai rõ entry nào đổi |
@@ -388,7 +388,7 @@ Quyết định *"KHÔNG sửa"* của Owner ngày 30/07 dựa trên **ba tiền
 ## A8 — CÂU HỎI DUY NHẤT TRÌNH OWNER
 
 > **`speckit-erp-ssot-adapter`** — ngày 30/07 anh chốt *"KHÔNG sửa"* vì nó **dormant + de-referenced + untracked (local-only)**.
-> Nhưng ngày **20/08** commit `6aada70` đã **đưa nó vào Git**, nay nó **được theo dõi, đã lên remote, và hiện trong registry với nhãn `HEALTHY`**.
+> Nhưng ngày **20/08** commit `<mã-nguồn-riêng>` đã **đưa nó vào Git**, nay nó **được theo dõi, đã lên remote, và hiện trong registry với nhãn `HEALTHY`**.
 > **Tiền đề thứ ba đã đổi. Anh giữ nguyên quyết định "không sửa", hay mở lại?**
 
 ---
@@ -396,11 +396,11 @@ Quyết định *"KHÔNG sửa"* của Owner ngày 30/07 dựa trên **ba tiền
 ```
 ════════════ BÁO CÁO KẾT THÚC ════════════
 1. ĐÃ LÀM
-   - A0 do moc that: HEAD ab23005 (TRUNG mocc bao cao audit da do), skills.yml
-     4738 dong, sach, sha256 865eb629
+   - A0 do moc that: HEAD <mã-nguồn-riêng> (TRUNG mocc bao cao audit da do), skills.yml
+     4738 dong, sach, sha256 <mã-nguồn-riêng>
    - A1 xac nhan V2 DA chay: 128/128 entry du 5 truong; 2 dong sai con nguyen
    - A2 truy nguon 2 dong: CA HAI do SCRIPT SINH, khong dong nao go tay
-     (git blame -> 3b686646, commit sinh registry lan dau)
+     (git blame -> <mã-nguồn-riêng>, commit sinh registry lan dau)
    - A2 tim ra HAI nguyen nhan goc KHAC NHAU (chi tiet o truong 3)
    - A2.4 quet cum loi: chi 2 dong trong skills.yml la loi dang song;
      14 lan xuat hien khac deu la luu tru/ho so/anh chup — DUNG ban chat
@@ -420,7 +420,7 @@ Quyết định *"KHÔNG sửa"* của Owner ngày 30/07 dựa trên **ba tiền
    KHÔNG      : commit · push
 
 3. BẰNG CHỨNG
-   git rev-parse HEAD -> ab23005 = dung moc bao cao audit -> FILE_PROVEN
+   git rev-parse HEAD -> <mã-nguồn-riêng> = dung moc bao cao audit -> FILE_PROVEN
    wc -l = grep -c '' = 4738 -> FILE_PROVEN
    grep -c '^  - slug:' = 128 ; 5 truong x 128 -> FILE_PROVEN
    grep -n "alwaysApply" -> 795 ; grep -n "Graphify truoc" -> 3642 -> FILE_PROVEN
@@ -431,8 +431,8 @@ Quyết định *"KHÔNG sửa"* của Owner ngày 30/07 dựa trên **ba tiền
    grep -rn "graphify" scripts/ -> 0 ket qua -> CODE_PROVEN
    git check-ignore speckit-erp-ssot-adapter -> KHONG chan ;
      git ls-files -> 1 file DANG THEO DOI ;
-     git log --diff-filter=A -> 6aada70 (20/08), 0 commit truoc 31/07 -> CODE_PROVEN
-   sha256 x5 file luat -> 1 ma duy nhat 9251b187 -> FILE_PROVEN
+     git log --diff-filter=A -> <mã-nguồn-riêng> (20/08), 0 commit truoc 31/07 -> CODE_PROVEN
+   sha256 x5 file luat -> 1 ma duy nhat <mã-nguồn-riêng> -> FILE_PROVEN
 
 4. GHI SỔ YÊU CẦU OWNER
    [ ] ĐÃ GHI
@@ -464,9 +464,9 @@ Quyết định *"KHÔNG sửa"* của Owner ngày 30/07 dựa trên **ba tiền
    ghi) de do xem sua TRAP_LINE se lam doi gia tri cua bao nhieu entry.
 
 9. CHƯA XÁC MINH ĐƯỢC
-   - Vi sao commit 6aada70 (20/08) dua speckit-erp-ssot-adapter vao Git trong
+   - Vi sao commit <mã-nguồn-riêng> (20/08) dua speckit-erp-ssot-adapter vao Git trong
      khi chot 30/07 xep no la local-only. Doc thong diep commit khong du ket
-     luan la co y hay vo tinh. Ai xac minh: Owner, hoac phien da chay 6aada70
+     luan la co y hay vo tinh. Ai xac minh: Owner, hoac phien da chay <mã-nguồn-riêng>
    - Cac truong khac ngoai trap_seen_before co bi hoist tu Changelog khong —
      can chay --check moi do duoc, phien nay bi cam
 
@@ -499,7 +499,7 @@ Quyết định *"KHÔNG sửa"* của Owner ngày 30/07 dựa trên **ba tiền
 
 ### Điều tra nguồn gốc 2 dòng sai trong danh mục kỹ năng — 23/08/2026
 
-Danh mục kỹ năng `.governance/registry/skills.yml` (**128 mục**) có 2 dòng ghi sai so với sự thật tại nguồn. Điều tra chỉ-đọc tại mốc `ab23005` kết luận:
+Danh mục kỹ năng `.governance/registry/skills.yml` (**128 mục**) có 2 dòng ghi sai so với sự thật tại nguồn. Điều tra chỉ-đọc tại mốc `<mã-nguồn-riêng>` kết luận:
 
 **Cả 2 dòng đều do script sinh ra, không dòng nào gõ tay** — nhưng **hai nguyên nhân gốc khác hẳn nhau**:
 

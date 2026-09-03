@@ -23,12 +23,12 @@ một bước chắc chắn hỏng và **dừng chuỗi trước khi kích hoạ
 
 | Định danh | Giá trị |
 |---|---|
-| Local working-tree HEAD | `46c92c7` (0 thay đổi, 0 tệp chưa theo dõi) |
-| Remote private `main` | `46c92c7` — **trùng local** |
-| **VPS Git working-copy HEAD** | **`826817b`** — cũ, do triển khai bằng tệp nén |
-| **Deployed content identity** | `DEPLOYED_SHA.txt` = `9c741f7` · `PATCH = 356` · tiến trình nạp `.standalone-run` · vân tay bản dựng `f2482464d7a42206` |
+| Local working-tree HEAD | `<mã-nguồn-riêng>` (0 thay đổi, 0 tệp chưa theo dõi) |
+| Remote private `main` | `<mã-nguồn-riêng>` — **trùng local** |
+| **VPS Git working-copy HEAD** | **`<mã-nguồn-riêng>`** — cũ, do triển khai bằng tệp nén |
+| **Deployed content identity** | `DEPLOYED_SHA.txt` = `<mã-nguồn-riêng>` · `PATCH = 356` · tiến trình nạp `.standalone-run` · vân tay bản dựng `<mã-nguồn-riêng>` |
 
-`9c741f7 → 46c92c7` chỉ có **một commit tài liệu**; `git diff` trên `src/ scripts/ migrations/ package.json`
+`<mã-nguồn-riêng> → <mã-nguồn-riêng>` chỉ có **một commit tài liệu**; `git diff` trên `src/ scripts/ migrations/ package.json`
 **rỗng** ⇒ nội dung mã đã triển khai **bằng** mã trên `main`.
 
 ### 1.2 Đối chiếu mã — 11/11 khớp
@@ -176,14 +176,14 @@ NẠP DỮ LIỆU ĐẠT — đã ghi dấu .release-data-ok
 Đã sửa cả hai và triển khai lại. **Bản kê cuối cùng ghi đúng:**
 
 ```
-6d8f1d8b3ce44565caf14ca3fae5ef548b3dd9ac
+<mã-nguồn-riêng>
 APP_VERSION=V1.00.357
 BUILD_TIMESTAMP=2026-08-28 00:08:40
 DEPLOY_TIMESTAMP=2026-08-27T17:08:44Z
-ARTIFACT_FINGERPRINT=e73812151f8a2f627136604578da2bbe
+ARTIFACT_FINGERPRINT=<mã-nguồn-riêng>
 ENVIRONMENT=production
 DATA_STEP=DA_NAP
-GIT_WORKTREE_HEAD=826817b126961a995e6a0517ade7b29c339d340d
+GIT_WORKTREE_HEAD=<mã-nguồn-riêng>
 ```
 
 Dòng cuối là điều đáng giá nhất: bản kê **tự nói ra** rằng git ref trên máy vận hành
@@ -391,10 +391,10 @@ Owner cho vai trò riêng đều cần biết chủ sở hữu.
 ```
 ════════════ BÁO CÁO KẾT THÚC ════════════
 1. CURRENT STATE ĐẦU PHIÊN
-   local HEAD          : 46c92c7 (sạch)
-   remote main HEAD    : 46c92c7
-   VPS Git HEAD        : 826817b  (cũ — triển khai bằng tệp nén)
-   deployed content SHA: 9c741f7  (DEPLOYED_SHA.txt + PATCH 356 + vân tay bản dựng)
+   local HEAD          : <mã-nguồn-riêng> (sạch)
+   remote main HEAD    : <mã-nguồn-riêng>
+   VPS Git HEAD        : <mã-nguồn-riêng>  (cũ — triển khai bằng tệp nén)
+   deployed content SHA: <mã-nguồn-riêng>  (DEPLOYED_SHA.txt + PATCH 356 + vân tay bản dựng)
    app version         : V1.00.356
    DB                  : MariaDB 10.11.10 · 101 bảng · 51 menu · 9 vai trò ·
                          148 quyền menu · 67 quyền hành động · 4 quyền trường ·
@@ -473,17 +473,17 @@ Owner cho vai trò riêng đều cần biết chủ sở hữu.
        "pm2 not found", node_modules còn nguyên 388 gói, không tệp mã nào bị sửa.
 
 9. COMMIT/PUSH/DEPLOY
-   private SHA    : 6d8f1d8 = nội dung mã đã triển khai; commit chứa CHÍNH
+   private SHA    : <mã-nguồn-riêng> = nội dung mã đã triển khai; commit chứa CHÍNH
                     báo cáo này là lượt đẩy kế tiếp trên main (xem mục cuối)
    app version    : V1.00.357
-   deployed SHA   : 6d8f1d8 (nội dung mã đang chạy trên máy vận hành)
-   artifact       : e73812151f8a2f627136604578da2bbe
-   VPS Git HEAD   : 826817b (cũ — bản kê tự khai điều này)
+   deployed SHA   : <mã-nguồn-riêng> (nội dung mã đang chạy trên máy vận hành)
+   artifact       : <mã-nguồn-riêng>
+   VPS Git HEAD   : <mã-nguồn-riêng> (cũ — bản kê tự khai điều này)
    public report  : kho Baocaoerptanphat · commit 7699432 · tệp
                     M0-HYGIENE-TO-M3-20260827.md + DECISION-PACK-M0-D3-...md
    rollback anchor: CSDL `<thư-mục-sao-lưu-máy-vận-hành>/<tên-tệp>` ·
                     thư mục chạy `<thư-mục-sao-lưu-máy-vận-hành>/<tên-tệp>` ·
-                    mã V1.00.356 = 9c741f7
+                    mã V1.00.356 = <mã-nguồn-riêng>
 
 10. ĐANG CHỜ OWNER
    MỘT câu hỏi duy nhất: D3 — vai trò riêng cho từng người, phương án A (không

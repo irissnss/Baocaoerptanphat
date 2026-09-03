@@ -1,8 +1,8 @@
 # LUẬT QUYẾT ĐỊNH OWNER TRONG PHIÊN — `GOV-SESSION-DECISION-001` (§F1b)
 
 > **Loại:** CHỈ XỬ LÝ LUẬT · **Ngày:** 20/08/2026 · **Owner:** TanPhatERP
-> **Actor:** Agent IDE · **Nhánh:** `gov/2026-08-18-rules-ui-standard-upgrade` · **Gốc phiên:** `9c6dd27` · **HEAD:** `9287c5b`
-> **Doc Version:** `2.4` → `2.5` · **Parity 5 file:** `84f979a6…`
+> **Actor:** Agent IDE · **Nhánh:** `gov/2026-08-18-rules-ui-standard-upgrade` · **Gốc phiên:** `<mã-nguồn-riêng>` · **HEAD:** `<mã-nguồn-riêng>`
+> **Doc Version:** `2.4` → `2.5` · **Parity 5 file:** `<mã-nguồn-riêng>…`
 > **KHÔNG:** deploy · DB/schema · `src/` · nội dung SSOT · Notion · đẩy kho mã riêng tư · nạp dữ liệu thật · gỡ PII/đổi khoá
 
 ---
@@ -111,7 +111,7 @@ Các cổng **tồn tại thật và chạy đúng** khi gõ lệnh — nhưng c
 
 | # | Cổng | Kết quả | Số đo |
 |---|---|---|---|
-| **T1** | Parity 5 file | ✅ **PASS** | 1 hash `84f979a6`, 92538 byte mỗi file; `check:governance` 5/5 OK |
+| **T1** | Parity 5 file | ✅ **PASS** | 1 hash `<mã-nguồn-riêng>`, 92538 byte mỗi file; `check:governance` 5/5 OK |
 | **T2** | Cổng đếm L0 | ✅ **PASS** | 386 → **388**; ĐK1a ✅ ĐK1b ✅ ĐK2 ✅ parity ✅; **đúng 1 mã luật mới** |
 | **T3** | Cổng phụ chuẩn | ✅ **PASS** | 22 mục · 35 heading; ĐK A ✅ ĐK B ✅ |
 | **T4** | `ref-exists` (L6) | ✅ **PASS** | **53 đạt** / 0 hỏng / 5 trích dẫn ca hỏng *(tăng từ 42 — luật mới thêm tham chiếu, đều tồn tại thật)* |
@@ -149,7 +149,7 @@ Các cổng **tồn tại thật và chạy đúng** khi gõ lệnh — nhưng c
              · .git/hooks? KHÔNG sửa (chỉ ĐỌC để chẩn DEBT-031)
 
 3. BẰNG CHỨNG
-   sha256sum x5 → 1 hash 84f979a6, 92538 byte                        → FILE_PROVEN
+   sha256sum x5 → 1 hash <mã-nguồn-riêng>, 92538 byte                        → FILE_PROVEN
    npm run check:governance → 5/5 OK                                 → RUNTIME_PROVEN
    npm run test:clause-count → 386 → 388; ĐK1a+1b+2+parity PASS;
      đúng 1 mã luật mới GOV-SESSION-DECISION-001                      → RUNTIME_PROVEN
@@ -172,7 +172,7 @@ Các cổng **tồn tại thật và chạy đúng** khi gõ lệnh — nhưng c
    liên tiếp ghi "CHƯA" (DEBT-008, nay ĐÃ XỬ LÝ).
 
 5. PUSH BÁO CÁO CÔNG KHAI
-   [x] ĐÃ PUSH — kho Baocaoerptanphat · commit 01403b9
+   [x] ĐÃ PUSH — kho Baocaoerptanphat · commit <mã-nguồn-riêng>
        · file LUAT-QUYET-DINH-OWNER-TRONG-PHIEN-20260820.md
    Kỷ luật công-bố-an-toàn: KHÔNG nêu đường dẫn chính xác file chứa PII, KHÔNG nêu
    giá trị nhạy cảm, KHÔNG nêu địa chỉ máy chủ.

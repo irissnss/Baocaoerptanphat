@@ -1,7 +1,7 @@
 # GÓI QUYẾT ĐỊNH PHA 4 + PHA 5 — 25/08/2026
 
 > **Plan of Record:** `PL-ERP-SINGLE-TRACK-RECOVERY-20260825`
-> **Lớp bằng chứng:** `DB_PROVEN` + `CODE_PROVEN` — đo trực tiếp trên CSDL máy phát triển (MariaDB 10.11.10, 101 bảng thật) và trên mã nguồn tại `5ba3299`.
+> **Lớp bằng chứng:** `DB_PROVEN` + `CODE_PROVEN` — đo trực tiếp trên CSDL máy phát triển (MariaDB 10.11.10, 101 bảng thật) và trên mã nguồn tại `<mã-nguồn-riêng>`.
 > **Cách làm:** 11 vùng audit chạy song song, sau đó **82 kết luận nặng bị đưa qua kiểm ngược đối kháng độc lập** — **17 kết luận bị BÁC hoặc phải SỬA**. Báo cáo này **chỉ dùng bản đã qua kiểm ngược**.
 >
 > ⚠️ **Nói trước cho rõ:** bản audit đầu tiên nói *"công thức khổ trải làm lệch `<khoản chênh — đã gỡ>`"*. **Con số đó SAI** — kiểm ngược chứng minh nó là **con số ảo** sinh từ một giả định chưa nói ra. Chi tiết ở §1. Nếu em trình anh bản đầu thì anh đã quyết trên số sai.
@@ -18,7 +18,7 @@
 
 **Hai tin tốt em tìm được — đỡ cho anh rất nhiều việc:**
 
-- 🎉 **Anh KHÔNG phải gán tay 1.692 khách hàng.** Dữ liệu AppSheet **đã có sẵn** người phụ trách — chỉ là chưa ai chuyển sang. Gán tự động được **1.664/1.692 khách (98,3%)**, còn đúng **28 khách** cần anh xem. Chi tiết §3.
+- 🎉 **Anh KHÔNG phải gán tay gần như toàn bộ khách hàng.** Dữ liệu AppSheet **đã có sẵn** người phụ trách — chỉ là chưa ai chuyển sang. Gán tự động được **hàng nghìn/gần như toàn bộ khách (98,3%)**, còn đúng **28 khách** cần anh xem. Chi tiết §3.
 - 🎉 **Ngưỡng lỗi nạp dữ liệu KHÔNG cần anh chốt** — đã chốt rồi từ 23/08 (≤2%/lô · tách tỉnh ≥98%). Sổ nợ ghi *"chưa chốt"* là **lỗi thời**. Chi tiết §4.
 
 ---
@@ -132,19 +132,19 @@ Anh nhắc việc này nhiều lần. Em tìm ra **vì sao nó rối**: dự án
 
 ---
 
-## 3. 🎉 GÁN NGƯỜI PHỤ TRÁCH 1.692 KHÁCH — ANH KHÔNG PHẢI LÀM TAY
+## 3. 🎉 GÁN NGƯỜI PHỤ TRÁCH gần như toàn bộ KHÁCH — ANH KHÔNG PHẢI LÀM TAY
 
 Sổ nợ `DEBT-060` ghi *"nguồn AppSheet KHÔNG có cột người phụ trách"*. Đo lại **file AppSheet gốc**: câu đó **đúng với bảng danh mục khách hàng**, nhưng **SAI với bảng giao dịch**.
 
-| Nguồn tín hiệu | Có dữ liệu không | Phủ được bao nhiêu / 1.692 khách |
+| Nguồn tín hiệu | Có dữ liệu không | Phủ được bao nhiêu / gần như toàn bộ khách |
 |---|---|---:|
-| `BaoGia` → cột **"Người báo giá"** | ✅ **4.098/4.098 dòng đều có** | **1.664 khách (98,3%)** |
-| `DonHang` → cột **"Người nhận đơn"** | ✅ **1.780/1.780 dòng đều có** | 296 khách |
-| Người tạo bản ghi | ✅ 1.692/1.692 | 1.692 *(nhưng yếu nhất)* |
+| `BaoGia` → cột **"Người báo giá"** | ✅ **4.098/4.098 dòng đều có** | **hàng nghìn khách (98,3%)** |
+| `DonHang` → cột **"Người nhận đơn"** | ✅ **1.780/hàng nghìn dòng đều có** | 296 khách |
+| Người tạo bản ghi | ✅ gần như toàn bộ/gần như toàn bộ | gần như toàn bộ *(nhưng yếu nhất)* |
 
-> **Đề xuất luật gán — anh chỉ duyệt LUẬT, không phải duyệt 1.692 dòng:**
+> **Đề xuất luật gán — anh chỉ duyệt LUẬT, không phải duyệt gần như toàn bộ dòng:**
 >
-> 1. Người phụ trách = **người báo giá ở báo giá gần nhất** của khách đó → phủ **1.664 khách**
+> 1. Người phụ trách = **người báo giá ở báo giá gần nhất** của khách đó → phủ **hàng nghìn khách**
 > 2. Không có báo giá → lấy **người nhận đơn ở đơn gần nhất**
 > 3. Vẫn không có → **để trống**, đưa vào danh sách chờ → còn đúng **28 khách**, anh xem một lượt là xong
 >

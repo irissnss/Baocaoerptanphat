@@ -4,7 +4,7 @@
 > **Version:** V0.230 (version.ts MINOR=230, verified 06/07/2026)
 > **Date:** 06/07/2026
 > **Decision:** Option C — Hybrid (Owner approved 05/07/2026 23:03 Asia/Ho_Chi_Minh)
-> **Notion spec:** "V3.44 Draft — Nghiệm thu & Đối chiếu công nợ (Option C)" (page d7c1c080)
+> **Notion spec:** "V3.44 Draft — Nghiệm thu & Đối chiếu công nợ (Option C)" (page <mã-nguồn-riêng>)
 
 ---
 

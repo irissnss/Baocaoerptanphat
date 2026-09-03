@@ -9,7 +9,7 @@
 
 ## 1. KẾT QUẢ MỘT ĐOẠN
 
-Máy vận hành đã được kéo từ nhánh vá khẩn cấp `826817b` lên ngang `main` — **71 commit**.
+Máy vận hành đã được kéo từ nhánh vá khẩn cấp `<mã-nguồn-riêng>` lên ngang `main` — **71 commit**.
 Việc vá từng mảnh mỗi lần triển khai **kết thúc từ đây**: lần sau chỉ còn *đẩy main → chạy*.
 
 Kèm theo, ba thứ mà máy vận hành **chưa từng có** nay đã có:
@@ -23,16 +23,16 @@ trạng thái** mà nếu thiếu thì mã Đợt 5 sẽ chặn hết thao tác 
 
 | Mốc | Giá trị |
 |---|---|
-| `main` đầu phiên | `df5c106` |
-| `main` cuối phiên | **`9c741f7`** |
-| Neo máy vận hành **trước** | `826817b` (`V1.00.355`) |
-| **Máy vận hành sau** | **`9c741f7`** (**`V1.00.356`**) |
+| `main` đầu phiên | `<mã-nguồn-riêng>` |
+| `main` cuối phiên | **`<mã-nguồn-riêng>`** |
+| Neo máy vận hành **trước** | `<mã-nguồn-riêng>` (`V1.00.355`) |
+| **Máy vận hành sau** | **`<mã-nguồn-riêng>`** (**`V1.00.356`**) |
 | Khoảng cách đã khép | **71 commit** |
-| Nhánh phát hành cách ly cũ | `release/m0-closeout-20260827` · `a8f3283` — **không dùng**, đúng khoá Owner |
+| Nhánh phát hành cách ly cũ | `release/m0-closeout-20260827` · `<mã-nguồn-riêng>` — **không dùng**, đúng khoá Owner |
 
 > ⚠️ **Một điều cần biết về cơ chế triển khai:** kịch bản đẩy **tệp nén**, không kéo git.
-> Vì vậy `git rev-parse HEAD` trên máy vận hành **vẫn ghi `826817b`** dù mã đã là bản mới.
-> Đã đặt tệp `DEPLOYED_SHA.txt` ở thư mục ứng dụng ghi đúng `9c741f7` để lần sau tra được.
+> Vì vậy `git rev-parse HEAD` trên máy vận hành **vẫn ghi `<mã-nguồn-riêng>`** dù mã đã là bản mới.
+> Đã đặt tệp `DEPLOYED_SHA.txt` ở thư mục ứng dụng ghi đúng `<mã-nguồn-riêng>` để lần sau tra được.
 > Xác minh mã mới bằng **dấu vết đích danh**, không tin git ref:
 > `khoa-thanh-ben.ts` · `menu-catalog.ts` · `tam-ngung.ts` đều **CÓ**; `TAI_CHINH_SIDEBAR_ROUTES`
 > và `BUOC_PHAN_QUYEN` đều hiện diện; `SENSITIVE_FIELDS` đủ **4** cột.
@@ -44,7 +44,7 @@ trạng thái** mà nếu thiếu thì mã Đợt 5 sẽ chặn hết thao tác 
 | Owner yêu cầu | Kết quả |
 |---|---|
 | Gom Tài Chính theo Phương án A | ✅ Biểu Mẫu · Bản Phát Hành · Hợp Đồng vào ngăn Tài Chính; `/mf` thành mục con "Tổng Quan" có capability riêng; đầu ngăn không dựng thẻ liên kết |
-| Sửa thanh bên Biểu Mẫu + 7 menu MF | ✅ đã có từ `f50a99c`, nay lên máy vận hành |
+| Sửa thanh bên Biểu Mẫu + 7 menu MF | ✅ đã có từ `<mã-nguồn-riêng>`, nay lên máy vận hành |
 | Trung Tâm Phân Quyền năm bước | ✅ Tài Khoản → Vai Trò → Màn Hình → Hành Động/Dữ Liệu/Trường → Xem Lại |
 | Quick-template | ✅ **tiếp tục chặn ở máy chủ** (Owner cho phép lựa chọn này) |
 | `DEBT-125/126/127` | ✅ cả ba |
@@ -131,7 +131,7 @@ chạy seed đó, và **máy vận hành không cần** nó. Vắng mặt đúng
 |---|---|
 | Cơ sở dữ liệu | ``<thư-mục-sao-lưu-máy-vận-hành>/<tên-tệp>`` (vân tay đã đối chiếu) |
 | Thư mục chạy | ``<thư-mục-sao-lưu-máy-vận-hành>/<tên-tệp>`` |
-| Mã nguồn cũ | `826817b` — vẫn trong kho git trên máy vận hành |
+| Mã nguồn cũ | `<mã-nguồn-riêng>` — vẫn trong kho git trên máy vận hành |
 
 ### 6.2 ⚠️ MỘT SỰ CỐ GIỮA CHỪNG — GHI ĐẦY ĐỦ
 
@@ -226,7 +226,7 @@ từ **tab trình duyệt cũ** đang giữ trang của bản trước — tự 
 
 | Nhãn | Phạm vi |
 |---|---|
-| `DEPLOYMENT_RECORDED` | `826817b` → `9c741f7` · `V1.00.356` · sao lưu ba lớp · di trú đã chạy |
+| `DEPLOYMENT_RECORDED` | `<mã-nguồn-riêng>` → `<mã-nguồn-riêng>` · `V1.00.356` · sao lưu ba lớp · di trú đã chạy |
 | `RUNTIME_OBSERVED` | tiến trình online 1 lần khởi động lại · nhật ký sạch · các tuyến trả về đúng mã |
 | `LIVE_VERIFIED` | **16/16 kiểm khói có đăng nhập thật** trên HTTPS công khai: thanh bên gom · mỗi liên kết một lần · trung tâm phân quyền năm bước · chốt chặn quản trị cuối khớp cơ sở dữ liệu · bốn cột giá vốn · nút ghi đè vẫn mờ |
 
@@ -242,7 +242,7 @@ trên máy thật vì không tạo thêm tài khoản).
 |---|---|
 | Dữ liệu | phục hồi ``<thư-mục-sao-lưu-máy-vận-hành>/<tên-tệp>`` — **đã diễn tập, tái tạo chính xác** |
 | Thư mục chạy | ``<thư-mục-sao-lưu-máy-vận-hành>/<tên-tệp>`` |
-| Mã nguồn | `git checkout 826817b` trong kho trên máy vận hành, dựng lại |
+| Mã nguồn | `git checkout <mã-nguồn-riêng>` trong kho trên máy vận hành, dựng lại |
 | Một bản di trú | `20260826_p1_ceo_xem_gia_von_rollback.sql` — đã diễn tập 4 → 0 → 4 |
 
 ---
@@ -307,7 +307,7 @@ trên máy thật vì không tạo thêm tài khoản).
        commit 328476b · nhánh main
        file: M0-CONVERGENCE-RELEASE-LIVE-20260827.md
              M0-CONVERGENCE-INVENTORY-20260827.md
-       (Mã nguồn: kho irissnss/erptanphat commit 9c741f7 — cũng là mã đã
+       (Mã nguồn: kho irissnss/erptanphat commit <mã-nguồn-riêng> — cũng là mã đã
         triển khai lên máy vận hành.)
 
 6. CÒN SÓT / CHƯA LÀM

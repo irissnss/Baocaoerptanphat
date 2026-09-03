@@ -32,9 +32,9 @@
 
 | Dữ liệu thật | Số dòng |
 |---|---|
-| Khách hàng | **1.695** |
-| Liên hệ khách | **1.896** |
-| Địa chỉ khách | **2.012** |
+| Khách hàng | **hàng nghìn** |
+| Liên hệ khách | **hàng nghìn** |
+| Địa chỉ khách | **hàng nghìn** |
 | Nhân sự | **46** |
 | Nhà cung cấp | **110** |
 | Quyền màn hình · quyền hành động | **148 · 67** |

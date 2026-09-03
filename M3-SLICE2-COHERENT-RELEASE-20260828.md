@@ -30,12 +30,12 @@ chứng minh đã thu đủ tiền**; không có chứng từ thì **từ chối
 
 | Định danh | Đo được | Khớp báo cáo? |
 |---|---|---|
-| local HEAD | `f232d46` | ✅ |
-| remote `main` | `f232d46` — trùng local | ✅ |
-| **VPS Git working-copy HEAD** | `826817b` · **759 tệp lệch** | ✅ đúng như dự kiến (triển khai bằng tệp nén) |
-| **Deployed content SHA** | `6d8f1d8` | ✅ |
+| local HEAD | `<mã-nguồn-riêng>` | ✅ |
+| remote `main` | `<mã-nguồn-riêng>` — trùng local | ✅ |
+| **VPS Git working-copy HEAD** | `<mã-nguồn-riêng>` · **759 tệp lệch** | ✅ đúng như dự kiến (triển khai bằng tệp nén) |
+| **Deployed content SHA** | `<mã-nguồn-riêng>` | ✅ |
 | App version | `V1.00.357` | ✅ |
-| Artifact fingerprint | `e73812151f8a2f627136604578da2bbe` | ✅ |
+| Artifact fingerprint | `<mã-nguồn-riêng>` | ✅ |
 | Tiến trình | online · **0 lần khởi động lại** · `cwd = .standalone-run` | ✅ |
 | Sổ di trú | **10 dòng** | ✅ |
 | Huỷ đơn | chỉ còn `SALES=0` — **không vai trò nghiệp vụ nào được cấp** | ✅ |
@@ -226,7 +226,7 @@ Mọi tệp **khôi phục nguyên trạng** trong `finally`; xác minh lại b�
 
 | Bước | Kết quả |
 |---|---|
-| Sao lưu | `504K` · gzip đọc được · **101 bảng** · `SHA256 7993c4ed…` |
+| Sao lưu | `504K` · gzip đọc được · **101 bảng** · `SHA256 <mã-nguồn-riêng>…` |
 | Tải về, đối chiếu vân tay | **khớp từng ký tự** |
 | Phục hồi lên MariaDB 10.11 | 101 bảng · **1695 KH** · 7 báo giá · 6 đơn · 148/67/4 · 10 di trú · 3 quản trị |
 | Chạy trọn bộ kiểm M3 trên bản sao | 8/9 cổng xanh (xem ghi chú) |
@@ -296,7 +296,7 @@ Nay số liệu nhất quán:
 | **Máy vận hành** | **69 · 66** |
 | **Máy phát triển** | **69 · 66** |
 | Danh sách **tên bảng** | **trùng khít từng tên** ở cả hai cột |
-| **Hai bảng gây chênh lệch** | **`ncc_dia_chi` + `ncc_lien_he`** — tạo **21/08/2026** (`0e1ca8e`), sau mốc cũ `d56e726` (09/08) **12 ngày** |
+| **Hai bảng gây chênh lệch** | **`ncc_dia_chi` + `ncc_lien_he`** — tạo **21/08/2026** (`<mã-nguồn-riêng>`), sau mốc cũ `<mã-nguồn-riêng>` (09/08) **12 ngày** |
 
 ⇒ **mốc lỗi thời**, không phải máy phát triển trôi. Đã cập nhật mốc trong cổng kèm dẫn nguồn,
 giữ nguyên văn dòng cũ trong chú thích. **KHÔNG sửa CSDL cho khớp cổng.**
@@ -308,12 +308,12 @@ giữ nguyên văn dòng cũ trong chú thích. **KHÔNG sửa CSDL cho khớp c
 | | |
 |---|---|
 | Phiên bản | `V1.00.357` → **`V1.00.359`** |
-| Mã nguồn (private) | `91b594a` (358) → `ce6dadf` (359) → `98c4e95` (bộ kiểm) |
-| **Mã đã triển khai** | **`ce6dadf3e84aab810c8c4b176595021be311e3eb`** |
-| Vân tay bản dựng | **`a25cf21c390e198a9be1fd431309d318`** |
+| Mã nguồn (private) | `<mã-nguồn-riêng>` (358) → `<mã-nguồn-riêng>` (359) → `<mã-nguồn-riêng>` (bộ kiểm) |
+| **Mã đã triển khai** | **`<mã-nguồn-riêng>`** |
+| Vân tay bản dựng | **`<mã-nguồn-riêng>`** |
 | Di trú / bước dữ liệu | **0 DDL**; bước nạp dữ liệu chạy đủ (`DATA_STEP=DA_NAP`) |
-| Sao lưu | CSDL ``<thư-mục-sao-lưu-máy-vận-hành>/<tên-tệp>`` (`SHA256 7993c4ed…`) · thư mục chạy ``<thư-mục-sao-lưu-máy-vận-hành>/<tên-tệp>`` (122M) · bản kê cũ |
-| Đường lùi | bản kê `V1.00.357` / `6d8f1d8` / vân tay `e7381215…` — đã kiểm đọc được |
+| Sao lưu | CSDL ``<thư-mục-sao-lưu-máy-vận-hành>/<tên-tệp>`` (`SHA256 <mã-nguồn-riêng>…`) · thư mục chạy ``<thư-mục-sao-lưu-máy-vận-hành>/<tên-tệp>`` (122M) · bản kê cũ |
+| Đường lùi | bản kê `V1.00.357` / `<mã-nguồn-riêng>` / vân tay `<mã-nguồn-riêng>…` — đã kiểm đọc được |
 
 Chuỗi phát hành chạy đúng thứ tự `DEBT-129`:
 **dựng → tiền kiểm → nạp dữ liệu bắt buộc → cổng chặn → kích hoạt**.
@@ -324,11 +324,11 @@ Chuỗi phát hành chạy đúng thứ tự `DEBT-129`:
 
 | | |
 |---|---|
-| Mã đã triển khai | `ce6dadf` |
+| Mã đã triển khai | `<mã-nguồn-riêng>` |
 | Mốc | build `2026-08-28 11:01:45` · deploy `2026-08-28T04:01:49Z` |
 | Tiến trình | **online · 0 lần khởi động lại** · `cwd = .standalone-run` |
 | Phiên bản người dùng thấy | **`V1.00.359`** |
-| **VPS Git HEAD (ghi riêng)** | `826817b` — **`METADATA_DIFF`**, không phải trôi mã |
+| **VPS Git HEAD (ghi riêng)** | `<mã-nguồn-riêng>` — **`METADATA_DIFF`**, không phải trôi mã |
 | Kích hoạt | đạt; hai dấu mốc đã dọn đúng |
 
 **Một lần vá tiến giữa chừng, khai rõ:** `V1.00.358` lên máy vận hành xong thì kiểm khói bắt
@@ -361,16 +361,16 @@ Ghi `DEBT-135`.
 
 | Thành phần | Máy phát triển | Remote `main` | Máy vận hành | Kết luận |
 |---|---|---|---|---|
-| Mã nguồn (HEAD) | `98c4e95` | `98c4e95` | `ce6dadf` (đã triển khai) | ✅ vận hành đi sau đúng **1 commit chỉ đụng bộ kiểm** |
+| Mã nguồn (HEAD) | `<mã-nguồn-riêng>` | `<mã-nguồn-riêng>` | `<mã-nguồn-riêng>` (đã triển khai) | ✅ vận hành đi sau đúng **1 commit chỉ đụng bộ kiểm** |
 | App version | `V1.00.359` | `V1.00.359` | `V1.00.359` | ✅ |
-| Vân tay bản dựng | — | — | `a25cf21c…` | ✅ |
+| Vân tay bản dựng | — | — | `<mã-nguồn-riêng>…` | ✅ |
 | **Băm 7 tệp nguồn** (chuẩn hoá xuống dòng) | — | — | — | ✅ **7/7 trùng khít** |
 | MariaDB | `10.11.10` | — | `10.11.10-log` | ✅ khác hậu tố bản dựng |
 | Số bảng | 101 | — | 101 | ✅ |
 | Cột audit | 69 / 66 | — | 69 / 66 | ✅ |
 | Sổ di trú | — | — | 10 | ✅ |
 | Quyền menu/hành động/trường | — | — | 148 / 67 / 4 | ✅ |
-| **VPS Git working-copy HEAD** | — | — | `826817b` | ⚠️ **`METADATA_DIFF`** — triển khai bằng tệp nén |
+| **VPS Git working-copy HEAD** | — | — | `<mã-nguồn-riêng>` | ⚠️ **`METADATA_DIFF`** — triển khai bằng tệp nén |
 | Tiến trình | — | — | online · 0 khởi động lại | ✅ |
 
 **Kết luận: `FULL_RELEASE_CONVERGED`** (kèm `METADATA_DIFF` đã biết ở git ref của máy vận hành).
@@ -420,9 +420,9 @@ Owner chọn A/B từ bản cũ.
 | | |
 |---|---|
 | Tệp | `M3-SLICE2-COHERENT-RELEASE-20260828.md` |
-| Kho báo cáo công khai | `Baocaoerptanphat` · commit **`fe6c27d`** |
+| Kho báo cáo công khai | `Baocaoerptanphat` · commit **`<mã-nguồn-riêng>`** |
 | Tệp raw | **HTTP 200** · 28.341 byte |
-| Kho mã nguồn riêng | `b261c39` (báo cáo + sổ) · `98c4e95` (bộ kiểm) · `ce6dadf` (**mã đã triển khai**) |
+| Kho mã nguồn riêng | `<mã-nguồn-riêng>` (báo cáo + sổ) · `<mã-nguồn-riêng>` (bộ kiểm) · `<mã-nguồn-riêng>` (**mã đã triển khai**) |
 
 Đã chạy cổng an toàn trước khi đẩy công khai: `secret-scan` · `pii-scan` ·
 `script-parse` · `ledger-dup-id` — tất cả **PASS**. Báo cáo **không** chứa mật khẩu,
@@ -483,7 +483,7 @@ khoá, chi tiết SSH nhạy cảm, bản kết xuất dữ liệu, dữ liệu 
    [x] ĐÃ GHI — mục #188
 
 5. PUSH BÁO CÁO CÔNG KHAI
-   [x] ĐÃ PUSH — kho Baocaoerptanphat · commit fe6c27d · tệp
+   [x] ĐÃ PUSH — kho Baocaoerptanphat · commit <mã-nguồn-riêng> · tệp
        M3-SLICE2-COHERENT-RELEASE-20260828.md · raw HTTP 200
        (mã kho mã nguồn riêng ghi riêng ở mục 13 — cổng kiểm chỉ xác minh mã
         của kho báo cáo)

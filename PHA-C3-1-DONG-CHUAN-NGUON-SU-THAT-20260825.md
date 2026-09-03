@@ -90,7 +90,7 @@ Kiểm thử vận hành thật cho ba nhánh đầu **cần một lượt đư�
 
 ## 7. Đính chính công trạng
 
-Lỗi bộ kiểm đếm nhầm dòng nằm trong khối mã ví dụ — **cả việc phát hiện lẫn việc vá đều thuộc lượt trước đó (Pha C2)**, xác định bằng lịch sử mã: commit vá là `0f593bd`, và tệp bộ kiểm **không** nằm trong phần thay đổi của Pha C3.
+Lỗi bộ kiểm đếm nhầm dòng nằm trong khối mã ví dụ — **cả việc phát hiện lẫn việc vá đều thuộc lượt trước đó (Pha C2)**, xác định bằng lịch sử mã: commit vá là `<mã-nguồn-riêng>`, và tệp bộ kiểm **không** nằm trong phần thay đổi của Pha C3.
 
 Các **tài liệu** đã ghi đúng từ đầu. Chỉ **lời tường thuật** cuối Pha C3 là gộp nhầm thành công của Pha C3 — nay ghi rõ: **Pha C3 chỉ kiểm chứng lại.**
 

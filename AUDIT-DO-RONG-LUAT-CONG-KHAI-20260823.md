@@ -31,7 +31,7 @@ Thí nghiệm đối chứng chạy trực tiếp trên hai bộ mẫu của c�
 
 ⇒ **Cổng mù với mọi đường dẫn có dấu tiếng Việt.** Trong một dự án Việt Nam, đó là một lớp tệp rất lớn.
 
-**Hậu quả đo được:** một tệp dữ liệu nguồn **đang được quản lý phiên bản** dù luật cấm — và cổng canh việc đó vẫn báo **0 vi phạm**. Quy mô: **1.232 dòng dữ liệu**, **2.368 số điện thoại**, 22 địa chỉ thư điện tử, 2.432 mã số thuế, cùng một số cột thông tin thanh toán. Tệp đã được đồng bộ lên kho từ xa.
+**Hậu quả đo được:** một tệp dữ liệu nguồn **đang được quản lý phiên bản** dù luật cấm — và cổng canh việc đó vẫn báo **0 vi phạm**. Quy mô: **1.232 dòng dữ liệu**, **hàng nghìn số điện thoại**, 22 địa chỉ thư điện tử, 2.432 mã số thuế, cùng một số cột thông tin thanh toán. Tệp đã được đồng bộ lên kho từ xa.
 
 > Đây **chính xác** là ca 20/08 lặp lại, ở mức nặng hơn: luật bắt buộc một điều, cổng báo đạt, còn thứ luật bảo vệ thì đang hỏng.
 

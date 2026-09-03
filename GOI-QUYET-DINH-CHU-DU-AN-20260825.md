@@ -38,7 +38,7 @@ Kiểm trực tiếp: cổng **chưa có** tham số còn thiếu, và vẫn bá
 
 | # | Loại | Kích thước | Dòng | Dữ liệu cá nhân |
 |---|---|---:|---:|---|
-| 1 | 🔴 danh mục đối tác | ~327 KB | 1.233 | **2.368 số điện thoại · 22 địa chỉ thư** + cột thông tin thanh toán |
+| 1 | 🔴 danh mục đối tác | ~327 KB | 1.233 | **hàng nghìn số điện thoại · 22 địa chỉ thư** + cột thông tin thanh toán |
 | 2–4 | biểu mẫu nghiệp vụ | ~286 KB | 1.958 | **0** đo được |
 | 5–6 | bảng nhập liệu hàng ngày | ~395 KB | 3.025 | **0** đo được |
 
@@ -64,7 +64,7 @@ Sổ nợ kỹ thuật hiện **107 dòng, 81 đang mở**, trong đó **23 dòn
 | Nhóm | Nội dung | Đề xuất |
 |---|---|---|
 | 🔴 **A — Bảo mật & dữ liệu cá nhân** | Tệp dữ liệu còn trong kho · cổng mù · trạng thái mật khẩu quản trị trong sổ chưa khớp thực tế | Sửa cổng **trước**, rồi gỡ tệp; việc xoá khỏi lịch sử để chủ dự án quyết riêng |
-| 🟠 **B — Nạp dữ liệu & đối chứng** | Đợt nạp lên máy vận hành **đã chạy khi ngưỡng lỗi chưa được chốt** (quy định ghi rõ trường hợp này là chặn toàn bộ) · hai nợ có hạn *"trước khi nạp"* vẫn mở dù việc đã nạp xong · **1.692 đối tác đang gán tạm cho một người** | **Không hoàn tác** — dữ liệu đã đúng, đo được lỗi 0%. Ghi một ngoại lệ có lý do, **chốt ngưỡng ngay** cho đợt sau. Việc phân bổ người phụ trách chỉ chủ dự án làm được |
+| 🟠 **B — Nạp dữ liệu & đối chứng** | Đợt nạp lên máy vận hành **đã chạy khi ngưỡng lỗi chưa được chốt** (quy định ghi rõ trường hợp này là chặn toàn bộ) · hai nợ có hạn *"trước khi nạp"* vẫn mở dù việc đã nạp xong · **gần như toàn bộ đối tác đang gán tạm cho một người** | **Không hoàn tác** — dữ liệu đã đúng, đo được lỗi 0%. Ghi một ngoại lệ có lý do, **chốt ngưỡng ngay** cho đợt sau. Việc phân bổ người phụ trách chỉ chủ dự án làm được |
 | 🟠 **C — Tính giá** *(đang chặn)* | 🔴 **Hai công thức khổ trải khác nhau cùng tồn tại trong mã** · thiếu dữ liệu cấu hình · bộ kiểm thử dựng dữ liệu giả | Xử lý **công thức trước tiên** — hai công thức khác nhau nghĩa là **một trong hai đang tính sai tiền**. Đây là nghiệp vụ, trợ lý không tự quyết |
 | 🟡 **D — Sổ sách & quy tắc** | Sổ nợ dùng **hai trạng thái mà quy tắc không định nghĩa** · **mã nợ bị cấp trùng** (đã tái diễn lần hai) · sổ yêu cầu có một số mục trùng | **Sửa quy tắc, không sửa sổ** — hai trạng thái đó phản ánh vận hành đúng. **Không đánh số lại** (phá tham chiếu chéo); thêm một cổng chặn cấp trùng |
 | 🟡 **E — Tài liệu & nguồn sự thật** | 🔴 **Lệch độ rộng hai đầu một quan hệ dữ liệu** (đo được ở môi trường chạy) · tài liệu xuất ra có hai lớp chồng nhau không gắn nhãn | Tách việc **lệch độ rộng** làm trước — có thể **cắt cụt dữ liệu khi ghi** |

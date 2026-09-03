@@ -1,8 +1,8 @@
 # PHA B — **B2A HOÀN TẤT** · **B2B DỪNG theo điều 8**
 
 > **Ngày:** 23/08/2026 23:2x · **Owner duyệt tiếp Pha B:** 23/08 · **Actor:** Agent IDE (Claude Code)
-> **BASE_SHA:** `7752cc52899db69506c1f5f48019d473f998d343`
-> **Checkpoint B2A:** `2f4e9b4` — đã áp, đã kiểm, **CHƯA push**
+> **BASE_SHA:** `<mã-nguồn-riêng>`
+> **Checkpoint B2A:** `<mã-nguồn-riêng>` — đã áp, đã kiểm, **CHƯA push**
 > **B2B:** diễn tập xong trong vùng cách ly · **KHÔNG áp vào worktree** · dừng theo `OWNER_DECISION_B1_02` điều 8
 
 ---
@@ -31,10 +31,10 @@
 
 | # | Yêu cầu | Đầu ra thật |
 |---|---|---|
-| 1 | Đo lại HEAD | `7752cc5` |
-| 2 | HEAD vẫn là `7752cc5` | ✅ **đúng, không delta** |
+| 1 | Đo lại HEAD | `<mã-nguồn-riêng>` |
+| 2 | HEAD vẫn là `<mã-nguồn-riêng>` | ✅ **đúng, không delta** |
 | 3 | Không phiên khác mutation | ✅ `0/0` so remote, không rebase/merge dang dở |
-| 4 | Đúng 2 report untracked đã kiểm kê | ✅ `PHA-A-…` `400a4b999c4fbb4c…` · `PHA-B-STOP-B1-…` `1f4f1dea9ff213f0…`; **không có file thứ ba** |
+| 4 | Đúng 2 report untracked đã kiểm kê | ✅ `PHA-A-…` `<mã-nguồn-riêng>…` · `PHA-B-STOP-B1-…` `<mã-nguồn-riêng>…`; **không có file thứ ba** |
 | 5 | Không đụng `.git/REBASE_HEAD` | ✅ mtime vẫn `2026-03-04 16:47:33` |
 | 6 | Không sửa worktree trước khi có candidate evidence | ✅ B2A chỉ áp SAU khi candidate diff sạch; B2B **chưa áp** |
 
@@ -61,7 +61,7 @@ Vùng cách ly đặt **NGOÀI repo** (thư mục tạm hệ điều hành). Gen
 | Entry | Field | Before | After | Bằng chứng nguồn | Duyệt? |
 |---|---|---|---|---|---|
 | `dependency-relationship-scan` | `trap_seen_before` | `"Verify: graph.json tồn tại; rule graphify.mdc alwaysApply; AGENTS.md cấm API routes/fetch."` | `"NONE_RECORDED"` | `SKILL.md:388`, nằm trong `## Changelog` › `### v1.1.0` (bản đã bị `v1.2.0` 30/07 thay thế). Đây là dòng **duy nhất** trong 391 dòng khớp mẫu cảnh báo | ✅ **B2.5 mục A** |
-| *(meta)* | `content_sha256` | `52b2ea82…` | `91465e73…` | Generator bắt buộc sinh lại | ✅ **B2.5 mục D** |
+| *(meta)* | `content_sha256` | `<mã-nguồn-riêng>…` | `<mã-nguồn-riêng>…` | Generator bắt buộc sinh lại | ✅ **B2.5 mục D** |
 
 **KHÔNG entry nào khác đổi.** `quality_gate` không đổi ở bất kỳ đâu — khớp đúng phép đo B1 (`root-directory-verification` có lệnh đó ở **7 dòng thuộc mục hiện hành**, nên bỏ mục lịch sử không làm đổi giá trị).
 
@@ -101,13 +101,13 @@ Khôi phục candidate → **8/8 PASS** trở lại.
 
 | # | Bước | Kết quả |
 |---|---|---|
-| 1 | `--check` trên baseline | ✅ `sha=52b2ea822fd65d67` · 128 skill |
+| 1 | `--check` trên baseline | ✅ `sha=<mã-nguồn-riêng>` · 128 skill |
 | 2 | Áp patch (chép **đúng file đã kiểm chứng**, không viết lại) | ✅ |
-| 3 | `--check` trước khi sinh lại | ✅ `sha=91465e738debb42a` — **trùng khít** bản cách ly |
+| 3 | `--check` trước khi sinh lại | ✅ `sha=<mã-nguồn-riêng>` — **trùng khít** bản cách ly |
 | 4 | Xác nhận FAIL chỉ vì diff đã duyệt | ✅ field diff = **đúng 1 dòng** `trap_seen_before` |
 | 5 | Có diff khác không? | ✅ **không** → không rollback |
 | 6 | Chạy writer **đúng một lần** | ✅ |
-| 7 | `--check` lại | ✅ `sha=91465e738debb42a` |
+| 7 | `--check` lại | ✅ `sha=<mã-nguồn-riêng>` |
 | 8 | `test:skills-registry` | ✅ **PASS (0 vấn đề)** |
 | 9 | Bộ kiểm hồi quy | ✅ **8/8** |
 | 10 | Field diff cuối vs candidate | ✅ **KHỚP TUYỆT ĐỐI, 0 dòng khác** |
@@ -123,7 +123,7 @@ diff skills-BEFORE.yml  skills-BASELINE.yml   (BASELINE = generator CHƯA patch)
   → 26 dòng previous_result khác  =  13 cặp  =  ĐÚNG BẰNG số dòng đổi trên worktree
 ```
 
-**Nguyên nhân:** `previous_result` là **phép đếm dấu vết** trong `WORK_LOG.md` + `docs/**` + `git log`. Kho `docs/` vừa lớn thêm 3 tài liệu (2 báo cáo Pha A/B của em + báo cáo ĐỢT 5 trong commit `7752cc5`). Ví dụ: `docs=9` → `docs=11`. **Chỉ tăng, không giảm** — đúng bản chất "có thêm tài liệu nhắc tới".
+**Nguyên nhân:** `previous_result` là **phép đếm dấu vết** trong `WORK_LOG.md` + `docs/**` + `git log`. Kho `docs/` vừa lớn thêm 3 tài liệu (2 báo cáo Pha A/B của em + báo cáo ĐỢT 5 trong commit `<mã-nguồn-riêng>`). Ví dụ: `docs=9` → `docs=11`. **Chỉ tăng, không giảm** — đúng bản chất "có thêm tài liệu nhắc tới".
 
 > ⚖️ **Vì sao em vẫn áp thay vì dừng:** B3.2 bước 5 so **BASELINE ↔ AFTER** để phán định patch, và phép so đó **sạch tuyệt đối**. 13 dòng kia tồn tại **có hay không có patch** — chặn vì nó đồng nghĩa registry **không bao giờ được sinh lại** sau khi thêm bất kỳ tài liệu nào. Em **khai ra đây** thay vì giấu, và đưa vào OPEN ITEMS để Owner quyết có cần cơ chế riêng cho `previous_result` không.
 
@@ -140,9 +140,9 @@ diff skills-BEFORE.yml  skills-BASELINE.yml   (BASELINE = generator CHƯA patch)
 
 | | |
 |---|---|
-| **Commit** | `2f4e9b4` — `fix(skill-registry): bo qua muc LICH SU khi sinh trap_seen_before va quality_gate` |
+| **Commit** | `<mã-nguồn-riêng>` — `fix(skill-registry): bo qua muc LICH SU khi sinh trap_seen_before va quality_gate` |
 | **File** | `scripts/tests/skills-registry-build.mjs` · `scripts/tests/registry-history-filter.test.mjs` *(mới)* · `.governance/registry/skills.yml` · `package.json` |
-| **Rollback** | `git revert --no-edit 2f4e9b4` |
+| **Rollback** | `git revert --no-edit <mã-nguồn-riêng>` |
 | **Đã push?** | ❌ **CHƯA** — theo điều kiện cũ, push sau khi toàn bộ gate trong scope PASS |
 | `test:gov-gates` | ✅ **XANH TOÀN BỘ** (đã nối `test:registry-history-filter`) |
 
@@ -188,7 +188,7 @@ Candidate B2B (hàm `chuanHoaLenh()` đọc **`package.json` thật**, chỉ b�
 ```
 diff skills-BEFORE ↔ skills-AFTER  (B2B)
   content_sha256                                    (metadata)
-  previous_result  git_log=1 → git_log=2            (do commit 2f4e9b4 vừa tạo — KHÔNG do patch)
+  previous_result  git_log=1 → git_log=2            (do commit <mã-nguồn-riêng> vừa tạo — KHÔNG do patch)
   - "npm run test:path-audit:"
   + "npm run test:path-audit"                       ← ĐÚNG MỘT giá trị được sửa
   ("npm run migrate:" GIỮ NGUYÊN — đúng ý muốn)
@@ -212,7 +212,7 @@ Em **không tự quyết** áp một nửa. Tiền đề *"hai lệnh ma cùng m
 
 | Phép đo | Kết quả |
 |---|---|
-| HEAD | `2f4e9b4` (checkpoint B2A) — **không có commit B2B** |
+| HEAD | `<mã-nguồn-riêng>` (checkpoint B2A) — **không có commit B2B** |
 | `grep -c chuanHoaLenh scripts/tests/skills-registry-build.mjs` | **0** — patch B2B **không có** trong worktree |
 | `skills.yml:612` | `- "npm run migrate:"` — **vẫn nguyên** |
 | `skills.yml:2945` | `- "npm run test:path-audit:"` — **vẫn nguyên** |
@@ -243,7 +243,7 @@ Em **không tự quyết** áp một nửa. Tiền đề *"hai lệnh ma cùng m
 | 4 | Chưa truy được vì sao CA6 vẫn PASS ở bản chưa patch | Agent, lượt sau |
 | 5 | `tools.yml` `spec_kit: advisory-optional` → `DORMANT` (Owner Decision B1_03) | Chưa chạy — sau B2B |
 | 6 | `content_status` / DORMANT registry · Graphify · MCP · B6 · full gates | Chưa chạy — sau B2B |
-| 7 | Commit `2f4e9b4` **chưa push** | Sau khi hết scope PASS |
+| 7 | Commit `<mã-nguồn-riêng>` **chưa push** | Sau khi hết scope PASS |
 
 ## 7. NEXT ACTION — ĐÚNG MỘT VIỆC
 
@@ -254,14 +254,14 @@ Em **không tự quyết** áp một nửa. Tiền đề *"hai lệnh ma cùng m
 ```
 ════════════ BÁO CÁO KẾT THÚC ════════════
 1. ĐÃ LÀM
-   - RESUME SAFETY GATE 6/6 dat, HEAD van 7752cc5, dung 2 report untracked
+   - RESUME SAFETY GATE 6/6 dat, HEAD van <mã-nguồn-riêng>, dung 2 report untracked
    - B2A: dien tap trong vung cach ly NGOAI repo (3 ban BEFORE/BASELINE/AFTER)
    - B2A: candidate diff co lap = DUNG 2 thay doi da duyet
    - B2A: viet bo kiem hoi quy moi 8 ca, chay generator THAT tren fixture THAT
    - B2A: kiem nguoc go patch -> 6/8 hong dung cho
    - B2A: ap vao worktree that theo du 10 buoc B3.2, KHOP TUYET DOI candidate
    - B2A: dang ky test:registry-history-filter + noi vao test:gov-gates
-   - B2A: checkpoint commit 2f4e9b4, gov-gates XANH toan bo
+   - B2A: checkpoint commit <mã-nguồn-riêng>, gov-gates XANH toan bo
    - B2B: doc lai package.json sau DOT H, xac minh ten script chinh xac
    - B2B: dien tap cach ly -> chung minh 2 gia tri KHONG cung ban chat
    - B2B: DUNG truoc active apply theo dieu 8
@@ -278,7 +278,7 @@ Em **không tự quyết** áp một nửa. Tiền đề *"hai lệnh ma cùng m
    B2B        : CHUA ap vao worktree (grep chuanHoaLenh -> 0)
 
 3. BẰNG CHỨNG
-   --check baseline sha=52b2ea822fd65d67 -> sau patch sha=91465e738debb42a,
+   --check baseline sha=<mã-nguồn-riêng> -> sau patch sha=<mã-nguồn-riêng>,
      TRUNG KHIT ban cach ly -> RUNTIME_PROVEN
    diff BASELINE<->AFTER = 4 dong = 2 thay doi da duyet -> FILE_PROVEN
    diff worktree<->candidate = 0 dong khac -> FILE_PROVEN
@@ -303,7 +303,7 @@ Em **không tự quyết** áp một nửa. Tiền đề *"hai lệnh ma cùng m
 
 5. PUSH BÁO CÁO CÔNG KHAI
    [ ] ĐÃ PUSH
-   [x] CHƯA PUSH — ly do: chua qua PUBLIC_REPORT_SAFETY_GATE; commit 2f4e9b4
+   [x] CHƯA PUSH — ly do: chua qua PUBLIC_REPORT_SAFETY_GATE; commit <mã-nguồn-riêng>
        cung chua push theo dieu kien "chi push khi toan bo gate trong scope PASS".
 
 6. CÒN SÓT / CHƯA LÀM

@@ -1,7 +1,7 @@
 # KIỂM KÊ BẢN PHÁT HÀNH HỘI TỤ — 71 COMMIT VÀ MỌI BẢN DI TRÚ
 
 **Ngày:** 27/08/2026
-**Phạm vi:** từ neo máy vận hành `826817b` tới `main`
+**Phạm vi:** từ neo máy vận hành `<mã-nguồn-riêng>` tới `main`
 **Căn cứ:** Owner mục 3 — *«Inventory toàn bộ 70 commit và mọi migrate:\*»*
 
 > Số thật là **71 commit**, không phải 70. Ghi đúng số đo.
@@ -50,24 +50,24 @@ mở thứ chưa xong. Đúng khoá Owner: *«Không đưa unfinished route/UI/A
 
 | # | Mã | Nội dung | Phân loại |
 |---|---|---|---|
-| 1 | `3616b19` | Đợt 1 — danh mục màn hình toàn hệ thống | ✅ **bắt buộc** — vá thanh bên phụ thuộc |
-| 2 | `286504f` | Đợt 2 — khoá con từng màn | ✅ **bắt buộc** |
-| 3 | `b9000f6` | Đợt 3 — áp ma trận quyền đích | ✅ **bắt buộc** |
-| 4 | `68389d1` | 3 quyết định Owner — SALES giữ Thiết Kế, nối cổng M4/M5, 3 vai trò TP | ✅ duyệt |
-| 5 | `ab23005` | Đợt 4 — ma trận quyền dạng tab + cây | ✅ duyệt |
-| 6 | `7752cc5` | Đợt 5 — quyền chuyển trạng thái từng bước | ✅ **bắt buộc** |
+| 1 | `<mã-nguồn-riêng>` | Đợt 1 — danh mục màn hình toàn hệ thống | ✅ **bắt buộc** — vá thanh bên phụ thuộc |
+| 2 | `<mã-nguồn-riêng>` | Đợt 2 — khoá con từng màn | ✅ **bắt buộc** |
+| 3 | `<mã-nguồn-riêng>` | Đợt 3 — áp ma trận quyền đích | ✅ **bắt buộc** |
+| 4 | `<mã-nguồn-riêng>` | 3 quyết định Owner — SALES giữ Thiết Kế, nối cổng M4/M5, 3 vai trò TP | ✅ duyệt |
+| 5 | `<mã-nguồn-riêng>` | Đợt 4 — ma trận quyền dạng tab + cây | ✅ duyệt |
+| 6 | `<mã-nguồn-riêng>` | Đợt 5 — quyền chuyển trạng thái từng bước | ✅ **bắt buộc** |
 | 7 | `9667995` | Che giá vốn 2 cột còn lọt lưới (Owner sổ #163) | 🔴 **bắt buộc — đang là lỗ trên máy vận hành** |
-| 8 | `8f14dee` | Gom 6 chỗ tính kho trải về một nguồn | ⚠️ mục D |
-| 9 | `aea01ca` | Phụ cấp kho trải thành danh sách mở | ⚠️ mục D |
-| 10 | `57afeb5` | Vá `DEBT-107` + định chính bù hao 3% | ⚠️ mục D |
-| 11 | `31e2407` | CEO xem được giá vốn *(bản di trú — mục C)* | ✅ duyệt |
-| 12 | `643d60b` | `USER` = chờ cấp phát | ✅ duyệt |
-| 13 | `d0de737` | Vá rò rỉ giá vốn ở tuyến API | ✅ **bắt buộc — an ninh** |
-| 14 | `dcc8398` | Vá lỗ tầng `/api` — gọi được không cần đăng nhập | ✅ **đã ở trên máy vận hành** |
-| 15 | `2ffaf5c` | Chống xoá trắng giá vốn khi lưu báo giá | ✅ **bắt buộc — phá dữ liệu** |
-| 16 | `12abd3a` | Lớp thứ hai cho tầng `/api` | ✅ **đã ở trên máy vận hành** |
-| 17 | `1e57bd9` | Đưa bản sửa ma trận về `main` | ✅ **đã ở trên máy vận hành** |
-| 18 | `f50a99c` · `45807fb` · `978daea` | Vá thanh bên · `DEBT-125/126/127` · gom điều hướng + trung tâm phân quyền | ✅ **bắt buộc** |
+| 8 | `<mã-nguồn-riêng>` | Gom 6 chỗ tính kho trải về một nguồn | ⚠️ mục D |
+| 9 | `<mã-nguồn-riêng>` | Phụ cấp kho trải thành danh sách mở | ⚠️ mục D |
+| 10 | `<mã-nguồn-riêng>` | Vá `DEBT-107` + định chính bù hao 3% | ⚠️ mục D |
+| 11 | `<mã-nguồn-riêng>` | CEO xem được giá vốn *(bản di trú — mục C)* | ✅ duyệt |
+| 12 | `<mã-nguồn-riêng>` | `USER` = chờ cấp phát | ✅ duyệt |
+| 13 | `<mã-nguồn-riêng>` | Vá rò rỉ giá vốn ở tuyến API | ✅ **bắt buộc — an ninh** |
+| 14 | `<mã-nguồn-riêng>` | Vá lỗ tầng `/api` — gọi được không cần đăng nhập | ✅ **đã ở trên máy vận hành** |
+| 15 | `<mã-nguồn-riêng>` | Chống xoá trắng giá vốn khi lưu báo giá | ✅ **bắt buộc — phá dữ liệu** |
+| 16 | `<mã-nguồn-riêng>` | Lớp thứ hai cho tầng `/api` | ✅ **đã ở trên máy vận hành** |
+| 17 | `<mã-nguồn-riêng>` | Đưa bản sửa ma trận về `main` | ✅ **đã ở trên máy vận hành** |
+| 18 | `<mã-nguồn-riêng>` · `<mã-nguồn-riêng>` · `<mã-nguồn-riêng>` | Vá thanh bên · `DEBT-125/126/127` · gom điều hướng + trung tâm phân quyền | ✅ **bắt buộc** |
 
 **Không commit nào thuộc nhóm "chưa xong, phải tắt".**
 **Không commit nào thuộc nhóm "không an toàn, chặn phát hành".**
@@ -137,14 +137,14 @@ Kịch bản 9 tự kiểm và báo: **`[N5.6] không ai mất quyền: ĐẠT`*
 ```
 
 **Đường lùi thật, và là đường lùi được dùng:** phục hồi bản sao lưu CSDL đã chụp
-ngay trước khi phát hành, cộng với việc đưa mã về đúng `826817b`. Bốn bản di trú
+ngay trước khi phát hành, cộng với việc đưa mã về đúng `<mã-nguồn-riêng>`. Bốn bản di trú
 chuẩn chỉ thêm bảng nên để lại cũng vô hại.
 
 ---
 
 ## D. TÍNH KHO TRẢI — PHÂN LOẠI RIÊNG, CÓ ĐO
 
-Ba commit chạm `src/lib/pricing/kho-trai.ts`. Một trong số đó (`aea01ca`) ghi thẳng
+Ba commit chạm `src/lib/pricing/kho-trai.ts`. Một trong số đó (`<mã-nguồn-riêng>`) ghi thẳng
 trong lời commit: **«KHONG bump version - KHONG deploy»**, và bộ nghiệm thu màn cấu hình
 phụ cấp kho trải vẫn ở trạng thái **«CHỜ Owner duyệt»**.
 

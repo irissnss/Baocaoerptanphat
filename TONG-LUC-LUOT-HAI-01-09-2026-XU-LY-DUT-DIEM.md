@@ -4,7 +4,7 @@
 > *«Tiếp đi em **các vấn đề rõ ràng, xác định em tự chủ động xử lý dùm anh hết đi**
 > và **báo cáo github tổng lực** nha em.»*
 >
-> **Kho mã:** `irissnss/erptanphat` (riêng tư) · nhánh `main` · đã đẩy tới `aad7af9`
+> **Kho mã:** `irissnss/erptanphat` (riêng tư) · nhánh `main` · đã đẩy tới `<mã-nguồn-riêng>`
 > **Phiên bản:** `V1.00.366` — **chưa triển khai lên máy vận hành**
 > **Báo cáo lượt một:** `TONG-LUC-PHIEN-01-09-2026-VA-GOI-BAN-GIAO-NOTION.md`
 
@@ -51,7 +51,7 @@ việc chưa rõ» (`GOV-OWNER-AUTHORITY-001` §C1).
 
 ## 2. NĂM NHÓM VIỆC ĐÃ LÀM
 
-### 2.1 🔴 BẢO MẬT — hai nợ đỏ (commit `63c1245`)
+### 2.1 🔴 BẢO MẬT — hai nợ đỏ (commit `<mã-nguồn-riêng>`)
 
 **`DEBT-021` — mã băm mật khẩu trong tệp được git theo dõi.**
 Một mã băm **dùng chung cho 14 tài khoản** nằm ngay trong `seed-golive-p01.sql`.
@@ -102,7 +102,7 @@ sang **DỪNG HẲN khi thiếu biến**, kèm câu chỉ rõ tra giá trị ở
 Giá trị nay **chỉ còn ở hai nơi hợp lệ** (`.env.deploy` và sổ bí mật) — **đã chứng
 minh bằng lệnh** `git check-ignore`, cả hai đều bị chặn.
 
-### 2.2 🔴 SỔ VỠ BẢNG — nguyên nhân vật lý của điều Owner lo (commit `56d5bc9`)
+### 2.2 🔴 SỔ VỠ BẢNG — nguyên nhân vật lý của điều Owner lo (commit `<mã-nguồn-riêng>`)
 
 `DEBT-103`: sổ Owner **vỡ hình dạng bảng Markdown**. Ô thứ tư trở đi **không hiển
 thị** — nuốt mất `decision_state` và `notion_sync_state`, đúng hai trường dựng ra
@@ -114,7 +114,7 @@ thị** — nuốt mất `decision_state` và `notion_sync_state`, đúng hai tr
 Đã nắn: 23 lần sửa, **0 còn lại**. Cổng mới `test:hinh-dang-so` — nay **7 điều
 kiện**, và **tự in số tồn đọng** để không ai phải đếm tay.
 
-### 2.3 🔴 80 CỔNG MỒ CÔI — nối lại và lộ ra 6 cổng hỏng thật (commit `78f83fe`)
+### 2.3 🔴 80 CỔNG MỒ CÔI — nối lại và lộ ra 6 cổng hỏng thật (commit `<mã-nguồn-riêng>`)
 
 Đo: **108 lệnh `test:*`**, chỉ **28** được bộ gộp gọi ⇒ **80 mồ côi**.
 
@@ -144,7 +144,7 @@ Sáu cổng hỏng của nhóm nhanh, phân loại và xử lý từng cái:
   **cố ý từ chối chạy** khi thiếu đầu vào, đúng hành vi `GOV-GATE-REAL-INPUT-001`
   đòi. Chuyển sang **miễn trừ có ghi lý do**.
 
-### 2.4 🔴 CƠ CHẾ HỎNG DÂY CHUYỀN — phát hiện chưa ai biết (commit `aad7af9`)
+### 2.4 🔴 CƠ CHẾ HỎNG DÂY CHUYỀN — phát hiện chưa ai biết (commit `<mã-nguồn-riêng>`)
 
 Nhóm trình duyệt báo **12/16 hỏng**. Nhưng chạy **riêng** thì
 `test:xac-nhan-hai-buoc` đạt **22/22** và `test:doi-chieu-khuon` cũng đạt.
@@ -171,7 +171,7 @@ giữ (nó đúng), nhưng **dọn cuối không chạy được khi tiến trì
 Chỉ xoá đuôi `@kiemthu.local`; **không** đụng bộ UAT cố định, **không** đụng tài
 khoản thật.
 
-### 2.5 🟡 KIỂU DỮ LIỆU VÀ LINT (commit `b7480d0`)
+### 2.5 🟡 KIỂU DỮ LIỆU VÀ LINT (commit `<mã-nguồn-riêng>`)
 
 **`DEBT-140` — kiểu sai, không phải bài kiểm sai.** `Omit<…>` biến **mọi** trường
 còn lại thành bắt buộc (29 trường) trong khi hàm chỉ thật sự đòi **năm**. Người
@@ -328,10 +328,10 @@ số dòng) là loại được phép theo `GOV-PUBLIC-SAFE-001` §J1.*
 
 3. BẰNG CHỨNG
    Kho mã irissnss/erptanphat, nhánh main — đã đẩy 01/09/2026:
-     63c1245 — gỡ mã băm + địa chỉ máy chủ (DEBT-021, DEBT-108)
-     78f83fe — nối lại 80 cổng mồ côi (DEBT-131)
-     b7480d0 — vá kiểu nhân sự + 6 lỗi lint (DEBT-140, 110, 109)
-     aad7af9 — cơ chế hỏng dây chuyền (DEBT-167)
+     <mã-nguồn-riêng> — gỡ mã băm + địa chỉ máy chủ (DEBT-021, DEBT-108)
+     <mã-nguồn-riêng> — nối lại 80 cổng mồ côi (DEBT-131)
+     <mã-nguồn-riêng> — vá kiểu nhân sự + 6 lỗi lint (DEBT-140, 110, 109)
+     <mã-nguồn-riêng> — cơ chế hỏng dây chuyền (DEBT-167)
    npm run test:gov-gates          → 37/37 PASS
    npm run test:nhom-nhanh         → 35/35, mã thoát 0
    nhóm CSDL chạy rời 22 cổng      → 22/22 ĐẠT
@@ -349,7 +349,7 @@ số dòng) là loại được phép theo `GOV-PUBLIC-SAFE-001` §J1.*
    quyền "tự quyết thay Owner việc chưa rõ" (GOV-OWNER-AUTHORITY-001 §C1).
 
 5. PUSH BÁO CÁO CÔNG KHAI
-   [x] ĐÃ PUSH — kho Baocaoerptanphat · nhánh main · commit f851489 ·
+   [x] ĐÃ PUSH — kho Baocaoerptanphat · nhánh main · commit <mã-nguồn-riêng> ·
        báo cáo lượt một TONG-LUC-PHIEN-01-09-2026-VA-GOI-BAN-GIAO-NOTION.md
    Báo cáo lượt hai (tệp này) đẩy ngay sau khi ghi khối này.
    KHÔNG force-push, KHÔNG viết lại lịch sử.
@@ -405,7 +405,7 @@ số dòng) là loại được phép theo `GOV-PUBLIC-SAFE-001` §J1.*
 
 ## 9. BỔ SUNG SAU KHI ĐO XONG NHÓM TRÌNH DUYỆT — `DEBT-168`
 
-Viết thêm sau khi lượt đo nền hoàn tất (commit `4c51611`).
+Viết thêm sau khi lượt đo nền hoàn tất (commit `<mã-nguồn-riêng>`).
 
 **Con số thật, đo trên cơ sở dữ liệu sạch** (dọn phòng vệ trước **mỗi** cổng, để
 tách lỗi thật khỏi lỗi dây chuyền): **2 đạt / 10 hỏng**.

@@ -7,11 +7,11 @@
 
 | Đợt | Mã commit | Tiêu đề |
 |---|---|---|
-| **A** | `e122510` | nạp ma trận phân quyền lên hệ thống vận hành (không sửa mã ứng dụng) |
+| **A** | `<mã-nguồn-riêng>` | nạp ma trận phân quyền lên hệ thống vận hành (không sửa mã ứng dụng) |
 | **B** | `5348619` | vá 6 lỗ hổng CHẶN go-live + bộ khoá 29 khẳng định |
-| **C** | `ffe01ce` | hoàn thiện đơn hàng (ngày giao · địa chỉ giao · sửa/xoá đơn nháp · tiền đúng) |
-| **D** | `e430ee3` | ma trận tick quyền hành động trên màn quản trị bảo mật |
-| *(kèm)* | `71b7482` | kế hoạch quay lui `V1.00.353` — viết **trước** khi deploy |
+| **C** | `<mã-nguồn-riêng>` | hoàn thiện đơn hàng (ngày giao · địa chỉ giao · sửa/xoá đơn nháp · tiền đúng) |
+| **D** | `<mã-nguồn-riêng>` | ma trận tick quyền hành động trên màn quản trị bảo mật |
+| *(kèm)* | `<mã-nguồn-riêng>` | kế hoạch quay lui `V1.00.353` — viết **trước** khi deploy |
 
 > Bản tin public-safe: chỉ nêu số lượng, mã kỹ thuật, tên màn hình và tên quyền.
 > **Không** có thông tin đăng nhập, **không** có dữ liệu khách hàng, **không** có số tiền/công nợ thật.
@@ -107,7 +107,7 @@ cho từng tài khoản, rồi so kết quả với bảng quyền mong muốn.
 | **C4** | **Tiền và công nợ** | Số liệu tổng hợp **loại trừ đơn còn nháp và đơn đã huỷ** — trước đây đơn nháp cũng bị tính vào công nợ |
 
 **Chốt chặn quan trọng ở C2:** chọn nhầm địa chỉ của **khách khác** thì hệ thống **từ chối thẳng**.
-Với gần **1.700 khách hàng**, nhầm địa chỉ nghĩa là **giao hàng sai nơi**.
+Với gần **hàng nghìn khách hàng**, nhầm địa chỉ nghĩa là **giao hàng sai nơi**.
 
 **Dọn một nguồn sai lệch có sẵn:** trước đây có **hai đường tạo đơn khác nhau** (từ màn báo giá và từ màn
 đơn hàng), mỗi đường một cách xử lý. Nay **gộp về một đường duy nhất** — đây đúng loại gốc rễ mà lượt khảo

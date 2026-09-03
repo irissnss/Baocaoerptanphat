@@ -4,7 +4,7 @@
 > **Plan ID:** AUDIT-20260705-ARCH-CONFIRM-AND-GAP-SCAN
 > **Mode:** READ-ONLY AUDIT — Không sửa code nghiệp vụ
 > **Version local:** V0.229 (version.ts MINOR=229)
-> **Latest commit (code repo):** `7a937e4` (worktree checkout)
+> **Latest commit (code repo):** `<mã-nguồn-riêng>` (worktree checkout)
 
 ---
 
@@ -145,15 +145,15 @@ grep "content.*marketing|blog|campaign|seo|social|post|article" mc-client.tsx �
 | Item | Value |
 |------|-------|
 | `version.ts` MINOR | 229 → **V0.229** |
-| Latest commit | `7a937e4` (worktree checkout) |
-| Latest feature commit | `c0c2e22` (Vietnamese mojibake fix) |
-| Latest tagged commit | `2cc1cdd` (V0.225E) |
+| Latest commit | `<mã-nguồn-riêng>` (worktree checkout) |
+| Latest feature commit | `<mã-nguồn-riêng>` (Vietnamese mojibake fix) |
+| Latest tagged commit | `<mã-nguồn-riêng>` (V0.225E) |
 
 ### Report repo (`Baocaoerptanphat`)
 
 | Item | Value |
 |------|-------|
-| Latest commit | `b44f383` (V0.226B Final guard) |
+| Latest commit | `<mã-nguồn-riêng>` (V0.226B Final guard) |
 | README version | V0.226B |
 
 ### Drift analysis

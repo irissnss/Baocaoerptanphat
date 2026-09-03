@@ -1,7 +1,7 @@
 # KHẢO SÁT TRƯỚC KHI ĐƯA CHUỖI BÁN HÀNG VÀO VẬN HÀNH THẬT
 
 **Ngày:** 23/08/2026 · **Loại:** **KHẢO SÁT** — không sửa một dòng mã nào, không đổi một dòng dữ liệu nào
-**Mã ghi nhận (commit):** `f92de9d` · Hệ thống vận hành giữ nguyên **V1.00.352**
+**Mã ghi nhận (commit):** `<mã-nguồn-riêng>` · Hệ thống vận hành giữ nguyên **V1.00.352**
 
 > Bản tin public-safe: chỉ nêu số lượng, tên màn hình và tên vai trò. Không có tên người,
 > tên khách hàng, thông tin đăng nhập hay giá trị nhạy cảm.
@@ -42,7 +42,7 @@ và số dòng** — không có suy đoán.
   **trái với quyết định đã khóa** của Chủ sở hữu (“người lập khác người duyệt; quản trị/điều hành duyệt”).
 - **Ba tài khoản kinh doanh và một tài khoản kế toán thấy 0 khách hàng.** Nguyên nhân: hệ thống
   chặn-mặc-định, người không phải quản trị chỉ thấy khách **do chính mình phụ trách**, mà toàn bộ
-  **1.692 khách đang gán tạm cho một người**.
+  **gần như toàn bộ khách đang gán tạm cho một người**.
 
 *Giảm nhẹ đã có sẵn:* nhân viên kinh doanh tạo khách **mới** thì hệ thống **tự gán về chính họ**.
 

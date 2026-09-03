@@ -2,7 +2,7 @@
 
 > **Loại:** CHỈ XỬ LÝ LUẬT · **Ngày:** 19/08/2026 · **Owner:** TanPhatERP
 > **Actor:** Agent IDE · **Lớp được phép:** Local / Code / Git — chỉ file luật + file tham chiếu mới
-> **Nhánh:** `gov/2026-08-18-rules-ui-standard-upgrade` · **Gốc phiên:** `f333c34` · **HEAD:** `096ecb8`
+> **Nhánh:** `gov/2026-08-18-rules-ui-standard-upgrade` · **Gốc phiên:** `<mã-nguồn-riêng>` · **HEAD:** `<mã-nguồn-riêng>`
 > **KHÔNG:** deploy · DB/schema · `src/` · nội dung SSOT `docs/UI-STANDARD.md` · Notion · đẩy kho mã riêng tư · nạp dữ liệu thật · kiểm giao diện thực tế
 > **Nguyên tắc tách bạch phiên:** mọi việc ngoài luật → **ghi sổ nợ**, không làm trong phiên này.
 
@@ -134,7 +134,7 @@ Cổng cũng học được cách phân biệt **tham chiếu còn sống** vớ
 
 | # | Cổng | Kết quả | Số đo |
 |---|---|---|---|
-| **T1** | Parity 5 file | ✅ **PASS** | 1 hash `ab698658`, 78634 byte mỗi file |
+| **T1** | Parity 5 file | ✅ **PASS** | 1 hash `<mã-nguồn-riêng>`, 78634 byte mỗi file |
 | **T2** | Cổng đếm L0 (hai điều kiện) | ✅ **PASS** | 334 → **391**; ĐK1 ✅ ĐK2 ✅ parity ✅; đúng 13 mã luật |
 | **T3** | `ref-exists` (L6) | ✅ **PASS** | 42 đạt / 0 hỏng / 5 trích dẫn ca hỏng |
 | **T4** | `gate-real-input` (L7) | ✅ **PASS** | 8/8 cổng đọc đầu vào thật (file kho hoặc tham số/stdin); không cổng nào chỉ chạy chuỗi mẫu |
@@ -194,7 +194,7 @@ Theo §0 của chỉ đạo phiên (việc ngoài luật → ghi sổ nợ, khô
              · giao diện thực tế? KHÔNG kiểm · git history? KHÔNG viết lại
 
 3. BẰNG CHỨNG
-   sha256sum x5 → 1 hash ab698658, 78634 byte mỗi file             → FILE_PROVEN
+   sha256sum x5 → 1 hash <mã-nguồn-riêng>, 78634 byte mỗi file             → FILE_PROVEN
    npm run check:governance → 5/5 OK                               → RUNTIME_PROVEN
    npm run test:clause-count → 334 → 391; ĐK1+ĐK2+parity PASS      → RUNTIME_PROVEN
    npm run test:ref-exists-gate → 42 đạt / 0 hỏng / 5 trích dẫn    → RUNTIME_PROVEN
@@ -216,7 +216,7 @@ Theo §0 của chỉ đạo phiên (việc ngoài luật → ghi sổ nợ, khô
        viết 3 cổng. T9 FAIL: phát hiện phơi nhiễm PII 2 file → DEBT-013."
 
 5. PUSH BÁO CÁO CÔNG KHAI
-   [x] ĐÃ PUSH — kho Baocaoerptanphat · commit d12f8a4
+   [x] ĐÃ PUSH — kho Baocaoerptanphat · commit <mã-nguồn-riêng>
        · file VA-LUAT-VA-BO-SUNG-4-LUAT-20260819.md
    Kho này Owner xác nhận RIÊNG TƯ. Vẫn giữ kỷ luật công-bố-an-toàn: KHÔNG nêu đường dẫn
    chính xác của 2 file chứa PII (giá trị còn trong git history), KHÔNG nêu giá trị nào,

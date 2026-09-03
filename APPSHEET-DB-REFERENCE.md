@@ -48,7 +48,7 @@ DMVT ──> MuaHang (nhập vật tư)       ├─> GiaoHang ──> CTGiaoHan
 ## 3) DANH MỤC NỀN (MASTER) — chi tiết + ánh xạ ERP
 
 ### 3.1 `DMKH` — Khách hàng **VÀ** Nhà cung cấp (GỘP 1 bảng) — 1.803 dòng, 28 cột
-> ⭐ **Bài học quan trọng:** AppSheet **gộp KH + NCC + Info vào 1 bảng**, phân biệt bằng cột **`Hạng mục`**: `Khách hàng` (1.692) · `Nhà cung cấp` (109) · `Info` (1). Cột `Nhóm` phân loại tiếp (Cá nhân 1.526 · Công ty 166 · và các nhóm NCC: Giấy, Keo Dán, Nhà In, Màng, Decal…).
+> ⭐ **Bài học quan trọng:** AppSheet **gộp KH + NCC + Info vào 1 bảng**, phân biệt bằng cột **`Hạng mục`**: `Khách hàng` (gần như toàn bộ) · `Nhà cung cấp` (109) · `Info` (1). Cột `Nhóm` phân loại tiếp (Cá nhân 1.526 · Công ty 166 · và các nhóm NCC: Giấy, Keo Dán, Nhà In, Màng, Decal…).
 >
 > ERP hiện **tách** `nha-cung-cap` và `khach-hang` (M5/M1) → khi migrate cần **route theo `Hạng mục`**.
 
@@ -75,7 +75,7 @@ Cột chính: `Mã NV | Họ và tên | Phòng ban | Chức vụ | Bộ phận |
 > ⚠️ Có cột **`Password`** (plaintext) → **KHÔNG migrate mật khẩu**; ERP tự hash + cấp lại.
 > **Cấu trúc tổ chức (public-safe):** Phòng ban (7): Kinh Doanh · Thiết Kế · Sản Xuất · Ban Giám Đốc · Kế Toán · Giao Hàng · Quản Trị Hệ Thống. Chức vụ: Giám đốc · TP Kinh Doanh · Team Leader · Kế Toán Trưởng · Admin. Phân quyền: User (13) · Admin (4).
 
-### 3.5 `LienHe` — 1.765 dòng — liên hệ theo `Mã KH` (nhiều người nhận hàng/1 KH). ERP: bảng liên hệ con của khách hàng.
+### 3.5 `LienHe` — hàng nghìn dòng — liên hệ theo `Mã KH` (nhiều người nhận hàng/1 KH). ERP: bảng liên hệ con của khách hàng.
 
 ### 3.6 `CDSX` — Công đoạn sản xuất — 289 dòng (định mức + thời gian + khuôn + bù hao)
 > **24 công đoạn** thật: Phụ Kiện Thành Phẩm · Bồi · In Offset · Thành Phẩm · Cán Màng · Dán · Cán Màng Trước In · Hiệu Ứng · Ép Kim · Bế · Hộp Cứng · Tráng Phủ · Phay · In Flexo · Bấm Kim · Đóng Cuốn · Cắt Thành Phẩm · Giao Hàng · Hộp Gỗ · Đóng Gói · Cắt Giấy · QC In · Chiết Quang · Kiểm Phẩm. → **Xương sống định tuyến sản xuất** cho ERP (thay cho free-text `Quy trình sản xuất`).
@@ -89,7 +89,7 @@ Cột chính: `Mã NV | Họ và tên | Phòng ban | Chức vụ | Bộ phận |
 | Sheet | Dòng | Vai trò | Cột khoá đáng chú ý |
 |---|---|---|---|
 | `BaoGia` / `CTBaoGia` | 4.102 / 13.205 | Báo giá + chi tiết | `Số BG`, `Mã KH`, `VAT`, `Trạng thái`, `Số ĐH` (liên kết lên đơn) |
-| `DonHang` / `CTDonHang` | 1.783 / 4.206 | Đơn hàng + chi tiết | `Số ĐH`, `Đặt cọc/Đã thanh toán/Còn lại`, `SL Thành phẩm/đã giao/còn lại`, `Mã Công nợ`, `Lệnh SX` |
+| `DonHang` / `CTDonHang` | hàng nghìn / hàng nghìn | Đơn hàng + chi tiết | `Số ĐH`, `Đặt cọc/Đã thanh toán/Còn lại`, `SL Thành phẩm/đã giao/còn lại`, `Mã Công nợ`, `Lệnh SX` |
 | `GiaoHang` / `CTGiaoHang` | 1.046 / 2.234 | Giao hàng + chi tiết | `Số phiếu GH`, `Số ĐH`, `Phương tiện giao`, `SL ĐH/đã giao/còn lại` |
 | `NghiemThu` | 498 | Nghiệm thu (chốt số tính tiền) | `SL Đặt/Giao/Tính tiền`, `VAT`, `Tổng tiền + VAT` |
 | `MuaHang` | 195 | Mua vật tư (theo LSX + NCC) | `Số phiếu`, `Lệnh SX`, `Nhà cung cấp`, `Mã vật tư`, `Chất lượng` |

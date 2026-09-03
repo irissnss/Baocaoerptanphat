@@ -40,12 +40,12 @@ Một số nằm trong mã **không tự chứng minh** nó đang chạy trên m
 | Lớp | Giá trị | Bằng chứng |
 |---|---|---|
 | Số trong **mã nguồn** | **V1.00.355** | tệp khai số phiên bản |
-| Có **hồ sơ phát hành** | **V1.00.355** | commit phát hành `c637fb9` (23/08 18:31) |
-| **Đã lên máy vận hành** | **V1.00.355** | hồ sơ triển khai ghi mã `0e73a7c` (23/08 18:43) |
+| Có **hồ sơ phát hành** | **V1.00.355** | commit phát hành `<mã-nguồn-riêng>` (23/08 18:31) |
+| **Đã lên máy vận hành** | **V1.00.355** | hồ sơ triển khai ghi mã `<mã-nguồn-riêng>` (23/08 18:43) |
 
 **Dòng thời gian bổ sung vào sổ:** V1.00.351 (22/08) → 352 (22/08) → 353 (23/08) → 354 (23/08) → **355 (23/08)**, mỗi đợt có mã phát hành và mốc giờ.
 
-> **Một điểm từng gây bối rối, nay đã rõ:** báo cáo triển khai ghi mã `0e73a7c` còn commit phát hành là `c637fb9`. Đo lại: `c637fb9` là commit **tăng số**, `0e73a7c` là bản vá **12 phút sau**, **vẫn cùng số V1.00.355**, và là **hậu duệ** của commit kia. Hai mã khác nhau nhưng **một phiên bản** — không mâu thuẫn.
+> **Một điểm từng gây bối rối, nay đã rõ:** báo cáo triển khai ghi mã `<mã-nguồn-riêng>` còn commit phát hành là `<mã-nguồn-riêng>`. Đo lại: `<mã-nguồn-riêng>` là commit **tăng số**, `<mã-nguồn-riêng>` là bản vá **12 phút sau**, **vẫn cùng số V1.00.355**, và là **hậu duệ** của commit kia. Hai mã khác nhau nhưng **một phiên bản** — không mâu thuẫn.
 
 ⚠️ **Nói thẳng giới hạn:** lớp thứ ba dựa vào **hồ sơ triển khai của dự án**, không phải phép đo trực tiếp từ phiên này — phiên quản trị **không được** nối vào máy vận hành.
 

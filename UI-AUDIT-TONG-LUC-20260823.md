@@ -14,12 +14,12 @@
 |---|---|
 | Nhánh | `main` |
 | HEAD lúc **bắt đầu** audit | `5348619` — 23/08/2026 06:22:22 |
-| HEAD lúc **kết thúc** audit | `ffe01ce` — 23/08/2026 06:37:23 (`feat(m3): DOT C - hoan thien don hang`) |
+| HEAD lúc **kết thúc** audit | `<mã-nguồn-riêng>` — 23/08/2026 06:37:23 (`feat(m3): DOT C - hoan thien don hang`) |
 | Thời điểm đo cuối | 23/08/2026 06:49:35 +07:00 |
 | Cây làm việc | **SẠCH** (`git status --porcelain` → 0 dòng) ở cả hai mốc |
 
-⚠️ **Kho đã dịch chuyển 1 commit NGAY TRONG lúc audit chạy.** Đã kiểm: `ffe01ce` chỉ chạm 4 file M3 (`bao-gia/actions.ts`, `bao-gia-client.tsx`, `don-hang/actions.ts`, `don-hang-client.tsx`), **KHÔNG** chạm `docs/UI-STANDARD.md`, **KHÔNG** chạm registry, **KHÔNG** chạm `.cursor/skills/`.
-→ Đã **đo lại toàn bộ số liệu mã tại `ffe01ce`**: cả 5 chỉ số không đổi. Mọi kết luận dưới đây đúng cho cả hai mốc.
+⚠️ **Kho đã dịch chuyển 1 commit NGAY TRONG lúc audit chạy.** Đã kiểm: `<mã-nguồn-riêng>` chỉ chạm 4 file M3 (`bao-gia/actions.ts`, `bao-gia-client.tsx`, `don-hang/actions.ts`, `don-hang-client.tsx`), **KHÔNG** chạm `docs/UI-STANDARD.md`, **KHÔNG** chạm registry, **KHÔNG** chạm `.cursor/skills/`.
+→ Đã **đo lại toàn bộ số liệu mã tại `<mã-nguồn-riêng>`**: cả 5 chỉ số không đổi. Mọi kết luận dưới đây đúng cho cả hai mốc.
 
 **Cách đọc bằng chứng:** mọi con số đều kèm lệnh đo. Lớp bằng chứng cao nhất đạt được trong phiên này là `FILE_PROVEN` / `CODE_PROVEN`. **KHÔNG có `UI_PROVEN`** — phiên read-only, không chạy ứng dụng, không chụp ảnh.
 
@@ -33,22 +33,22 @@
 
 | Mốc | Ngày | Số dòng `docs/UI-STANDARD.md` |
 |---|---|---|
-| `66dbe34` | 11/08/2026 23:28 | 112 |
+| `<mã-nguồn-riêng>` | 11/08/2026 23:28 | 112 |
 | `4230148` | 17/08/2026 21:02 | 176 |
-| `15d5fef` | 18/08/2026 10:54 | **177** ← **bản mà khảo sát sáng đã đọc** |
-| `aebab14` | 18/08/2026 23:47 | **371** ← lượt vá D1–D4 |
-| `215d119` | 22/08/2026 11:45 | 371 — *Merge branch `gov/2026-08-18-rules-ui-standard-upgrade`* |
-| `ffe01ce` (HEAD) | 23/08/2026 06:37 | **371** |
+| `<mã-nguồn-riêng>` | 18/08/2026 10:54 | **177** ← **bản mà khảo sát sáng đã đọc** |
+| `<mã-nguồn-riêng>` | 18/08/2026 23:47 | **371** ← lượt vá D1–D4 |
+| `<mã-nguồn-riêng>` | 22/08/2026 11:45 | 371 — *Merge branch `gov/2026-08-18-rules-ui-standard-upgrade`* |
+| `<mã-nguồn-riêng>` (HEAD) | 23/08/2026 06:37 | **371** |
 
 *Lệnh: `for c in …; do git show $c:docs/UI-STANDARD.md | wc -l; done`*
 
-**Nguyên nhân gốc:** lượt vá `aebab14` được làm trên **nhánh riêng** `gov/2026-08-18-rules-ui-standard-upgrade` và **chỉ vào `main` ngày 22/08 lúc 11:45** qua commit hợp nhất `215d119`. Bản khảo sát đo bản 177 dòng — tức bản **trước** khi nhánh được hợp nhất.
+**Nguyên nhân gốc:** lượt vá `<mã-nguồn-riêng>` được làm trên **nhánh riêng** `gov/2026-08-18-rules-ui-standard-upgrade` và **chỉ vào `main` ngày 22/08 lúc 11:45** qua commit hợp nhất `<mã-nguồn-riêng>`. Bản khảo sát đo bản 177 dòng — tức bản **trước** khi nhánh được hợp nhất.
 
 ### A2. Ba kiểm chứng độc lập — kết quả
 
 | # | Câu hỏi | Kết luận | Độ chắc chắn |
 |---|---|---|---|
-| **KC1** | Vá pill có nằm trong `main` không? | **CÓ.** `git merge-base --is-ancestor aebab14 HEAD` → CÓ. `git diff --stat aebab14 HEAD -- docs/UI-STANDARD.md` → **TRỐNG** ⇒ file không đổi một dòng nào từ 18/08 23:47 tới nay | CHẮC CHẮN |
+| **KC1** | Vá pill có nằm trong `main` không? | **CÓ.** `git merge-base --is-ancestor <mã-nguồn-riêng> HEAD` → CÓ. `git diff --stat <mã-nguồn-riêng> HEAD -- docs/UI-STANDARD.md` → **TRỐNG** ⇒ file không đổi một dòng nào từ 18/08 23:47 tới nay | CHẮC CHẮN |
 | **KC2** | `docs/METRONIC_UI_RESEARCH_PROTOCOL.md` — chưa từng tồn tại / đã bị xoá / ở đường dẫn khác? | **CHƯA TỪNG TỒN TẠI.** Quét toàn bộ kho đối tượng git (456 commit / 7.591 đối tượng) → chỉ 3 kết quả chứa chữ "metronic", không có file này. `find` toàn ổ D: và `C:\Users\tantm` → 0 kết quả (đã xác minh cả hai đường dẫn đọc được, nên "rỗng" là kết quả thật) | CHẮC CHẮN |
 | **KC3** | 11 kỹ năng đã thật sự được gộp chưa? | **NỬA ĐÚNG NỬA SAI** — xem §A4 | CHẮC CHẮN |
 
@@ -88,9 +88,9 @@ Claim: *"đã gộp 11 kỹ năng vào SSOT"*. Kiểm chứng đọc toàn văn 
 
 ## B) SỐ ĐO TRẠNG THÁI THẬT (R1 – R5)
 
-### B1. Nợ mã — đo tại `ffe01ce`, đối chiếu khảo sát sáng
+### B1. Nợ mã — đo tại `<mã-nguồn-riêng>`, đối chiếu khảo sát sáng
 
-| Chỉ số | Lệnh đo | Khảo sát 23/08 | Đo lại `ffe01ce` | Kết luận |
+| Chỉ số | Lệnh đo | Khảo sát 23/08 | Đo lại `<mã-nguồn-riêng>` | Kết luận |
 |---|---|---|---|---|
 | `mx-auto` trong file client | `grep -rn "mx-auto" src/app --include=*client*.tsx` | 23 lần / 16 file | **23 / 16** | ✅ KHỚP |
 | Trang dùng `PageHeader` | `grep -rln "PageHeader" src/app --include=*.tsx` | 15 / 77 | **15 / 77** | ✅ KHỚP |
@@ -115,7 +115,7 @@ Claim: *"đã gộp 11 kỹ năng vào SSOT"*. Kiểm chứng đọc toàn văn 
 
 | Mục | Kết quả | Bằng chứng |
 |---|---|---|
-| Đồng bộ 5 bản luật (`GOV-FIVE-REPLICA-SYNC-001`) | ✅ **PASS** | `git hash-object` × 5 → cùng `3e5d3d28…`; `sha256sum` × 5 → cùng `84f979a6…`; 92.538 byte / 2.075 dòng mỗi bản |
+| Đồng bộ 5 bản luật (`GOV-FIVE-REPLICA-SYNC-001`) | ✅ **PASS** | `git hash-object` × 5 → cùng `<mã-nguồn-riêng>…`; `sha256sum` × 5 → cùng `<mã-nguồn-riêng>…`; 92.538 byte / 2.075 dòng mỗi bản |
 | 18 đường dẫn tham chiếu bắt buộc | ✅ **18/18 tồn tại thật** | `ls` từng đường dẫn |
 | Tiền đề của S8 (*Claude Code không đọc được `.cursor/skills/`*) | ✅ **Vẫn đúng hôm nay** | `ls -a .claude` → chỉ có `settings.local.json` |
 | Sổ nợ kỹ thuật | 87 dòng nợ / **82 mã duy nhất** | **⚠️ 5 mã bị cấp trùng: `DEBT-030` `DEBT-031` `DEBT-032` `DEBT-066` `DEBT-067`** |
@@ -514,10 +514,10 @@ FAILURE:     DEGRADE_TO_PROVISIONAL
 ## ═══════════ BÁO CÁO KẾT THÚC ═══════════
 
 **1. ĐÃ LÀM**
-- Ghi mốc đo đầu (`main` @ `5348619` @ 06:22:55, sạch) và phát hiện kho dịch chuyển sang `ffe01ce` giữa phiên → **đo lại toàn bộ số liệu mã tại mốc mới**, xác nhận 5/5 chỉ số không đổi.
+- Ghi mốc đo đầu (`main` @ `5348619` @ 06:22:55, sạch) và phát hiện kho dịch chuyển sang `<mã-nguồn-riêng>` giữa phiên → **đo lại toàn bộ số liệu mã tại mốc mới**, xác nhận 5/5 chỉ số không đổi.
 - Chạy **13 tác nhân đọc song song theo nguồn** (10 đào nguồn + 3 kiểm chứng đối chứng), 336 lượt gọi công cụ, 2.304.224 token, **0 lỗi, 0 tác nhân trả rỗng**.
 - Thu **537 yêu cầu UI** và **224 điểm mâu thuẫn** kèm trích nguyên văn + `file:dòng`.
-- **Phân xử dứt điểm hai chuỗi bằng chứng chọi nhau**: khảo sát sáng 23/08 đo trên bản `docs/UI-STANDARD.md` **177 dòng** (`15d5fef`, 18/08 10:54), trong khi `main` đang là **371 dòng** — lượt vá `aebab14` nằm trên nhánh `gov/2026-08-18-rules-ui-standard-upgrade`, chỉ vào `main` ngày **22/08 lúc 11:45** qua `215d119`. **7 kết luận của khảo sát sáng nay không còn đúng.**
+- **Phân xử dứt điểm hai chuỗi bằng chứng chọi nhau**: khảo sát sáng 23/08 đo trên bản `docs/UI-STANDARD.md` **177 dòng** (`<mã-nguồn-riêng>`, 18/08 10:54), trong khi `main` đang là **371 dòng** — lượt vá `<mã-nguồn-riêng>` nằm trên nhánh `gov/2026-08-18-rules-ui-standard-upgrade`, chỉ vào `main` ngày **22/08 lúc 11:45** qua `<mã-nguồn-riêng>`. **7 kết luận của khảo sát sáng nay không còn đúng.**
 - Truy vết `docs/METRONIC_UI_RESEARCH_PROTOCOL.md` bằng 4 lớp độc lập → **CHƯA TỪNG TỒN TẠI**; nhãn HISTORICAL đã có ở **3 nơi**.
 - Kiểm claim 19/08 "gộp 11 kỹ năng" → **nửa đúng nửa sai**: 9/16 kỹ năng có tên trong SSOT, **7 kỹ năng (1.293 dòng) không**; phát hiện **4 xung đột mới do việc gộp sinh ra mà chưa khai**, và **1 nguồn Owner-duyệt (`mobile-responsive-ui-patterns`, 13/03/2026) không có trong registry**.
 - Phát hiện **họ component `standard-*`** (5 file) chọi SSOT có hệ thống ở 7 điểm, chưa nguồn nào gán nhãn; trong đó `standard-data-table.tsx` **0 nơi dùng** nhưng mang tên "standard" = bẫy đặt sẵn.
@@ -533,7 +533,7 @@ FAILURE:     DEGRADE_TO_PROVISIONAL
 **3. BẰNG CHỨNG**
 - `git rev-parse HEAD` · `git log --follow --date=iso -20 -- docs/UI-STANDARD.md` · `git merge-base --is-ancestor` · `git show <sha>:docs/UI-STANDARD.md | wc -l` cho 7 mốc → **FILE_PROVEN** (chuỗi thời gian của SSOT).
 - `git rev-list --all --objects | grep -i METRONIC` trên **456 commit / 7.591 đối tượng** + `find` toàn ổ D: và `C:\Users\tantm` (đã xác minh cả hai mount đọc được) → **FILE_PROVEN** (file chưa từng tồn tại).
-- `git hash-object` × 5 → `3e5d3d28…`; `sha256sum` × 5 → `84f979a6…` → **FILE_PROVEN** (parity 5 bản luật PASS).
+- `git hash-object` × 5 → `<mã-nguồn-riêng>…`; `sha256sum` × 5 → `<mã-nguồn-riêng>…` → **FILE_PROVEN** (parity 5 bản luật PASS).
 - `grep -rn`/`grep -rln`/`grep -c` trên `src/app`, `src/components`, `.cursor/skills`, `.governance/registry` → **CODE_PROVEN** (mọi số đo nợ mã, kèm lệnh trong bảng B1/B2).
 - Đọc toàn phần: `docs/UI-STANDARD.md` 371/371 · `CLAUDE.md` 2075/2075 · `ARCHIVE-LEGACY-RULESET.md` 2785/2785 · `OWNER-REQUEST-LEDGER.md` 387/387 · `tech-debt.md` 136/136 · 16 SKILL.md · 4 trang mẫu · 7 doc mẫu · token + component nền → **FILE_PROVEN**.
 - ⚠️ **KHÔNG có `UI_PROVEN` và KHÔNG có `RUNTIME_PROVEN`** — phiên read-only, không chạy ứng dụng, không chụp ảnh. Mọi kết luận về "hiển thị thật" đều **chưa được kiểm bằng mắt**.
@@ -543,7 +543,7 @@ FAILURE:     DEGRADE_TO_PROVISIONAL
 - ⛔ **Cần ghi ngay ở phiên sau** (đã soạn sẵn nội dung): (a) Owner chốt 06:15 23/08 về nguyên tắc "chuẩn chỉnh trước"; (b) kết quả phân xử hai chuỗi bằng chứng §A; (c) 9 câu hỏi Q1–Q9 và 3 điểm chặn C1–C3.
 
 **5. PUSH BÁO CÁO CÔNG KHAI**
-- **ĐÃ PUSH** — kho `Baocaoerptanphat` · nhánh `main` · file `UI-AUDIT-TONG-LUC-20260823.md` · commit **`0437aa515b5da2a593baab01b3ccb83c02e1d0bb`** (`0437aa5`).
+- **ĐÃ PUSH** — kho `Baocaoerptanphat` · nhánh `main` · file `UI-AUDIT-TONG-LUC-20260823.md` · commit **`<mã-nguồn-riêng>`** (`<mã-nguồn-riêng>`).
 - *(Bản này là lượt đẩy thứ hai, chỉ điền mã commit thật vào trường 5 — nội dung audit không đổi.)*
 
 **6. CÒN SÓT / CHƯA LÀM**
@@ -585,6 +585,6 @@ Owner trả lời **C1** (giữ hay đảo OIL #78). Đây là câu chặn gốc
 - Phiên có bị nén ngữ cảnh không: **KHÔNG**.
 - **Nhưng đã xảy ra một dạng lệch nguy hiểm hơn nén: dữ liệu tham chiếu cũ từ lượt trước trong cùng phiên.** Bản khảo sát Bước 0–5 đo `docs/UI-STANDARD.md` = 177 dòng; tại HEAD của phiên này file là 371 dòng. Đã **đọc lại toàn phần từ đĩa** thay vì tin số liệu lượt trước — chính nhờ vậy mới phát hiện §A.
 - Tài liệu tham chiếu **đã đọc lại từ đĩa trong phiên này**: `docs/UI-STANDARD.md` (371/371) · `CLAUDE.md` (2075/2075) · `.governance/ARCHIVE-LEGACY-RULESET.md` (2785/2785) · `.governance/registry/ui-standard-sources.md` (51/51) · `.governance/registry/legacy-rules-status.md` · `.governance/registry/tech-debt.md` (136/136) · `docs/OWNER-REQUEST-LEDGER.md` (387/387) · 16 file `SKILL.md` · 7 doc mẫu/G1/G2/Metronic · `design-tokens.css` · `globals.css` · `components/foundation/*` · `components/ux/*` · `components/ui/*` · 4 trang mẫu · các báo cáo UI trên kho công khai.
-- **Cảnh báo cho phiên sau:** kho đã dịch chuyển 1 commit ngay trong phiên này. Trước khi dùng bất kỳ số liệu nào trong báo cáo này, **chạy lại N0.1** (kiểm mốc kho) — nếu HEAD đã khác `ffe01ce`, phải đo lại phần số liệu mã.
+- **Cảnh báo cho phiên sau:** kho đã dịch chuyển 1 commit ngay trong phiên này. Trước khi dùng bất kỳ số liệu nào trong báo cáo này, **chạy lại N0.1** (kiểm mốc kho) — nếu HEAD đã khác `<mã-nguồn-riêng>`, phải đo lại phần số liệu mã.
 
 ═══════════════════════════════════════════

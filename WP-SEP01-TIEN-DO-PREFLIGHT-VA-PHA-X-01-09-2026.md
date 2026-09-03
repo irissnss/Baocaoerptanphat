@@ -1,7 +1,7 @@
 # `WP-ERP-SEP01` — BÁO CÁO TIẾN ĐỘ: PREFLIGHT · ĐỊNH DANH PHÁT HÀNH · PHA X
 
 > **Gói việc:** `WP-ERP-SEP01-CONVERGED-RELEASE-AND-OWNER-UAT` (Sổ Owner mục **#207**)
-> **Kho mã:** `irissnss/erptanphat` · nhánh `main` · đã đẩy tới **`b1800c7`**
+> **Kho mã:** `irissnss/erptanphat` · nhánh `main` · đã đẩy tới **`<mã-nguồn-riêng>`**
 > **Ngày:** 01/09/2026
 > **Trạng thái:** ⚙️ **ĐANG THỰC HIỆN** — xong Pha 0, Pha V, Pha VII, một phần Pha X
 > **Máy vận hành:** vẫn `V1.00.366` — **CHƯA triển khai**
@@ -29,11 +29,11 @@ chờ**; Agent phải tự xử theo hướng Owner đã chỉ.
 
 | Đối tượng | Kỳ vọng | Máy nội bộ | `main` | Máy vận hành | Phán quyết |
 |---|---|---|---|---|---|
-| HEAD kho riêng | `4c51611` | `4c51611` | `4c51611` | — | ✅ **KHỚP** — báo cáo trước đúng |
+| HEAD kho riêng | `<mã-nguồn-riêng>` | `<mã-nguồn-riêng>` | `<mã-nguồn-riêng>` | — | ✅ **KHỚP** — báo cáo trước đúng |
 | Cây làm việc | sạch | sạch | 0 ahead/0 behind | — | ✅ |
 | Phiên bản | — | V1.00.366 | V1.00.366 | **V1.00.366** | 🔴 **ĐỤNG ĐỘ ĐỊNH DANH** |
-| Mã nguồn triển khai | — | `4c51611` | — | `ef0e195` | ⚠️ lệch **11 commit · 42 tệp** |
-| Vân tay bản dựng | — | — | — | `9af23488…` | ✅ có ghi trong bản kê |
+| Mã nguồn triển khai | — | `<mã-nguồn-riêng>` | — | `<mã-nguồn-riêng>` | ⚠️ lệch **11 commit · 42 tệp** |
+| Vân tay bản dựng | — | — | — | `<mã-nguồn-riêng>…` | ✅ có ghi trong bản kê |
 | Tiến trình dịch vụ | chạy | — | — | **online 12h · 0 restart** | ✅ |
 | Tuyến trọng yếu | lành | — | — | `/auth/login` **200** · các tuyến bảo vệ **307** | ✅ |
 | MariaDB | 10.11 LTS | 10.11.10 | — | **10.11.10** | ✅ |
@@ -62,8 +62,8 @@ Ghi lại theo `GOV-FAILURE-RECORD-001` §G7.4:
 
 ### 2.1 Vấn đề, nói bằng số
 
-Máy vận hành chạy **`V1.00.366`** từ mã nguồn `ef0e195`.
-Kho riêng tư cũng khai **`V1.00.366`**, nhưng HEAD là `4c51611` — **cách nhau 11
+Máy vận hành chạy **`V1.00.366`** từ mã nguồn `<mã-nguồn-riêng>`.
+Kho riêng tư cũng khai **`V1.00.366`**, nhưng HEAD là `<mã-nguồn-riêng>` — **cách nhau 11
 commit và 42 tệp**.
 
 ⇒ **Cùng một số phiên bản đang chỉ vào HAI nội dung khác nhau.**
@@ -90,7 +90,7 @@ yêu cầu §XI *«negative controls phải chạy trong fixture/sandbox»*.
 ```
 FAIL  [R1] KHÔNG đụng độ định danh
       cùng «V1.00.366» nhưng mã nguồn khác nhau
-      (kho 4c5161148 ≠ vận hành ef0e1956a)
+      (kho <mã-nguồn-riêng> ≠ vận hành <mã-nguồn-riêng>)
 
 ⛔ CẤM TRIỂN KHAI cho tới khi tăng số phiên bản.
 ```
@@ -110,7 +110,7 @@ Kiểm **chỉ đọc**, không cần Owner cung cấp mật khẩu, không in m
 | Cần containment? | **KHÔNG** |
 
 ⇒ Tệp gieo **chưa từng được chạy** trên máy vận hành. Phần mã nguồn đã dọn hôm nay
-(commit `63c1245`); phần runtime **không có gì để dọn**.
+(commit `<mã-nguồn-riêng>`); phần runtime **không có gì để dọn**.
 
 ---
 
@@ -257,8 +257,8 @@ diện:
 
 ## 9. ĐIỀU CHƯA CHỨNG MINH ĐƯỢC
 
-1. **Chưa triển khai.** Máy vận hành vẫn `V1.00.366` từ `ef0e195`. Hai commit của gói
-   việc này (`b0f3fb4`, `b1800c7`) mới nằm ở kho.
+1. **Chưa triển khai.** Máy vận hành vẫn `V1.00.366` từ `<mã-nguồn-riêng>`. Hai commit của gói
+   việc này (`<mã-nguồn-riêng>`, `<mã-nguồn-riêng>`) mới nằm ở kho.
 2. **Permission UX chưa được Owner nghiệm thu** — và theo §XIII, nghiệm thu **phải
    trên runtime VPS đã triển khai**, không phải trên bản local.
 3. **Tám cổng trình duyệt chưa có disposition** — chưa quyết viết lại hay gắn
@@ -294,9 +294,9 @@ diện:
 
 3. BẰNG CHỨNG
    Kho mã irissnss/erptanphat, nhánh main — đã đẩy 01/09/2026,
-   4c51611..b1800c7, KHÔNG force-push:
-     b0f3fb4 — preflight + cổng định danh phát hành
-     b1800c7 — siết quyền sơ đồ quy trình + 2 hành động rỗng
+   <mã-nguồn-riêng>..<mã-nguồn-riêng>, KHÔNG force-push:
+     <mã-nguồn-riêng> — preflight + cổng định danh phát hành
+     <mã-nguồn-riêng> — siết quyền sơ đồ quy trình + 2 hành động rỗng
    npm run test:gov-gates                    → 37/37 PASS
    npm run test:dinh-danh-phat-hanh:selftest → 6/6
    npm run test:dinh-danh-phat-hanh          → bắt đúng đụng độ
@@ -312,7 +312,7 @@ diện:
    [x] ĐÃ GHI — mục #207 (gói việc WP-ERP-SEP01, 13 quyết định khoá)
 
 5. PUSH BÁO CÁO CÔNG KHAI
-   [x] ĐÃ PUSH — kho Baocaoerptanphat · nhánh main · commit 77a5b77 ·
+   [x] ĐÃ PUSH — kho Baocaoerptanphat · nhánh main · commit <mã-nguồn-riêng> ·
        báo cáo lượt hai TONG-LUC-LUOT-HAI-01-09-2026-XU-LY-DUT-DIEM.md
    Báo cáo này (tệp thứ ba) đẩy ngay sau khi ghi khối này.
    Mã commit KHO MÃ NGUỒN nằm ở trường 3 — không để lẫn vào đây.

@@ -219,7 +219,7 @@ Hook chạy thật ở cả ba lượt ghi mã.
 
 **Đã làm (đọc-đối chiếu):** đọc cấu trúc 3 bảng nguồn (Nhân viên, Khách hàng, Liên hệ) và đối chiếu với cấu trúc bảng đích trong ERP (nhân sự, tài khoản/vai trò, khách hàng + liên hệ + địa chỉ, nhà cung cấp). Lập bảng **map từng cột** + **ma trận THIẾU/ĐỦ/DƯ** + **quy trình thực thi** (làm sạch định dạng → bảng trung gian → chạy thử xuất mẫu → sao lưu → ghi local → kiểm đếm đối chứng → phương án hoàn tác).
 
-**Số lượng danh mục (không kèm dữ liệu cá nhân):** Nhân viên ~17 · Khách hàng ~1.692 · Nhà cung cấp ~109 · Liên hệ ~1.764.
+**Số lượng danh mục (không kèm dữ liệu cá nhân):** Nhân viên ~17 · Khách hàng ~gần như toàn bộ · Nhà cung cấp ~109 · Liên hệ ~1.764.
 
 **Kết luận kỹ thuật (public-safe):** nhân sự và tài khoản đăng nhập là 2 bảng tách (quyền theo vai trò, không lưu theo từng người); khách hàng trong ERP đã có sẵn bảng con liên hệ + địa chỉ nhiều dòng; nhà cung cấp cấu trúc phẳng hơn. Một số điểm cần Owner quyết trước khi nạp (bổ sung phòng ban còn thiếu, cột ngân hàng, quy tắc trùng mã số thuế, giá trị mặc định bắt buộc). **KHÔNG** nạp cột số liệu tính toán (ERP tự tính) và **KHÔNG** mang mật khẩu cũ.
 
@@ -586,7 +586,7 @@ Báo cáo đầy đủ + chữ ký: `PROBE-CURSOR-DOC-TRUOC-MA-DANH-SACH-2026081
 
 | Câu hỏi Owner | Trả lời đã xác minh |
 |---|---|
-| Đang tự nạp file luật nào? | **`.cursorrules`** (entry). Canonical = `TANPHAT_AGENT_RULESET`. 5 replica byte-identical, sha256 `c009a4d7…`. `.cursor/rules/*.mdc` chỉ bổ trợ. |
+| Đang tự nạp file luật nào? | **`.cursorrules`** (entry). Canonical = `TANPHAT_AGENT_RULESET`. 5 replica byte-identical, sha256 `<mã-nguồn-riêng>…`. `.cursor/rules/*.mdc` chỉ bổ trợ. |
 | Khi thiếu thông tin phải làm gì? | Discover trước → `PROVISIONAL` (chỉ-đọc) / `BLOCKED` (mutation) → hỏi Owner **một câu tối thiểu**. Cấm đoán schema/path/business rule. |
 
 Báo cáo đầy đủ + chữ ký: `PROBE-CURSOR-NAP-LUAT-VA-THIEU-THONG-TIN-20260816.md`.

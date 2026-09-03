@@ -1,7 +1,7 @@
 # RÀ BIỂU MẪU / MẪU IN + TRẠNG THÁI PHÁT HÀNH V1.00.353
 
 **Ngày:** 23/08/2026 · **Loại:** **RÀ SOÁT CHỈ-ĐỌC** (không sửa một dòng mã nào) + **báo trạng thái phát hành**
-**Hệ thống vận hành đang chạy:** `V1.00.352` · mã commit `fb8d6ea` · nhánh `main`
+**Hệ thống vận hành đang chạy:** `V1.00.352` · mã commit `<mã-nguồn-riêng>` · nhánh `main`
 
 > Bản tin public-safe: chỉ nêu số lượng, mã kỹ thuật, tên bảng/màn hình. Không có thông tin đăng nhập,
 > không có dữ liệu khách hàng, không có số tiền thật.
@@ -14,15 +14,15 @@
 
 | Việc | Trạng thái thật | Bằng chứng |
 |---|---|---|
-| Mã nguồn V1.00.353 | ✅ **XONG**, đã đẩy lên kho mã | commit **`da9bc22`** |
-| Kế hoạch quay lui | ✅ **Viết TRƯỚC khi deploy** | commit `71b7482` |
+| Mã nguồn V1.00.353 | ✅ **XONG**, đã đẩy lên kho mã | commit **`<mã-nguồn-riêng>`** |
+| Kế hoạch quay lui | ✅ **Viết TRƯỚC khi deploy** | commit `<mã-nguồn-riêng>` |
 | Sao lưu máy vận hành | ✅ **Lấy MỚI lúc 13:35 ngày 23/08** — 18 MB, 101 bảng | tệp nén 509.607 byte, để **ngoài kho mã** |
 | N1 — diễn tập trên bản sao mới | ✅ **ĐẠT** | 101 bảng khôi phục = 101 bảng nguồn · **12/12 bảng trọng yếu KHỚP tuyệt đối số dòng** · 4 bộ kiểm thử chạy trên dữ liệu hình dạng thật: **118 điểm kiểm, 0 trượt** |
 | N2 — nghiệm thu 12 điểm | ✅ **12/12 đạt CẢ HAI LỚP** (truy vấn thật + ảnh thật) | xem bảng dưới |
 | **N3 — đẩy lên máy vận hành** | ❌ **CHƯA CHẠY** | **lệnh deploy bị hệ thống an toàn chặn quyền.** Tác nhân **KHÔNG lách** bằng cách gõ tay từng lệnh SSH — đó là cố tình đi vòng qua chính cái chặn đó |
 | Kiểm khói 7 đường trên máy vận hành | ❌ chưa — vì chưa deploy | — |
 
-**Đã kiểm lại máy vận hành lúc viết báo cáo này:** `git rev-parse --short HEAD` → **`fb8d6ea`**;
+**Đã kiểm lại máy vận hành lúc viết báo cáo này:** `git rev-parse --short HEAD` → **`<mã-nguồn-riêng>`**;
 `const PATCH` trong tệp phiên bản → **`352`**; trang đăng nhập trả mã **200**.
 ⇒ Máy vận hành **vẫn đang chạy bản cũ**, đúng như nêu trên.
 
@@ -35,13 +35,13 @@
 | # | Điểm nghiệm thu | Truy vấn thật | Ảnh |
 |---|---|---|---|
 | 01 | Đăng nhập + nạp phân quyền | 6 vai trò · 48 quyền menu · 28 quyền hành động | ✅ |
-| 02 | Danh mục khách hàng hiện đủ | 1.695 khách hàng | ✅ |
+| 02 | Danh mục khách hàng hiện đủ | hàng nghìn khách hàng | ✅ |
 | 03 | Danh mục nhân sự hiện đủ | 46 hồ sơ | ✅ |
 | 04 | Báo giá — danh sách mở được | 7 báo giá | ✅ |
 | 05 | **Không có báo giá ĐÃ DUYỆT mà đơn giá ≤ 0** (đợt B3) | **0 bản ghi vi phạm** | ✅ |
 | 06 | Đơn hàng — danh sách mở được | 6 đơn | ✅ |
 | 07 | Đơn nháp và đơn đã khoá tách bạch (đợt C3) | 2 nháp · 4 đã xác nhận | ✅ |
-| 08 | **Địa chỉ giao đều thuộc đúng khách** (đợt C2) | **0 đơn có địa chỉ lạc** · 2.012 địa chỉ trong danh bạ | ✅ |
+| 08 | **Địa chỉ giao đều thuộc đúng khách** (đợt C2) | **0 đơn có địa chỉ lạc** · hàng nghìn địa chỉ trong danh bạ | ✅ |
 | 09 | Thiết kế — màn giao việc mở được (đợt B5) | quyền đọc từ ma trận, không đọc mã vai trò viết cứng | ✅ |
 | 10 | Tài chính — công nợ mở được (đợt C4) | công nợ **loại trừ 2 đơn nháp** | ✅ |
 | 11 | Ma trận tick quyền hành động hiện đủ (đợt D) | 28 dòng quyền đã cấp | ✅ |
@@ -49,7 +49,7 @@
 
 **Nguồn ảnh:** **100% do phía kỹ thuật tự chụp bằng máy**, trên **bản sao dữ liệu máy vận hành** chạy ở
 máy nội bộ. **Không có ảnh nào do Chủ dự án cung cấp** trong đợt này.
-⚠️ Ảnh **chứa dữ liệu cá nhân thật** (1.695 khách hàng) ⇒ lưu ở thư mục đã khoá khỏi kho, **KHÔNG đẩy công khai**.
+⚠️ Ảnh **chứa dữ liệu cá nhân thật** (hàng nghìn khách hàng) ⇒ lưu ở thư mục đã khoá khỏi kho, **KHÔNG đẩy công khai**.
 
 ## Trạng thái dọn dữ liệu thử
 

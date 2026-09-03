@@ -1,7 +1,7 @@
 # PHÁT HÀNH V1.00.352 — NGƯỜI DÙNG TỰ ĐỔI ĐƯỢC MẬT KHẨU
 
 **Ngày:** 22/08/2026 · **Loại:** phát hành giao diện + trải nghiệm, **không đổi cấu trúc dữ liệu**
-**Mã phát hành (commit):** `fb8d6ea` · hồ sơ kèm theo: `7542c02`
+**Mã phát hành (commit):** `<mã-nguồn-riêng>` · hồ sơ kèm theo: `<mã-nguồn-riêng>`
 **Bản trước:** V1.00.351
 
 > Bản tin public-safe: không có tên người, thông tin đăng nhập, hay giá trị nhạy cảm.

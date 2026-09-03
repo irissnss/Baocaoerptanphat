@@ -1,7 +1,7 @@
 # CHUẨN HOÁ LUẬT + KỸ NĂNG + GIAO DIỆN — MỘT LƯỢT
 
 > **Ngày:** 23/08/2026 · **Owner duyệt:** 14:11 · **Actor:** Agent IDE (phiên "Luật Cho Dự Án TanPhat ERP")
-> **Nhánh:** `main` · **Mốc đầu:** `da9bc22` → **Mốc cuối:** `c0e0b8f`
+> **Nhánh:** `main` · **Mốc đầu:** `<mã-nguồn-riêng>` → **Mốc cuối:** `<mã-nguồn-riêng>`
 > **Phạm vi khoá:** LUẬT + KỸ NĂNG + GIAO DIỆN. **0 dòng `src/`. 0 file bị xoá hay đổi tên.**
 > **Căn cứ:** Sổ Yêu Cầu Owner **mục #132**
 
@@ -121,7 +121,7 @@ Nhưng Owner nên biết: **ngưỡng này vừa bị vượt do chính đợt g
 npm run test:gov-gates
 ```
 
-Kết quả tại mốc `c0e0b8f`: **toàn bộ XANH**.
+Kết quả tại mốc `<mã-nguồn-riêng>`: **toàn bộ XANH**.
 
 | Máy kiểm tra | Kết quả |
 |---|---|
@@ -204,8 +204,8 @@ Kết quả tại mốc `c0e0b8f`: **toàn bộ XANH**.
    [x] ĐÃ GHI — mục #132 (va muc #131 phien truoc)
 
 5. PUSH BÁO CÁO CÔNG KHAI
-   [x] ĐÃ PUSH — kho Baocaoerptanphat · commit c27dd63 · file LUAT-SKILL-UI-GOP-20260823.md
-   [x] Kho ma rieng tu: 1f5e379 · 30e077c · c0e0b8f — da push main
+   [x] ĐÃ PUSH — kho Baocaoerptanphat · commit <mã-nguồn-riêng> · file LUAT-SKILL-UI-GOP-20260823.md
+   [x] Kho ma rieng tu: <mã-nguồn-riêng> · <mã-nguồn-riêng> · <mã-nguồn-riêng> — da push main
 
 6. CÒN SÓT / CHƯA LÀM
    - 5 bang tinh + 1 ban chep Notion vua lo ra: CHUA xac minh noi dung (DEBT-091/092)
@@ -239,7 +239,7 @@ Kết quả tại mốc `c0e0b8f`: **toàn bộ XANH**.
 11. NÉN PHIÊN & ĐỌC LẠI THAM CHIẾU
    Phien co bi nen: CO
    Da doc lai sau nen (BUOC 0 do moc truoc khi doc):
-   docs/UI-STANDARD.md (453 dong, sha 42a07779) · docs/UI-ACCEPTANCE-CHECKLIST.md
+   docs/UI-STANDARD.md (453 dong, sha <mã-nguồn-riêng>) · docs/UI-ACCEPTANCE-CHECKLIST.md
    · .governance/registry/{skills.yml,ui-standard-sources.md,tech-debt.md}
    · docs/OWNER-REQUEST-LEDGER.md · CLAUDE.md §L2 §G7.1 §G7.10 §V §W
    · scripts/pre-commit-hook.sh · scripts/tests/{pii-scan,secret-scan,path-audit,
@@ -247,6 +247,6 @@ Kết quả tại mốc `c0e0b8f`: **toàn bộ XANH**.
    · .cursor/skills/{implement-wizard-step,title-auto-case,tailwind-v4-canonical-classes,
      searchable-dropdown,detail-panel-layout}/SKILL.md
    · src/app/m5/kho-thanh-pham/kho-thanh-pham-client.tsx (chi DOC)
-   Moc do BUOC 0: nhanh main · HEAD da9bc22 · cay lam viec sach 0 file
+   Moc do BUOC 0: nhanh main · HEAD <mã-nguồn-riêng> · cay lam viec sach 0 file
 ═══════════════════════════════════════════
 ```

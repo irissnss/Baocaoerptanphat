@@ -83,7 +83,7 @@ Sáu chỉ thị dưới đây đều đã ghi vào `docs/OWNER-REQUEST-LEDGER.m
 
 ## 2. ĐÃ LÀM — TÁM NỢ ĐÓNG, MỖI NỢ CÓ BẰNG CHỨNG ĐO ĐƯỢC
 
-### 2.1 Bốn nợ chặn go-live (commit `92d16e4`)
+### 2.1 Bốn nợ chặn go-live (commit `<mã-nguồn-riêng>`)
 
 | Nợ | Việc | Bằng chứng |
 |---|---|---|
@@ -109,7 +109,7 @@ số chết.
 **không mất** — vẫn tìm được bằng ô tìm, vẫn hiện ở hộp thoại lịch sử và biểu mẫu sửa;
 ở ba nơi đó nó **được gọi tên là mã**, nên không ai nhầm là nhãn.
 
-### 2.2 Làm lại màn phân quyền — lượt thứ NĂM (commit `75716c5`)
+### 2.2 Làm lại màn phân quyền — lượt thứ NĂM (commit `<mã-nguồn-riêng>`)
 
 Ba việc a·b·c Owner duyệt:
 
@@ -150,7 +150,7 @@ gốc của cảm giác khó kiểm soát.
 **Kiểm ngược:** trả về kiểu ghi-ngay → **148 → 149** (2 điều kiện đỏ); khôi phục →
 **18/18**.
 
-### 2.3 Hai nợ quản trị (commit `56d5bc9`)
+### 2.3 Hai nợ quản trị (commit `<mã-nguồn-riêng>`)
 
 | Nợ | Việc |
 |---|---|
@@ -281,9 +281,9 @@ hiện hành**:
    ✅ **ĐÃ GIẢI cùng ngày.** Đã thêm nhánh đo thứ hai cho ma trận **chuyển trạng thái**
    (`role_action_permission`, 67 dòng — duyệt báo giá · huỷ đơn · duyệt thu chi):
    tick → **67 → 67**, bỏ thay đổi → vẫn **67**. Cổng nay **22/22**, không còn ma trận
-   nào chỉ được kiểm bằng đọc mã nguồn. `DEBT-166` **đã đóng**. Commit `1a33712`.
+   nào chỉ được kiểm bằng đọc mã nguồn. `DEBT-166` **đã đóng**. Commit `<mã-nguồn-riêng>`.
 3. **Mọi thay đổi trong phiên này CHƯA TRIỂN KHAI lên máy vận hành.** Máy vận hành vẫn
-   chạy `V1.00.366`. Ba commit `92d16e4` · `75716c5` · `56d5bc9` mới nằm ở kho.
+   chạy `V1.00.366`. Ba commit `<mã-nguồn-riêng>` · `<mã-nguồn-riêng>` · `<mã-nguồn-riêng>` mới nằm ở kho.
    Triển khai cần cổng duyệt của Owner theo `GOV-DEPLOY-SCHEMA-COMPAT-001` §G7.16.
 4. **Sáu đơn hàng trùng trên máy vận hành vẫn còn.** Đo được cả sáu là dữ liệu thử
    (khách «Sđsfdsfds», hàng «Test San Pham R1») nên **không hại tiền thật**, nhưng
@@ -300,7 +300,7 @@ hiện hành**:
 
 | Mục sổ | Quyết định | Phạm vi áp dụng | **CẤM mở rộng sang** | Bằng chứng | Trang Notion cần sửa |
 |---|---|---|---|---|---|
-| **#200** | Màn phân quyền phải trực quan thật; quản trị là ``tài-khoản-quản-trị-Owner` *(email đã gỡ theo `GOV-PII-HANDLING-001`)*`; vị trí lấy theo máy nội bộ | `/m0/security` · dữ liệu vị trí nhân sự | Không đổi quyền tài khoản thật của nhân viên | `75716c5` · V1.00.366 | **CHƯA XÁC ĐỊNH** |
+| **#200** | Màn phân quyền phải trực quan thật; quản trị là ``tài-khoản-quản-trị-Owner` *(email đã gỡ theo `GOV-PII-HANDLING-001`)*`; vị trí lấy theo máy nội bộ | `/m0/security` · dữ liệu vị trí nhân sự | Không đổi quyền tài khoản thật của nhân viên | `<mã-nguồn-riêng>` · V1.00.366 | **CHƯA XÁC ĐỊNH** |
 | **#201** | Đổi quyền **phải qua Save + popup trước/sau + xác nhận lần nữa** | Mọi ô tick quyền trong ERP | Không áp cho ô tick **không phải quyền** | `test:xac-nhan-hai-buoc` **18/18**, đo 148→148 | **CHƯA XÁC ĐỊNH** |
 | **#202** | **Cấm sinh bảng rời rạc**; F gộp dùng chung; mã **4 số**; A/C/D/E chờ duyệt | Lược đồ CSDL | **Chưa được đụng** A/C/D/E khi Owner chưa duyệt | Rà 101 bảng · 1 563 cột | **CHƯA XÁC ĐỊNH** |
 | **#203** | Đẩy báo cáo đủ để Agent Notion phân biệt mệnh lệnh Owner | Kho báo cáo công khai | Không đưa dữ liệu nhạy cảm ra kho công khai | Chính tệp này | **CHƯA XÁC ĐỊNH** |
@@ -383,10 +383,10 @@ loại được phép theo `GOV-PUBLIC-SAFE-001` §J1.*
 
 3. BẰNG CHỨNG
    Kho mã irissnss/erptanphat (riêng tư), nhánh main — đã đẩy 01/09/2026,
-   4f826c9..56d5bc9, KHÔNG force-push:
-     92d16e4 — bốn nợ chặn go-live (DEBT-147/149/150/151)
-     75716c5 — làm lại màn phân quyền a/b/c (DEBT-145, DEBT-162)
-     56d5bc9 — nắn hình dạng hai sổ + 2 cổng mới (DEBT-103, DEBT-165)
+   <mã-nguồn-riêng>..<mã-nguồn-riêng>, KHÔNG force-push:
+     <mã-nguồn-riêng> — bốn nợ chặn go-live (DEBT-147/149/150/151)
+     <mã-nguồn-riêng> — làm lại màn phân quyền a/b/c (DEBT-145, DEBT-162)
+     <mã-nguồn-riêng> — nắn hình dạng hai sổ + 2 cổng mới (DEBT-103, DEBT-165)
    npm run test:xac-nhan-hai-buoc → 22/22.
      Ma trận QUYỀN MÀN: dòng quyền 148→148 ở mọi bước; kiểm ngược 148→149
      Ma trận CHUYỂN TRẠNG THÁI: 67→67, bỏ thay đổi vẫn 67
@@ -407,9 +407,9 @@ loại được phép theo `GOV-PUBLIC-SAFE-001` §J1.*
    bàn giao Notion 2 lần.
 
 5. PUSH BÁO CÁO CÔNG KHAI
-   [x] ĐÃ PUSH — kho Baocaoerptanphat · nhánh main · commit e8aa43e ·
+   [x] ĐÃ PUSH — kho Baocaoerptanphat · nhánh main · commit <mã-nguồn-riêng> ·
        file TONG-LUC-PHIEN-01-09-2026-VA-GOI-BAN-GIAO-NOTION.md
-   (e8aa43e là bản đầu; chính dòng ghi mã này được bổ sung ở commit ngay
+   (<mã-nguồn-riêng> là bản đầu; chính dòng ghi mã này được bổ sung ở commit ngay
     sau đó — mã commit chỉ tồn tại SAU khi commit, không tự trích trước được.
     Mã commit của KHO MÃ NGUỒN nằm ở trường 3, không để lẫn vào đây: trường
     này chỉ nói về kho báo cáo công khai.)

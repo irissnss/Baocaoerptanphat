@@ -37,18 +37,18 @@ Nhưng **B1.1 bắt đo TẤT CẢ trường quét toàn thân file, không riê
 | Phép đo | Đầu ra thật | Phán định |
 |---|---|---|
 | `git branch --show-current` | `main` | ✅ |
-| `git rev-parse HEAD` | `7752cc52899db69506c1f5f48019d473f998d343` | ✅ |
+| `git rev-parse HEAD` | `<mã-nguồn-riêng>` | ✅ |
 | `git status --branch --short` | `## main...origin/main` + **1 dòng** `?? docs/reports/PHA-A-…20260823.md` | ✅ — file duy nhất đó là **báo cáo Pha A do chính phiên trước tạo**, bị cấm commit |
 | `git rev-list --left-right --count HEAD...@{u}` | `0  0` | ✅ **không diverge** |
 | Merge/rebase dang dở | `rebase-merge` ❌ · `rebase-apply` ❌ · `MERGE_HEAD` ❌ · `CHERRY_PICK_HEAD` ❌ | ✅ sạch |
-| `.git/REBASE_HEAD` | Tồn tại nhưng trỏ `c4337159f57f`, **mtime 2026-03-04 16:47** | ✅ **rác cũ 5 tháng**, không phải rebase đang chạy — `git status` không báo gì |
-| 6 file ĐỢT H chưa commit | **0** — đã commit hết ở `7752cc5` | ✅ |
+| `.git/REBASE_HEAD` | Tồn tại nhưng trỏ `<mã-nguồn-riêng>`, **mtime 2026-03-04 16:47** | ✅ **rác cũ 5 tháng**, không phải rebase đang chạy — `git status` không báo gì |
+| 6 file ĐỢT H chưa commit | **0** — đã commit hết ở `<mã-nguồn-riêng>` | ✅ |
 
 ### 2.2 ĐỢT H có đụng nguồn của Pha A không? — **KHÔNG**
 
-`git log ab23005..HEAD` → **đúng 1 commit**: `7752cc5 feat(rbac): DOT 5 — quyen chuyen trang thai tung buoc…`
+`git log <mã-nguồn-riêng>..HEAD` → **đúng 1 commit**: `<mã-nguồn-riêng> feat(rbac): DOT 5 — quyen chuyen trang thai tung buoc…`
 
-`git diff --name-only ab23005..HEAD` giới hạn trong phạm vi Pha A → **đúng 1 file: `package.json`**, nội dung:
+`git diff --name-only <mã-nguồn-riêng>..HEAD` giới hạn trong phạm vi Pha A → **đúng 1 file: `package.json`**, nội dung:
 
 ```diff
 -    "test:ui-skill-conflict": "node scripts/tests/ui-skill-conflict-gate.test.mjs"
@@ -62,18 +62,18 @@ Nhưng **B1.1 bắt đo TẤT CẢ trường quét toàn thân file, không riê
 
 ### 2.3 Bảng tái xác minh Pha A trên HEAD mới
 
-| Finding / tiền đề | Evidence Pha A (`ab23005`) | Evidence HEAD (`7752cc5`) | Kết luận | Được xử lý? |
+| Finding / tiền đề | Evidence Pha A (`<mã-nguồn-riêng>`) | Evidence HEAD (`<mã-nguồn-riêng>`) | Kết luận | Được xử lý? |
 |---|---|---|---|---|
 | `skills.yml` số dòng | 4738 | **4738** | ✅ MATCH | — |
-| `skills.yml` sha256 | `865eb629bcfe9a27…` | **`865eb629bcfe9a27…`** | ✅ MATCH | — |
+| `skills.yml` sha256 | `<mã-nguồn-riêng>…` | **`<mã-nguồn-riêng>…`** | ✅ MATCH | — |
 | `skills.yml` số entry | 128 | **128** | ✅ MATCH | — |
 | Dòng `:795` `trap_seen_before` | có, sai | **có, sai, nguyên văn** | ✅ MATCH | 🛑 chờ Owner |
 | Dòng `:3642` `description` | có | **có, nguyên văn** | ✅ MATCH | 🛑 chờ Owner |
-| `dependency-relationship-scan/SKILL.md` | 391 dòng | hash `f21d080ed2693a49…` | ✅ MATCH | — |
-| `speckit-erp-ssot-adapter/SKILL.md` | sửa cuối `6aada70` (20/08) | hash `9d8e58b6dac32d35…` · **sửa cuối vẫn `6aada70`** | ✅ MATCH — **KHÔNG bị sửa sau Pha A** | 🛑 STOP#8 không kích |
+| `dependency-relationship-scan/SKILL.md` | 391 dòng | hash `<mã-nguồn-riêng>…` | ✅ MATCH | — |
+| `speckit-erp-ssot-adapter/SKILL.md` | sửa cuối `<mã-nguồn-riêng>` (20/08) | hash `<mã-nguồn-riêng>…` · **sửa cuối vẫn `<mã-nguồn-riêng>`** | ✅ MATCH — **KHÔNG bị sửa sau Pha A** | 🛑 STOP#8 không kích |
 | `graphify.mdc:3` | `alwaysApply: false` | **`alwaysApply: false`** | ✅ MATCH | — |
 | Generator | 535 dòng · 1 lần `writeFileSync(OUT` | **535 dòng · 1 lần** | ✅ MATCH | — |
-| 5 file quản trị parity | 1 mã | **1 mã `9251b1870fa2f554…`** | ✅ MATCH | — |
+| 5 file quản trị parity | 1 mã | **1 mã `<mã-nguồn-riêng>…`** | ✅ MATCH | — |
 | Danh tính 5 file | replica byte-identical | `AGENTS.md:7` khai **BYTE-IDENTICAL**, `:2010` *"5 FILES = 5 BYTE-IDENTICAL REPLICAS"* | ✅ hợp lệ | — |
 
 **Kết luận B0.3: 11/11 tiền đề MATCH. Không dùng kết luận cũ một cách mù quáng — mọi số đều đo lại.**
@@ -89,7 +89,7 @@ Nhưng **B1.1 bắt đo TẤT CẢ trường quét toàn thân file, không riê
 | 5 | HEAD mới đổi nguồn Pha A | ✅ chỉ thêm 2 script, không đụng |
 | 6 | `skills.yml` ≠ 128 entry / đổi schema | ✅ 128, schema nguyên |
 | 7 | 2 dòng finding sai vị trí/ngữ nghĩa | ✅ đúng vị trí, đúng nguyên văn |
-| 8 | `speckit-erp-ssot-adapter/SKILL.md` bị sửa sau Pha A | ✅ không (`6aada70`) |
+| 8 | `speckit-erp-ssot-adapter/SKILL.md` bị sửa sau Pha A | ✅ không (`<mã-nguồn-riêng>`) |
 | 9 | Graphify refresh / MCP đã kết nối | ✅ không — xem 2.5 |
 | 10 | Đã có source trạng thái skill (sẽ tạo trùng) | ✅ không có — xem 2.6 |
 | 11 | Không phân biệt được generated / source | ✅ phân biệt được — xem 2.7 |
@@ -102,8 +102,8 @@ Nhưng **B1.1 bắt đo TẤT CẢ trường quét toàn thân file, không riê
 
 | Phép đo | Đầu ra thật |
 |---|---|
-| `graphify-out/GRAPH_REPORT.md:13` | `Built from commit: 9941d4bd` |
-| HEAD hiện tại | `7752cc52` |
+| `graphify-out/GRAPH_REPORT.md:13` | `Built from commit: <mã-nguồn-riêng>` |
+| HEAD hiện tại | `<mã-nguồn-riêng>` |
 | **Commit gap** | **253 commit** *(prompt nhắc 252 — số của em là **253**, dùng số đo được)* |
 | **File gap** | **473 file** *(prompt nhắc 562 — số của em là **473**)* |
 | Ngày build graph | `2026-07-30 15:44:04` |
@@ -240,10 +240,10 @@ Trong lúc đo tác động điểm #2, phát hiện `quality_gate` chứa **l�
 
 | File | Bằng chứng không đổi |
 |---|---|
-| `.cursor/skills/speckit-erp-ssot-adapter/SKILL.md` | sha256 `9d8e58b6dac32d355aa9f2cf…` · `git log -1` vẫn `6aada70` (20/08) |
-| `.governance/registry/skills.yml` | sha256 `865eb629bcfe9a27…` **y hệt Pha A** |
+| `.cursor/skills/speckit-erp-ssot-adapter/SKILL.md` | sha256 `<mã-nguồn-riêng>…` · `git log -1` vẫn `<mã-nguồn-riêng>` (20/08) |
+| `.governance/registry/skills.yml` | sha256 `<mã-nguồn-riêng>…` **y hệt Pha A** |
 | `scripts/tests/skills-registry-build.mjs` | 535 dòng, không sửa |
-| 5 file quản trị | 1 hash duy nhất `9251b1870fa2f554…`, không sửa |
+| 5 file quản trị | 1 hash duy nhất `<mã-nguồn-riêng>…`, không sửa |
 | `.specify/` | **không đọc để sửa, không đụng** |
 | `graphify-out/` | **không xoá, không di chuyển, không refresh** — `mtime graph.json` vẫn `2026-07-30 16:25:37` |
 | `.cursor/mcp.json` | vẫn `{ "mcpServers": {} }` |
@@ -328,7 +328,7 @@ RECOMMENDED_NEXT_STEP
    - B0.1 xac dinh project root + danh tinh 5 file quan tri bang evidence
    - B0.2 chung minh khong dam phien khac: cay sach, khong diverge,
      khong rebase dang do (.git/REBASE_HEAD la rac tu 04/03/2026)
-   - B0.3 tai xac minh 11/11 tien de Pha A tren HEAD moi 7752cc5 -> MATCH het
+   - B0.3 tai xac minh 11/11 tien de Pha A tren HEAD moi <mã-nguồn-riêng> -> MATCH het
    - Soat du 15 STOP condition muc 4
    - Do lai Graphify freshness bang so THAT (253 commit / 473 file), khong
      tai dung so 252/562 trong prompt
@@ -350,13 +350,13 @@ RECOMMENDED_NEXT_STEP
 3. BẰNG CHỨNG
    git status --branch -> "## main...origin/main" + 1 untracked giai thich duoc -> FILE_PROVEN
    git rev-list --left-right --count HEAD...@{u} -> "0 0" -> FILE_PROVEN
-   git log ab23005..HEAD -> 1 commit; diff pham vi Pha A -> chi package.json
+   git log <mã-nguồn-riêng>..HEAD -> 1 commit; diff pham vi Pha A -> chi package.json
      (+2 script cua DOT H) -> CODE_PROVEN
-   sha256 skills.yml -> 865eb629... y het Pha A -> FILE_PROVEN
-   sha256 speckit SKILL.md -> 9d8e58b6...; git log -1 -> 6aada70 (20/08) -> FILE_PROVEN
-   sha256 x5 file quan tri -> 1 ma duy nhat 9251b187 -> FILE_PROVEN
+   sha256 skills.yml -> <mã-nguồn-riêng>... y het Pha A -> FILE_PROVEN
+   sha256 speckit SKILL.md -> <mã-nguồn-riêng>...; git log -1 -> <mã-nguồn-riêng> (20/08) -> FILE_PROVEN
+   sha256 x5 file quan tri -> 1 ma duy nhat <mã-nguồn-riêng> -> FILE_PROVEN
    .cursor/mcp.json -> {"mcpServers":{}} ; grep graphify-mcp -> 0 file -> FILE_PROVEN
-   GRAPH_REPORT.md:13 Built from 9941d4bd ; git rev-list --count -> 253 ;
+   GRAPH_REPORT.md:13 Built from <mã-nguồn-riêng> ; git rev-list --count -> 253 ;
      git diff --name-only | wc -l -> 473 -> CODE_PROVEN
    Bo do 128 skill (chay NGOAI repo) -> 29 skill co muc lich su, 2 diem hut -> CODE_PROVEN
    node -e kiem package.json -> "npm run migrate:" va "npm run test:path-audit:"
