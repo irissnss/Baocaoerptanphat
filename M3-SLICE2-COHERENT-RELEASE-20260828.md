@@ -312,7 +312,7 @@ giữ nguyên văn dòng cũ trong chú thích. **KHÔNG sửa CSDL cho khớp c
 | **Mã đã triển khai** | **`ce6dadf3e84aab810c8c4b176595021be311e3eb`** |
 | Vân tay bản dựng | **`a25cf21c390e198a9be1fd431309d318`** |
 | Di trú / bước dữ liệu | **0 DDL**; bước nạp dữ liệu chạy đủ (`DATA_STEP=DA_NAP`) |
-| Sao lưu | CSDL `/root/backup-erp-20260828T033910Z.sql.gz` (`SHA256 7993c4ed…`) · thư mục chạy `/root/standalone-run-backup-20260828T033910Z` (122M) · bản kê cũ |
+| Sao lưu | CSDL ``<thư-mục-sao-lưu-máy-vận-hành>/<tên-tệp>`` (`SHA256 7993c4ed…`) · thư mục chạy ``<thư-mục-sao-lưu-máy-vận-hành>/<tên-tệp>`` (122M) · bản kê cũ |
 | Đường lùi | bản kê `V1.00.357` / `6d8f1d8` / vân tay `e7381215…` — đã kiểm đọc được |
 
 Chuỗi phát hành chạy đúng thứ tự `DEBT-129`:

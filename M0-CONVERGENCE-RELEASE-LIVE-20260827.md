@@ -129,8 +129,8 @@ chạy seed đó, và **máy vận hành không cần** nó. Vắng mặt đúng
 
 | Lớp | Vị trí |
 |---|---|
-| Cơ sở dữ liệu | `/root/backup-erp-20260827T151830Z.sql.gz` (vân tay đã đối chiếu) |
-| Thư mục chạy | `/root/standalone-run-backup-20260827T153335Z` |
+| Cơ sở dữ liệu | ``<thư-mục-sao-lưu-máy-vận-hành>/<tên-tệp>`` (vân tay đã đối chiếu) |
+| Thư mục chạy | ``<thư-mục-sao-lưu-máy-vận-hành>/<tên-tệp>`` |
 | Mã nguồn cũ | `826817b` — vẫn trong kho git trên máy vận hành |
 
 ### 6.2 ⚠️ MỘT SỰ CỐ GIỮA CHỪNG — GHI ĐẦY ĐỦ
@@ -240,8 +240,8 @@ trên máy thật vì không tạo thêm tài khoản).
 
 | Bước | Cách |
 |---|---|
-| Dữ liệu | phục hồi `/root/backup-erp-20260827T151830Z.sql.gz` — **đã diễn tập, tái tạo chính xác** |
-| Thư mục chạy | `/root/standalone-run-backup-20260827T153335Z` |
+| Dữ liệu | phục hồi ``<thư-mục-sao-lưu-máy-vận-hành>/<tên-tệp>`` — **đã diễn tập, tái tạo chính xác** |
+| Thư mục chạy | ``<thư-mục-sao-lưu-máy-vận-hành>/<tên-tệp>`` |
 | Mã nguồn | `git checkout 826817b` trong kho trên máy vận hành, dựng lại |
 | Một bản di trú | `20260826_p1_ceo_xem_gia_von_rollback.sql` — đã diễn tập 4 → 0 → 4 |
 

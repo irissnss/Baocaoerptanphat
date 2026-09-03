@@ -65,7 +65,7 @@ Sáu chỉ thị dưới đây đều đã ghi vào `docs/OWNER-REQUEST-LEDGER.m
 
 | Mục sổ | Nguyên văn (trích đủ, không làm mềm) | Loại | Trạng thái Notion |
 |---|---|---|---|
-| **#200** | *«Ví trí vẫn đang là draf em tự gắng theo vị trí vai trò trên local tương thích phù hợp là được nha em. — quản trị vẫn là anh chứ em, tan@intanphat.com — **màng hình phân quyền vẫn chưa ổn lắm em ơn, anh vẫn chưa trực quan, dễ dùng như anh nghĩ** em có giải pháp nào khác hoặc nâng cấp mạnh mẽ hơn không em»* | DECISION + **lượt bác thứ 4** | `OWNER_APPROVED_PENDING_NOTION_SYNC` |
+| **#200** | *«Ví trí vẫn đang là draf em tự gắng theo vị trí vai trò trên local tương thích phù hợp là được nha em. — quản trị vẫn là anh chứ em, `tài-khoản-quản-trị-Owner` *(email đã gỡ theo `GOV-PII-HANDLING-001`)* — **màng hình phân quyền vẫn chưa ổn lắm em ơn, anh vẫn chưa trực quan, dễ dùng như anh nghĩ** em có giải pháp nào khác hoặc nâng cấp mạnh mẽ hơn không em»* | DECISION + **lượt bác thứ 4** | `OWNER_APPROVED_PENDING_NOTION_SYNC` |
 | **#201** | *«**Quyền phải duyệt xác nhận mới áp dụng, stick chọn xong được liền nguy cơ nhầm lẫn là điều không thể tránh khỏi, phải có bước bấm save xác nhận mới được, popup hiện lên liệt kê các quyền đã có trước và sau điều chỉnh và xác nhận lần nữa** nó mới chuyên nghiệp và chính xác nha em»* | DECISION | `OWNER_APPROVED_PENDING_NOTION_SYNC` |
 | **#202** | *«F có vẻ sinh ra để xử lý cho việc xây dựng modul tính giá nhưng xấu trúc bảng khá giống nhau. Cần lên kế hoạch gộp dùng chung là đúng. **Cấm sinh bảng rời rạc rải rác khắp nơi mất kiểm soát phải tối ưu hóa nhất có thể** nha em. B/ cần xử lý triệt để song song luôn trong lượt xử lý giao diện UI phân quyền. G/ **mã là 4 số**. Còn A, C, D, E em đề xuất hợp lý xem sao?»* | DECISION | `OWNER_APPROVED_PENDING_NOTION_SYNC` |
 | **#203** | *«Xử lý xong cần cập nhật nhất quán, push báo cáo chi tiết đầy đủ lên GitHub report cả các yêu cầu, xác nhận của anh trong phiên làm việc trò chuyện để agent Notion nhận biết đâu là mệnh lệnh của anh…»* | DECISION | `OWNER_APPROVED_PENDING_NOTION_SYNC` |
@@ -231,7 +231,7 @@ Chia hai nhóm theo **ai xử lý được**:
 
 **Nhóm chặn go-live (4):**
 
-- `DEBT-016` 🔴 — **chưa đổi mật khẩu đăng nhập** `tan@intanphat.com` trên cả hai máy
+- `DEBT-016` 🔴 — **chưa đổi mật khẩu đăng nhập** ``tài-khoản-quản-trị-Owner` *(email đã gỡ theo `GOV-PII-HANDLING-001`)*` trên cả hai máy
 - `DEBT-021` 🔴 — mã băm mật khẩu nằm trong tệp seed **được git theo dõi**
 - `DEBT-116` 🔴 — cổng quét dữ liệu cá nhân **không quét họ tên thật**, chỉ quét email · SĐT · CCCD
 - `DEBT-108` 🟠 — hơn **20 tệp** còn chứa địa chỉ IP máy chủ vận hành
@@ -300,7 +300,7 @@ hiện hành**:
 
 | Mục sổ | Quyết định | Phạm vi áp dụng | **CẤM mở rộng sang** | Bằng chứng | Trang Notion cần sửa |
 |---|---|---|---|---|---|
-| **#200** | Màn phân quyền phải trực quan thật; quản trị là `tan@intanphat.com`; vị trí lấy theo máy nội bộ | `/m0/security` · dữ liệu vị trí nhân sự | Không đổi quyền tài khoản thật của nhân viên | `75716c5` · V1.00.366 | **CHƯA XÁC ĐỊNH** |
+| **#200** | Màn phân quyền phải trực quan thật; quản trị là ``tài-khoản-quản-trị-Owner` *(email đã gỡ theo `GOV-PII-HANDLING-001`)*`; vị trí lấy theo máy nội bộ | `/m0/security` · dữ liệu vị trí nhân sự | Không đổi quyền tài khoản thật của nhân viên | `75716c5` · V1.00.366 | **CHƯA XÁC ĐỊNH** |
 | **#201** | Đổi quyền **phải qua Save + popup trước/sau + xác nhận lần nữa** | Mọi ô tick quyền trong ERP | Không áp cho ô tick **không phải quyền** | `test:xac-nhan-hai-buoc` **18/18**, đo 148→148 | **CHƯA XÁC ĐỊNH** |
 | **#202** | **Cấm sinh bảng rời rạc**; F gộp dùng chung; mã **4 số**; A/C/D/E chờ duyệt | Lược đồ CSDL | **Chưa được đụng** A/C/D/E khi Owner chưa duyệt | Rà 101 bảng · 1 563 cột | **CHƯA XÁC ĐỊNH** |
 | **#203** | Đẩy báo cáo đủ để Agent Notion phân biệt mệnh lệnh Owner | Kho báo cáo công khai | Không đưa dữ liệu nhạy cảm ra kho công khai | Chính tệp này | **CHƯA XÁC ĐỊNH** |

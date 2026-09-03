@@ -481,8 +481,8 @@ Owner cho vai trò riêng đều cần biết chủ sở hữu.
    VPS Git HEAD   : 826817b (cũ — bản kê tự khai điều này)
    public report  : kho Baocaoerptanphat · commit 7699432 · tệp
                     M0-HYGIENE-TO-M3-20260827.md + DECISION-PACK-M0-D3-...md
-   rollback anchor: CSDL /root/backup-erp-20260827T165620Z.sql.gz ·
-                    thư mục chạy /root/standalone-run-backup-20260827T165620Z ·
+   rollback anchor: CSDL `<thư-mục-sao-lưu-máy-vận-hành>/<tên-tệp>` ·
+                    thư mục chạy `<thư-mục-sao-lưu-máy-vận-hành>/<tên-tệp>` ·
                     mã V1.00.356 = 9c741f7
 
 10. ĐANG CHỜ OWNER

@@ -1352,16 +1352,16 @@
 
 ---
 
-## V0.136 (2026-02-27) — Script dùng đúng thông số GitHub + VPS (irissnss/tanphat-erp, /www/wwwroot/tanphat-erp, DB tanphat-erp)
+## V0.136 (2026-02-27) — Script dùng đúng thông số GitHub + VPS (irissnss/tanphat-erp, `<thư-mục-ứng-dụng-máy-vận-hành>`, DB tanphat-erp)
 
 | Field | Value |
 |-------|-------|
 | **Category** | DevOps |
 | **Scope** | Governance |
 
-- [Config] .env.deploy.example: VPS_PATH=/www/wwwroot/tanphat-erp, VPS_DB_USER/NAME=tanphat-erp, thêm GITHUB_REPO; comment thông số chuẩn.
-- [DevOps] deploy-and-setup-vps.ps1, deploy-to-vps.mjs: default VPS_PATH /www/wwwroot/tanphat-erp; .env.local trên VPS: DB_USER/DB_NAME=tanphat-erp.
-- [DevOps] vps-app-only.sh, vps-pull-and-restart.sh: path /www/wwwroot/tanphat-erp, DB_NAME/DB_USER=tanphat-erp; REPO_URL mẫu git@github.com:irissnss/tanphat-erp.git.
+- [Config] .env.deploy.example: VPS_PATH=`<thư-mục-ứng-dụng-máy-vận-hành>`, VPS_DB_USER/NAME=tanphat-erp, thêm GITHUB_REPO; comment thông số chuẩn.
+- [DevOps] deploy-and-setup-vps.ps1, deploy-to-vps.mjs: default VPS_PATH `<thư-mục-ứng-dụng-máy-vận-hành>`; .env.local trên VPS: DB_USER/DB_NAME=tanphat-erp.
+- [DevOps] vps-app-only.sh, vps-pull-and-restart.sh: path `<thư-mục-ứng-dụng-máy-vận-hành>`, DB_NAME/DB_USER=tanphat-erp; REPO_URL mẫu git@github.com:irissnss/tanphat-erp.git.
 - [DevOps] migrate-vps-to-local.ts: default VPS_DB_USER/VPS_DB_NAME=tanphat-erp.
 - [Docs] DEPLOY-VPS-AND-SYNC.md: bảng thông số chuẩn (GitHub, VPS path, proxy, MySQL) để script tham chiếu.
 

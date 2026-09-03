@@ -727,7 +727,7 @@ Repo có **4 file tự xưng là engine tính giá**. Kết luận dứt khoát:
 | Hằng số | file:line | Vào giá thế nào |
 |---|---|---|
 | **Giấy 500đ/tờ** | `tinh-gia-manual-client.tsx:▮` | cộng thẳng vào `giaVon` (`:▮`) |
-| **Kẽm 150.000đ**, lượt in 80đ/150đ | `:▮` | `tienKem` (`:▮`) + `tienLuotIn` (`:▮`) |
+| **Kẽm `<đơn giá kẽm — đã gỡ theo GOV-PUBLIC-SAFE-001>`**, lượt in 80đ/150đ | `:▮` | `tienKem` (`:▮`) + `tienLuotIn` (`:▮`) |
 | 2 khổ giấy 65×86, 79×109 | `:▮` | quyết định số tờ ⇒ nhân lên hai dòng trên |
 | Markup mặc định **25%** | `:▮` | fallback khi không resolve được công thức (`:▮`) |
 | Blueprint dự phòng hardcode | `:▮` | áp dụng **im lặng** khi API rỗng (`:▮`) |
@@ -797,7 +797,7 @@ Nhưng: grep `intentional_fail` trong `src/` = **0 kết quả**. `run-all/route
 | Cột giá lô tên `gia_lo`, `don_vi_lo` | Live dùng **`gia_tron_goi`, `don_vi_tron_goi`** — em đã xác minh trên schema thật |
 | Combo thiếu blueprint phải "FAIL rõ" | Code **im lặng fallback** về hằng số (`:▮`) |
 
-**Code có — docs không nói (4 điểm):** giá giấy 500đ hardcode · giá kẽm 150.000đ hardcode · khổ giấy hardcode · `FORBIDDEN_PRICING_KEYS` validator (`forbidden-pricing-keys.ts:▮`).
+**Code có — docs không nói (4 điểm):** giá giấy 500đ hardcode · giá kẽm `<đơn giá kẽm — đã gỡ theo GOV-PUBLIC-SAFE-001>` hardcode · khổ giấy hardcode · `FORBIDDEN_PRICING_KEYS` validator (`forbidden-pricing-keys.ts:▮`).
 
 ### 6.6 Hai khoảng trống của T6 — em đã đóng bằng schema thật
 

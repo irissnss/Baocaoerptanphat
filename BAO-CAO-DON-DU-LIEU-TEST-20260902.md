@@ -8,7 +8,12 @@
 
 ## 1. KẾT QUẢ
 
-### Đã xoá — 13 bảng ngọn, tất cả về 0
+### Đã xoá — kịch bản kiểm **13 bảng**, trong đó **10 bảng có dòng bị xoá**
+
+> **Vì sao hai con số:** kịch bản đối chiếu **13** bảng ngọn để chắc chắn không sót.
+> Ba bảng trong đó — `task_comment` · `task_file` · `lenh_san_xuat_item` — **vốn đã bằng 0 từ trước khi dọn**,
+> nên không có dòng nào bị xoá. Bảng dưới đây liệt kê đúng **10 bảng thật sự có dòng bị xoá**.
+> Cả 13 bảng sau khi dọn đều bằng 0.
 
 | Bảng | Trước | Sau |
 |---|---|---|
@@ -55,7 +60,7 @@ Ba báo giá đã lỡ tạo đơn nay quay về **«Đã gửi»** — anh duy�
 |---|---|
 | Tiến trình ứng dụng | **online**, số lần khởi động lại = **0** (không sập) |
 | Bảy tuyến trọng yếu | tất cả **307** — chuyển hướng đăng nhập, đúng. Không tuyến nào 404 hay 500 |
-| Sao lưu | `/root/db-backups/truoc-don-test-20260902-212714.sql.gz` (512 KB) |
+| Sao lưu | ``<thư-mục-sao-lưu-máy-vận-hành>/<tên-tệp>`` (512 KB) |
 
 ---
 
@@ -122,7 +127,7 @@ Nhưng **một phát hiện mức CHẶN là thật**, và nó là thứ em đã
 | Điều | Vì sao |
 |---|---|
 | Bốn dòng lệnh sản xuất đã xoá có phải việc thật ngoài xưởng không | Em chỉ đọc được số trong máy. Cả bốn đều mang tên `Test San Pham R1` / `[TEST-WF]` và trạng thái `cancelled`, nhưng người biết xưởng mới xác nhận được |
-| Ba báo giá `BG2602030001` · `BG2602030002` · `BG2602030005` có phải báo giá thật không | Tên sản phẩm nghe như thật (*Hộp Quà Tết 2026 Rồng Vàng*, *Aura Beauté*, và một cái **2,2 tỷ**). **Nhưng không sao — chúng đều được GIỮ NGUYÊN** theo quyết định cắt-ngọn-giữ-gốc của anh |
+| Ba báo giá `BG2602030001` · `BG2602030002` · `BG2602030005` có phải báo giá thật không | Tên sản phẩm nghe như thật (tên sản phẩm nghe như hàng thật). **Nhưng không sao — chúng đều được GIỮ NGUYÊN** theo quyết định cắt-ngọn-giữ-gốc của anh |
 
 ---
 

@@ -4,7 +4,7 @@
 > **Lớp bằng chứng:** `DB_PROVEN` + `CODE_PROVEN` — đo trực tiếp trên CSDL máy phát triển (MariaDB 10.11.10, 101 bảng thật) và trên mã nguồn tại `5ba3299`.
 > **Cách làm:** 11 vùng audit chạy song song, sau đó **82 kết luận nặng bị đưa qua kiểm ngược đối kháng độc lập** — **17 kết luận bị BÁC hoặc phải SỬA**. Báo cáo này **chỉ dùng bản đã qua kiểm ngược**.
 >
-> ⚠️ **Nói trước cho rõ:** bản audit đầu tiên nói *"công thức khổ trải làm lệch 416.500đ"*. **Con số đó SAI** — kiểm ngược chứng minh nó là **con số ảo** sinh từ một giả định chưa nói ra. Chi tiết ở §1. Nếu em trình anh bản đầu thì anh đã quyết trên số sai.
+> ⚠️ **Nói trước cho rõ:** bản audit đầu tiên nói *"công thức khổ trải làm lệch `<khoản chênh — đã gỡ>`"*. **Con số đó SAI** — kiểm ngược chứng minh nó là **con số ảo** sinh từ một giả định chưa nói ra. Chi tiết ở §1. Nếu em trình anh bản đầu thì anh đã quyết trên số sai.
 
 ---
 
@@ -45,9 +45,9 @@ Nghĩa là hai công thức chỉ lệch nhau đúng **hai điều**:
 | **Phụ cấp: mép dán** | **21mm** = mép dán 15 + chừa xén 3×2 | **40mm** — không tài liệu nào giải thích |
 | **Phụ cấp: nắp** | **36mm** = nắp 30 + chừa xén 3×2 | **20mm** — không giải thích |
 
-### 1.2 Con số "416.500đ" là con số ẢO — đừng dùng
+### 1.2 Con số "`<khoản chênh — đã gỡ>`" là con số ẢO — đừng dùng
 
-Bản audit đầu tiên tính: hộp 200×150×100mm, 5.000 cái → F1 được 2 con/tờ, F2 được 3 con/tờ → chênh **416.500đ**.
+Bản audit đầu tiên tính: hộp 200×150×100mm, 5.000 cái → F1 được 2 con/tờ, F2 được 3 con/tờ → chênh **`<khoản chênh — đã gỡ>`**.
 
 **Kiểm ngược bác con số đó**, vì nó so hai công thức ở **cùng nhãn L/W/H** — mà chính điều đó là thứ **đã biết là không đúng** (hai công thức dùng quy ước trục khác nhau; chính sổ nợ đã ghi vậy).
 
@@ -55,8 +55,8 @@ Khi **căn trục cho khớp**, con số lật hoàn toàn:
 
 | Mẫu hộp (5.000 cái) | So cùng nhãn *(sai)* | Căn trục cho khớp *(đúng)* |
 |---|---:|---:|
-| 200 × 150 × 100 mm | 416.500 đ | **0 đ** |
-| 300 × 200 × 80 mm | 0 đ | **1.250.000 đ** |
+| 200 × 150 × 100 mm | `<khoản chênh — đã gỡ>` | **0 đ** |
+| 300 × 200 × 80 mm | 0 đ | **`<giá trị đơn — đã gỡ>`** |
 
 ⇒ **Con số chênh phụ thuộc HOÀN TOÀN vào việc quy ước trục nào đúng.** Chốt được §0 việc 1 thì con số này tự hết.
 
