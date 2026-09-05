@@ -1,0 +1,13 @@
+{
+  "name": "baocaoerptanphat-docs",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Máy chủ xem tài liệu (docs preview) cho kho báo cáo ERP Tân Phát. Repo chỉ chứa báo cáo Markdown; không chứa mã nguồn ứng dụng.",
+  "scripts": {
+    "serve": "docsify serve . --port 3000",
+    "start": "docsify serve . --port 3000"
+  },
+  "devDependencies": {
+    "docsify-cli": "^4.4.4"
+  }
+}

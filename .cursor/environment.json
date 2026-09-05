@@ -1,0 +1,11 @@
+{
+  "name": "Báo Cáo ERP Tân Phát — Docs Preview",
+  "install": "npm install",
+  "terminals": [
+    {
+      "name": "docs-preview",
+      "command": "npm run serve"
+    }
+  ],
+  "ports": [3000]
+}

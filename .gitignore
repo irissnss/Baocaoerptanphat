@@ -1,0 +1,4 @@
+# Node.js dependencies for the docs-preview tooling
+node_modules/
+npm-debug.log*
+.npm/
